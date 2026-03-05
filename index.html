@@ -485,6 +485,16 @@ body {
 .qz-review-correct { font-size: 12px; color: #16a34a; font-weight: 600; }
 .qz-review-exp { font-size: 12px; color: var(--graphite); font-style: italic; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--fog); }
 
+/* ── TIMELINE ── */
+.timeline { display: flex; flex-direction: column; gap: 0; margin: 16px 0; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 2px; background: var(--fog); }
+.tl-item { display: flex; gap: 16px; align-items: flex-start; padding: 8px 0; position: relative; }
+.tl-dot { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 3px solid var(--white); box-shadow: 0 0 0 2px var(--fog); z-index: 1; margin-top: 2px; }
+.tl-content { flex: 1; background: var(--white); border: 1px solid var(--fog); border-radius: 8px; padding: 10px 14px; }
+.tl-time { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--steel); margin-bottom: 2px; }
+.tl-label { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.tl-msg { font-size: 13px; color: var(--graphite); font-style: italic; line-height: 1.5; }
+
 /* ── PRINT / RESPONSIVE ── */
 @media (max-width: 900px) {
   .sidebar { display: none; }
@@ -923,741 +933,92 @@ body {
 // ══════════════════════════════════════════════════════════
 const SECTIONS = [
   {
-    id: 'brand', label: 'Brand & Identity', color: '#E3A728',
+    id: 'pipeline-ref', label: 'Go High Level Overview', color: '#0EA5E9',
     pages: [
-      { id: 'brand-kit', title: 'Brand Kit', dept: 'All Departments', owner: 'Ashley Hines',
+      { id: 'pipeline-deal-lifecycle', title: 'Deal Lifecycle & Pipeline Architecture', dept: 'All Departments', owner: 'Ashley / Joshua',
         content: `
-<h2>Brand Overview</h2>
-<p>Impact Home Team is a Maryland-based wholesale real estate investment company. Our brand communicates trust, professionalism, and speed — built for homeowners who need solutions, not complications. Every piece of communication your team produces should reflect this identity.</p>
+<h2>Deal Lifecycle — Pipeline Stages & Definitions</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley / Joshua</span></div>
 
 <div class="callout amber">
-  <div class="callout-icon">★</div>
-  <div class="callout-body">
-    <strong>Brand Mission Statement</strong>
-    Helping Maryland homeowners solve problems with speed, respect, and transparency — while creating opportunity for investors to grow their portfolios.
-  </div>
+  <div class="callout-icon">🗺️</div>
+  <div class="callout-body"><strong>10 pipelines. Each one represents a different phase of the deal lifecycle.</strong> Understanding which pipeline a lead belongs in — and when to move them — is critical to keeping deals from falling through the cracks.</div>
 </div>
 
-<h2>Color Palette</h2>
-<p>Our palette is built around Amber and Crimson — warm, authoritative, and distinctive. Use these values precisely for print, digital, and presentations.</p>
-
-<div class="swatch-row">
-  <div class="swatch">
-    <div class="swatch-color" style="background:#E3A728;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Impact Amber</div>
-      <div class="swatch-hex">#E3A728</div>
-      <div class="swatch-role">Primary · CTAs · Accents</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#C48E1F;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Amber Dark</div>
-      <div class="swatch-hex">#C48E1F</div>
-      <div class="swatch-role">Hover states · Body links</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#FEF7E0;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Amber Pale</div>
-      <div class="swatch-hex">#FEF7E0</div>
-      <div class="swatch-role">Backgrounds · Callouts</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#A52325;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Impact Crimson</div>
-      <div class="swatch-hex">#A52325</div>
-      <div class="swatch-role">Secondary accent · Urgency</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#1A1A1A;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Charcoal Ink</div>
-      <div class="swatch-hex">#1A1A1A</div>
-      <div class="swatch-role">Headers · Backgrounds</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#F5F4F1;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Cloud</div>
-      <div class="swatch-hex">#F5F4F1</div>
-      <div class="swatch-role">Page backgrounds</div>
-    </div>
-  </div>
-</div>
-
-<h2>Typography</h2>
-<p>We use two typefaces. Always pull from Google Fonts when building digital assets.</p>
-
-<div class="font-spec">
-  <div class="display" style="font-family:'DM Serif Display',serif;">DM Serif Display</div>
-  <div class="meta">font-family: 'DM Serif Display', Georgia, serif</div>
-  <div class="alphabet" style="font-family:'DM Serif Display',serif;">Aa Bb Cc — Headlines, Section Titles, Hero Text</div>
-</div>
-<div class="font-spec">
-  <div class="display" style="font-family:'DM Sans',sans-serif;font-weight:400;">DM Sans</div>
-  <div class="meta">font-family: 'DM Sans', system-ui, sans-serif · Weights: 300, 400, 500, 600, 700</div>
-  <div class="alphabet" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Body copy, labels, UI elements, all prose</div>
-</div>
-
-<h2>Logo Usage</h2>
-<p>The Impact Home Team logo uses the lettermark "I" in our amber/gold color. Below are the approved usage contexts:</p>
-
-<div class="logo-grid">
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#1A1A1A;">
-      <div class="logo-mark-lg" style="background:#E3A728;">I</div>
-    </div>
-    <div class="logo-label">✓ Dark background (primary use)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#fff;">
-      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
-    </div>
-    <div class="logo-label">✓ White/light background (reversed)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#E3A728;">
-      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
-    </div>
-    <div class="logo-label">✓ Amber background (event materials)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:linear-gradient(135deg,#667eea,#764ba2);">
-      <div style="font-size:32px;">✗</div>
-    </div>
-    <div class="logo-label">✗ Never on non-brand backgrounds</div>
-  </div>
-</div>
-
-<div class="callout blue">
-  <div class="callout-icon">ℹ</div>
-  <div class="callout-body">
-    <strong>Logo files</strong>
-    All logo files (SVG, PNG, variations) are stored in the <a href="#">Brand Assets Google Drive folder</a>. Never recreate the logo from scratch — always pull from that folder.
-  </div>
-</div>
-
-<h2>Voice & Tone</h2>
+<h2>Pipeline 1: Leads — 10 Stages</h2>
+<p>Every new lead starts here. <strong>Nicole owns this pipeline.</strong></p>
 <table class="data-table">
-  <tr><th>We Are</th><th>We Are Not</th></tr>
-  <tr><td><strong>Direct</strong> — Get to the point. Sellers are stressed; don't waste their time.</td><td><strong>Pushy</strong> — No high-pressure tactics.</td></tr>
-  <tr><td><strong>Empathetic</strong> — Acknowledge their situation before presenting solutions.</td><td><strong>Transactional</strong> — Every interaction should feel human.</td></tr>
-  <tr><td><strong>Confident</strong> — We know our numbers and stand behind them.</td><td><strong>Arrogant</strong> — Humility closes more deals.</td></tr>
-  <tr><td><strong>Professional</strong> — Proper grammar, clean materials, on-brand everything.</td><td><strong>Corporate/Cold</strong> — We're a family business.</td></tr>
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">Prospects</span></td><td>New leads that have entered the system but have not been contacted yet.</td></tr>
+  <tr><td><span class="ghl-field">Redzones</span></td><td>High-priority leads with strong motivation or time urgency. Called first, every time.</td></tr>
+  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>Leads that score in the top 20% based on motivation and deal potential. Called after Redzones.</td></tr>
+  <tr><td><span class="ghl-field">Follow Up</span></td><td>Contacted but need additional follow-up before qualifying.</td></tr>
+  <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Outside our Maryland target markets. Tagged for potential referral or removal.</td></tr>
+  <tr><td><span class="ghl-field">AI Follow Up Queue</span></td><td>Being worked by the AI assistant for initial outreach and qualification.</td></tr>
+  <tr><td><span class="ghl-field">AI - Review</span></td><td>AI flagged for human review — a real person needs to evaluate the conversation.</td></tr>
+  <tr><td><span class="ghl-field">AI - Appointment Booked</span></td><td>AI has booked an appointment. Lead manager must verify and confirm.</td></tr>
+  <tr><td><span class="ghl-field">AI - Return to Queue</span></td><td>AI was unable to qualify or engage. Returns to the manual calling queue.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">AI - DNC</span></td><td>Contact requested DNC through AI interaction. Automatically tagged and removed from all outreach.</td></tr>
 </table>
 
-<h2>Brand Application Checklist</h2>
-<p>Before sending any document, email, or presentation to an external party:</p>
-<ul>
-  <li>✓ Uses Amber (#E3A728) and/or Crimson (#A52325) — not random colors</li>
-  <li>✓ DM Serif Display for headings, DM Sans for body</li>
-  <li>✓ Company name is always "Impact Home Team" — never shortened to "IHT" externally</li>
-  <li>✓ Contact info is current (sellyourmdhousenow.com)</li>
-  <li>✓ No clip art, generic stock photos, or off-brand fonts</li>
-</ul>
-`},
-      { id: 'credibility-packet', title: 'Credibility Packet', dept: 'Acquisitions', owner: 'Ashley Hines',
-        content: `
-<h2>What Is the Credibility Packet?</h2>
-<p>The credibility packet is a leave-behind document given to sellers after an in-person or virtual appointment. Its purpose is to answer remaining doubts, reinforce trust, and motivate the seller to sign — even if they didn't commit at the meeting.</p>
-
-<div class="callout amber">
-  <div class="callout-icon">🎯</div>
-  <div class="callout-body">
-    <strong>Primary Goal</strong>
-    Move the seller from "I need to think about it" to "I'm ready to sign." Every section of this packet is designed to handle a specific objection.
-  </div>
-</div>
-
-<h2>When to Use It</h2>
-<ul>
-  <li>Leave a printed or digital copy at every in-person appointment</li>
-  <li>Send the PDF link via text/email within 1 hour after a virtual appointment</li>
-  <li>Reference specific sections when following up — "You'll see on page 2 why our timeline is flexible..."</li>
-</ul>
-
-<h2>Packet Structure</h2>
-<ol class="step-list">
-  <li>
-    <div class="step-num">1</div>
-    <div class="step-content">
-      <strong>Cover / Introduction</strong>
-      Company name, tagline, and a human opening that acknowledges the seller's situation. Sets the tone before they read a single fact.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">2</div>
-    <div class="step-content">
-      <strong>Who We Are</strong>
-      8+ years of experience, family-owned, Maryland-focused. Photo of the team when possible. Humanizes the transaction.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">3</div>
-    <div class="step-content">
-      <strong>How Our Process Works (3 Steps)</strong>
-      Step 1: We make an offer. Step 2: You decide. Step 3: We close on your timeline. No repairs, no agents, no fees.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">4</div>
-    <div class="step-content">
-      <strong>IHT vs. Traditional Sale Comparison</strong>
-      Side-by-side table: repairs, commissions, timeline, certainty of close, closing costs. This is the highest-converting section.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">5</div>
-    <div class="step-content">
-      <strong>What Sellers Say (Testimonials)</strong>
-      2–3 real or representative testimonials. Focus on relief, speed, and professionalism — not just the offer amount.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">6</div>
-    <div class="step-content">
-      <strong>Proof of Funds</strong>
-      Current Kiavi or funding partner letter. Must be dated within the past 12 months. Ashley updates this annually.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">7</div>
-    <div class="step-content">
-      <strong>Why Act Now</strong>
-      Address the "I need to think about it" hesitation directly. Include carrying cost calculator if applicable (taxes, insurance, maintenance by the month).
-    </div>
-  </li>
-  <li>
-    <div class="step-num">8</div>
-    <div class="step-content">
-      <strong>FAQ / Objection Handling</strong>
-      Reframed as questions sellers actually ask. Covers: "How did you come up with that price?", "Is this legal?", "What if I owe more than the offer?", "Can I choose my closing date?"
-    </div>
-  </li>
-  <li>
-    <div class="step-num">9</div>
-    <div class="step-content">
-      <strong>Next Steps / CTA</strong>
-      Clear call to action: "Sign today and we handle everything from here." Include direct phone number and the acquisitions agent's name.
-    </div>
-  </li>
-</ol>
-
-<h2>IHT vs. Traditional Sale — Key Comparison Points</h2>
-<table class="compare-table">
-  <tr>
-    <th></th>
-    <th>Impact Home Team</th>
-    <th>Traditional Listing</th>
-  </tr>
-  <tr>
-    <td>Repairs Required</td>
-    <td class="check">✓ None — as-is</td>
-    <td class="cross">✗ Often $10K–$40K+</td>
-  </tr>
-  <tr>
-    <td>Agent Commission</td>
-    <td class="check">✓ $0</td>
-    <td class="cross">✗ 5–6% of sale price</td>
-  </tr>
-  <tr>
-    <td>Closing Costs</td>
-    <td class="check">✓ We cover them</td>
-    <td class="cross">✗ Seller pays 2–3%</td>
-  </tr>
-  <tr>
-    <td>Time to Close</td>
-    <td class="check">✓ 2–4 weeks (your choice)</td>
-    <td class="cross">✗ 60–90+ days average</td>
-  </tr>
-  <tr>
-    <td>Showings / Open Houses</td>
-    <td class="check">✓ None</td>
-    <td class="cross">✗ Multiple (strangers in your home)</td>
-  </tr>
-  <tr>
-    <td>Deal Falls Through Risk</td>
-    <td class="check">✓ Rare — cash buyers</td>
-    <td class="cross">✗ ~30% of listings fall out of escrow</td>
-  </tr>
-  <tr>
-    <td>Flexibility on Closing Date</td>
-    <td class="check">✓ You set the date</td>
-    <td class="cross">✗ Buyer controls the timeline</td>
-  </tr>
-</table>
-
-<h2>Top Objections & How to Handle Them</h2>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I need to think about it."</strong>
-    "Totally understand — this is a big decision. What would need to be true for you to feel comfortable moving forward? Is it the price, the timeline, or something else?" Then address the specific concern.
-  </div>
-</div>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I think I can get more on the market."</strong>
-    "You might be right — after repairs, commissions, and closing costs, what would you net? Let's do the math together." Walk through the comparison table.
-  </div>
-</div>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I'm going to call a few more buyers."</strong>
-    "Absolutely — shop around, that's smart. One thing to know: our offer is good for 48 hours. After that, we move on to our next deal. No pressure, just something to keep in mind."
-  </div>
-</div>
-
-<h2>File Location</h2>
-<p>The credibility packet (both dark and white HTML versions) is stored in the <strong>Brand Assets → Credibility Packet</strong> folder in Google Drive. Update the Proof of Funds section whenever the funding letter is renewed. Use the dark version for digital sends; print the white version for in-person leave-behinds.</p>
-` }
-    ]
-  },
-  {
-    id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
-    pages: [
-      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<h2>Department Purpose</h2>
-<p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
-
-<div class="stat-row">
-  <div class="stat-box"><div class="num">15m</div><div class="label">Max first response time</div></div>
-  <div class="stat-box"><div class="num">3×</div><div class="label">Call attempts before drip</div></div>
-  <div class="stat-box"><div class="num">80%</div><div class="label">Pass rate to stay in role</div></div>
-</div>
-
-<h2>Key Responsibilities</h2>
-<ul>
-  <li>Respond to all inbound leads within 15 minutes during business hours</li>
-  <li>Qualify leads using the 4 motivation screens (MIST: Motivation, Issue, Situation, Timeline)</li>
-  <li>Book appointments directly in GHL calendar</li>
-  <li>Maintain all lead records and stage updates in GHL</li>
-  <li>Manage follow-up sequences for non-converting leads</li>
-</ul>
-
-<h2>GHL Pipeline Stages — Lead Management</h2>
+<h2>Pipeline 2: Mike the Closer — 4 Stages</h2>
+<p>Mike's acquisitions pipeline. When Nicole books an appointment for Mike, the lead moves HERE.</p>
 <table class="data-table">
-  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
-  <tr><td><span class="ghl-field">New Lead</span></td><td>Just received — not yet contacted</td><td>Call within 15 min</td></tr>
-  <tr><td><span class="ghl-field">Attempting Contact</span></td><td>Active outreach in progress</td><td>3 calls + text, add to drip</td></tr>
-  <tr><td><span class="ghl-field">Appointment Set</span></td><td>Seller agreed to meet</td><td>Hand to Acquisitions, create Drive folder</td></tr>
-  <tr><td><span class="ghl-field">Long-Term Follow-Up</span></td><td>Not ready now, warm for later</td><td>Auto-drip, check in at 30/60/90 days</td></tr>
-  <tr><td><span class="ghl-field">Dead Lead</span></td><td>Opted out, unresponsive, or not a fit</td><td>Tag reason, archive</td></tr>
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Mike reviews the lead card and preps.</td></tr>
+  <tr><td><span class="ghl-field">Offer Made/Followup</span></td><td>Mike met the seller and presented an offer. Awaiting response or in negotiation.</td></tr>
+  <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Deal is very close — seller nearly committed. One more conversation or minor concession away from signing.</td></tr>
+  <tr><td><span class="ghl-field">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the reason in notes.</td></tr>
 </table>
-`},
-      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<h2>New Lead Response Protocol</h2>
+
+<h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
+<p>Joshua's acquisitions pipeline. Same concept as Mike's but with more granular stages for Joshua's workflow. When Nicole books for Joshua, the lead moves here.</p>
+
+<h2>Pipeline 4: Offer Followup — 4 Stages</h2>
+<p>Deals where an offer has been made but no contract is signed. Used for systematic follow-up on pending offers across both closers.</p>
+
+<h2>Pipeline 5: Transaction Coordination — 15 Stages</h2>
+<p>The TC pipeline — the largest and most critical. Deals enter here after a contract is signed. <strong>Ashley owns this pipeline.</strong></p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">New Deal!</span></td><td>A-B contract just signed. File needs to be sent to title company immediately.</td></tr>
+  <tr><td><span class="ghl-field">Pre-Marketing / New File Received</span></td><td>Title file opened, seller info sheet sent/collected, inspection being scheduled.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 1 (VIP)</span></td><td>Deal packaged and sent to Tier 1 VIP buyers only.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 2 (All Buyers + New Buyers)</span></td><td>Expanded to full buyer database via Mailchimp, InvestorLift, etc.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 3 (Retrade on Price, Refresh Listing)</span></td><td>Deal has not moved. Price adjustment or listing refresh being considered.</td></tr>
+  <tr><td><span class="ghl-field">Ready for DocuSign &gt; B-C Contract</span></td><td>Buyer identified, terms agreed, B-C contract being prepared for signature.</td></tr>
+  <tr><td><span class="ghl-field">B-C Assigned</span></td><td>B-C contract signed. Buyer and seller both under contract. EMD being collected.</td></tr>
+  <tr><td><span class="ghl-field">Extension Needed</span></td><td>Closing deadline needs to be extended. Addendum required from one or both parties.</td></tr>
+  <tr><td><span class="ghl-field">Closing Scheduled</span></td><td>Closing date confirmed with title, seller, and buyer. All clear to close.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">AT RISK (Title or Closing Issue)</span></td><td><strong>Red flag.</strong> Title issue, buyer backing out, seller delay, or other blocker. Post in <strong>#[property-address]</strong> immediately.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">Closed - Dispo Complete</span></td><td>Both sides closed. Funds disbursed. Post-closing checklist in progress.</td></tr>
+  <tr><td><span class="ghl-field">IMPACT Buying</span></td><td>Impact Home Team purchasing this property directly (not assigning). Different closing process applies.</td></tr>
+  <tr><td><span class="ghl-field">Active Short Sale</span></td><td>Property is in short sale proceedings. Extended timeline, bank approval required.</td></tr>
+</table>
+
+<h2>Pipelines 6–10</h2>
+<table class="data-table">
+  <tr><th>Pipeline</th><th>Purpose</th><th>Stages</th></tr>
+  <tr><td><strong>6: Dispo - Buyer Marketing</strong></td><td>Buyer-side pipeline tracking investor interest and buyer activity on active deals.</td><td>11</td></tr>
+  <tr><td><strong>7: Deals</strong></td><td>High-level deal tracking for closed/settled deals and their financial outcomes.</td><td>4</td></tr>
+  <tr><td><strong>8: Wholesalers</strong></td><td>Tracking deals sourced from other wholesalers where we act as the buyer.</td><td>4</td></tr>
+  <tr><td><strong>9: Dead/No Opportunity</strong></td><td>Categorized dead leads, separated by reason for reporting and potential recycling.</td><td>6</td></tr>
+  <tr><td><strong>10: Objection Proof</strong></td><td>Training pipeline for objection handling practice and role-play tracking.</td><td>5</td></tr>
+</table>
+
+<h2>Critical Rule: Pipeline Movement on Appointment Booking</h2>
 <div class="callout crimson">
-  <div class="callout-icon">⏱</div>
+  <div class="callout-icon">⚠️</div>
   <div class="callout-body">
-    <strong>15-Minute Rule</strong>
-    All new leads must receive a first contact attempt within 15 minutes of coming in during business hours (9 AM – 6 PM). Studies show response within 5 minutes increases contact rate by 100×. Speed wins deals.
+    <strong>When Nicole books an appointment, she must move the lead to the correct closer's pipeline immediately.</strong>
+    <ul style="margin:8px 0 0;padding-left:18px;">
+      <li>Assigned to Mike → move to <span class="ghl-field">2) Mike the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
+      <li>Assigned to Joshua → move to <span class="ghl-field">3) Josh The Closer</span> pipeline, equivalent appointment stage</li>
+    </ul>
+    <p style="margin:8px 0 0;font-size:13px;">Do NOT leave the lead in the Leads pipeline after booking. The closer needs to see the appointment in their own pipeline to prep. If the lead stays in Leads, the closer may not see it and the appointment gets missed.</p>
   </div>
 </div>
-
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Check the campaign tag</strong> — What marketing source did this lead respond to? Tailor your opening based on their motivation (direct mail vs. Google Ad vs. referral).</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Attempting Contact</span> and add to the automated follow-up sequence.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>If qualified:</strong> Book the appointment in GHL. Confirm the address, date/time, and send a confirmation text to the seller.</div></li>
-</ol>
-
-<h2>Booking an Appointment in GHL</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">In the contact record, click <strong>Appointments → New Appointment</strong></div></li>
-  <li><div class="step-num">2</div><div class="step-content">Select the correct calendar (In-Person or Virtual)</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Set date, time, and assign to the acquisitions agent</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Add appointment notes: property address, seller's stated situation, motivation level (1–10), any red flags</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Move contact to <span class="ghl-field">Appointment Set</span> stage</div></li>
-  <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
-</ol>
-`}
-    ]
-  },
-  {
-    id: 'acq', label: 'Acquisitions', color: '#E3A728',
-    pages: [
-      { id: 'acq-overview', title: 'Department Overview', dept: 'Acquisitions', owner: 'Joshua Hines',
-        content: `
-<h2>Department Purpose</h2>
-<p>Acquisitions is responsible for converting appointments into signed contracts. This requires mastery of property valuation (ARV and comps), offer structuring (MAO formula), in-person selling skills, and proper documentation of every deal.</p>
-
-<h2>The Acquisitions Workflow</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, review the lead notes, research the address on SDAT, check any prior contact history.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Run preliminary comps</strong> — Before the appointment, know your ballpark ARV. Don't go in blind.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Conduct the appointment</strong> — Walk the property, build rapport, screen motivation, present your offer.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Get the contract signed</strong> — If offer is accepted, execute the purchase agreement on-site when possible.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Create the Google Drive property folder</strong> — Immediately after a signed contract (see below).</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in GHL, TC can pick up the file without any additional communication required.</div></li>
-</ol>
-`},
-      { id: 'acq-appointment', title: 'Appointment & Post-Appointment Process', dept: 'Acquisitions', owner: 'Joshua Hines',
-        content: `
-<h2>Before the Appointment</h2>
-<ul>
-  <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
-  <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
-  <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
-  <li>Bring the credibility packet (printed or PDF ready on your phone)</li>
-</ul>
-
-<h2>During the Appointment</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Build rapport first</strong> — Ask about the property's history, acknowledge their situation before you talk numbers.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Walk the property</strong> — Take photos of every room, exterior, roof, HVAC, electrical panel. Document condition for your repair estimate.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Present your offer</strong> — Walk through the investor math transparently. Use the comparison table from the credibility packet if helpful.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Handle objections</strong> — Use the scripts in the credibility packet SOP. Avoid caving on price without a reason.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Get the signature</strong> — If they agree, execute the purchase agreement now. Do not leave "to send it later" — urgency drops dramatically off-site.</div></li>
-</ol>
-
-<h2>Post-Appointment: Signed Contract Protocol</h2>
-<div class="callout amber">
-  <div class="callout-icon">📁</div>
-  <div class="callout-body">
-    <strong>Create the Google Drive Property Folder — First Thing</strong>
-    Within 1 hour of getting a signed contract, you must create the property folder in Google Drive and add the link to the GHL deal record. This is how TC and Dispo access everything they need without asking you.
-  </div>
-</div>
-
-<div class="workflow-card">
-  <h4>Creating the Google Drive Property Folder</h4>
-  <ol class="step-list" style="margin:0">
-    <li><div class="step-num">1</div><div class="step-content"><strong>Go to the IHT Deals folder in Google Drive</strong> — This is the master folder all deals live in.</div></li>
-    <li><div class="step-num">2</div><div class="step-content"><strong>Create a new subfolder</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
-    <li><div class="step-num">3</div><div class="step-content"><strong>Add these files to the folder:</strong>
-      <ul style="margin-top:6px">
-        <li>Signed Purchase Agreement (PDF)</li>
-        <li>Property Info Sheet (ARV, repairs estimate, MAO, seller motivation notes)</li>
-        <li>Comp report or screenshot</li>
-        <li>Property photos</li>
-        <li>Any seller disclosures</li>
-      </ul>
-    </div></li>
-    <li><div class="step-num">4</div><div class="step-content"><strong>Copy the folder link</strong> — Right-click → Get link → Set to "Anyone with the link can view"</div></li>
-    <li><div class="step-num">5</div><div class="step-content"><strong>Paste the Drive link into GHL</strong> — Open the contact/deal record → Notes or the designated custom field → Paste the Drive link. Label it clearly: "Property Drive Folder: [link]"</div></li>
-    <li><div class="step-num">6</div><div class="step-content"><strong>Move GHL stage to <span class="ghl-field">Under Contract</span></strong> — This notifies TC to begin their process.</div></li>
-  </ol>
-</div>
-
-<div class="callout green">
-  <div class="callout-icon">✓</div>
-  <div class="callout-body">
-    <strong>What the Drive Link Enables</strong>
-    TC can order title without emailing you. Dispo can build the listing without asking for photos. Ashley can review the deal without a status update call. One link = the entire deal file, accessible to whoever needs it, anytime.
-  </div>
-</div>
-
-<h2>If the Seller Doesn't Sign Today</h2>
-<ul>
-  <li>Leave the credibility packet</li>
-  <li>Set a follow-up task in GHL for 24 hours out</li>
-  <li>Move stage to <span class="ghl-field">Attempting Contact</span> (post-appointment)</li>
-  <li>Send a follow-up text within 2 hours: "Hi [Name], thanks for your time today. I'll have a final offer to you by [time]. Questions? Call/text me anytime: [number]."</li>
-</ul>
-`},
-      { id: 'acq-comping', title: 'Comping Properties & ARV', dept: 'Acquisitions', owner: 'Joshua Hines',
-        content: `
-<h2>The Comping Framework</h2>
-<p>ARV (After Repair Value) is the foundation of every offer. A wrong ARV = a wrong offer = a deal that can't be assigned or a loss. Run comps carefully, every time.</p>
-
-<h2>Comp Criteria</h2>
-<table class="data-table">
-  <tr><th>Criteria</th><th>Standard</th><th>Notes</th></tr>
-  <tr><td>Distance</td><td>Within 1 mile (0.5 mile preferred)</td><td>Expand only in rural areas; note it</td></tr>
-  <tr><td>Sale Date</td><td>Last 6 months preferred, 12 months max</td><td>Flag anything older than 9 months</td></tr>
-  <tr><td>Square Footage</td><td>Within 15–20% of subject</td><td>Adjust if needed</td></tr>
-  <tr><td>Bed/Bath</td><td>Same or ±1 bed; same bath preferred</td><td>Apply market adjustment for missing bath</td></tr>
-  <tr><td>Property Type</td><td>Same type (SFR, rowhome, semi-detached)</td><td>Never mix types</td></tr>
-  <tr><td>Condition</td><td>Renovated or retail condition only</td><td>Exclude REO, distressed, short sales</td></tr>
-</table>
-
-<h2>MAO Formula</h2>
-<div class="callout amber">
-  <div class="callout-icon">🧮</div>
-  <div class="callout-body">
-    <strong>Maximum Allowable Offer = ARV × 70% − Estimated Repairs</strong>
-    The 70% covers our assignment fee, investor profit margin, holding costs, and closing costs. Never go above MAO without explicit approval from Ashley.
-  </div>
-</div>
-
-<h2>Repair Estimation Guide</h2>
-<table class="data-table">
-  <tr><th>Item</th><th>Cosmetic</th><th>Moderate</th><th>Full Gut</th></tr>
-  <tr><td>Kitchen</td><td>$3K–$8K</td><td>$15K–$25K</td><td>$30K–$50K</td></tr>
-  <tr><td>Bathroom</td><td>$2K–$5K</td><td>$8K–$15K</td><td>$18K–$28K</td></tr>
-  <tr><td>Flooring (per 1K sq ft)</td><td>$2K–$4K</td><td>$5K–$8K</td><td>$10K–$15K</td></tr>
-  <tr><td>Roof</td><td>Repair $2K–$5K</td><td>—</td><td>Replace $8K–$18K</td></tr>
-  <tr><td>HVAC</td><td>Service $500–$1K</td><td>—</td><td>Replace $5K–$12K</td></tr>
-  <tr><td>Electrical</td><td>Updates $1K–$3K</td><td>Partial $5K–$12K</td><td>Full rewire $15K–$25K</td></tr>
-  <tr><td>Plumbing</td><td>Repairs $500–$2K</td><td>Partial $5K–$10K</td><td>Full repipe $12K–$22K</td></tr>
-  <tr><td>Paint (interior)</td><td>$2K–$5K</td><td>$4K–$8K</td><td>$8K–$15K</td></tr>
-</table>
-`}
-    ]
-  },
-  {
-    id: 'dispo', label: 'Dispositions', color: '#16A34A',
-    pages: [
-      { id: 'dispo-overview', title: 'Department Overview', dept: 'Dispositions', owner: 'Ashley Hines',
-        content: `
-<h2>Department Purpose</h2>
-<p>Dispositions is responsible for marketing under-contract properties to qualified buyers, collecting offers, negotiating terms, executing assignment agreements, and coordinating with TC through to close. Dispo is where the deal becomes profit.</p>
-
-<h2>The Dispo Process Starts With the Drive Link</h2>
-<div class="callout amber">
-  <div class="callout-icon">📁</div>
-  <div class="callout-body">
-    <strong>Step Zero: Pull the Google Drive Link from GHL</strong>
-    Before building any listing or making any calls, open the deal in GHL and find the Google Drive folder link in the notes/custom field. Everything you need — property info sheet, comps, photos, signed contract — is in that folder. Never start dispo without it.
-  </div>
-</div>
-
-<h2>Dispo Workflow Overview</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Pull the Drive folder from GHL</strong> — Review the property info sheet: ARV, repairs estimate, purchase price, seller motivation, condition notes.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Set the assignment fee target</strong> — Based on ARV, repair estimate, and market demand. Typical range: $5K–$25K depending on deal size.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Build the listing</strong> — Headline with ARV and asking price. Include condition summary, repair notes, key features, and your assignment fee. See listing SOP for full template.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>VIP blast first</strong> — Send to your top-tier buyers before public marketing. Give them 24–48 hours of exclusivity.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Broad marketing</strong> — Email blast, buyer group posts, social media if appropriate.</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Collect and evaluate offers</strong> — Score using the offer matrix (price, certainty, speed, relationship).</div></li>
-  <li><div class="step-num">7</div><div class="step-content"><strong>Execute assignment agreement</strong> — Once buyer selected. Get signed B-C and EMD.</div></li>
-  <li><div class="step-num">8</div><div class="step-content"><strong>Hand off to TC</strong> — Update GHL with buyer's info and assignment details. TC handles closing coordination.</div></li>
-</ol>
-
-<h2>Never Stop Marketing Until EMD Is In Hand</h2>
-<div class="callout crimson">
-  <div class="callout-icon">⚠</div>
-  <div class="callout-body">
-    <strong>Verbal interest is not a deal.</strong>
-    Continue marketing and showing the property to all buyers until you have a signed assignment agreement AND the earnest money deposit in escrow. A buyer who "loves it" but hasn't sent EMD is not a buyer.
-  </div>
-</div>
-`},
-      { id: 'dispo-listing', title: 'Building a Dispo Listing', dept: 'Dispositions', owner: 'Ashley Hines',
-        content: `
-<h2>Starting From the Drive Folder</h2>
-<p>Your listing starts with the property info sheet in the Google Drive folder. Before you write a single word, you need to know:</p>
-<ul>
-  <li>ARV (confirmed, not estimated)</li>
-  <li>Your purchase price (what IHT is paying the seller)</li>
-  <li>Repair estimate and scope</li>
-  <li>Key features and neighborhood comps</li>
-  <li>Photos (from Drive folder)</li>
-</ul>
-
-<h2>Listing Headline Formula</h2>
-<div class="callout amber">
-  <div class="callout-icon">✏</div>
-  <div class="callout-body">
-    <strong>Lead with equity.</strong>
-    Investors buy margins, not properties. Your headline should tell them the deal instantly.
-    <br><br>
-    <strong>Format:</strong> ARV $[X] | Asking $[Y] | [City, State] | [Beds/Baths/Sq Ft]
-    <br>
-    <strong>Example:</strong> ARV $285K | Asking $159K | Baltimore, MD | 3BD/1BA/1,200 sq ft
-  </div>
-</div>
-
-<h2>Listing Template</h2>
-<p>Use this structure for every dispo listing:</p>
-<ol>
-  <li><strong>Headline</strong> (ARV + asking + location + size)</li>
-  <li><strong>Deal Overview</strong> — 2 sentences: what kind of deal, what the investor opportunity is</li>
-  <li><strong>Property Details</strong> — Address, beds/baths, sq ft, lot size, year built</li>
-  <li><strong>Condition Summary</strong> — Current condition; list what needs to be done</li>
-  <li><strong>Repair Estimate</strong> — $X,XXX scope breakdown</li>
-  <li><strong>Comparable Sales</strong> — 2–3 comps with addresses, sale dates, prices</li>
-  <li><strong>Assignment Fee</strong> — $X,XXX</li>
-  <li><strong>Terms</strong> — Cash/hard money only; close by [date]; inspection period: [X] days</li>
-  <li><strong>Contact</strong> — Name, phone, email</li>
-</ol>
-
-<h2>Offer Evaluation Matrix</h2>
-<table class="data-table">
-  <tr><th>Criteria</th><th>Weight</th><th>What to Look For</th></tr>
-  <tr><td>Price</td><td>40%</td><td>Closest to or at asking; no low-ball fishing</td></tr>
-  <tr><td>Certainty of Close</td><td>30%</td><td>Verified POF, proven closing history, non-refundable EMD</td></tr>
-  <tr><td>Speed</td><td>20%</td><td>Close date relative to contract expiration</td></tr>
-  <tr><td>Relationship</td><td>10%</td><td>Prior closings with IHT; repeat buyer premium</td></tr>
-</table>
-`},
-      { id: 'dispo-buyers', title: 'Buyer Management', dept: 'Dispositions', owner: 'Ashley Hines',
-        content: `
-<h2>Buyer List Structure</h2>
-<p>Your buyer list is one of your most valuable business assets. It should be segmented, maintained, and grown continuously.</p>
-
-<table class="data-table">
-  <tr><th>Tier</th><th>Definition</th><th>How to Treat Them</th></tr>
-  <tr><td><strong>VIP</strong></td><td>Has closed with IHT or proven closers with funds ready</td><td>First to hear about every deal. 24–48 hour exclusivity window.</td></tr>
-  <tr><td><strong>Active</strong></td><td>Buys regularly, responds quickly, has verified POF on file</td><td>Included in all blasts. Fast responders get preference.</td></tr>
-  <tr><td><strong>General</strong></td><td>Has expressed interest; hasn't closed or POF not verified</td><td>Included in broad blasts. Must submit POF before offer is considered.</td></tr>
-</table>
-
-<h2>Required Buyer Information (on file before any offer is accepted)</h2>
-<ul>
-  <li>✓ Proof of Funds (dated within 60 days)</li>
-  <li>✓ Preferred property types and price range (buy box)</li>
-  <li>✓ Typical close timeline</li>
-  <li>✓ EMD amount they're comfortable with</li>
-  <li>✓ Contact info: name, phone, email, attorney/title contact</li>
-</ul>
-
-<h2>Adding Buyers to GHL</h2>
-<p>Every buyer should be a contact in GHL tagged with: <span class="ghl-field">Buyer</span> + their tier tag (<span class="ghl-field">VIP</span>, <span class="ghl-field">Active</span>, or <span class="ghl-field">General</span>). Log their buy box in the contact notes so you can filter by deal type.</p>
-`}
-    ]
-  },
-  {
-    id: 'tc', label: 'Transaction Coordination', color: '#7C3AED',
-    pages: [
-      { id: 'tc-overview', title: 'Department Overview', dept: 'Transaction Coordination', owner: 'Mike',
-        content: `
-<h2>Department Purpose</h2>
-<p>Transaction Coordination takes over once a seller has signed the purchase agreement. TC is responsible for managing the deal from contract to close — coordinating with title, tracking deadlines, ensuring all documents are in order, and keeping every stakeholder updated.</p>
-
-<div class="callout blue">
-  <div class="callout-icon">📋</div>
-  <div class="callout-body">
-    <strong>TC Starts From the Drive Link</strong>
-    When a deal moves to <span class="ghl-field">Under Contract</span> in GHL, TC's first step is to open the Google Drive folder linked in the deal record. The signed contract and property info sheet will be there. Never chase the acquisition agent for documents — if something is missing from the folder, flag it in GHL notes.
-  </div>
-</div>
-
-<h2>TC Responsibilities</h2>
-<ul>
-  <li>Order title search within 24 hours of receiving a signed contract</li>
-  <li>Track all critical dates: inspection deadline, financing contingency, closing date</li>
-  <li>Coordinate with title company / closing attorney</li>
-  <li>Collect and verify buyer's assignment documents and EMD</li>
-  <li>Flag any title issues, liens, or encumbrances to the acquisitions agent and Ashley</li>
-  <li>Ensure all parties have their closing instructions 48 hours before closing</li>
-  <li>Document every update in GHL and the Drive folder</li>
-</ul>
-
-<h2>Slack Communication</h2>
-<p>TC updates go in the <strong>#transactions</strong> Slack channel. Post a deal update at each milestone: contract received, title ordered, any issues found, closing confirmed, deal closed. Tag relevant team members when action is required from them.</p>
-
-<table class="data-table">
-  <tr><th>Slack Channel</th><th>Purpose</th></tr>
-  <tr><td><strong>#transactions</strong></td><td>All TC deal updates and milestone notifications</td></tr>
-  <tr><td><strong>#deals-general</strong></td><td>Cross-department deal discussion</td></tr>
-  <tr><td><strong>#acquisitions</strong></td><td>Acquisitions team updates and comps</td></tr>
-  <tr><td><strong>#dispositions</strong></td><td>Dispo listings and buyer activity</td></tr>
-  <tr><td><strong>#team</strong></td><td>General company communication</td></tr>
-</table>
-
-<h2>Critical Dates Tracker</h2>
-<p>For every deal, TC must track and calendar these dates in GHL:</p>
-<ul>
-  <li><strong>Inspection Period Expiration</strong> — Date by which IHT must exercise any inspection contingency</li>
-  <li><strong>EMD Due Date</strong> — When earnest money must be delivered to title</li>
-  <li><strong>Financing Contingency (if any)</strong> — Deadline for buyer to secure financing</li>
-  <li><strong>Closing Date</strong> — Scheduled close per A-B contract</li>
-  <li><strong>Assignment Agreement Deadline</strong> — Must be executed before closing</li>
-</ul>
-`}
-    ]
-  },
-  {
-    id: 'policies', label: 'Company Policies', color: '#A52325',
-    pages: [
-      { id: 'pol-comms', title: 'Communication Standards', dept: 'All Departments', owner: 'Ashley Hines',
-        content: `
-<h2>Response Time Standards</h2>
-<table class="data-table">
-  <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
-  <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
-  <tr><td>Text/GHL</td><td>Within 1 hour</td><td>Within 15 minutes (new leads)</td></tr>
-  <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
-  <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
-</table>
-
-<h2>Slack Channel Guide</h2>
-<p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
-<table class="data-table">
-  <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
-  <tr><td>#team</td><td>Everyone</td><td>Company-wide announcements, scheduling, general updates</td></tr>
-  <tr><td>#leads</td><td>Lead Management</td><td>New leads, hot prospects, follow-up flags</td></tr>
-  <tr><td>#acquisitions</td><td>Acq team</td><td>Appointment notes, comp questions, offer updates</td></tr>
-  <tr><td>#dispositions</td><td>Dispo + all</td><td>New listings, buyer interest, offer activity</td></tr>
-  <tr><td>#transactions</td><td>TC + all</td><td>Deal milestones, title updates, closing confirmations</td></tr>
-  <tr><td>#wins</td><td>Everyone</td><td>Closed deals, compliments, team shoutouts</td></tr>
-</table>
-
-<h2>GHL Documentation Requirements</h2>
-<p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
-<ul>
-  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
-  <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
-  <li>Every deal under contract must have the Google Drive folder link in the record</li>
-  <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
-</ul>
-`},
-      { id: 'pol-training', title: 'Team Training', dept: 'All Departments', owner: 'Ashley Hines',
-        content: `
-<h2>Training Requirements</h2>
-<p>Every team member is required to pass the training quizzes before performing their role independently. Quizzes are taken at <span onclick="showPage('training','training-home')" style="color:var(--amber);font-weight:600;cursor:pointer;text-decoration:underline;">the training portal</span> (Training section in the sidebar).</p>
-
-<table class="data-table">
-  <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
-  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
-  <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
-  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
-  <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
-  <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
-</table>
-
-<h2>Re-certification</h2>
-<ul>
-  <li>All team members re-take their department quizzes every 6 months</li>
-  <li>Quizzes are updated when SOPs change — team will be notified via #team Slack channel</li>
-  <li>Scores are tracked in Google Sheets automatically via the quiz portal</li>
-</ul>
-
-<h2>Onboarding New Team Members</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
-</ol>
-`}
-    ]
-  },
-  {
-    id: 'training', label: 'Training Portal', color: '#7C3AED',
-    pages: [
-      { id: 'training-home', title: 'Training Home', dept: 'All Departments', owner: 'Ashley Hines',
-        content: '__TRAINING_HOME__' },
-      { id: 'quiz-role-lead-manager',    title: 'Lead Manager Entry Quiz',    dept: 'Lead Management', owner: 'Nicole', content: '__QUIZ__role-lead-manager' },
-      { id: 'quiz-role-acquisitions',    title: 'Acquisitions Entry Quiz',    dept: 'Acquisitions',    owner: 'Joshua Hines', content: '__QUIZ__role-acquisitions' },
-      { id: 'quiz-role-dispositions',    title: 'Dispositions Entry Quiz',    dept: 'Dispositions',    owner: 'Ashley Hines', content: '__QUIZ__role-dispositions' },
-      { id: 'quiz-role-tc',              title: 'TC Entry Quiz',              dept: 'Transaction Coordination', owner: 'Mike', content: '__QUIZ__role-tc' },
-      { id: 'quiz-dept-lead-management', title: 'Lead Management Deep Dive',  dept: 'Lead Management', owner: 'Nicole', content: '__QUIZ__dept-lead-management' },
-      { id: 'quiz-dept-acquisitions',    title: 'Acquisitions Deep Dive',     dept: 'Acquisitions',    owner: 'Joshua Hines', content: '__QUIZ__dept-acquisitions' },
-      { id: 'quiz-dept-dispositions',    title: 'Dispositions Deep Dive',     dept: 'Dispositions',    owner: 'Ashley Hines', content: '__QUIZ__dept-dispositions' },
-      { id: 'quiz-dept-tc',              title: 'TC Deep Dive',               dept: 'Transaction Coordination', owner: 'Mike', content: '__QUIZ__dept-tc' },
-      { id: 'quiz-dept-deal-lifecycle',  title: 'Deal Lifecycle',             dept: 'All Departments', owner: 'Ashley Hines', content: '__QUIZ__dept-deal-lifecycle' },
-      { id: 'quiz-dept-tools-systems',   title: 'Tools & Systems',            dept: 'All Departments', owner: 'Ashley Hines', content: '__QUIZ__dept-tools-systems' }
-    ]
-  },
-  {
-    id: 'pipeline-ref', label: 'GHL Pipeline Reference', color: '#0EA5E9',
-    pages: [
+` },
       { id: 'pipeline-why', title: 'Why Stage Changes Matter', dept: 'All Departments', owner: 'Ashley Hines',
         content: `
 <style>
@@ -2045,9 +1406,1839 @@ const SECTIONS = [
   <div class="pc-detail-empty">↑ Click any stage above to see what it means, what it unlocks, and what goes wrong if it's skipped.</div>
 </div>
 
+` },
+      { id: 'pipeline-tasks', title: 'Tasks in GHL — Why They Matter', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Tasks in GHL — Why They Matter</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
+
+<p>A task in GHL is a scheduled action tied to a contact or deal. Tasks are how the system tells you that something needs to happen — a callback, a follow-up, a document request, a check-in with title. If a task is sitting open and overdue, work is not moving. Checking your task list is not optional — it is how you run your day.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>An overdue task = a dropped ball.</strong> GHL workflows create tasks automatically at key trigger points. If you are not clearing your task list daily, leads are going cold, deals are stalling, and deadlines are being missed — even if you don't realize it yet.</div>
+</div>
+
+<h2>Where to Find Your Tasks</h2>
+<p>There are three ways to access your tasks in GHL:</p>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Task List (All Tasks)</strong> — <span class="ghl-field">Contacts → Tasks</span> in the left sidebar. This shows every open task across all contacts in the account. Filter by assignee to see only yours. This is your daily dashboard.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>On a Contact Record</strong> — Open any contact and scroll to the <span class="ghl-field">Tasks</span> tab on the right panel. Tasks attached to that specific contact appear here. Use this when you're already working a lead and need to see what's scheduled next.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>On an Opportunity Card</strong> — Open a deal in any pipeline and look for the Tasks section. Deals in the TC pipeline will have tasks tied directly to the closing checklist steps.
+    </div>
+  </li>
+</ol>
+
+<h2>How to Work Your Task List</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content"><strong>Open Contacts → Tasks.</strong> Filter by your name using the Assignee dropdown. Sort by Due Date ascending — oldest tasks first.</div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content"><strong>Click a task title</strong> to open it. Read the task description — this tells you exactly what needs to happen. The linked contact or deal is clickable directly from the task.</div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content"><strong>Complete the action</strong> described in the task — make the call, send the text, check the document, update the field. Do not mark the task complete before doing the actual work.</div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content"><strong>Log a note</strong> on the contact record summarizing what happened. One sentence is fine: "Called seller, confirmed closing date still on track for [date]."</div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content"><strong>Mark the task complete</strong> using the checkbox. This triggers any downstream automation connected to task completion — do not skip this step.</div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content"><strong>Create the next task if needed.</strong> If the action requires a follow-up (no answer, waiting on title, needs a callback in 48 hours), create a new task immediately before moving on. Never leave a contact without a next scheduled action unless the deal is dead or closed.</div>
+  </li>
+</ol>
+
+<h2>How Tasks Are Created</h2>
+<table class="data-table">
+  <tr><th>Source</th><th>How It Works</th></tr>
+  <tr><td><strong>GHL Workflows</strong></td><td>Most tasks are created automatically when a trigger fires — appointment booked, stage changed, contract signed, etc. You don't create these; you just work them.</td></tr>
+  <tr><td><strong>Manual Creation</strong></td><td>You create a task manually when something needs to happen that isn't already automated — a specific follow-up, a custom deadline, a reminder you set for yourself. Use the <span class="ghl-field">+ Add Task</span> button on the contact record or from the Tasks list page.</td></tr>
+  <tr><td><strong>Recurring Tasks</strong></td><td>Some tasks repeat on a schedule (weekly check-ins, monthly nurture). These are set up in workflows and will auto-regenerate after each completion.</td></tr>
+</table>
+
+<h2>Task Fields — What to Fill In</h2>
+<table class="data-table">
+  <tr><th>Field</th><th>Required?</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">Title</span></td><td>Yes</td><td>Be specific. "Call seller" is weak. "Call seller — confirm inspection access for Tuesday" is useful.</td></tr>
+  <tr><td><span class="ghl-field">Description</span></td><td>Recommended</td><td>Add context so anyone picking up the task knows what to do. Include scripts, links, or instructions if needed.</td></tr>
+  <tr><td><span class="ghl-field">Due Date + Time</span></td><td>Yes</td><td>Always set a specific due date. Tasks without due dates don't show up in daily views and get forgotten.</td></tr>
+  <tr><td><span class="ghl-field">Assignee</span></td><td>Yes</td><td>Assign to the correct team member. Unassigned tasks fall through the cracks. If it's yours, assign it to yourself.</td></tr>
+  <tr><td><span class="ghl-field">Contact Link</span></td><td>When applicable</td><td>Attach the task to the contact it's about. This keeps the contact record complete and makes tasks searchable by contact.</td></tr>
+</table>
+
+<h2>Rules for Tasks at IHT</h2>
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">
+    <ul style="margin:0;padding-left:18px;font-size:13px;line-height:2;">
+      <li><strong>Check your task list every morning before doing anything else.</strong> Start with overdue tasks first.</li>
+      <li><strong>Never leave a live lead or active deal without a next task.</strong> If there's no task, no one knows who owns the next action.</li>
+      <li><strong>Do not mark tasks complete without doing the work.</strong> This breaks downstream automations and misleads the team on deal status.</li>
+      <li><strong>If a task was created by automation and doesn't apply</strong> (duplicate, timing wrong, deal changed) — delete it and add a note explaining why.</li>
+      <li><strong>If you can't complete a task on time</strong>, reschedule it immediately with a note. Do not let tasks go overdue and sit untouched.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Troubleshooting</h2>
+<table class="data-table">
+  <tr><th>Problem</th><th>What to Check</th></tr>
+  <tr><td>Task was not created when it should have been</td><td>Check that the contact's pipeline stage and tags are correct — workflow task triggers depend on these. If stage and tags are right, post in <strong>#[property-address]</strong> and tag Ashley.</td></tr>
+  <tr><td>Task is assigned to the wrong person</td><td>Edit the assignee directly on the task. No need to delete and recreate.</td></tr>
+  <tr><td>Task keeps reappearing after completion</td><td>It's a recurring task set up in a workflow. Complete it each time it appears — this is intentional.</td></tr>
+  <tr><td>Can't find a task that should be there</td><td>Check your assignee filter — it may be assigned to someone else or sitting unassigned. Also check the contact record directly.</td></tr>
+</table>
+` },
+      { id: 'pipeline-handoffs', title: 'Department Handoff Triggers', dept: 'All Departments', owner: 'Ashley / Joshua',
+        content: `
+<h2>Department Handoff Triggers</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley / Joshua</span></div>
+
+<p>Every handoff between departments requires a specific trigger, a completed checklist, a pipeline move, and a Slack post. Handoffs that skip any of these steps create gaps — deals get missed, TC rejects files, and closers miss appointments.</p>
+
+<h2>Lead Management → Acquisitions</h2>
+<div class="callout amber">
+  <div class="callout-icon">📅</div>
+  <div class="callout-body"><strong>Trigger:</strong> Appointment booked and confirmed.</div>
+</div>
+<table class="data-table">
+  <tr><th colspan="2">Required Before Handoff</th></tr>
+  <tr><td>☐</td><td>4 Pillars fields filled in GHL</td></tr>
+  <tr><td>☐</td><td>Lead source tag applied</td></tr>
+  <tr><td>☐</td><td>Property address verified in GHL</td></tr>
+  <tr><td>☐</td><td>Appointment logged in GHL calendar with property address in the title</td></tr>
+</table>
+<p><strong>Pipeline movement:</strong> Nicole moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
+<ul>
+  <li>Assigned to Mike → <span class="ghl-field">2) Mike the Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
+  <li>Assigned to Joshua → <span class="ghl-field">3) Josh The Closer</span> → appointment stage</li>
+</ul>
+<div class="callout blue" style="margin-top:10px;">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body"><strong>GHL automatically posts booked appointments to #appointments in Slack.</strong> You do not need to post manually — the automation handles it. Move the pipeline stage and you're done.</div>
+</div>
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Do NOT leave the lead in the Leads pipeline after booking.</strong> The closer preps from their own pipeline — if the lead is still in Leads, they may miss the appointment entirely.</div>
+</div>
+
+<h2>Acquisitions → Transaction Coordination</h2>
+<div class="callout amber">
+  <div class="callout-icon">📝</div>
+  <div class="callout-body"><strong>Trigger:</strong> A-B contract signed and uploaded to GHL.</div>
+</div>
+<table class="data-table">
+  <tr><th colspan="2">Required Before Handoff</th></tr>
+  <tr><td>☐</td><td>Fully executed A-B contract uploaded to GHL</td></tr>
+  <tr><td>☐</td><td>ARV set with comp link saved</td></tr>
+  <tr><td>☐</td><td>Repair estimate completed</td></tr>
+  <tr><td>☐</td><td>Property photos uploaded (minimum 15)</td></tr>
+  <tr><td>☐</td><td>Listing copy drafted for deal packaging</td></tr>
+  <tr><td>☐</td><td><strong>Opportunity status set to Won in GHL</strong></td></tr>
+</table>
+<div class="callout crimson" style="margin-top:10px;">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>When A-B is signed, mark the opportunity as Won in GHL before moving to TC.</strong> This is required for reporting and pipeline accuracy. Do not skip this step.</div>
+</div>
+<p><strong>Pipeline movement:</strong> Move the opportunity to <span class="ghl-field">5) Transaction Coordination</span> → <span class="ghl-field" style="background:#d4edda;color:#155724;">New Deal!</span> stage. <strong>Set opportunity status to Won before moving.</strong></p>
+<p><strong>Post in #[property-address]:</strong></p>
+<div style="background:var(--cloud);border:1px solid var(--fog);border-left:3px solid #16a34a;border-radius:6px;padding:10px 14px;font-size:13px;font-family:var(--font-mono);color:var(--graphite);margin:8px 0 16px;">
+  "New deal entering TC: [Address] — A-B at $[Price] — Target close [Date]." Tag Ashley.
+</div>
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>If any required item is missing, Ashley sends it back.</strong> The acquisitions agent must complete the full handoff package before TC will accept the file.</div>
+</div>
+
+<h2>TC → Dispositions (Marketing Phases)</h2>
+<div class="callout amber">
+  <div class="callout-icon">📢</div>
+  <div class="callout-body"><strong>Trigger:</strong> Title file opened and seller onboarded (Steps 1–4 of TC checklist complete).</div>
+</div>
+<p><strong>Pipeline movement:</strong> Deal moves through marketing phases within the TC pipeline:</p>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 16px;">
+  <span class="ghl-field">Marketing Phase 1 (VIP)</span>
+  <span style="color:var(--steel);font-size:16px;">→</span>
+  <span class="ghl-field">Marketing Phase 2 (All Buyers)</span>
+  <span style="color:var(--steel);font-size:16px;">→</span>
+  <span class="ghl-field">Marketing Phase 3 (Retrade/Refresh)</span>
+  <span style="font-size:12px;color:var(--steel);font-style:italic;">as needed</span>
+</div>
+
+<h2>Dispositions → TC (B-C Signed)</h2>
+<div class="callout amber">
+  <div class="callout-icon">✍️</div>
+  <div class="callout-body"><strong>Trigger:</strong> B-C contract signed and uploaded.</div>
+</div>
+<table class="data-table">
+  <tr><th colspan="2">Required Before Moving Stage</th></tr>
+  <tr><td>☐</td><td>B-C contract fully executed and uploaded</td></tr>
+  <tr><td>☐</td><td>Buyer name and contact info in GHL</td></tr>
+  <tr><td>☐</td><td>B-C price and assignment fee documented</td></tr>
+  <tr><td>☐</td><td>Buyer EMD status confirmed</td></tr>
+  <tr><td>☐</td><td>Title company notified of the buyer</td></tr>
+  <tr><td>☐</td><td><strong>Opportunity Value field completed in GHL</strong> (B-C price minus A-B price = assignment fee)</td></tr>
+</table>
+<div class="callout crimson" style="margin-top:10px;">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>When B-C is signed, the Opportunity Value must be entered in GHL before moving to B-C Assigned.</strong> This field drives gross profit reporting. If it is blank, the deal does not count in revenue metrics.</div>
+</div>
+<p><strong>Pipeline movement:</strong> Move to <span class="ghl-field">B-C Assigned</span> stage within the TC pipeline. <strong>Opportunity Value must be completed before moving.</strong></p>
+<p><strong>Post in #[property-address]:</strong></p>
+<div style="background:var(--cloud);border:1px solid var(--fog);border-left:3px solid #7C3AED;border-radius:6px;padding:10px 14px;font-size:13px;font-family:var(--font-mono);color:var(--graphite);margin:8px 0 0;">
+  "B-C signed: [Address] — Buyer: [Name] — B-C Price: $[Price] — Fee: $[Fee] — EMD: [Status]." Tag Ashley.
+</div>
 ` }
     ]
-  }
+  },
+    {
+    id: 'brand', label: 'Company Overview', color: '#E3A728',
+    pages: [
+      { id: 'brand-kit', title: 'Brand Kit', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Brand Overview</h2>
+<p>Impact Home Team is a Maryland-based wholesale real estate investment company. Our brand communicates trust, professionalism, and speed — built for homeowners who need solutions, not complications. Every piece of communication your team produces should reflect this identity.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">★</div>
+  <div class="callout-body">
+    <strong>Brand Mission Statement</strong>
+    Helping Maryland homeowners solve problems with speed, respect, and transparency — while creating opportunity for investors to grow their portfolios.
+  </div>
+</div>
+
+<h2>Color Palette</h2>
+<p>Our palette is built around Amber and Crimson — warm, authoritative, and distinctive. Use these values precisely for print, digital, and presentations.</p>
+
+<div class="swatch-row">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#E3A728;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Amber</div>
+      <div class="swatch-hex">#E3A728</div>
+      <div class="swatch-role">Primary · CTAs · Accents</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#C48E1F;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Dark</div>
+      <div class="swatch-hex">#C48E1F</div>
+      <div class="swatch-role">Hover states · Body links</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#FEF7E0;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Pale</div>
+      <div class="swatch-hex">#FEF7E0</div>
+      <div class="swatch-role">Backgrounds · Callouts</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#A52325;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Crimson</div>
+      <div class="swatch-hex">#A52325</div>
+      <div class="swatch-role">Secondary accent · Urgency</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#1A1A1A;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Charcoal Ink</div>
+      <div class="swatch-hex">#1A1A1A</div>
+      <div class="swatch-role">Headers · Backgrounds</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#F5F4F1;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cloud</div>
+      <div class="swatch-hex">#F5F4F1</div>
+      <div class="swatch-role">Page backgrounds</div>
+    </div>
+  </div>
+</div>
+
+<h2>Typography</h2>
+<p>We use two typefaces. Always pull from Google Fonts when building digital assets.</p>
+
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Serif Display',serif;">DM Serif Display</div>
+  <div class="meta">font-family: 'DM Serif Display', Georgia, serif</div>
+  <div class="alphabet" style="font-family:'DM Serif Display',serif;">Aa Bb Cc — Headlines, Section Titles, Hero Text</div>
+</div>
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Sans',sans-serif;font-weight:400;">DM Sans</div>
+  <div class="meta">font-family: 'DM Sans', system-ui, sans-serif · Weights: 300, 400, 500, 600, 700</div>
+  <div class="alphabet" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Body copy, labels, UI elements, all prose</div>
+</div>
+
+<h2>Logo Usage</h2>
+<p>The Impact Home Team logo uses the lettermark "I" in our amber/gold color. Below are the approved usage contexts:</p>
+
+<div class="logo-grid">
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#1A1A1A;">
+      <div class="logo-mark-lg" style="background:#E3A728;">I</div>
+    </div>
+    <div class="logo-label">✓ Dark background (primary use)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#fff;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ White/light background (reversed)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#E3A728;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ Amber background (event materials)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+      <div style="font-size:32px;">✗</div>
+    </div>
+    <div class="logo-label">✗ Never on non-brand backgrounds</div>
+  </div>
+</div>
+
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body">
+    <strong>Logo files</strong>
+    All logo files (SVG, PNG, variations) are stored in the <a href="#">Brand Assets Google Drive folder</a>. Never recreate the logo from scratch — always pull from that folder.
+  </div>
+</div>
+
+<h2>Voice & Tone</h2>
+<table class="data-table">
+  <tr><th>We Are</th><th>We Are Not</th></tr>
+  <tr><td><strong>Direct</strong> — Get to the point. Sellers are stressed; don't waste their time.</td><td><strong>Pushy</strong> — No high-pressure tactics.</td></tr>
+  <tr><td><strong>Empathetic</strong> — Acknowledge their situation before presenting solutions.</td><td><strong>Transactional</strong> — Every interaction should feel human.</td></tr>
+  <tr><td><strong>Confident</strong> — We know our numbers and stand behind them.</td><td><strong>Arrogant</strong> — Humility closes more deals.</td></tr>
+  <tr><td><strong>Professional</strong> — Proper grammar, clean materials, on-brand everything.</td><td><strong>Corporate/Cold</strong> — We're a family business.</td></tr>
+</table>
+
+<h2>Brand Application Checklist</h2>
+<p>Before sending any document, email, or presentation to an external party:</p>
+<ul>
+  <li>✓ Uses Amber (#E3A728) and/or Crimson (#A52325) — not random colors</li>
+  <li>✓ DM Serif Display for headings, DM Sans for body</li>
+  <li>✓ Company name is always "Impact Home Team" — never shortened to "IHT" externally</li>
+  <li>✓ Contact info is current (sellyourmdhousenow.com)</li>
+  <li>✓ No clip art, generic stock photos, or off-brand fonts</li>
+</ul>
+`},
+      { id: 'credibility-packet', title: 'Credibility Packet', dept: 'Acquisitions', owner: 'Ashley Hines',
+        content: `
+<h2>What Is the Credibility Packet?</h2>
+<p>The credibility packet is a leave-behind document given to sellers after an in-person or virtual appointment. Its purpose is to answer remaining doubts, reinforce trust, and motivate the seller to sign — even if they didn't commit at the meeting.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body">
+    <strong>Primary Goal</strong>
+    Move the seller from "I need to think about it" to "I'm ready to sign." Every section of this packet is designed to handle a specific objection.
+  </div>
+</div>
+
+<h2>When to Use It</h2>
+<ul>
+  <li>Leave a printed or digital copy at every in-person appointment</li>
+  <li>Send the PDF link via text/email within 1 hour after a virtual appointment</li>
+  <li>Reference specific sections when following up — "You'll see on page 2 why our timeline is flexible..."</li>
+</ul>
+
+<h2>Packet Structure</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Cover / Introduction</strong>
+      Company name, tagline, and a human opening that acknowledges the seller's situation. Sets the tone before they read a single fact.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Who We Are</strong>
+      8+ years of experience, family-owned, Maryland-focused. Photo of the team when possible. Humanizes the transaction.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>How Our Process Works (3 Steps)</strong>
+      Step 1: We make an offer. Step 2: You decide. Step 3: We close on your timeline. No repairs, no agents, no fees.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>IHT vs. Traditional Sale Comparison</strong>
+      Side-by-side table: repairs, commissions, timeline, certainty of close, closing costs. This is the highest-converting section.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>What Sellers Say (Testimonials)</strong>
+      2–3 real or representative testimonials. Focus on relief, speed, and professionalism — not just the offer amount.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Proof of Funds</strong>
+      Current Kiavi or funding partner letter. Must be dated within the past 12 months. Ashley updates this annually.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Why Act Now</strong>
+      Address the "I need to think about it" hesitation directly. Include carrying cost calculator if applicable (taxes, insurance, maintenance by the month).
+    </div>
+  </li>
+  <li>
+    <div class="step-num">8</div>
+    <div class="step-content">
+      <strong>FAQ / Objection Handling</strong>
+      Reframed as questions sellers actually ask. Covers: "How did you come up with that price?", "Is this legal?", "What if I owe more than the offer?", "Can I choose my closing date?"
+    </div>
+  </li>
+  <li>
+    <div class="step-num">9</div>
+    <div class="step-content">
+      <strong>Next Steps / CTA</strong>
+      Clear call to action: "Sign today and we handle everything from here." Include direct phone number and the acquisitions agent's name.
+    </div>
+  </li>
+</ol>
+
+<h2>IHT vs. Traditional Sale — Key Comparison Points</h2>
+<table class="compare-table">
+  <tr>
+    <th></th>
+    <th>Impact Home Team</th>
+    <th>Traditional Listing</th>
+  </tr>
+  <tr>
+    <td>Repairs Required</td>
+    <td class="check">✓ None — as-is</td>
+    <td class="cross">✗ Often $10K–$40K+</td>
+  </tr>
+  <tr>
+    <td>Agent Commission</td>
+    <td class="check">✓ $0</td>
+    <td class="cross">✗ 5–6% of sale price</td>
+  </tr>
+  <tr>
+    <td>Closing Costs</td>
+    <td class="check">✓ We cover them</td>
+    <td class="cross">✗ Seller pays 2–3%</td>
+  </tr>
+  <tr>
+    <td>Time to Close</td>
+    <td class="check">✓ 2–4 weeks (your choice)</td>
+    <td class="cross">✗ 60–90+ days average</td>
+  </tr>
+  <tr>
+    <td>Showings / Open Houses</td>
+    <td class="check">✓ None</td>
+    <td class="cross">✗ Multiple (strangers in your home)</td>
+  </tr>
+  <tr>
+    <td>Deal Falls Through Risk</td>
+    <td class="check">✓ Rare — cash buyers</td>
+    <td class="cross">✗ ~30% of listings fall out of escrow</td>
+  </tr>
+  <tr>
+    <td>Flexibility on Closing Date</td>
+    <td class="check">✓ You set the date</td>
+    <td class="cross">✗ Buyer controls the timeline</td>
+  </tr>
+</table>
+
+<h2>Top Objections & How to Handle Them</h2>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I need to think about it."</strong>
+    "Totally understand — this is a big decision. What would need to be true for you to feel comfortable moving forward? Is it the price, the timeline, or something else?" Then address the specific concern.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I think I can get more on the market."</strong>
+    "You might be right — after repairs, commissions, and closing costs, what would you net? Let's do the math together." Walk through the comparison table.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I'm going to call a few more buyers."</strong>
+    "Absolutely — shop around, that's smart. One thing to know: our offer is good for 48 hours. After that, we move on to our next deal. No pressure, just something to keep in mind."
+  </div>
+</div>
+
+<h2>File Location</h2>
+<p>The credibility packet (both dark and white HTML versions) is stored in the <strong>Brand Assets → Credibility Packet</strong> folder in Google Drive. Update the Proof of Funds section whenever the funding letter is renewed. Use the dark version for digital sends; print the white version for in-person leave-behinds.</p>
+` },
+      { id: 'pol-comms', title: 'Communication Standards', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Response Time Standards</h2>
+<table class="data-table">
+  <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
+  <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
+  <tr><td>Text/GHL</td><td>Within 1 hour</td><td>Within 15 minutes (new leads)</td></tr>
+  <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
+  <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
+</table>
+
+<h2>Slack Channel Guide</h2>
+<p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
+<table class="data-table">
+  <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
+  <tr><td>#team</td><td>Everyone</td><td>Company-wide announcements, scheduling, general updates</td></tr>
+  <tr><td>#leads</td><td>Lead Management</td><td>New leads, hot prospects, follow-up flags</td></tr>
+  <tr><td>#acquisitions</td><td>Acq team</td><td>Appointment notes, comp questions, offer updates</td></tr>
+  <tr><td>#dispositions</td><td>Dispo + all</td><td>New listings, buyer interest, offer activity</td></tr>
+  <tr><td>#[property-address]</td><td>TC + all</td><td>Deal milestones, title updates, closing confirmations — one channel per property</td></tr>
+  <tr><td>#wins</td><td>Everyone</td><td>Closed deals, compliments, team shoutouts</td></tr>
+</table>
+
+<h2>GHL Documentation Requirements</h2>
+<p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
+<ul>
+  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
+  <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
+  <li>Every deal under contract must have the Google Drive folder link in the record</li>
+  <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
+</ul>
+`},
+      { id: 'pol-training', title: 'Team Training', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Training Requirements</h2>
+<p>Every team member is required to pass the training quizzes before performing their role independently. Quizzes are taken at <a href="https://training-8w71lslej-ashleys-projects-58e2b9d4.vercel.app/" target="_blank" style="color:var(--amber);font-weight:600;">the training portal</a>.</p>
+
+<table class="data-table">
+  <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
+  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
+  <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
+  <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
+</table>
+
+<h2>Re-certification</h2>
+<ul>
+  <li>All team members re-take their department quizzes every 6 months</li>
+  <li>Quizzes are updated when SOPs change — team will be notified via #team Slack channel</li>
+  <li>Scores are tracked in Google Sheets automatically via the quiz portal</li>
+</ul>
+
+<h2>Onboarding New Team Members</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
+</ol>
+`}
+    ]
+  },
+  {
+    id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
+    pages: [
+      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Department Purpose</h2>
+<p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="num">15m</div><div class="label">Max first response time</div></div>
+  <div class="stat-box"><div class="num">3×</div><div class="label">Call attempts before drip</div></div>
+</div>
+
+<h2>Key Responsibilities</h2>
+<ul>
+  <li>Respond to all inbound leads within 15 minutes during business hours</li>
+  <li><strong>Always call back from the number the lead called in to, or reply from the number they texted to</strong> — never use a different number to respond</li>
+  <li>Qualify leads using the 4 motivation screens (MIST: Motivation, Issue, Situation, Timeline)</li>
+  <li>Book appointments directly in GHL calendar</li>
+  <li>Maintain all lead records and stage updates in GHL</li>
+  <li>Manage follow-up sequences for non-converting leads</li>
+</ul>
+
+<h2>GHL Pipeline Stages — Lead Management</h2>
+<p style="font-size:13px;color:var(--steel);margin-bottom:16px;">Lead Management owns the <strong>1) Leads Pipeline</strong>. All inbound leads enter here and are worked by Nicole until they either convert to an appointment (handoff to Closer Pipeline) or are dispositioned out.</p>
+
+<table class="data-table">
+  <tr><th colspan="3" style="background:#1a1a2e;letter-spacing:.05em;">1) Leads Pipeline &nbsp;·&nbsp; Owner: Nicole</th></tr>
+  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
+  <tr><td><span class="ghl-field">Prospects</span></td><td>New inbound lead — initial qualification not yet done. Nicole owns this lead until it moves forward.</td><td>Call within 15 min. Run MIST screening. Move to Priority Top 20% or Redzones if qualified.</td></tr>
+  <tr><td><span class="ghl-field">Redzones</span></td><td>Qualified lead with motivation but not yet top priority — needs nurturing or has a minor obstacle.</td><td>Add to follow-up sequence. Re-evaluate at 30-day check-in.</td></tr>
+  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>High-motivation seller — ready to move, strong fit. Top of Nicole's daily work list.</td><td>Book appointment. Assign to closer calendar. Prepare handoff notes.</td></tr>
+  <tr><td><span class="ghl-field">Follow Up</span></td><td>Not ready now but worth keeping warm — 30/60/90-day drip territory.</td><td>Enroll in GHL drip sequence. Set a task reminder. Return to Priority if seller re-engages.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. Nicole stops all outreach immediately.</td></tr>
+  <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Property is outside Maryland or otherwise outside our buy criteria.</td><td>Tag reason and archive. Refer to a partner if applicable. Frees pipeline of unworkable leads.</td></tr>
+  <tr><td><span class="ghl-field">Out of Market</span></td><td>Lead is geographically outside our current operating area.</td><td>Tag and archive. Do not leave in active pipeline — pollutes conversion metrics.</td></tr>
+  <tr><td><span class="ghl-field">AI Follow Up Queue</span></td><td>Lead has been handed to the AI assistant for automated follow-up sequences.</td><td>Monitor AI responses. Escalate to Nicole immediately if seller re-engages with real intent.</td></tr>
+  <tr><td><span class="ghl-field">AI Review</span></td><td>AI flagged this lead for human review — response or behavior triggered a review alert.</td><td>Nicole reviews within same business day. Either re-engage manually or re-route.</td></tr>
+</table>
+
+<div class="callout amber" style="margin-top:18px;">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Never leave a lead stale in Prospects.</strong> An uncalled Prospect sitting overnight is a missed opportunity. Two team members may dial simultaneously, or the lead goes cold within hours. Every lead in Prospects needs a same-day first contact attempt.</div>
+</div>
+`},
+      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>New Lead Response Protocol</h2>
+<div class="callout crimson">
+  <div class="callout-icon">📞</div>
+  <div class="callout-body">
+    <strong>Always call back from the number they called in to, or text back from the number they texted to.</strong> If a lead called your Google Ads number, call them back from that same number. If they texted a campaign line, reply from that line. Calling from a different number causes confusion, distrust, and missed connections. The lead does not know who you are yet — the number is their only reference point.
+  </div>
+</div>
+<div class="callout crimson">
+  <div class="callout-icon">⏱</div>
+  <div class="callout-body">
+    <strong>15-Minute Rule</strong>
+    All new leads must receive a first contact attempt within 15 minutes of coming in during business hours (9 AM – 6 PM). Studies show response within 5 minutes increases contact rate by 100×. Speed wins deals.
+  </div>
+</div>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Check the campaign tag</strong> — What marketing source did this lead respond to? Tailor your opening based on their motivation (direct mail vs. Google Ad vs. referral).</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Redzones</span> or <span class="ghl-field">Follow Up</span> and add to the automated follow-up sequence.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>If qualified:</strong> Book the appointment in GHL. Confirm the address, date/time, and send a confirmation text to the seller.</div></li>
+</ol>
+
+<h2>Booking an Appointment in GHL</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">In the contact record, click <strong>Appointments → New Appointment</strong></div></li>
+  <li><div class="step-num">2</div><div class="step-content">Select the correct calendar (In-Person or Virtual)</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Set date, time, and assign to the acquisitions agent</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Add appointment notes: property address, seller's stated situation, motivation level (1–10), any red flags</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Move contact to <span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span> stage</div></li>
+  <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
+</ol>
+`},
+      { id: 'lm-automation', title: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>How the Automation System Works</h2>
+<p>GHL workflows handle most follow-up automatically based on lead stage and trigger events. Your job is to make sure leads are in the correct stage with the correct tags — the system does the rest.</p>
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Do NOT replicate workflows manually.</strong> If a workflow is not firing, post in <strong>#ghl-integration</strong> on Slack and tag Ashley. Manual duplication creates double-contact, opt-outs, and bad data.</div>
+</div>
+
+<h2>Missed Call Sequence</h2>
+<p>When an inbound call is missed or an outbound call goes unanswered, GHL triggers the missed call workflow automatically.</p>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#E3A728;"></div>
+    <div class="tl-content">
+      <div class="tl-time">+2 minutes</div>
+      <div class="tl-label">Text</div>
+      <div class="tl-msg">"Hey [Name], sorry I missed your call. This is [Agent Name] with Impact Home Team. I'll try you again shortly, or feel free to text me back here."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#E3A728;"></div>
+    <div class="tl-content">
+      <div class="tl-time">+4 hours</div>
+      <div class="tl-label">Text</div>
+      <div class="tl-msg">"Hi [Name], just wanted to follow up. I'm available if you have a few minutes to chat about your property."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#E3A728;"></div>
+    <div class="tl-content">
+      <div class="tl-time">+Next morning 9 AM</div>
+      <div class="tl-label">Text</div>
+      <div class="tl-msg">"Good morning [Name]. Trying to reach you one more time about [Street]. Call or text me when it's convenient."</div>
+    </div>
+  </div>
+</div>
+<p style="font-size:13px;color:var(--steel);margin-top:8px;">If no response after the 3-text sequence, the lead stays in its current stage and is added to the long-term drip.</p>
+
+<h2>Post-Conversation Follow-Up (Not Qualified)</h2>
+<p>When Nicole talks to a lead but they don't qualify for an appointment yet:</p>
+<div class="callout amber">
+  <div class="callout-icon">✋</div>
+  <div class="callout-body"><strong>Manual action required:</strong> Tag as <span class="ghl-field">Follow Up</span>, set a callback task for 48 hours, and add a note with the reason. The automation kicks in after this.</div>
+</div>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#2563EB;"></div>
+    <div class="tl-content">
+      <div class="tl-time">+48 hours</div>
+      <div class="tl-label">Text (automated after tag applied)</div>
+      <div class="tl-msg">"Hey [Name], just checking in. If anything changes with [Street], we're here to help."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#2563EB;"></div>
+    <div class="tl-content">
+      <div class="tl-time">Day 7</div>
+      <div class="tl-label">Email</div>
+      <div class="tl-msg">General info about how the cash offer process works.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#2563EB;"></div>
+    <div class="tl-content">
+      <div class="tl-time">Day 14</div>
+      <div class="tl-label">Text</div>
+      <div class="tl-msg">"Hi [Name], still thinking about your options for [Street]? Happy to answer any questions."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#2563EB;"></div>
+    <div class="tl-content">
+      <div class="tl-time">Day 30+</div>
+      <div class="tl-label">Long-term nurture</div>
+      <div class="tl-msg">Monthly email + quarterly text. Runs indefinitely until lead responds, is tagged Dead, or opts out.</div>
+    </div>
+  </div>
+</div>
+
+<h2>Post-Appointment Confirmation Sequence</h2>
+<p>When an appointment is booked in GHL, the confirmation workflow fires automatically — no manual action needed.</p>
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#16a34a;"></div>
+    <div class="tl-content">
+      <div class="tl-time">Immediately</div>
+      <div class="tl-label">Text + Email</div>
+      <div class="tl-msg">Appointment date, time, and address confirmation sent to seller.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#16a34a;"></div>
+    <div class="tl-content">
+      <div class="tl-time">-24 hours</div>
+      <div class="tl-label">Reminder Text</div>
+      <div class="tl-msg">"Just a reminder about your appointment tomorrow at [Time] at [Address] with [Agent]."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#16a34a;"></div>
+    <div class="tl-content">
+      <div class="tl-time">-2 hours</div>
+      <div class="tl-label">Final Reminder Text</div>
+      <div class="tl-msg">"See you at [Time] today! [Agent] is looking forward to meeting you."</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-dot" style="background:#dc2626;"></div>
+    <div class="tl-content">
+      <div class="tl-time">No-show trigger</div>
+      <div class="tl-label">Text (if marked no-show)</div>
+      <div class="tl-msg">"Hey [Name], looks like we missed each other today. Want to reschedule? Just text me a time that works."</div>
+    </div>
+  </div>
+</div>
+
+<h2>Long-Term Nurture Sequence</h2>
+<p>Leads that go cold (no response after 30 days) enter the long-term nurture. This runs indefinitely until the lead responds, is tagged <span class="ghl-field">Dead</span>, or opts out.</p>
+<table class="data-table">
+  <tr><th>Cadence</th><th>Channel</th><th>Content</th></tr>
+  <tr><td>Monthly</td><td>Email</td><td>Market update, recent case study, or "We're still buying in [Area]" message</td></tr>
+  <tr><td>Quarterly</td><td>Text</td><td>Short personal check-in: "Hey [Name], [Your Name] here. Still interested in selling [Street]? We're still buying in the area."</td></tr>
+</table>
+
+<h2>Troubleshooting</h2>
+<p>If a workflow isn't firing, work through this checklist before escalating:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Confirm the contact is in the correct <strong>pipeline stage</strong></div></li>
+  <li><div class="step-num">2</div><div class="step-content">Confirm the correct <strong>tag is applied</strong> to the contact</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Check the workflow's <strong>enrollment conditions</strong> in GHL — is this contact type included?</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Check the contact's <strong>Do Not Disturb</strong> settings — DND blocks all automated messages</div></li>
+  <li><div class="step-num">5</div><div class="step-content">If none of the above resolve it: post in <strong>#ghl-integration</strong> on Slack and tag Ashley</div></li>
+</ol>
+`},
+      { id: 'lm-dead-leads', title: 'Dead Lead Management', dept: 'Lead Management', owner: 'Nicole / Joshua',
+        content: `
+<h2>Dead Lead Management</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole / Joshua</span></div>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body">
+    <strong>Core Rule: Never Delete a Dead Lead.</strong> Dead leads stay in the system forever. Deleting contacts destroys reporting data, breaks source attribution, and makes it impossible to calculate true cost-per-deal. When a lead is dead, you tag it — you do not delete it.
+  </div>
+</div>
+
+<h2>Valid Dead Reasons</h2>
+<p>Every dead lead must be tagged with one of these standardized reasons. <strong>Do not make up your own tags</strong> — consistency is critical for reporting.</p>
+
+<table class="data-table">
+  <tr><th>Tag</th><th>When to Use</th></tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Wrong Number</span></td>
+    <td>Phone number is disconnected, wrong person, or invalid.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Not Interested</span></td>
+    <td>Seller explicitly said they do not want to sell. <em>Not the same as "didn't answer"</em> — that's Follow Up, not Dead.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Listed with Agent</span></td>
+    <td>Property is currently listed on the MLS with a real estate agent.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Price Too High</span></td>
+    <td>Seller wants retail or above-market price and won't negotiate. Use only after at least 2 conversations where price was discussed.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - No Equity</span></td>
+    <td>Seller owes more than the property is worth. No deal structure works.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Dead - DNC</span></td>
+    <td><strong>Legal compliance tag.</strong> Seller requested to be placed on our Do Not Call list. Once applied, all outreach stops permanently — no exceptions.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Duplicate</span></td>
+    <td>This contact is a duplicate of another record for the same property. Note the primary contact ID in the notes field before tagging.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Not a Seller</span></td>
+    <td>Person is a tenant, neighbor, realtor fishing, or otherwise not the property owner.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Dead - Property Sold</span></td>
+    <td>Property has already been sold to someone else.</td>
+  </tr>
+</table>
+
+<h2>How to Tag a Dead Lead in GHL</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content"><strong>Add a note</strong> on the contact record explaining why this lead is dead — one sentence is fine.<br>
+    <span style="font-size:12px;color:var(--steel);font-style:italic;">Example: "Called 3x, seller firm at $350K, ARV only $280K. No deal here."</span></div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content"><strong>Apply the tag</strong> using the exact format <span class="ghl-field">Dead - [Reason]</span> from the list above. No custom tags.</div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content"><strong>Move the opportunity</strong> to the Dead stage in the pipeline.</div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content"><strong>Do NOT remove the lead source tag.</strong> The source tag must stay so we can report on cost-per-lead by source — even for dead leads.</div>
+  </li>
+</ol>
+
+<h2>Recycling Dead Leads</h2>
+<p>Every 90 days, Ashley runs a dead lead review. Circumstances change — sellers who said no 3 months ago may be ready now.</p>
+<table class="data-table">
+  <tr><th>Tag</th><th>Recycle?</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">Dead - Not Interested</span></td><td style="color:#16a34a;font-weight:700;">✓ Yes</td><td>90+ days old → moved to Recycle list for one more outreach attempt</td></tr>
+  <tr><td><span class="ghl-field">Dead - Price Too High</span></td><td style="color:#16a34a;font-weight:700;">✓ Yes</td><td>90+ days old → moved to Recycle list for one more outreach attempt</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Dead - DNC</span></td><td style="color:#dc2626;font-weight:700;">✗ Never</td><td>Legal compliance — permanent, no exceptions</td></tr>
+  <tr><td><span class="ghl-field">Dead - Wrong Number</span></td><td style="color:#dc2626;font-weight:700;">✗ Never</td><td>No valid contact method exists</td></tr>
+  <tr><td><span class="ghl-field">Dead - Duplicate</span></td><td style="color:#dc2626;font-weight:700;">✗ Never</td><td>Primary record handles this contact</td></tr>
+  <tr><td><span class="ghl-field">Dead - Not a Seller</span></td><td style="color:#dc2626;font-weight:700;">✗ Never</td><td>Not a decision-maker on the property</td></tr>
+</table>
+`},
+      { id: 'lm-appointments', title: 'Appointment Procedures', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Appointment Procedures</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+
+<div class="callout blue">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body"><strong>GHL automatically posts to #appointments in Slack when an appointment is booked, rescheduled, or cancelled.</strong> You never need to post manually — just follow the steps below and the automation handles Slack notification.</div>
+</div>
+
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Open the contact card.</strong> Find the qualified lead in your pipeline and click into their contact record.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Click "Appointments" on the contact card.</strong> This opens the scheduling widget linked to the team calendar. Select the calendar for the appointment type:
+      <ul style="margin-top:8px;font-size:13px;">
+        <li><strong>In-Person Seller Appointment</strong></li>
+        <li><strong>Virtual Cash Offer Appointment</strong></li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Choose the date and time.</strong> GHL only shows available slots based on Joshua's and Mike's calendar availability. Pick the earliest available slot. If the seller has a specific preference, verify that slot is open before confirming.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Fill in the appointment details.</strong>
+      <ul style="margin-top:8px;font-size:13px;">
+        <li><strong>Title format:</strong> <span style="font-family:var(--font-mono);background:var(--fog);padding:2px 6px;border-radius:4px;">Seller Appt — 123 Main St, Baltimore</span></li>
+        <li><strong>Notes field:</strong> Seller name, motivation, 4 Pillar highlights, and any access instructions (gate code, parking, lockbox info)</li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Assign to the right person.</strong>
+      <ul style="margin-top:8px;font-size:13px;">
+        <li>In-person appointments → Mike or Joshua based on territory</li>
+        <li>Virtual appointments → Joshua unless otherwise directed</li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Confirm.</strong> Once booked, GHL automatically sends the seller a confirmation text and email, and posts to <strong>#appointments</strong> in Slack. Move the lead to the closer's pipeline stage immediately.
+    </div>
+  </li>
+</ol>
+
+<h2>Rescheduling</h2>
+<p>Open the appointment in GHL, click <strong>Reschedule</strong>, pick the new time, and save. GHL sends updated confirmations to the seller and posts the change to <strong>#appointments</strong> automatically. Log the reschedule in the contact notes — reschedules are tracked separately on the scorecard.</p>
+
+<h2>Cancellations</h2>
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Do NOT delete a cancelled appointment.</strong> Cancelled appointments are tracked on the scorecard. Deleting them corrupts reporting.</div>
+</div>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Update the appointment status to <strong>Cancelled</strong> in GHL — do not delete it.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Add a note with the reason for cancellation.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">If the seller wants to rebook, <strong>create a new appointment</strong> — do not edit the cancelled one.</div></li>
+</ol>
+`},
+      { id: 'lm-appt-criteria', title: 'Appointment Criteria — 4 Pillars', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Appointment Criteria — 4 Pillars</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+
+<p>Use the 4 Pillars questions on every qualifying call to determine whether to set a same-day appointment, schedule if they have a set timeline, or not set an appointment at all. Score each answer against the matrix below.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body"><strong>If you identify a high motivation seller, book them same-day or next-day. This is a top priority lead.</strong> If the seller wants to sell in the next 90 days AND has a reason (a "why") for selling the property — book the appointment.</div>
+</div>
+
+<div style="overflow-x:auto;margin-top:20px;">
+<table style="width:100%;border-collapse:collapse;font-size:13px;">
+  <thead>
+    <tr>
+      <th style="background:#1a1a2e;color:#fff;padding:10px 14px;text-align:left;width:35%;border:1px solid var(--fog);">4 Pillars Questions</th>
+      <th style="background:#16a34a;color:#fff;padding:10px 14px;text-align:center;border:1px solid var(--fog);">🟢 High<br><span style="font-weight:400;font-size:11px;">SET SAME DAY APPOINTMENT</span></th>
+      <th style="background:#d97706;color:#fff;padding:10px 14px;text-align:center;border:1px solid var(--fog);">🟡 Medium<br><span style="font-weight:400;font-size:11px;">Set appointment if they have a set timeline to sell</span></th>
+      <th style="background:#dc2626;color:#fff;padding:10px 14px;text-align:center;border:1px solid var(--fog);">🔴 Low<br><span style="font-weight:400;font-size:11px;">Do Not Set Appointment</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid var(--fog);">
+      <td style="padding:12px 14px;border:1px solid var(--fog);font-weight:600;color:var(--graphite);">If we agree on a fair price and all the other important details, when would you ideally like to finalize a sale?</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#f0fdf4;color:#15803d;font-weight:600;">ASAP, today, yesterday</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fffbeb;color:#92400e;">This month or next month, 30 days, 60 days, 90 days</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fef2f2;color:#991b1b;">You called me, when I get my price, everything is for sale at the right price, etc.</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--fog);">
+      <td style="padding:12px 14px;border:1px solid var(--fog);font-weight:600;color:var(--graphite);">If you did sell it to us or anyone else right now, why would you?</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#f0fdf4;color:#15803d;font-weight:600;">Reason matches their timeline well</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fffbeb;color:#92400e;">Reason matches their timeline well</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fef2f2;color:#991b1b;">You called me, no real reason to sell.</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--fog);">
+      <td style="padding:12px 14px;border:1px solid var(--fog);font-weight:600;color:var(--graphite);">In terms of condition — if you rated the property from 0 to 10, where 0 is horrible and 10 is a magazine cover, how would you rate it?</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#f0fdf4;color:#15803d;font-weight:600;">0 – 6</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fffbeb;color:#92400e;">7 – 8</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fef2f2;color:#991b1b;">9 – 10</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--fog);">
+      <td style="padding:12px 14px;border:1px solid var(--fog);font-weight:600;color:var(--graphite);">I guess you don't happen to know what you owe on the property, do you?</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#f0fdf4;color:#15803d;font-weight:600;">They will tell you the #</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fffbeb;color:#92400e;"></td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fef2f2;color:#991b1b;">I don't want to tell you</td>
+    </tr>
+    <tr>
+      <td style="padding:12px 14px;border:1px solid var(--fog);font-weight:600;color:var(--graphite);">Do you know what a fair price might be, or maybe understand what the neighbors are selling for?</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#f0fdf4;color:#15803d;font-weight:600;">Not sure but flexible</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fffbeb;color:#92400e;">Not sure, flexible</td>
+      <td style="padding:12px 14px;border:1px solid var(--fog);text-align:center;background:#fef2f2;color:#991b1b;">You're not going to low ball me, fair market value, etc.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 style="margin-top:28px;">How to Use This Matrix</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;">
+  <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;">
+    <div style="font-weight:700;color:#15803d;font-size:13px;margin-bottom:6px;">🟢 Mostly High Answers</div>
+    <div style="font-size:12px;color:#166534;line-height:1.6;">Book a same-day or next-day appointment. This is a priority lead — do not let them cool off. Move to <span style="font-weight:700;">Priority Top 20%</span> and assign immediately.</div>
+  </div>
+  <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px;">
+    <div style="font-weight:700;color:#92400e;font-size:13px;margin-bottom:6px;">🟡 Mostly Medium Answers</div>
+    <div style="font-size:12px;color:#78350f;line-height:1.6;">Book if they have a firm timeline to sell. If timeline is vague, move to <span style="font-weight:700;">Follow Up</span> and enroll in the drip sequence. Check back at 30 days.</div>
+  </div>
+  <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px;">
+    <div style="font-weight:700;color:#991b1b;font-size:13px;margin-bottom:6px;">🔴 Mostly Low Answers</div>
+    <div style="font-size:12px;color:#7f1d1d;line-height:1.6;">Do not set the appointment. No real motivation to sell. Tag appropriately and move to <span style="font-weight:700;">Redzones</span> or <span style="font-weight:700;">Long-Term Follow Up</span> — do not force an appointment that won't convert.</div>
+  </div>
+</div>
+`},
+      { id: 'lm-bpo', title: 'BPO Procedures', dept: 'Lead Management', owner: 'Ted',
+        content: `
+<h2>BPO Procedures</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ted</span></div>
+
+<p>A Broker Price Opinion (BPO) is a third-party valuation used to support our offer or provide confidence to a buyer. It is not ordered on every deal — only when the situation calls for it.</p>
+
+<h2>When to Order a BPO</h2>
+<table class="data-table">
+  <tr><th>Condition</th><th>Why It Matters</th></tr>
+  <tr><td>Deal ARV is over $200K</td><td>Higher-value deals warrant third-party validation to back up your numbers</td></tr>
+  <tr><td>Comps are thin or conflicting</td><td>When MLS comps don't give a clear picture, a BPO provides independent support</td></tr>
+  <tr><td>Property is unique</td><td>Large lot, mixed-use, non-standard construction — standard comps may not apply</td></tr>
+  <tr><td>Buyer specifically requests one</td><td>Some buyers require a BPO before committing — providing one removes friction</td></tr>
+</table>
+
+<h2>Step-by-Step Process</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Check the BPO card balance.</strong> Log into the BPO vendor account and verify there is sufficient balance before submitting anything.<br>
+      <div class="callout amber" style="margin-top:10px;">
+        <div class="callout-icon">💳</div>
+        <div class="callout-body">If the balance is low, post in <strong>#impact-lead-management</strong> on Slack and tag Ashley:<br>
+        <span style="font-family:var(--font-mono);font-size:12px;display:block;margin-top:6px;background:rgba(0,0,0,0.05);padding:6px 10px;border-radius:4px;">"BPO card needs refill — balance is $[amount]. Need to order for [Address]."</span>
+        Do not proceed until the card is funded.</div>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Submit the order.</strong> Enter the following:
+      <ul style="margin-top:8px;font-size:13px;">
+        <li>Property address — must match exactly what's on the A-B contract</li>
+        <li>Contact name and phone number for access</li>
+        <li>Gate codes or lockbox info if applicable</li>
+        <li>Preferred appointment windows</li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Track the order.</strong> BPOs typically take 3–5 business days. If the deal has a tight inspection deadline, note the urgency in the order and follow up with the vendor at the 3-day mark.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Review and distribute.</strong> When the BPO comes back, check it against your comp research. If the valuation is more than 10% off your ARV, flag it to Joshua for discussion before sharing with the buyer.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Upload and notify.</strong> Upload the BPO report to the opportunity card in GHL. Then post in the property Slack channel:<br>
+      <span style="font-family:var(--font-mono);font-size:12px;display:block;margin-top:6px;background:rgba(0,0,0,0.05);padding:6px 10px;border-radius:4px;">"BPO received for [Address] — $[Value]. Uploaded to GHL."</span>
+      Tag Joshua and whoever requested it.
+    </div>
+  </li>
+</ol>
+`}
+    ]
+  },
+  {
+    id: 'acq', label: 'Acquisitions', color: '#E3A728',
+    pages: [
+      { id: 'acq-overview', title: 'Department Overview', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>Department Purpose</h2>
+<p>Acquisitions is responsible for converting appointments into signed contracts. This requires mastery of property valuation (ARV and comps), offer structuring (MAO formula), in-person selling skills, and proper documentation of every deal.</p>
+
+<h2>The Acquisitions Workflow</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, review the lead notes, research the address on SDAT, check any prior contact history.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Run preliminary comps</strong> — Before the appointment, know your ballpark ARV. Don't go in blind.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Conduct the appointment</strong> — Walk the property, build rapport, screen motivation, present your offer.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Get the contract signed</strong> — If offer is accepted, execute the purchase agreement on-site when possible.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Create the Google Drive property folder</strong> — Immediately after a signed contract (see below).</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in GHL, TC can pick up the file without any additional communication required.</div></li>
+</ol>
+
+<h2>Your Pipelines in GHL</h2>
+
+<h3>Pipeline 2: Mike the Closer — 4 Stages</h3>
+<p>When Nicole books an appointment for Mike, the lead moves here immediately.</p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Review the lead card and prep before arriving.</td></tr>
+  <tr><td><span class="ghl-field">Offer Made/Followup</span></td><td>Appointment completed, offer presented. Awaiting seller response or in active negotiation.</td></tr>
+  <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Seller is nearly committed — one conversation or minor concession away from signing.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the reason in notes before leaving this stage.</td></tr>
+</table>
+
+<h3>Pipeline 3: Josh The Closer — 8 Stages</h3>
+<p>When Nicole books an appointment for Joshua, the lead moves here immediately.</p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked. Review lead card, run SDAT, pull comps before showing up.</td></tr>
+  <tr><td><span class="ghl-field">Appointment Completed</span></td><td>Walk-through done. Offer not yet presented or seller needs time to decide.</td></tr>
+  <tr><td><span class="ghl-field">Offer Made</span></td><td>Formal offer presented to seller. Awaiting response.</td></tr>
+  <tr><td><span class="ghl-field">Negotiating</span></td><td>Seller engaged but countering. Active back-and-forth in progress.</td></tr>
+  <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Seller is very close — needs one final push or minor concession to sign.</td></tr>
+  <tr><td><span class="ghl-field">Contract Signed</span></td><td>A-B executed. Mark opportunity as <strong>Won</strong> in GHL, create Drive folder, and move to TC pipeline immediately.</td></tr>
+  <tr><td><span class="ghl-field">Follow Up</span></td><td>Seller not ready now but still a real opportunity. Scheduled follow-up in place.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Lost Offer</span></td><td>Seller declined or deal fell through. Log reason in notes.</td></tr>
+</table>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Never leave a lead in the Leads pipeline after an appointment is booked.</strong> Move it to your pipeline immediately — if it stays in Leads, you may miss it entirely.</div>
+</div>`},
+      { id: 'acq-appointment', title: 'Appointment & Post-Appointment Process', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>Before the Appointment</h2>
+<ul>
+  <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
+  <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
+  <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
+  <li>Bring the credibility packet (printed or PDF ready on your phone)</li>
+</ul>
+
+<h2>During the Appointment</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Build rapport first</strong> — Ask about the property's history, acknowledge their situation before you talk numbers.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Walk the property</strong> — Take photos of every room, exterior, roof, HVAC, electrical panel. Document condition for your repair estimate.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Present your offer</strong> — Walk through the investor math transparently. Use the comparison table from the credibility packet if helpful.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Handle objections</strong> — Use the scripts in the credibility packet SOP. Avoid caving on price without a reason.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Get the signature</strong> — If they agree, execute the purchase agreement now. Do not leave "to send it later" — urgency drops dramatically off-site.</div></li>
+</ol>
+
+<h2>Post-Appointment: Signed Contract Protocol</h2>
+<div class="callout amber">
+  <div class="callout-icon">📁</div>
+  <div class="callout-body">
+    <strong>Create the Google Drive Property Folder — First Thing</strong>
+    Within 1 hour of getting a signed contract, you must create the property folder in Google Drive and add the link to the GHL deal record. This is how TC and Dispo access everything they need without asking you.
+  </div>
+</div>
+
+<div class="workflow-card">
+  <h4>Creating the Google Drive Property Folder</h4>
+  <ol class="step-list" style="margin:0">
+    <li><div class="step-num">1</div><div class="step-content"><strong>Go to the IHT Deals folder in Google Drive</strong> — This is the master folder all deals live in.</div></li>
+    <li><div class="step-num">2</div><div class="step-content"><strong>Create a new subfolder</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
+    <li><div class="step-num">3</div><div class="step-content"><strong>Add these files to the folder:</strong>
+      <ul style="margin-top:6px">
+        <li>Signed Purchase Agreement (PDF)</li>
+        <li>Property Info Sheet (ARV, repairs estimate, MAO, seller motivation notes)</li>
+        <li>Comp report or screenshot</li>
+        <li>Property photos</li>
+        <li>Any seller disclosures</li>
+      </ul>
+    </div></li>
+    <li><div class="step-num">4</div><div class="step-content"><strong>Copy the folder link</strong> — Right-click → Get link → Set to "Anyone with the link can view"</div></li>
+    <li><div class="step-num">5</div><div class="step-content"><strong>Paste the Drive link into GHL</strong> — Open the contact/deal record → Notes or the designated custom field → Paste the Drive link. Label it clearly: "Property Drive Folder: [link]"</div></li>
+    <li><div class="step-num">6</div><div class="step-content"><strong>Move GHL stage to <span class="ghl-field">Under Contract</span></strong> — This notifies TC to begin their process.</div></li>
+  </ol>
+</div>
+
+<div class="callout green">
+  <div class="callout-icon">✓</div>
+  <div class="callout-body">
+    <strong>What the Drive Link Enables</strong>
+    TC can order title without emailing you. Dispo can build the listing without asking for photos. Ashley can review the deal without a status update call. One link = the entire deal file, accessible to whoever needs it, anytime.
+  </div>
+</div>
+
+<h2>If the Seller Doesn't Sign Today</h2>
+<ul>
+  <li>Leave the credibility packet</li>
+  <li>Set a follow-up task in GHL for 24 hours out</li>
+  <li>Move stage to <span class="ghl-field">Attempting Contact</span> (post-appointment)</li>
+  <li>Send a follow-up text within 2 hours: "Hi [Name], thanks for your time today. I'll have a final offer to you by [time]. Questions? Call/text me anytime: [number]."</li>
+</ul>
+`},
+      { id: 'acq-comping', title: 'Comping Properties & ARV', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>The Comping Framework</h2>
+<p>ARV (After Repair Value) is the foundation of every offer. A wrong ARV = a wrong offer = a deal that can't be assigned or a loss. Run comps carefully, every time.</p>
+
+<h2>Comp Criteria</h2>
+<table class="data-table">
+  <tr><th>Criteria</th><th>Standard</th><th>Notes</th></tr>
+  <tr><td>Distance</td><td>Within 1 mile (0.5 mile preferred)</td><td>Expand only in rural areas; note it</td></tr>
+  <tr><td>Sale Date</td><td>Last 6 months preferred, 12 months max</td><td>Flag anything older than 9 months</td></tr>
+  <tr><td>Square Footage</td><td>Within 15–20% of subject</td><td>Adjust if needed</td></tr>
+  <tr><td>Bed/Bath</td><td>Same or ±1 bed; same bath preferred</td><td>Apply market adjustment for missing bath</td></tr>
+  <tr><td>Property Type</td><td>Same type (SFR, rowhome, semi-detached)</td><td>Never mix types</td></tr>
+  <tr><td>Condition</td><td>Renovated or retail condition only</td><td>Exclude REO, distressed, short sales</td></tr>
+</table>
+
+<h2>MAO Formula</h2>
+<div class="callout amber">
+  <div class="callout-icon">🧮</div>
+  <div class="callout-body">
+    <strong>Maximum Allowable Offer = ARV × 70% − Estimated Repairs</strong>
+    The 70% covers our assignment fee, investor profit margin, holding costs, and closing costs. Never go above MAO without explicit approval from Ashley.
+  </div>
+</div>
+
+<h2>Repair Estimation Guide</h2>
+<table class="data-table">
+  <tr><th>Item</th><th>Cosmetic</th><th>Moderate</th><th>Full Gut</th></tr>
+  <tr><td>Kitchen</td><td>$3K–$8K</td><td>$15K–$25K</td><td>$30K–$50K</td></tr>
+  <tr><td>Bathroom</td><td>$2K–$5K</td><td>$8K–$15K</td><td>$18K–$28K</td></tr>
+  <tr><td>Flooring (per 1K sq ft)</td><td>$2K–$4K</td><td>$5K–$8K</td><td>$10K–$15K</td></tr>
+  <tr><td>Roof</td><td>Repair $2K–$5K</td><td>—</td><td>Replace $8K–$18K</td></tr>
+  <tr><td>HVAC</td><td>Service $500–$1K</td><td>—</td><td>Replace $5K–$12K</td></tr>
+  <tr><td>Electrical</td><td>Updates $1K–$3K</td><td>Partial $5K–$12K</td><td>Full rewire $15K–$25K</td></tr>
+  <tr><td>Plumbing</td><td>Repairs $500–$2K</td><td>Partial $5K–$10K</td><td>Full repipe $12K–$22K</td></tr>
+  <tr><td>Paint (interior)</td><td>$2K–$5K</td><td>$4K–$8K</td><td>$8K–$15K</td></tr>
+</table>
+`}
+    ]
+  },
+  {
+    id: 'dispo', label: 'Dispositions', color: '#16A34A',
+    pages: [
+      { id: 'dispo-overview', title: 'Department Overview', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Department Purpose</h2>
+<p>Dispositions is responsible for marketing under-contract properties to qualified buyers, collecting offers, negotiating terms, executing assignment agreements, and coordinating with TC through to close. Dispo is where the deal becomes profit.</p>
+
+<h2>The Dispo Process Starts With the Drive Link</h2>
+<div class="callout amber">
+  <div class="callout-icon">📁</div>
+  <div class="callout-body">
+    <strong>Step Zero: Pull the Google Drive Link from GHL</strong>
+    Before building any listing or making any calls, open the deal in GHL and find the Google Drive folder link in the notes/custom field. Everything you need — property info sheet, comps, photos, signed contract — is in that folder. Never start dispo without it.
+  </div>
+</div>
+
+<h2>Dispo Workflow Overview</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Pull the Drive folder from GHL</strong> — Review the property info sheet: ARV, repairs estimate, purchase price, seller motivation, condition notes.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Set the assignment fee target</strong> — Based on ARV, repair estimate, and market demand. Typical range: $5K–$25K depending on deal size.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Build the listing</strong> — Headline with ARV and asking price. Include condition summary, repair notes, key features, and your assignment fee. See listing SOP for full template.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>VIP blast first</strong> — Send to your top-tier buyers before public marketing. Give them 24–48 hours of exclusivity.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Broad marketing</strong> — Email blast, buyer group posts, social media if appropriate.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Collect and evaluate offers</strong> — Score using the offer matrix (price, certainty, speed, relationship).</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Execute assignment agreement</strong> — Once buyer selected. Get signed B-C and EMD.</div></li>
+  <li><div class="step-num">8</div><div class="step-content"><strong>Hand off to TC</strong> — Update GHL with buyer's info and assignment details. TC handles closing coordination.</div></li>
+</ol>
+
+<h2>Your Pipeline in GHL</h2>
+<h3>Pipeline 6: Dispo — Buyer Marketing — 11 Stages</h3>
+<p>This pipeline tracks your buyers, not the properties. Every investor in your database lives here, tiered by relationship and transaction history.</p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">General / Prospective Buyers</span></td><td>New buyer — not yet verified or tiered. Proof of funds not on file. Receives broad blast marketing only.</td></tr>
+  <tr><td><span class="ghl-field">Priority</span></td><td>Verified funds, clear buy box, responds to blasts. Buying within 1–3 months. Gets priority deal alerts before the general list.</td></tr>
+  <tr><td><span class="ghl-field">Priority Complete</span></td><td>Priority buyer who has already closed a deal with IHT. Relationship established — natural path to VIP.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">VIP</span></td><td>Top-tier buyer. Proven closer, fast mover, funds verified. Gets 24–48 hour exclusivity window on every new deal before general list.</td></tr>
+  <tr><td><span class="ghl-field">Community VIP</span></td><td>Active in the REI community — agents, connectors, referral sources. May not buy directly but sends deals and referrals.</td></tr>
+  <tr><td><span class="ghl-field">Offer Received</span></td><td>Formal offer submitted with price, terms, POF attached. Being scored against other offers. Continue marketing to backup buyers until EMD is in hand.</td></tr>
+  <tr><td><span class="ghl-field">JV Partners</span></td><td>Joint venture partner — brings deals, capital, or buyers in exchange for a split. Terms documented in contact record.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Dead Buyer / Black Listed</span></td><td>Buyer tied up a deal and couldn't close, or blacklisted for bad behavior. Never receives deal alerts again. Reason documented.</td></tr>
+</table>
+
+<div class="callout amber">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>VIP buyers get first look — always.</strong> Send to VIP tier 24–48 hours before anyone else sees the deal. If you blast to everyone at once, your best buyers feel like everyone else and stop prioritizing your deals.</div>
+</div>
+
+<h2>Never Stop Marketing Until EMD Is In Hand</h2>
+<div class="callout crimson">
+  <div class="callout-icon">⚠</div>
+  <div class="callout-body">
+    <strong>Verbal interest is not a deal.</strong>
+    Continue marketing and showing the property to all buyers until you have a signed assignment agreement AND the earnest money deposit in escrow. A buyer who "loves it" but hasn't sent EMD is not a buyer.
+  </div>
+</div>
+`},
+      { id: 'dispo-listing', title: 'Building a Dispo Listing', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Starting From the Drive Folder</h2>
+<p>Your listing starts with the property info sheet in the Google Drive folder. Before you write a single word, you need to know:</p>
+<ul>
+  <li>ARV (confirmed, not estimated)</li>
+  <li>Your purchase price (what IHT is paying the seller)</li>
+  <li>Repair estimate and scope</li>
+  <li>Key features and neighborhood comps</li>
+  <li>Photos (from Drive folder)</li>
+</ul>
+
+<h2>Listing Headline Formula</h2>
+<div class="callout amber">
+  <div class="callout-icon">✏</div>
+  <div class="callout-body">
+    <strong>Lead with equity.</strong>
+    Investors buy margins, not properties. Your headline should tell them the deal instantly.
+    <br><br>
+    <strong>Format:</strong> ARV $[X] | Asking $[Y] | [City, State] | [Beds/Baths/Sq Ft]
+    <br>
+    <strong>Example:</strong> ARV $285K | Asking $159K | Baltimore, MD | 3BD/1BA/1,200 sq ft
+  </div>
+</div>
+
+<h2>Listing Template</h2>
+<p>Use this structure for every dispo listing:</p>
+<ol>
+  <li><strong>Headline</strong> (ARV + asking + location + size)</li>
+  <li><strong>Deal Overview</strong> — 2 sentences: what kind of deal, what the investor opportunity is</li>
+  <li><strong>Property Details</strong> — Address, beds/baths, sq ft, lot size, year built</li>
+  <li><strong>Condition Summary</strong> — Current condition; list what needs to be done</li>
+  <li><strong>Repair Estimate</strong> — $X,XXX scope breakdown</li>
+  <li><strong>Comparable Sales</strong> — 2–3 comps with addresses, sale dates, prices</li>
+  <li><strong>Assignment Fee</strong> — $X,XXX</li>
+  <li><strong>Terms</strong> — Cash/hard money only; close by [date]; inspection period: [X] days</li>
+  <li><strong>Contact</strong> — Name, phone, email</li>
+</ol>
+
+<h2>Offer Evaluation Matrix</h2>
+<table class="data-table">
+  <tr><th>Criteria</th><th>Weight</th><th>What to Look For</th></tr>
+  <tr><td>Price</td><td>40%</td><td>Closest to or at asking; no low-ball fishing</td></tr>
+  <tr><td>Certainty of Close</td><td>30%</td><td>Verified POF, proven closing history, non-refundable EMD</td></tr>
+  <tr><td>Speed</td><td>20%</td><td>Close date relative to contract expiration</td></tr>
+  <tr><td>Relationship</td><td>10%</td><td>Prior closings with IHT; repeat buyer premium</td></tr>
+</table>
+`},
+      { id: 'dispo-buyers', title: 'Buyer Management', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Buyer List Structure</h2>
+<p>Your buyer list is one of your most valuable business assets. It should be segmented, maintained, and grown continuously.</p>
+
+<table class="data-table">
+  <tr><th>Tier</th><th>Definition</th><th>How to Treat Them</th></tr>
+  <tr><td><strong>VIP</strong></td><td>Has closed with IHT or proven closers with funds ready</td><td>First to hear about every deal. 24–48 hour exclusivity window.</td></tr>
+  <tr><td><strong>Active</strong></td><td>Buys regularly, responds quickly, has verified POF on file</td><td>Included in all blasts. Fast responders get preference.</td></tr>
+  <tr><td><strong>General</strong></td><td>Has expressed interest; hasn't closed or POF not verified</td><td>Included in broad blasts. Must submit POF before offer is considered.</td></tr>
+</table>
+
+<h2>Required Buyer Information (on file before any offer is accepted)</h2>
+<ul>
+  <li>✓ Proof of Funds (dated within 60 days)</li>
+  <li>✓ Preferred property types and price range (buy box)</li>
+  <li>✓ Typical close timeline</li>
+  <li>✓ EMD amount they're comfortable with</li>
+  <li>✓ Contact info: name, phone, email, attorney/title contact</li>
+</ul>
+
+<h2>Adding Buyers to GHL</h2>
+<p>Every buyer should be a contact in GHL tagged with: <span class="ghl-field">Buyer</span> + their tier tag (<span class="ghl-field">VIP</span>, <span class="ghl-field">Active</span>, or <span class="ghl-field">General</span>). Log their buy box in the contact notes so you can filter by deal type.</p>
+`}
+    ]
+  },
+  {
+    id: 'tc', label: 'Transaction Coordination', color: '#7C3AED',
+    pages: [
+      { id: 'tc-overview', title: 'Department Overview', dept: 'Transaction Coordination', owner: 'Mike',
+        content: `
+<h2>Department Purpose</h2>
+<p>Transaction Coordination takes over once a seller has signed the purchase agreement. TC is responsible for managing the deal from contract to close — coordinating with title, tracking deadlines, ensuring all documents are in order, and keeping every stakeholder updated.</p>
+
+<div class="callout blue">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">
+    <strong>TC Starts From the Drive Link</strong>
+    When a deal moves to <span class="ghl-field">Under Contract</span> in GHL, TC's first step is to open the Google Drive folder linked in the deal record. The signed contract and property info sheet will be there. Never chase the acquisition agent for documents — if something is missing from the folder, flag it in GHL notes.
+  </div>
+</div>
+
+<h2>TC Responsibilities</h2>
+<ul>
+  <li>Order title search within 24 hours of receiving a signed contract</li>
+  <li>Track all critical dates: inspection deadline, financing contingency, closing date</li>
+  <li>Coordinate with title company / closing attorney</li>
+  <li>Collect and verify buyer's assignment documents and EMD</li>
+  <li>Flag any title issues, liens, or encumbrances to the acquisitions agent and Ashley</li>
+  <li>Ensure all parties have their closing instructions 48 hours before closing</li>
+  <li>Document every update in GHL and the Drive folder</li>
+</ul>
+
+<h2>Slack Communication</h2>
+<p>Use the right channel for every message. Do not post deal-specific updates in general channels, and do not use random channels just because it's convenient.</p>
+<table class="data-table">
+  <tr><th>Channel</th><th>Use It For</th></tr>
+  <tr><td><strong>#[property-address]</strong></td><td>All updates, questions, and documents for that specific deal. One channel per property — this is your primary channel for everything deal-related.</td></tr>
+  <tr><td><strong>#transaction-coordination</strong></td><td>General TC updates, process questions, and cross-deal coordination that doesn't belong in a single property channel.</td></tr>
+  <tr><td><strong>#mike-maryland-deals-updates</strong></td><td>Mike-specific deal updates, acquisition wins, and anything requiring Mike's attention outside of a specific property channel.</td></tr>
+  <tr><td><strong>#appointments</strong></td><td>Appointment activity — auto-posted by GHL when booked, rescheduled, or cancelled. Do not post manually.</td></tr>
+  <tr><td><strong>#impact-dispositions</strong></td><td>Dispo-related communication — buyer activity, listing updates, offers received, assignment status.</td></tr>
+</table>
+
+<h2>Critical Dates Tracker</h2>
+<p>For every deal, TC must track and calendar these dates in GHL:</p>
+<ul>
+  <li><strong>Inspection Period Expiration</strong> — Date by which IHT must exercise any inspection contingency</li>
+  <li><strong>EMD Due Date</strong> — When earnest money must be delivered to title</li>
+  <li><strong>Financing Contingency (if any)</strong> — Deadline for buyer to secure financing</li>
+  <li><strong>Closing Date</strong> — Scheduled close per A-B contract</li>
+  <li><strong>Assignment Agreement Deadline</strong> — Must be executed before closing</li>
+</ul>
+
+<h2>Your Pipeline in GHL</h2>
+<h3>Pipeline 5: Transaction Coordination — 15 Stages</h3>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">New Deal!</span></td><td>A-B contract just signed. Send to title within 24 hours. Call seller to introduce yourself.</td></tr>
+  <tr><td><span class="ghl-field">Pre-Marketing / New File Received</span></td><td>Title file opened. Seller info sheet sent/collected. Inspection being scheduled. Dispo packaging the deal.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 1 (VIP)</span></td><td>Deal sent to Tier 1 VIP buyers. No buyer locked yet.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 2 (All Buyers + New Buyers)</span></td><td>Expanded to full buyer database. Still no signed B-C.</td></tr>
+  <tr><td><span class="ghl-field">Marketing Phase 3 (Retrade on Price, Refresh Listing)</span></td><td>Deal has not moved. Price or listing being reconsidered.</td></tr>
+  <tr><td><span class="ghl-field">Ready for DocuSign &gt; B-C Contract</span></td><td>Buyer identified and terms agreed. B-C contract being drafted and sent for signature.</td></tr>
+  <tr><td><span class="ghl-field">B-C Assigned</span></td><td>B-C contract signed. Both seller and buyer are under contract. Collecting EMD.</td></tr>
+  <tr><td><span class="ghl-field">Extension Needed</span></td><td>Closing deadline must be extended. Addendum required from one or both parties.</td></tr>
+  <tr><td><span class="ghl-field">Closing Scheduled</span></td><td>Closing date confirmed with title, seller, and buyer. All clear to close.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">AT RISK (Title or Closing Issue)</span></td><td>Active blocker — title problem, buyer backing out, seller delay. Post in <strong>#[property-address]</strong> immediately and tag Ashley.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">Closed - Dispo Complete</span></td><td>Both sides settled. Funds disbursed. Run post-closing checklist.</td></tr>
+  <tr><td><span class="ghl-field">IMPACT Buying</span></td><td>IHT purchasing directly — not assigning. Different closing process. Ashley manages.</td></tr>
+  <tr><td><span class="ghl-field">Active Short Sale</span></td><td>Bank approval required. 3–6 month timeline. Regular lender follow-up cadence set by TC.</td></tr>
+</table>`},
+      { id: 'tc-ghl', title: 'Transaction Management in GHL', dept: 'Transaction Coordination', owner: 'Ashley',
+        content: `
+<h2>Transaction Management in GHL</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley</span></div>
+
+<h2>When a Deal Enters TC</h2>
+<p>A deal enters TC when an A-B contract is signed. The opportunity card should already have the A-B contract, comp link, and all pricing fields from Acquisitions. TC then manages the deal through closing.</p>
+
+<h2>Slack Communication</h2>
+<p>All TC updates must go in the correct channel. Do not rely on GHL notifications alone — the team reads Slack faster than they check GHL dashboards.</p>
+<table class="data-table">
+  <tr><th>Channel</th><th>Use It For</th></tr>
+  <tr><td><strong>#[property-address]</strong></td><td>Everything for that specific deal — new contract, title updates, EMD status, closing confirmation, issues. This is your primary channel for all deal-specific communication.</td></tr>
+  <tr><td><strong>#transaction-coordination</strong></td><td>General TC process updates and cross-deal coordination.</td></tr>
+  <tr><td><strong>#mike-maryland-deals-updates</strong></td><td>Mike-specific deal updates and anything needing Mike's attention.</td></tr>
+  <tr><td><strong>#appointments</strong></td><td>Appointment activity — auto-posted by GHL. Do not post manually.</td></tr>
+  <tr><td><strong>#impact-dispositions</strong></td><td>Dispo activity — buyer updates, listing status, offers, assignment closings.</td></tr>
+</table>
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body">When a deal has an issue (title problem, seller delay, buyer backing out), post immediately in the property channel:<br>
+  <span style="font-family:var(--font-mono);font-size:12px;display:block;margin-top:6px;background:rgba(0,0,0,0.05);padding:6px 10px;border-radius:4px;">"⚠️ [Address] — [Issue]. [What you need / what's happening next]."</span></div>
+</div>
+
+<h2>Required Opportunity Fields</h2>
+<p>These fields must be populated on every TC opportunity card before the file is considered complete.</p>
+
+<h3>Opportunity Screen</h3>
+<table class="data-table">
+  <tr><th>Field</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">Pipeline</span></td><td>Transaction Coordination</td></tr>
+  <tr><td><span class="ghl-field">Status</span></td><td>Current stage (New Deal!, Marketing Phase 1, B-C Assigned, etc.)</td></tr>
+  <tr><td><span class="ghl-field">Opportunity Value</span></td><td>B-C price minus A-B price — this is the assignment fee / gross spread</td></tr>
+</table>
+
+<h3>A-B Contract Fields</h3>
+<table class="data-table">
+  <tr><th>Field</th></tr>
+  <tr><td><span class="ghl-field">A-B Date Signed</span></td></tr>
+  <tr><td><span class="ghl-field">A-B Contracted Price</span></td></tr>
+  <tr><td><span class="ghl-field">A-B Closing Date</span></td></tr>
+  <tr><td><span class="ghl-field">A-B Inspection Deadline</span></td></tr>
+  <tr><td><span class="ghl-field">A-B EMD</span></td></tr>
+</table>
+
+<h3>B-C Contract Fields</h3>
+<table class="data-table">
+  <tr><th>Field</th></tr>
+  <tr><td><span class="ghl-field">B-C Date Signed</span></td></tr>
+  <tr><td><span class="ghl-field">B-C Assignment Sales Price</span></td></tr>
+  <tr><td><span class="ghl-field">B-C EMD</span></td></tr>
+  <tr><td><span class="ghl-field">B-C EMD Status</span></td></tr>
+  <tr><td><span class="ghl-field">Date B-C EMD Received by Title</span></td></tr>
+  <tr><td><span class="ghl-field">Closing Confirmed Date B-C</span></td></tr>
+  <tr><td><span class="ghl-field">B-C Contract Upload</span> — upload the signed B-C contract file</td></tr>
+</table>
+
+<h2>Transaction Checklist A-B</h2>
+<p>Complete in order per the TC Closing Process SOP. Each item is a checkbox on the opportunity card.</p>
+<table class="data-table">
+  <tr><th style="width:32px;">☐</th><th>Item</th></tr>
+  <tr><td>☐</td><td>File sent to title company</td></tr>
+  <tr><td>☐</td><td>All Opportunity Fields Completed</td></tr>
+  <tr><td>☐</td><td>Call Seller + Set Expectations</td></tr>
+  <tr><td>☐</td><td>Send Contract to Title + Notify of Timeline + File Notes</td></tr>
+  <tr><td>☐</td><td>Preliminary Lien Info + Mortgage Payoff Received</td></tr>
+  <tr><td>☐</td><td>Signed B-C</td></tr>
+</table>
+
+<h2>Transaction Checklist B-C</h2>
+<table class="data-table">
+  <tr><th style="width:32px;">☐</th><th>Item</th></tr>
+  <tr><td>☐</td><td>After 24 Hours Confirm EMD is Received</td></tr>
+  <tr><td>☐</td><td>Call Buyer + Set the Stage + Expectations</td></tr>
+  <tr><td>☐</td><td>Check in w/ Title Re: Buyer Financing Updates</td></tr>
+  <tr><td>☐</td><td>Confirm w/ Title Lien Sheet/Payoff Info Received</td></tr>
+  <tr><td>☐</td><td>Closing Scheduled w/ Seller</td></tr>
+  <tr><td>☐</td><td>Closing Scheduled w/ Buyer</td></tr>
+  <tr><td>☐</td><td>Upload HUD to Files</td></tr>
+</table>
+
+<h2>Closing & Financial Fields</h2>
+<table class="data-table">
+  <tr><th>Field</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">Closing Status</span></td><td>Current closing status</td></tr>
+  <tr><td><span class="ghl-field">Gross Profit</span></td><td>Fill in AFTER closing from the HUD</td></tr>
+  <tr><td><span class="ghl-field">JV Fee</span></td><td>If applicable</td></tr>
+  <tr><td><span class="ghl-field">Wholesale Fee</span></td><td></td></tr>
+  <tr><td><span class="ghl-field">Notes or Issues on Closing</span></td><td></td></tr>
+</table>
+
+<h2>Additional Required Fields</h2>
+<table class="data-table">
+  <tr><th>Field</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">SPA Seller Name</span></td><td>Seller name, other occupants, seller forwarding address, any relevant notes from the file</td></tr>
+  <tr><td><span class="ghl-field">File Updates</span></td><td>All updates on the file go here as running notes</td></tr>
+  <tr><td><span class="ghl-field">Occupancy Info</span></td><td></td></tr>
+  <tr><td><span class="ghl-field">Lockbox Code</span></td><td>If applicable</td></tr>
+  <tr><td><span class="ghl-field">Relevant File Info</span></td><td>Any additional notes or context about the transaction</td></tr>
+</table>
+`},
+      { id: 'tc-closing-process', title: 'TC Closing Process — Full Checklist', dept: 'Transaction Coordination', owner: 'Ashley',
+        content: `
+<h2>TC Closing Process — Full Checklist</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley</span></div>
+
+<p>This is the step-by-step process from A-B contract received through settlement. Each step has a target day counted from contract signing. Follow this checklist on every deal — no exceptions.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">📌</div>
+  <div class="callout-body"><strong>Day 1 = the day the A-B contract is signed.</strong> All deadlines below count from that date. Post every milestone update in the property's dedicated Slack channel.</div>
+</div>
+
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>A-B Contract Received</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 1</span><br>
+      Contract is signed. File enters TC pipeline at <span class="ghl-field" style="background:#d4edda;color:#155724;">New Deal!</span> stage. Confirm the contract is fully executed and uploaded to GHL.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>File Sent to Title Company</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 1</span><br>
+      Send the A-B contract to the assigned title company within 24 hours. Request title search and confirm they have everything needed to open the file.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Dispositions File Completed</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 1</span><br>
+      Confirm the GHL deal card has all required fields: property details, ARV, comp link, repair estimate, photos, listing copy. If anything is missing, send it back to Acquisitions.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Call Seller — Introduce Yourself</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 1</span><br>
+      Call the seller to introduce yourself as their point of contact through closing.<br>
+      <div style="background:var(--cloud);border-left:3px solid var(--amber);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;font-style:italic;color:var(--graphite);">
+        "I'm calling to introduce myself as your next point of contact, all the way through our settlement/closing."
+      </div>
+      <ul style="margin:8px 0 0;font-size:13px;">
+        <li><strong>Seller Info Sheet:</strong> Do we have it? If no, send it and ask seller to complete. If yes, verify all fields are filled.</li>
+        <li><strong>Occupancy:</strong> If occupied/rented — "Have you informed the tenants that we'll need access 1-2 times before we purchase?" If vacant, confirm lockbox/access details.</li>
+        <li><strong>Set the Table:</strong> Explain the timeline, what happens next (title search, inspection, closing), and set communication cadence expectations.</li>
+      </ul>
+    </div>
+  </li>
+</ol>
+
+<h3 style="margin:20px 0 10px;">Scheduling the Inspection</h3>
+<p>Schedule within 7 days of contract signing. Book 72 hours after signing. <strong>Tuesday through Thursday only. Earliest slot: 12–1 PM. Latest: 4–5 PM. Do not book back-to-back inspections.</strong></p>
+<div style="background:var(--cloud);border-left:3px solid var(--amber);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;font-style:italic;color:var(--graphite);">
+  "I hope you're doing well. I wanted to reach out about scheduling the property inspection — we typically conduct inspections within 7 days after the contract has been signed. Having the inspection early gives both parties enough time to address anything that comes up."
+</div>
+<p style="font-size:13px;color:var(--steel);">If the property is vacant with a lockbox (FPS), no seller coordination needed — schedule directly. For occupied properties, coordinate with seller.</p>
+<p style="font-size:13px;"><strong>Title follow-up script:</strong></p>
+<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;font-style:italic;color:var(--graphite);">
+  "Good morning, I hope you are doing well. I want to ensure that you have everything you need for us to move forward. If there are any steps we need to take to expedite the process, please do not hesitate to let us know."
+</div>
+
+<ol class="step-list" start="5">
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Forward All Documents to Title</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 1–2</span><br>
+      Confirm title has everything they need to process the file. Confirm target closing date: "We want to close on [date] and/or can close ASAP."
+    </div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Check for Preliminary Lien Sheet</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 7</span><br>
+      Follow up with title: "Do you have the preliminary lien sheet or mortgage info back yet?"
+    </div>
+  </li>
+  <li>
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Check Dispo Status</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 7</span><br>
+      Check with Dispositions: Do we have a buyer? What stage is the deal in?
+      <table class="data-table" style="margin-top:8px;">
+        <tr><th>Stage</th><th>Status</th></tr>
+        <tr><td><span class="ghl-field">Pre-Marketing</span></td><td>No buyer yet — deal is being packaged</td></tr>
+        <tr><td><span class="ghl-field">Marketing Phase 1</span></td><td>No buyer yet — sent to VIP list</td></tr>
+        <tr><td><span class="ghl-field">Marketing Phase 2</span></td><td>No buyer yet — sent to full database</td></tr>
+        <tr><td><span class="ghl-field">Assigned</span></td><td>Buyer located ✓</td></tr>
+        <tr><td><span class="ghl-field">Impact Buying</span></td><td>We are purchasing directly</td></tr>
+      </table>
+      <p style="font-size:13px;margin-top:8px;"><strong>Screening buyer offers:</strong> Cash or Hard Money? If hard money — have they worked with this lender before? How many deals closed with them? Approved for 100% of the property? Do they need inspection or appraisal?</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">8</div>
+    <div class="step-content">
+      <strong>EMD Verification</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 7</span><br>
+      If B-C is signed, has the buyer's EMD been received by title/escrow? Confirm buyer has sent, then email title to verify receipt.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">9</div>
+    <div class="step-content">
+      <strong>Introduce Yourself to the Buyer</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 7</span><br>
+      Call the buyer to set expectations: "I want to make sure you have a 5-star experience with Impact Home Team." Cover: timeline, closing process, what you need from them, and who to contact with questions.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">10</div>
+    <div class="step-content">
+      <strong>Buyer Lender Requirements</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 8</span><br>
+      Ask title: "Have you spoken to the buyer's lender and received their requirements? Do you know how many days they need to fund and close after ALTA is approved?" If title hasn't received lender info: "Do you have the buyer's lender contact information?"
+    </div>
+  </li>
+  <li>
+    <div class="step-num">11</div>
+    <div class="step-content">
+      <strong>Title & Lien Clearance Check</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 10–14</span><br>
+      Follow up with title: "Do you have lien and title back on this one? Are we looking good to close on time or early?" Verify: Clear on liens? Clear on title? Clear to close?
+    </div>
+  </li>
+  <li>
+    <div class="step-num">12</div>
+    <div class="step-content">
+      <strong>Preliminary ALTA Request</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 10–14</span><br>
+      Ask title: "Are we clear to close? Can you send us a preliminary ALTA ASAP?" Review the ALTA for accuracy — verify all numbers match both contracts.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">13</div>
+    <div class="step-content">
+      <strong>Closing Scheduling</strong> <span style="font-size:11px;color:var(--steel);font-weight:700;background:var(--fog);padding:2px 8px;border-radius:10px;margin-left:6px;">Day 10–14</span><br>
+      Confirm: "Is the closing now scheduled with the buyer and seller?" All three parties must confirm date and time.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">14</div>
+    <div class="step-content">
+      <strong>Seller Ready Check</strong><br>
+      <div style="background:var(--cloud);border-left:3px solid var(--amber);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;font-style:italic;color:var(--graphite);">"Hey [Seller], are you ready to close this week?"</div>
+      Confirm they have ID, know the location, and understand the timeline.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">15</div>
+    <div class="step-content">
+      <strong>Buyer Ready Check</strong><br>
+      <div style="background:var(--cloud);border-left:3px solid var(--amber);padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:13px;font-style:italic;color:var(--graphite);">"Hey [Buyer], are you ready to close this week?"</div>
+      Confirm funding is ready, lender (if applicable) has approved, and they can attend.
+    </div>
+  </li>
+</ol>
+
+<h2>Post-Closing</h2>
+<p>Once settled, execute the 9-step post-closing checklist:</p>
+<table class="data-table">
+  <tr><th style="width:32px;">☐</th><th>Item</th></tr>
+  <tr><td>☐</td><td>Confirm funds disbursed</td></tr>
+  <tr><td>☐</td><td>Upload HUD to GHL</td></tr>
+  <tr><td>☐</td><td>Upload all closing docs</td></tr>
+  <tr><td>☐</td><td>Send review request to seller</td></tr>
+  <tr><td>☐</td><td>Enter Settled Date in GHL</td></tr>
+  <tr><td>☐</td><td>Enter Gross Profit in GHL</td></tr>
+  <tr><td>☐</td><td>Enter Net Profit in GHL</td></tr>
+  <tr><td>☐</td><td>Add final note to the deal file</td></tr>
+  <tr><td>☐</td><td>Move opportunity to <span class="ghl-field" style="background:#d4edda;color:#155724;">Closed - Dispo Complete</span></td></tr>
+</table>
+<p style="margin-top:10px;">Post in <strong>#[property-address]</strong> to confirm the deal is closed.</p>
+`}
+    ]
+  },
+
+  {
+    id: 'conversations', label: 'GHL Conversations', color: '#0EA5E9',
+    pages: [
+      { id: 'conv-overview', title: 'Conversations Overview', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>GHL Conversations</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
+
+<p>Conversations is the unified inbox inside GHL. Every text, email, call log, voicemail, Facebook message, and live chat across every lead and contact flows into one place. This is not a supplementary tool — it is your primary communication hub. If you are not checking Conversations regularly, you are missing replies, letting leads go cold, and losing deals to speed.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>Speed to lead wins deals.</strong> A seller who texts in at 2 PM and gets a reply at 2:02 PM is a seller who feels taken care of. One who gets a reply at 6 PM has already called someone else. Conversations is how you stay fast.</div>
+</div>
+
+<h2>How to Access Conversations</h2>
+<p>Click <span class="ghl-field">Conversations</span> in the left sidebar of GHL. This opens the unified inbox. All incoming messages from every channel — SMS, email, calls, voicemail drops, social — appear here in real time.</p>
+
+<h2>Filters — Use These Every Day</h2>
+<p>The filter bar at the top of Conversations lets you cut through the noise and find exactly what needs your attention. Learn these and use them on every login.</p>
+
+<table class="data-table">
+  <tr><th>Filter</th><th>What It Shows</th><th>When to Use It</th></tr>
+  <tr>
+    <td><span class="ghl-field">All</span></td>
+    <td>Every conversation across the entire account regardless of assignment</td>
+    <td>When you want a full picture of activity or are covering for a teammate</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Assigned to Me</span></td>
+    <td>Only conversations where you are the assigned user</td>
+    <td><strong>Your default view.</strong> Start every session here — these are your leads, your replies, your responsibility.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Recents</span></td>
+    <td>Conversations with the most recent activity, sorted newest first</td>
+    <td>For checking what just came in or catching up after time away. Fast scan for anything hot.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">⭐ Starred</span></td>
+    <td>Conversations you have manually starred</td>
+    <td>For leads or deals you need to revisit. Star anything you want to remember to follow up on — a hot seller, a deal in negotiation, a buyer waiting on a decision.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Unread</span></td>
+    <td>Any conversation with messages you have not opened yet</td>
+    <td>Quick triage — never leave unread messages sitting. Every unread is a potential deal waiting on you.</td>
+  </tr>
+</table>
+
+<h2>Starring Conversations</h2>
+<p>Star any conversation you need to come back to. This is your personal watchlist inside GHL. Use it for:</p>
+<ul>
+  <li>Hot sellers who are close but haven't committed yet</li>
+  <li>Leads you are waiting to hear back from after a specific follow-up</li>
+  <li>Deals mid-negotiation where a reply is expected</li>
+  <li>Any contact where the next step is time-sensitive</li>
+</ul>
+<p>Starred conversations live in their own filter so you never have to hunt for them. Review your starred list at the start and end of every shift.</p>
+
+<h2>Tasks and Reply Notifications</h2>
+<p>GHL creates tasks when a lead or contact replies to a message and action is needed. <strong>Check your task list alongside Conversations — tasks and conversations work together.</strong> A task may tell you that a specific lead replied; Conversations is where you go to read the message and respond.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">
+    <strong>Your daily rhythm should be:</strong>
+    <ol style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:2.2;">
+      <li>Open <strong>Conversations → Assigned to Me</strong> — clear anything unread</li>
+      <li>Check <strong>Starred</strong> — any replies or updates on leads you are watching?</li>
+      <li>Check <strong>Recents</strong> — anything hot that just came in?</li>
+      <li>Work your <strong>Task list</strong> — complete tasks that involve replying or following up</li>
+    </ol>
+  </div>
+</div>
+
+<h2>What Flows Through Conversations</h2>
+<table class="data-table">
+  <tr><th>Channel</th><th>What You'll See</th></tr>
+  <tr><td><strong>SMS / Text</strong></td><td>All inbound and outbound texts with every contact. The most common channel for seller communication.</td></tr>
+  <tr><td><strong>Email</strong></td><td>Emails sent and received through GHL. Includes automated sequences and manual replies.</td></tr>
+  <tr><td><strong>Calls</strong></td><td>Call logs, recordings (if enabled), and voicemails. Every call to or from a GHL contact is logged here.</td></tr>
+  <tr><td><strong>Voicemail Drops</strong></td><td>Automated voicemails sent through workflows. Logged per contact.</td></tr>
+  <tr><td><strong>Facebook / Instagram DMs</strong></td><td>Social media messages from leads who respond to ads or message the page directly.</td></tr>
+  <tr><td><strong>Live Chat</strong></td><td>Chats from the website widget if enabled. Seller inquiries from the website land here.</td></tr>
+</table>
+
+<h2>Rules for Conversations at IHT</h2>
+<div class="callout amber">
+  <div class="callout-icon">📌</div>
+  <div class="callout-body">
+    <ul style="margin:0;padding-left:18px;font-size:13px;line-height:2.2;">
+      <li><strong>Never leave an inbound message unread for more than 15 minutes during business hours.</strong> Every unread is a waiting seller.</li>
+      <li><strong>Reply from Conversations, not from your personal phone.</strong> All communication must stay inside GHL so the team has full visibility and the contact record stays complete.</li>
+      <li><strong>Always call back or text back from the number the lead used to contact you.</strong> Do not switch channels without a reason.</li>
+      <li><strong>Star anything you are actively watching.</strong> If you un-star it, it means you have resolved it or it is no longer active.</li>
+      <li><strong>Log a note after every meaningful conversation.</strong> If it is not in GHL, it did not happen.</li>
+    </ul>
+  </div>
+</div>
+`}
+    ]
+  },
+
+  {
+    id: 'training', label: 'Training Portal', color: '#7C3AED',
+    pages: [
+      { id: 'training-home', title: 'Training Portal', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Team Training Portal</h2>
+<p>All role quizzes and department certifications are hosted in the Impact Home Team Training Portal. Every team member must complete the quizzes required for their role before working independently.</p>
+<div style="text-align:center;margin:40px 0;">
+  <a href="https://training-8w71lslej-ashleys-projects-58e2b9d4.vercel.app/" target="_blank"
+     style="display:inline-block;background:#7C3AED;color:#fff;font-family:var(--font-sans);font-size:15px;font-weight:700;padding:16px 36px;border-radius:10px;text-decoration:none;letter-spacing:.02em;box-shadow:0 4px 14px rgba(124,58,237,0.35);">
+    Open Training Portal →
+  </a>
+  <div style="margin-top:12px;font-size:12px;color:var(--steel);">Opens in a new tab</div>
+</div>
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body"><strong>Pass threshold: 80%.</strong> You must score 80% or higher on each quiz for your role. Results are submitted to the team tracker automatically.</div>
+</div>` }
+    ]
+  },
 ];
 
 // ══════════════════════════════════════════════════════════
@@ -2529,11 +3720,11 @@ const PC_DATA = {
     skip:'DocuSign sits unsent for days. Buyer cools off. Contract window shrinks. Other buyers stop waiting and move on.' },
   'tc-bcassigned': { name:'B-C Assigned', pipe:'5) Transaction Coordination',
     means:['Assignment agreement signed by end buyer','EMD collected and in escrow','Both A-B and B-C are fully executed — closing is the only remaining step'],
-    unlocks:['Closing date confirmed with title company','All parties receive closing instructions','TC posts update in #transactions Slack'],
+    unlocks:['Closing date confirmed with title company','All parties receive closing instructions','TC posts update in the #[property-address] Slack channel'],
     skip:'BC assigned but closing never scheduled. Parties assume it is happening but no one coordinates. Closing missed.' },
   'tc-extension': { name:'Extension Needed', pipe:'5) Transaction Coordination',
     means:['Closing cannot happen on the original date','Reason documented: title issue, buyer delay, scheduling conflict','Seller consent required — TC must contact Acquisitions agent'],
-    unlocks:['Formal extension addendum drafted','New closing date negotiated and confirmed by all parties','TC alerts #transactions Slack with updated timeline'],
+    unlocks:['Formal extension addendum drafted','New closing date negotiated and confirmed by all parties','TC posts update in the #[property-address] Slack channel'],
     skip:'Extension assumed but not documented. Seller thinks the deal is dead. They call another buyer. Original contract expires unchallenged.' },
   'tc-closingsched': { name:'Closing Scheduled', pipe:'5) Transaction Coordination',
     means:['Date, time, and location confirmed with all parties','All closing documents sent 48 hours in advance','Both A-B and B-C closings coordinated'],
@@ -2645,7 +3836,7 @@ var QUIZZES = {
     { q: 'Where does TC find the signed contract and property documents for a new deal?', c: ['In the team Slack channel','In an email from the acquisitions agent','In the Google Drive folder linked in the GHL deal record','In the Google Sheets tracker'], a: 2, e: 'All deal documents are in the Google Drive folder. The link is in the GHL deal record.' },
     { q: 'What stage should TC move the deal to if a title issue is discovered?', c: ['Closing Scheduled','AT RISK (Title or Closing Issue)','Extension Needed','Dead Lead'], a: 1, e: 'AT RISK flags the deal for immediate review and escalation to Ashley and Acquisitions.' },
     { q: 'When should all closing documents be sent to all parties?', c: ['Day of closing','1 week before','48 hours before closing','When the buyer asks'], a: 2, e: '48 hours before closing ensures all parties have time to review and avoids day-of surprises.' },
-    { q: 'Which Slack channel should TC use to post deal milestone updates?', c: ['#general','#wins','#transactions','#acquisitions'], a: 2, e: '#transactions is the dedicated channel for all TC deal milestones and updates.' }
+    { q: 'How does TC communicate deal updates in Slack?', c: ['Post in #general','Post in #transactions','Each property has its own dedicated Slack channel','Send a direct message to Ashley'], a: 2, e: 'Every property has its own dedicated Slack channel. All TC updates for that deal go in that channel.' }
   ]},
   'dept-lead-management': { title: 'Lead Management Deep Dive', questions: [
     { q: 'What automation sequence runs when a lead is moved to Long-Term Follow-Up?', c: ['A one-time text','A 30/60/90-day drip sequence','A weekly email','Manual reminders only'], a: 1, e: 'LTFU triggers a 30/60/90-day automated drip to keep leads warm without manual effort.' },
