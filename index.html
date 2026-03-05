@@ -394,6 +394,7 @@ body {
    TRAINING PORTAL & QUIZ ENGINE STYLES
 ══════════════════════════════════════ */
 
+/* Training home grid */
 .tq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -410,11 +411,13 @@ body {
 .tq-card-meta { font-size: 11px; color: var(--steel); margin-bottom: 10px; }
 .tq-card-cta { font-size: 12px; font-weight: 700; color: var(--amber); }
 
+/* Progress bar */
 .qz-progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
 .qz-progress-bar { flex: 1; height: 6px; background: var(--fog); border-radius: 3px; overflow: hidden; }
 .qz-progress-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
 .qz-progress-label { font-size: 11px; color: var(--steel); font-weight: 600; white-space: nowrap; }
 
+/* Quiz card */
 .qz-card {
   background: var(--white); border: 1px solid var(--fog);
   border-radius: 10px; padding: 24px; margin-bottom: 20px;
@@ -422,6 +425,7 @@ body {
 .qz-q-num { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
 .qz-q-text { font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.5; margin-bottom: 20px; }
 
+/* Choices */
 .qz-choices { display: flex; flex-direction: column; gap: 10px; }
 .qz-choice {
   display: flex; align-items: center; gap: 14px;
@@ -440,6 +444,7 @@ body {
 .qz-choice.selected .qz-choice-letter { background: #7C3AED; color: #fff; }
 .qz-choice-text { font-size: 14px; color: var(--graphite); line-height: 1.4; }
 
+/* Nav buttons */
 .qz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
 .qz-btn {
   font-family: var(--font-sans); font-size: 13px; font-weight: 700;
@@ -454,6 +459,7 @@ body {
 .qz-btn-submit { background: var(--amber); color: #fff; }
 .qz-btn-submit:hover:not(:disabled) { background: var(--amber-dark); }
 
+/* Results */
 .qz-result-hero {
   background: var(--white); border: 2px solid; border-radius: 12px;
   padding: 28px; text-align: center; margin-bottom: 8px;
@@ -461,6 +467,7 @@ body {
 .qz-result-pct { font-family: var(--font-serif); font-size: 52px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
 .qz-result-msg { font-size: 15px; color: var(--graphite); }
 
+/* Review */
 .qz-review { display: flex; flex-direction: column; gap: 10px; }
 .qz-review-item {
   background: var(--white); border: 1px solid var(--fog);
@@ -497,6 +504,7 @@ body {
 }
 #admin-overlay.active { display: flex; }
 
+/* Admin topbar */
 .adm-topbar {
   height: 54px; background: var(--ink);
   border-bottom: 2px solid var(--amber);
@@ -530,10 +538,12 @@ body {
 .adm-btn-green { background: #16a34a; color: #fff; }
 .adm-btn-green:hover { background: #15803d; }
 
+/* Admin body layout */
 .adm-body {
   display: flex; flex: 1; overflow: hidden;
 }
 
+/* Admin sidebar nav */
 .adm-nav {
   width: 220px; background: var(--white);
   border-right: 1px solid var(--fog);
@@ -563,11 +573,13 @@ body {
 }
 .adm-nav-divider { height: 1px; background: var(--fog); margin: 8px 14px; }
 
+/* Admin main area */
 .adm-main {
   flex: 1; overflow-y: auto; padding: 28px 32px;
   background: var(--cloud);
 }
 
+/* Admin sections / cards */
 .adm-card {
   background: var(--white); border: 1px solid var(--fog);
   border-radius: 10px; margin-bottom: 20px; overflow: hidden;
@@ -585,6 +597,7 @@ body {
 }
 .adm-card-body { padding: 18px; }
 
+/* Content editor */
 .adm-editor-wrap { position: relative; }
 .adm-editor-tabs {
   display: flex; gap: 2px; margin-bottom: 10px;
@@ -633,6 +646,7 @@ body {
 .adm-save-status.saved { color: #16a34a; }
 .adm-save-status.unsaved { color: var(--crimson); }
 
+/* Page selector */
 .adm-page-select {
   width: 100%; padding: 8px 12px;
   border: 1px solid var(--fog); border-radius: 6px;
@@ -643,6 +657,7 @@ body {
 }
 .adm-page-select:focus { border-color: var(--amber); }
 
+/* Meta fields */
 .adm-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
 .adm-field { display: flex; flex-direction: column; gap: 4px; }
 .adm-field label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--steel); }
@@ -705,12 +720,14 @@ body {
 .adm-btn-danger { background: #FEE2E2; color: var(--crimson); border: 1px solid #FECACA; }
 .adm-btn-danger:hover { background: var(--crimson); color: #fff; }
 
+/* New question form */
 .adm-new-q-form {
   background: var(--amber-pale); border: 1px solid #f0d070;
   border-radius: 8px; padding: 16px; margin-top: 12px;
 }
 .adm-new-q-form h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
 
+/* AI Generator */
 .adm-ai-box {
   background: #F0F9FF; border: 1px solid #BAE6FD;
   border-radius: 8px; padding: 16px; margin-top: 6px;
@@ -735,6 +752,7 @@ body {
 .adm-ai-status.error { color: var(--crimson); font-style: normal; }
 .adm-ai-status.success { color: #16a34a; font-style: normal; }
 
+/* Export panel */
 .adm-export-box {
   background: var(--white); border: 1px solid var(--fog);
   border-radius: 8px; overflow: hidden; margin-bottom: 14px;
@@ -751,6 +769,7 @@ body {
   resize: none; outline: none;
 }
 
+/* Login screen */
 .adm-login {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   height: 100vh; background: var(--cloud); gap: 16px;
@@ -786,6 +805,7 @@ body {
 .adm-login-btn:hover { background: var(--amber-dark); }
 .adm-login-error { font-size: 12px; color: var(--crimson); text-align: center; display: none; }
 
+/* Toast */
 .adm-toast {
   position: fixed; bottom: 24px; right: 24px; z-index: 2000;
   background: var(--ink); color: #fff; padding: 12px 20px;
@@ -798,6 +818,7 @@ body {
 .adm-toast.success { border-left-color: #16a34a; }
 .adm-toast.error { border-left-color: var(--crimson); }
 
+/* Stat pills in export */
 .adm-stat-row { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
 .adm-stat {
   background: var(--white); border: 1px solid var(--fog);
@@ -834,7 +855,7 @@ body {
       <button class="adm-login-btn" onclick="admLogin()">Sign In</button>
       <div class="adm-login-error" id="adm-login-error">Incorrect password. Try again.</div>
       <div style="margin-top:14px;text-align:center;">
-        <span style="font-size:12px;color:var(--silver);cursor:pointer;" onclick="closeAdmin()">&#x2190; Back to manual</span>
+        <span style="font-size:12px;color:var(--silver);cursor:pointer;" onclick="closeAdmin()">← Back to manual</span>
       </div>
     </div>
   </div>
@@ -846,11 +867,11 @@ body {
     <div class="adm-topbar">
       <div class="adm-logo">I</div>
       <div class="adm-title">Admin Panel</div>
-      <div class="adm-tag">&#x2699; Internal Only</div>
+      <div class="adm-tag">⚙ Internal Only</div>
       <div class="adm-topbar-right">
         <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="admNav('export')">Export</button>
         <button class="adm-btn adm-btn-amber adm-btn-sm" onclick="admSaveAll()">Save All Changes</button>
-        <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="closeAdmin()">&#x2715; Close</button>
+        <button class="adm-btn adm-btn-ghost adm-btn-sm" onclick="closeAdmin()">✕ Close</button>
       </div>
     </div>
 
@@ -860,18 +881,18 @@ body {
       <div class="adm-nav" id="adm-nav">
         <div class="adm-nav-section">
           <span class="adm-nav-label">Content Editor</span>
-          <div class="adm-nav-item" id="adm-nav-content" onclick="admNav('content')">&#x1F4C4; Page Content</div>
+          <div class="adm-nav-item" id="adm-nav-content" onclick="admNav('content')">📄 Page Content</div>
         </div>
         <div class="adm-nav-divider"></div>
         <div class="adm-nav-section">
           <span class="adm-nav-label">Quiz Manager</span>
-          <div class="adm-nav-item" id="adm-nav-quizzes" onclick="admNav('quizzes')">&#x1F4DD; Quiz Questions</div>
-          <div class="adm-nav-item" id="adm-nav-aigen" onclick="admNav('aigen')">&#x2728; AI Generator</div>
+          <div class="adm-nav-item" id="adm-nav-quizzes" onclick="admNav('quizzes')">📝 Quiz Questions</div>
+          <div class="adm-nav-item" id="adm-nav-aigen" onclick="admNav('aigen')">✨ AI Generator</div>
         </div>
         <div class="adm-nav-divider"></div>
         <div class="adm-nav-section">
           <span class="adm-nav-label">System</span>
-          <div class="adm-nav-item" id="adm-nav-export" onclick="admNav('export')">&#x1F4E4; Export / Sync</div>
+          <div class="adm-nav-item" id="adm-nav-export" onclick="admNav('export')">📤 Export / Sync</div>
         </div>
       </div>
 
@@ -896,6 +917,2337 @@ body {
   <div class="content-wrap" id="content-area"></div>
 </div>
 
-<script src="app.js"></script>
+<script>
+// ══════════════════════════════════════════════════════════
+// SECTIONS DATA
+// ══════════════════════════════════════════════════════════
+const SECTIONS = [
+  {
+    id: 'brand', label: 'Brand & Identity', color: '#E3A728',
+    pages: [
+      { id: 'brand-kit', title: 'Brand Kit', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Brand Overview</h2>
+<p>Impact Home Team is a Maryland-based wholesale real estate investment company. Our brand communicates trust, professionalism, and speed — built for homeowners who need solutions, not complications. Every piece of communication your team produces should reflect this identity.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">★</div>
+  <div class="callout-body">
+    <strong>Brand Mission Statement</strong>
+    Helping Maryland homeowners solve problems with speed, respect, and transparency — while creating opportunity for investors to grow their portfolios.
+  </div>
+</div>
+
+<h2>Color Palette</h2>
+<p>Our palette is built around Amber and Crimson — warm, authoritative, and distinctive. Use these values precisely for print, digital, and presentations.</p>
+
+<div class="swatch-row">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#E3A728;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Amber</div>
+      <div class="swatch-hex">#E3A728</div>
+      <div class="swatch-role">Primary · CTAs · Accents</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#C48E1F;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Dark</div>
+      <div class="swatch-hex">#C48E1F</div>
+      <div class="swatch-role">Hover states · Body links</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#FEF7E0;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Pale</div>
+      <div class="swatch-hex">#FEF7E0</div>
+      <div class="swatch-role">Backgrounds · Callouts</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#A52325;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Crimson</div>
+      <div class="swatch-hex">#A52325</div>
+      <div class="swatch-role">Secondary accent · Urgency</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#1A1A1A;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Charcoal Ink</div>
+      <div class="swatch-hex">#1A1A1A</div>
+      <div class="swatch-role">Headers · Backgrounds</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#F5F4F1;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cloud</div>
+      <div class="swatch-hex">#F5F4F1</div>
+      <div class="swatch-role">Page backgrounds</div>
+    </div>
+  </div>
+</div>
+
+<h2>Typography</h2>
+<p>We use two typefaces. Always pull from Google Fonts when building digital assets.</p>
+
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Serif Display',serif;">DM Serif Display</div>
+  <div class="meta">font-family: 'DM Serif Display', Georgia, serif</div>
+  <div class="alphabet" style="font-family:'DM Serif Display',serif;">Aa Bb Cc — Headlines, Section Titles, Hero Text</div>
+</div>
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Sans',sans-serif;font-weight:400;">DM Sans</div>
+  <div class="meta">font-family: 'DM Sans', system-ui, sans-serif · Weights: 300, 400, 500, 600, 700</div>
+  <div class="alphabet" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Body copy, labels, UI elements, all prose</div>
+</div>
+
+<h2>Logo Usage</h2>
+<p>The Impact Home Team logo uses the lettermark "I" in our amber/gold color. Below are the approved usage contexts:</p>
+
+<div class="logo-grid">
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#1A1A1A;">
+      <div class="logo-mark-lg" style="background:#E3A728;">I</div>
+    </div>
+    <div class="logo-label">✓ Dark background (primary use)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#fff;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ White/light background (reversed)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#E3A728;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ Amber background (event materials)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+      <div style="font-size:32px;">✗</div>
+    </div>
+    <div class="logo-label">✗ Never on non-brand backgrounds</div>
+  </div>
+</div>
+
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body">
+    <strong>Logo files</strong>
+    All logo files (SVG, PNG, variations) are stored in the <a href="#">Brand Assets Google Drive folder</a>. Never recreate the logo from scratch — always pull from that folder.
+  </div>
+</div>
+
+<h2>Voice & Tone</h2>
+<table class="data-table">
+  <tr><th>We Are</th><th>We Are Not</th></tr>
+  <tr><td><strong>Direct</strong> — Get to the point. Sellers are stressed; don't waste their time.</td><td><strong>Pushy</strong> — No high-pressure tactics.</td></tr>
+  <tr><td><strong>Empathetic</strong> — Acknowledge their situation before presenting solutions.</td><td><strong>Transactional</strong> — Every interaction should feel human.</td></tr>
+  <tr><td><strong>Confident</strong> — We know our numbers and stand behind them.</td><td><strong>Arrogant</strong> — Humility closes more deals.</td></tr>
+  <tr><td><strong>Professional</strong> — Proper grammar, clean materials, on-brand everything.</td><td><strong>Corporate/Cold</strong> — We're a family business.</td></tr>
+</table>
+
+<h2>Brand Application Checklist</h2>
+<p>Before sending any document, email, or presentation to an external party:</p>
+<ul>
+  <li>✓ Uses Amber (#E3A728) and/or Crimson (#A52325) — not random colors</li>
+  <li>✓ DM Serif Display for headings, DM Sans for body</li>
+  <li>✓ Company name is always "Impact Home Team" — never shortened to "IHT" externally</li>
+  <li>✓ Contact info is current (sellyourmdhousenow.com)</li>
+  <li>✓ No clip art, generic stock photos, or off-brand fonts</li>
+</ul>
+`},
+      { id: 'credibility-packet', title: 'Credibility Packet', dept: 'Acquisitions', owner: 'Ashley Hines',
+        content: `
+<h2>What Is the Credibility Packet?</h2>
+<p>The credibility packet is a leave-behind document given to sellers after an in-person or virtual appointment. Its purpose is to answer remaining doubts, reinforce trust, and motivate the seller to sign — even if they didn't commit at the meeting.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body">
+    <strong>Primary Goal</strong>
+    Move the seller from "I need to think about it" to "I'm ready to sign." Every section of this packet is designed to handle a specific objection.
+  </div>
+</div>
+
+<h2>When to Use It</h2>
+<ul>
+  <li>Leave a printed or digital copy at every in-person appointment</li>
+  <li>Send the PDF link via text/email within 1 hour after a virtual appointment</li>
+  <li>Reference specific sections when following up — "You'll see on page 2 why our timeline is flexible..."</li>
+</ul>
+
+<h2>Packet Structure</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Cover / Introduction</strong>
+      Company name, tagline, and a human opening that acknowledges the seller's situation. Sets the tone before they read a single fact.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Who We Are</strong>
+      8+ years of experience, family-owned, Maryland-focused. Photo of the team when possible. Humanizes the transaction.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>How Our Process Works (3 Steps)</strong>
+      Step 1: We make an offer. Step 2: You decide. Step 3: We close on your timeline. No repairs, no agents, no fees.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>IHT vs. Traditional Sale Comparison</strong>
+      Side-by-side table: repairs, commissions, timeline, certainty of close, closing costs. This is the highest-converting section.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>What Sellers Say (Testimonials)</strong>
+      2–3 real or representative testimonials. Focus on relief, speed, and professionalism — not just the offer amount.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Proof of Funds</strong>
+      Current Kiavi or funding partner letter. Must be dated within the past 12 months. Ashley updates this annually.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Why Act Now</strong>
+      Address the "I need to think about it" hesitation directly. Include carrying cost calculator if applicable (taxes, insurance, maintenance by the month).
+    </div>
+  </li>
+  <li>
+    <div class="step-num">8</div>
+    <div class="step-content">
+      <strong>FAQ / Objection Handling</strong>
+      Reframed as questions sellers actually ask. Covers: "How did you come up with that price?", "Is this legal?", "What if I owe more than the offer?", "Can I choose my closing date?"
+    </div>
+  </li>
+  <li>
+    <div class="step-num">9</div>
+    <div class="step-content">
+      <strong>Next Steps / CTA</strong>
+      Clear call to action: "Sign today and we handle everything from here." Include direct phone number and the acquisitions agent's name.
+    </div>
+  </li>
+</ol>
+
+<h2>IHT vs. Traditional Sale — Key Comparison Points</h2>
+<table class="compare-table">
+  <tr>
+    <th></th>
+    <th>Impact Home Team</th>
+    <th>Traditional Listing</th>
+  </tr>
+  <tr>
+    <td>Repairs Required</td>
+    <td class="check">✓ None — as-is</td>
+    <td class="cross">✗ Often $10K–$40K+</td>
+  </tr>
+  <tr>
+    <td>Agent Commission</td>
+    <td class="check">✓ $0</td>
+    <td class="cross">✗ 5–6% of sale price</td>
+  </tr>
+  <tr>
+    <td>Closing Costs</td>
+    <td class="check">✓ We cover them</td>
+    <td class="cross">✗ Seller pays 2–3%</td>
+  </tr>
+  <tr>
+    <td>Time to Close</td>
+    <td class="check">✓ 2–4 weeks (your choice)</td>
+    <td class="cross">✗ 60–90+ days average</td>
+  </tr>
+  <tr>
+    <td>Showings / Open Houses</td>
+    <td class="check">✓ None</td>
+    <td class="cross">✗ Multiple (strangers in your home)</td>
+  </tr>
+  <tr>
+    <td>Deal Falls Through Risk</td>
+    <td class="check">✓ Rare — cash buyers</td>
+    <td class="cross">✗ ~30% of listings fall out of escrow</td>
+  </tr>
+  <tr>
+    <td>Flexibility on Closing Date</td>
+    <td class="check">✓ You set the date</td>
+    <td class="cross">✗ Buyer controls the timeline</td>
+  </tr>
+</table>
+
+<h2>Top Objections & How to Handle Them</h2>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I need to think about it."</strong>
+    "Totally understand — this is a big decision. What would need to be true for you to feel comfortable moving forward? Is it the price, the timeline, or something else?" Then address the specific concern.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I think I can get more on the market."</strong>
+    "You might be right — after repairs, commissions, and closing costs, what would you net? Let's do the math together." Walk through the comparison table.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I'm going to call a few more buyers."</strong>
+    "Absolutely — shop around, that's smart. One thing to know: our offer is good for 48 hours. After that, we move on to our next deal. No pressure, just something to keep in mind."
+  </div>
+</div>
+
+<h2>File Location</h2>
+<p>The credibility packet (both dark and white HTML versions) is stored in the <strong>Brand Assets → Credibility Packet</strong> folder in Google Drive. Update the Proof of Funds section whenever the funding letter is renewed. Use the dark version for digital sends; print the white version for in-person leave-behinds.</p>
+` }
+    ]
+  },
+  {
+    id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
+    pages: [
+      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Department Purpose</h2>
+<p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="num">15m</div><div class="label">Max first response time</div></div>
+  <div class="stat-box"><div class="num">3×</div><div class="label">Call attempts before drip</div></div>
+  <div class="stat-box"><div class="num">80%</div><div class="label">Pass rate to stay in role</div></div>
+</div>
+
+<h2>Key Responsibilities</h2>
+<ul>
+  <li>Respond to all inbound leads within 15 minutes during business hours</li>
+  <li>Qualify leads using the 4 motivation screens (MIST: Motivation, Issue, Situation, Timeline)</li>
+  <li>Book appointments directly in GHL calendar</li>
+  <li>Maintain all lead records and stage updates in GHL</li>
+  <li>Manage follow-up sequences for non-converting leads</li>
+</ul>
+
+<h2>GHL Pipeline Stages — Lead Management</h2>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
+  <tr><td><span class="ghl-field">New Lead</span></td><td>Just received — not yet contacted</td><td>Call within 15 min</td></tr>
+  <tr><td><span class="ghl-field">Attempting Contact</span></td><td>Active outreach in progress</td><td>3 calls + text, add to drip</td></tr>
+  <tr><td><span class="ghl-field">Appointment Set</span></td><td>Seller agreed to meet</td><td>Hand to Acquisitions, create Drive folder</td></tr>
+  <tr><td><span class="ghl-field">Long-Term Follow-Up</span></td><td>Not ready now, warm for later</td><td>Auto-drip, check in at 30/60/90 days</td></tr>
+  <tr><td><span class="ghl-field">Dead Lead</span></td><td>Opted out, unresponsive, or not a fit</td><td>Tag reason, archive</td></tr>
+</table>
+`},
+      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>New Lead Response Protocol</h2>
+<div class="callout crimson">
+  <div class="callout-icon">⏱</div>
+  <div class="callout-body">
+    <strong>15-Minute Rule</strong>
+    All new leads must receive a first contact attempt within 15 minutes of coming in during business hours (9 AM – 6 PM). Studies show response within 5 minutes increases contact rate by 100×. Speed wins deals.
+  </div>
+</div>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Check the campaign tag</strong> — What marketing source did this lead respond to? Tailor your opening based on their motivation (direct mail vs. Google Ad vs. referral).</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Attempting Contact</span> and add to the automated follow-up sequence.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>If qualified:</strong> Book the appointment in GHL. Confirm the address, date/time, and send a confirmation text to the seller.</div></li>
+</ol>
+
+<h2>Booking an Appointment in GHL</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">In the contact record, click <strong>Appointments → New Appointment</strong></div></li>
+  <li><div class="step-num">2</div><div class="step-content">Select the correct calendar (In-Person or Virtual)</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Set date, time, and assign to the acquisitions agent</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Add appointment notes: property address, seller's stated situation, motivation level (1–10), any red flags</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Move contact to <span class="ghl-field">Appointment Set</span> stage</div></li>
+  <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
+</ol>
+`}
+    ]
+  },
+  {
+    id: 'acq', label: 'Acquisitions', color: '#E3A728',
+    pages: [
+      { id: 'acq-overview', title: 'Department Overview', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>Department Purpose</h2>
+<p>Acquisitions is responsible for converting appointments into signed contracts. This requires mastery of property valuation (ARV and comps), offer structuring (MAO formula), in-person selling skills, and proper documentation of every deal.</p>
+
+<h2>The Acquisitions Workflow</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, review the lead notes, research the address on SDAT, check any prior contact history.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Run preliminary comps</strong> — Before the appointment, know your ballpark ARV. Don't go in blind.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Conduct the appointment</strong> — Walk the property, build rapport, screen motivation, present your offer.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Get the contract signed</strong> — If offer is accepted, execute the purchase agreement on-site when possible.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Create the Google Drive property folder</strong> — Immediately after a signed contract (see below).</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in GHL, TC can pick up the file without any additional communication required.</div></li>
+</ol>
+`},
+      { id: 'acq-appointment', title: 'Appointment & Post-Appointment Process', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>Before the Appointment</h2>
+<ul>
+  <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
+  <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
+  <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
+  <li>Bring the credibility packet (printed or PDF ready on your phone)</li>
+</ul>
+
+<h2>During the Appointment</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Build rapport first</strong> — Ask about the property's history, acknowledge their situation before you talk numbers.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Walk the property</strong> — Take photos of every room, exterior, roof, HVAC, electrical panel. Document condition for your repair estimate.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Present your offer</strong> — Walk through the investor math transparently. Use the comparison table from the credibility packet if helpful.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Handle objections</strong> — Use the scripts in the credibility packet SOP. Avoid caving on price without a reason.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Get the signature</strong> — If they agree, execute the purchase agreement now. Do not leave "to send it later" — urgency drops dramatically off-site.</div></li>
+</ol>
+
+<h2>Post-Appointment: Signed Contract Protocol</h2>
+<div class="callout amber">
+  <div class="callout-icon">📁</div>
+  <div class="callout-body">
+    <strong>Create the Google Drive Property Folder — First Thing</strong>
+    Within 1 hour of getting a signed contract, you must create the property folder in Google Drive and add the link to the GHL deal record. This is how TC and Dispo access everything they need without asking you.
+  </div>
+</div>
+
+<div class="workflow-card">
+  <h4>Creating the Google Drive Property Folder</h4>
+  <ol class="step-list" style="margin:0">
+    <li><div class="step-num">1</div><div class="step-content"><strong>Go to the IHT Deals folder in Google Drive</strong> — This is the master folder all deals live in.</div></li>
+    <li><div class="step-num">2</div><div class="step-content"><strong>Create a new subfolder</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
+    <li><div class="step-num">3</div><div class="step-content"><strong>Add these files to the folder:</strong>
+      <ul style="margin-top:6px">
+        <li>Signed Purchase Agreement (PDF)</li>
+        <li>Property Info Sheet (ARV, repairs estimate, MAO, seller motivation notes)</li>
+        <li>Comp report or screenshot</li>
+        <li>Property photos</li>
+        <li>Any seller disclosures</li>
+      </ul>
+    </div></li>
+    <li><div class="step-num">4</div><div class="step-content"><strong>Copy the folder link</strong> — Right-click → Get link → Set to "Anyone with the link can view"</div></li>
+    <li><div class="step-num">5</div><div class="step-content"><strong>Paste the Drive link into GHL</strong> — Open the contact/deal record → Notes or the designated custom field → Paste the Drive link. Label it clearly: "Property Drive Folder: [link]"</div></li>
+    <li><div class="step-num">6</div><div class="step-content"><strong>Move GHL stage to <span class="ghl-field">Under Contract</span></strong> — This notifies TC to begin their process.</div></li>
+  </ol>
+</div>
+
+<div class="callout green">
+  <div class="callout-icon">✓</div>
+  <div class="callout-body">
+    <strong>What the Drive Link Enables</strong>
+    TC can order title without emailing you. Dispo can build the listing without asking for photos. Ashley can review the deal without a status update call. One link = the entire deal file, accessible to whoever needs it, anytime.
+  </div>
+</div>
+
+<h2>If the Seller Doesn't Sign Today</h2>
+<ul>
+  <li>Leave the credibility packet</li>
+  <li>Set a follow-up task in GHL for 24 hours out</li>
+  <li>Move stage to <span class="ghl-field">Attempting Contact</span> (post-appointment)</li>
+  <li>Send a follow-up text within 2 hours: "Hi [Name], thanks for your time today. I'll have a final offer to you by [time]. Questions? Call/text me anytime: [number]."</li>
+</ul>
+`},
+      { id: 'acq-comping', title: 'Comping Properties & ARV', dept: 'Acquisitions', owner: 'Joshua Hines',
+        content: `
+<h2>The Comping Framework</h2>
+<p>ARV (After Repair Value) is the foundation of every offer. A wrong ARV = a wrong offer = a deal that can't be assigned or a loss. Run comps carefully, every time.</p>
+
+<h2>Comp Criteria</h2>
+<table class="data-table">
+  <tr><th>Criteria</th><th>Standard</th><th>Notes</th></tr>
+  <tr><td>Distance</td><td>Within 1 mile (0.5 mile preferred)</td><td>Expand only in rural areas; note it</td></tr>
+  <tr><td>Sale Date</td><td>Last 6 months preferred, 12 months max</td><td>Flag anything older than 9 months</td></tr>
+  <tr><td>Square Footage</td><td>Within 15–20% of subject</td><td>Adjust if needed</td></tr>
+  <tr><td>Bed/Bath</td><td>Same or ±1 bed; same bath preferred</td><td>Apply market adjustment for missing bath</td></tr>
+  <tr><td>Property Type</td><td>Same type (SFR, rowhome, semi-detached)</td><td>Never mix types</td></tr>
+  <tr><td>Condition</td><td>Renovated or retail condition only</td><td>Exclude REO, distressed, short sales</td></tr>
+</table>
+
+<h2>MAO Formula</h2>
+<div class="callout amber">
+  <div class="callout-icon">🧮</div>
+  <div class="callout-body">
+    <strong>Maximum Allowable Offer = ARV × 70% − Estimated Repairs</strong>
+    The 70% covers our assignment fee, investor profit margin, holding costs, and closing costs. Never go above MAO without explicit approval from Ashley.
+  </div>
+</div>
+
+<h2>Repair Estimation Guide</h2>
+<table class="data-table">
+  <tr><th>Item</th><th>Cosmetic</th><th>Moderate</th><th>Full Gut</th></tr>
+  <tr><td>Kitchen</td><td>$3K–$8K</td><td>$15K–$25K</td><td>$30K–$50K</td></tr>
+  <tr><td>Bathroom</td><td>$2K–$5K</td><td>$8K–$15K</td><td>$18K–$28K</td></tr>
+  <tr><td>Flooring (per 1K sq ft)</td><td>$2K–$4K</td><td>$5K–$8K</td><td>$10K–$15K</td></tr>
+  <tr><td>Roof</td><td>Repair $2K–$5K</td><td>—</td><td>Replace $8K–$18K</td></tr>
+  <tr><td>HVAC</td><td>Service $500–$1K</td><td>—</td><td>Replace $5K–$12K</td></tr>
+  <tr><td>Electrical</td><td>Updates $1K–$3K</td><td>Partial $5K–$12K</td><td>Full rewire $15K–$25K</td></tr>
+  <tr><td>Plumbing</td><td>Repairs $500–$2K</td><td>Partial $5K–$10K</td><td>Full repipe $12K–$22K</td></tr>
+  <tr><td>Paint (interior)</td><td>$2K–$5K</td><td>$4K–$8K</td><td>$8K–$15K</td></tr>
+</table>
+`}
+    ]
+  },
+  {
+    id: 'dispo', label: 'Dispositions', color: '#16A34A',
+    pages: [
+      { id: 'dispo-overview', title: 'Department Overview', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Department Purpose</h2>
+<p>Dispositions is responsible for marketing under-contract properties to qualified buyers, collecting offers, negotiating terms, executing assignment agreements, and coordinating with TC through to close. Dispo is where the deal becomes profit.</p>
+
+<h2>The Dispo Process Starts With the Drive Link</h2>
+<div class="callout amber">
+  <div class="callout-icon">📁</div>
+  <div class="callout-body">
+    <strong>Step Zero: Pull the Google Drive Link from GHL</strong>
+    Before building any listing or making any calls, open the deal in GHL and find the Google Drive folder link in the notes/custom field. Everything you need — property info sheet, comps, photos, signed contract — is in that folder. Never start dispo without it.
+  </div>
+</div>
+
+<h2>Dispo Workflow Overview</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Pull the Drive folder from GHL</strong> — Review the property info sheet: ARV, repairs estimate, purchase price, seller motivation, condition notes.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Set the assignment fee target</strong> — Based on ARV, repair estimate, and market demand. Typical range: $5K–$25K depending on deal size.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Build the listing</strong> — Headline with ARV and asking price. Include condition summary, repair notes, key features, and your assignment fee. See listing SOP for full template.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>VIP blast first</strong> — Send to your top-tier buyers before public marketing. Give them 24–48 hours of exclusivity.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Broad marketing</strong> — Email blast, buyer group posts, social media if appropriate.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Collect and evaluate offers</strong> — Score using the offer matrix (price, certainty, speed, relationship).</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Execute assignment agreement</strong> — Once buyer selected. Get signed B-C and EMD.</div></li>
+  <li><div class="step-num">8</div><div class="step-content"><strong>Hand off to TC</strong> — Update GHL with buyer's info and assignment details. TC handles closing coordination.</div></li>
+</ol>
+
+<h2>Never Stop Marketing Until EMD Is In Hand</h2>
+<div class="callout crimson">
+  <div class="callout-icon">⚠</div>
+  <div class="callout-body">
+    <strong>Verbal interest is not a deal.</strong>
+    Continue marketing and showing the property to all buyers until you have a signed assignment agreement AND the earnest money deposit in escrow. A buyer who "loves it" but hasn't sent EMD is not a buyer.
+  </div>
+</div>
+`},
+      { id: 'dispo-listing', title: 'Building a Dispo Listing', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Starting From the Drive Folder</h2>
+<p>Your listing starts with the property info sheet in the Google Drive folder. Before you write a single word, you need to know:</p>
+<ul>
+  <li>ARV (confirmed, not estimated)</li>
+  <li>Your purchase price (what IHT is paying the seller)</li>
+  <li>Repair estimate and scope</li>
+  <li>Key features and neighborhood comps</li>
+  <li>Photos (from Drive folder)</li>
+</ul>
+
+<h2>Listing Headline Formula</h2>
+<div class="callout amber">
+  <div class="callout-icon">✏</div>
+  <div class="callout-body">
+    <strong>Lead with equity.</strong>
+    Investors buy margins, not properties. Your headline should tell them the deal instantly.
+    <br><br>
+    <strong>Format:</strong> ARV $[X] | Asking $[Y] | [City, State] | [Beds/Baths/Sq Ft]
+    <br>
+    <strong>Example:</strong> ARV $285K | Asking $159K | Baltimore, MD | 3BD/1BA/1,200 sq ft
+  </div>
+</div>
+
+<h2>Listing Template</h2>
+<p>Use this structure for every dispo listing:</p>
+<ol>
+  <li><strong>Headline</strong> (ARV + asking + location + size)</li>
+  <li><strong>Deal Overview</strong> — 2 sentences: what kind of deal, what the investor opportunity is</li>
+  <li><strong>Property Details</strong> — Address, beds/baths, sq ft, lot size, year built</li>
+  <li><strong>Condition Summary</strong> — Current condition; list what needs to be done</li>
+  <li><strong>Repair Estimate</strong> — $X,XXX scope breakdown</li>
+  <li><strong>Comparable Sales</strong> — 2–3 comps with addresses, sale dates, prices</li>
+  <li><strong>Assignment Fee</strong> — $X,XXX</li>
+  <li><strong>Terms</strong> — Cash/hard money only; close by [date]; inspection period: [X] days</li>
+  <li><strong>Contact</strong> — Name, phone, email</li>
+</ol>
+
+<h2>Offer Evaluation Matrix</h2>
+<table class="data-table">
+  <tr><th>Criteria</th><th>Weight</th><th>What to Look For</th></tr>
+  <tr><td>Price</td><td>40%</td><td>Closest to or at asking; no low-ball fishing</td></tr>
+  <tr><td>Certainty of Close</td><td>30%</td><td>Verified POF, proven closing history, non-refundable EMD</td></tr>
+  <tr><td>Speed</td><td>20%</td><td>Close date relative to contract expiration</td></tr>
+  <tr><td>Relationship</td><td>10%</td><td>Prior closings with IHT; repeat buyer premium</td></tr>
+</table>
+`},
+      { id: 'dispo-buyers', title: 'Buyer Management', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>Buyer List Structure</h2>
+<p>Your buyer list is one of your most valuable business assets. It should be segmented, maintained, and grown continuously.</p>
+
+<table class="data-table">
+  <tr><th>Tier</th><th>Definition</th><th>How to Treat Them</th></tr>
+  <tr><td><strong>VIP</strong></td><td>Has closed with IHT or proven closers with funds ready</td><td>First to hear about every deal. 24–48 hour exclusivity window.</td></tr>
+  <tr><td><strong>Active</strong></td><td>Buys regularly, responds quickly, has verified POF on file</td><td>Included in all blasts. Fast responders get preference.</td></tr>
+  <tr><td><strong>General</strong></td><td>Has expressed interest; hasn't closed or POF not verified</td><td>Included in broad blasts. Must submit POF before offer is considered.</td></tr>
+</table>
+
+<h2>Required Buyer Information (on file before any offer is accepted)</h2>
+<ul>
+  <li>✓ Proof of Funds (dated within 60 days)</li>
+  <li>✓ Preferred property types and price range (buy box)</li>
+  <li>✓ Typical close timeline</li>
+  <li>✓ EMD amount they're comfortable with</li>
+  <li>✓ Contact info: name, phone, email, attorney/title contact</li>
+</ul>
+
+<h2>Adding Buyers to GHL</h2>
+<p>Every buyer should be a contact in GHL tagged with: <span class="ghl-field">Buyer</span> + their tier tag (<span class="ghl-field">VIP</span>, <span class="ghl-field">Active</span>, or <span class="ghl-field">General</span>). Log their buy box in the contact notes so you can filter by deal type.</p>
+`}
+    ]
+  },
+  {
+    id: 'tc', label: 'Transaction Coordination', color: '#7C3AED',
+    pages: [
+      { id: 'tc-overview', title: 'Department Overview', dept: 'Transaction Coordination', owner: 'Mike',
+        content: `
+<h2>Department Purpose</h2>
+<p>Transaction Coordination takes over once a seller has signed the purchase agreement. TC is responsible for managing the deal from contract to close — coordinating with title, tracking deadlines, ensuring all documents are in order, and keeping every stakeholder updated.</p>
+
+<div class="callout blue">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">
+    <strong>TC Starts From the Drive Link</strong>
+    When a deal moves to <span class="ghl-field">Under Contract</span> in GHL, TC's first step is to open the Google Drive folder linked in the deal record. The signed contract and property info sheet will be there. Never chase the acquisition agent for documents — if something is missing from the folder, flag it in GHL notes.
+  </div>
+</div>
+
+<h2>TC Responsibilities</h2>
+<ul>
+  <li>Order title search within 24 hours of receiving a signed contract</li>
+  <li>Track all critical dates: inspection deadline, financing contingency, closing date</li>
+  <li>Coordinate with title company / closing attorney</li>
+  <li>Collect and verify buyer's assignment documents and EMD</li>
+  <li>Flag any title issues, liens, or encumbrances to the acquisitions agent and Ashley</li>
+  <li>Ensure all parties have their closing instructions 48 hours before closing</li>
+  <li>Document every update in GHL and the Drive folder</li>
+</ul>
+
+<h2>Slack Communication</h2>
+<p>TC updates go in the <strong>#transactions</strong> Slack channel. Post a deal update at each milestone: contract received, title ordered, any issues found, closing confirmed, deal closed. Tag relevant team members when action is required from them.</p>
+
+<table class="data-table">
+  <tr><th>Slack Channel</th><th>Purpose</th></tr>
+  <tr><td><strong>#transactions</strong></td><td>All TC deal updates and milestone notifications</td></tr>
+  <tr><td><strong>#deals-general</strong></td><td>Cross-department deal discussion</td></tr>
+  <tr><td><strong>#acquisitions</strong></td><td>Acquisitions team updates and comps</td></tr>
+  <tr><td><strong>#dispositions</strong></td><td>Dispo listings and buyer activity</td></tr>
+  <tr><td><strong>#team</strong></td><td>General company communication</td></tr>
+</table>
+
+<h2>Critical Dates Tracker</h2>
+<p>For every deal, TC must track and calendar these dates in GHL:</p>
+<ul>
+  <li><strong>Inspection Period Expiration</strong> — Date by which IHT must exercise any inspection contingency</li>
+  <li><strong>EMD Due Date</strong> — When earnest money must be delivered to title</li>
+  <li><strong>Financing Contingency (if any)</strong> — Deadline for buyer to secure financing</li>
+  <li><strong>Closing Date</strong> — Scheduled close per A-B contract</li>
+  <li><strong>Assignment Agreement Deadline</strong> — Must be executed before closing</li>
+</ul>
+`}
+    ]
+  },
+  {
+    id: 'policies', label: 'Company Policies', color: '#A52325',
+    pages: [
+      { id: 'pol-comms', title: 'Communication Standards', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Response Time Standards</h2>
+<table class="data-table">
+  <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
+  <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
+  <tr><td>Text/GHL</td><td>Within 1 hour</td><td>Within 15 minutes (new leads)</td></tr>
+  <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
+  <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
+</table>
+
+<h2>Slack Channel Guide</h2>
+<p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
+<table class="data-table">
+  <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
+  <tr><td>#team</td><td>Everyone</td><td>Company-wide announcements, scheduling, general updates</td></tr>
+  <tr><td>#leads</td><td>Lead Management</td><td>New leads, hot prospects, follow-up flags</td></tr>
+  <tr><td>#acquisitions</td><td>Acq team</td><td>Appointment notes, comp questions, offer updates</td></tr>
+  <tr><td>#dispositions</td><td>Dispo + all</td><td>New listings, buyer interest, offer activity</td></tr>
+  <tr><td>#transactions</td><td>TC + all</td><td>Deal milestones, title updates, closing confirmations</td></tr>
+  <tr><td>#wins</td><td>Everyone</td><td>Closed deals, compliments, team shoutouts</td></tr>
+</table>
+
+<h2>GHL Documentation Requirements</h2>
+<p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
+<ul>
+  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
+  <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
+  <li>Every deal under contract must have the Google Drive folder link in the record</li>
+  <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
+</ul>
+`},
+      { id: 'pol-training', title: 'Team Training', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Training Requirements</h2>
+<p>Every team member is required to pass the training quizzes before performing their role independently. Quizzes are taken at <span onclick="showPage('training','training-home')" style="color:var(--amber);font-weight:600;cursor:pointer;text-decoration:underline;">the training portal</span> (Training section in the sidebar).</p>
+
+<table class="data-table">
+  <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
+  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
+  <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
+  <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
+</table>
+
+<h2>Re-certification</h2>
+<ul>
+  <li>All team members re-take their department quizzes every 6 months</li>
+  <li>Quizzes are updated when SOPs change — team will be notified via #team Slack channel</li>
+  <li>Scores are tracked in Google Sheets automatically via the quiz portal</li>
+</ul>
+
+<h2>Onboarding New Team Members</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
+</ol>
+`}
+    ]
+  },
+  {
+    id: 'training', label: 'Training Portal', color: '#7C3AED',
+    pages: [
+      { id: 'training-home', title: 'Training Home', dept: 'All Departments', owner: 'Ashley Hines',
+        content: '__TRAINING_HOME__' },
+      { id: 'quiz-role-lead-manager',    title: 'Lead Manager Entry Quiz',    dept: 'Lead Management', owner: 'Nicole', content: '__QUIZ__role-lead-manager' },
+      { id: 'quiz-role-acquisitions',    title: 'Acquisitions Entry Quiz',    dept: 'Acquisitions',    owner: 'Joshua Hines', content: '__QUIZ__role-acquisitions' },
+      { id: 'quiz-role-dispositions',    title: 'Dispositions Entry Quiz',    dept: 'Dispositions',    owner: 'Ashley Hines', content: '__QUIZ__role-dispositions' },
+      { id: 'quiz-role-tc',              title: 'TC Entry Quiz',              dept: 'Transaction Coordination', owner: 'Mike', content: '__QUIZ__role-tc' },
+      { id: 'quiz-dept-lead-management', title: 'Lead Management Deep Dive',  dept: 'Lead Management', owner: 'Nicole', content: '__QUIZ__dept-lead-management' },
+      { id: 'quiz-dept-acquisitions',    title: 'Acquisitions Deep Dive',     dept: 'Acquisitions',    owner: 'Joshua Hines', content: '__QUIZ__dept-acquisitions' },
+      { id: 'quiz-dept-dispositions',    title: 'Dispositions Deep Dive',     dept: 'Dispositions',    owner: 'Ashley Hines', content: '__QUIZ__dept-dispositions' },
+      { id: 'quiz-dept-tc',              title: 'TC Deep Dive',               dept: 'Transaction Coordination', owner: 'Mike', content: '__QUIZ__dept-tc' },
+      { id: 'quiz-dept-deal-lifecycle',  title: 'Deal Lifecycle',             dept: 'All Departments', owner: 'Ashley Hines', content: '__QUIZ__dept-deal-lifecycle' },
+      { id: 'quiz-dept-tools-systems',   title: 'Tools & Systems',            dept: 'All Departments', owner: 'Ashley Hines', content: '__QUIZ__dept-tools-systems' }
+    ]
+  },
+  {
+    id: 'pipeline-ref', label: 'GHL Pipeline Reference', color: '#0EA5E9',
+    pages: [
+      { id: 'pipeline-why', title: 'Why Stage Changes Matter', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<style>
+/* ── PIPELINE CHART STYLES (scoped) ── */
+.pc-intro { margin-bottom: 28px; }
+.pc-intro p { color: var(--graphite); font-size: 14px; line-height: 1.7; }
+
+.pc-why-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 20px 0 28px; }
+.pc-why-card {
+  background: var(--white); border: 1px solid var(--fog);
+  border-left: 4px solid var(--amber);
+  border-radius: 8px; padding: 14px 16px;
+}
+.pc-why-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+.pc-why-card p { font-size: 12px; color: var(--steel); line-height: 1.5; }
+
+/* pipeline scroll container */
+.pc-scroll { overflow-x: auto; margin: 0 -4px; padding-bottom: 8px; }
+.pc-scroll::-webkit-scrollbar { height: 5px; }
+.pc-scroll::-webkit-scrollbar-thumb { background: var(--fog); border-radius: 3px; }
+
+/* pipeline grid */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(170px, 1fr));
+  gap: 10px;
+  min-width: 1060px;
+  padding: 4px;
+}
+
+/* column */
+.pc-col { display: flex; flex-direction: column; gap: 0; }
+
+.pc-col-head {
+  padding: 10px 12px 8px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 6px;
+}
+.pc-col-head .pl-name {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+.pc-col-head .pl-owner {
+  font-size: 11px; opacity: 0.75;
+}
+
+/* stage pill */
+.pc-stage {
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 7px;
+  padding: 9px 12px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+.pc-stage:hover { border-color: var(--amber); box-shadow: 0 2px 8px rgba(227,167,40,0.15); transform: translateY(-1px); }
+.pc-stage.pc-active { border-color: var(--amber); background: var(--amber-pale); }
+.pc-stage.pc-handoff { border-left: 3px solid #0EA5E9; }
+.pc-stage.pc-win { border-left: 3px solid #16A34A; background: #F0FFF4; }
+.pc-stage.pc-dead { border-left: 3px solid #DC2626; background: #FFF5F5; }
+.pc-stage.pc-risk { border-left: 3px solid #F59E0B; background: #FFFBEB; }
+
+.pc-stage-name {
+  font-size: 12px; font-weight: 600; color: var(--ink);
+  line-height: 1.3; display: flex; align-items: flex-start; gap: 6px;
+}
+.pc-badge {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 1px 5px; border-radius: 3px;
+  white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  font-family: var(--font-sans);
+}
+.pc-badge-handoff { background: #DBEAFE; color: #1D4ED8; }
+.pc-badge-win     { background: #DCFCE7; color: #166534; }
+.pc-badge-dead    { background: #FEE2E2; color: #991B1B; }
+.pc-badge-risk    { background: #FEF3C7; color: #92400E; }
+
+.pc-arrow {
+  text-align: center; font-size: 13px;
+  color: var(--fog); margin: -1px 0 4px;
+  line-height: 1; user-select: none;
+}
+
+/* detail panel */
+.pc-detail {
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+  min-height: 100px;
+}
+.pc-detail-empty {
+  padding: 28px; text-align: center;
+  color: var(--silver); font-size: 13px;
+}
+.pc-detail-inner {
+  padding: 20px 22px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+  animation: pcFade 0.2s ease;
+}
+@keyframes pcFade { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+.pc-detail-col h4 {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--steel); margin-bottom: 8px;
+  padding-bottom: 5px; border-bottom: 1px solid var(--fog);
+}
+.pc-detail-title {
+  font-family: var(--font-serif); font-size: 18px; color: var(--ink);
+  margin-bottom: 3px;
+}
+.pc-detail-pipe {
+  font-size: 11px; color: var(--amber-dark); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+}
+.pc-detail-col ul { list-style: none; padding: 0; }
+.pc-detail-col li {
+  font-size: 12px; color: var(--graphite); line-height: 1.5;
+  padding: 4px 0 4px 14px; position: relative;
+  border-bottom: 1px solid var(--fog);
+}
+.pc-detail-col li:last-child { border-bottom: none; }
+.pc-detail-col li::before { content: '›'; position: absolute; left: 0; color: var(--amber); font-weight: 700; }
+
+.pc-skip-box {
+  background: #FFF5F5; border: 1px solid #FECACA;
+  border-radius: 7px; padding: 10px 14px; margin-top: 4px;
+  font-size: 12px; color: #7F1D1D; line-height: 1.5;
+}
+.pc-skip-box strong { display: block; margin-bottom: 3px; color: #DC2626; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* legend row */
+.pc-legend {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 16px; font-size: 12px;
+}
+.pc-legend-item { display: flex; align-items: center; gap: 6px; color: var(--graphite); }
+.pc-legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+<\/style>
+
+<div class="pc-intro">
+  <p>Every stage change in GHL is a signal to the next person in the chain. When stages are skipped or left stale, work gets duplicated, deadlines get missed, and deals fall through gaps no one knew existed. This reference shows your actual GHL pipelines and what each stage transition unlocks.</p>
+</div>
+
+<div class="pc-why-grid">
+  <div class="pc-why-card">
+    <h4>🚫 Prevents Duplicate Outreach</h4>
+    <p>If a lead stays in "Prospects" after an appointment is set, Nicole may call someone Joshua is already meeting with. Stage = ownership transfer.</p>
+  </div>
+  <div class="pc-why-card">
+    <h4>🔁 Triggers the Next Department</h4>
+    <p>TC watches for "New Deal!" in their pipeline — not their email. No stage change = no TC action = missed title deadlines.</p>
+  </div>
+  <div class="pc-why-card">
+    <h4>📊 Keeps Reporting Honest</h4>
+    <p>Your weekly metrics — appointments, offers, contracts — pull from GHL stage data. Stale stages mean your scorecard is lying.</p>
+  </div>
+  <div class="pc-why-card">
+    <h4>🗂️ One Source of Truth</h4>
+    <p>GHL stage + Drive folder link = the entire deal history. Anyone can audit what happened, when, and who moved it — no Slack back-and-forth required.</p>
+  </div>
+</div>
+
+<div class="pc-legend">
+  <div class="pc-legend-item"><div class="pc-legend-dot" style="background:#0EA5E9"></div> Handoff to next dept</div>
+  <div class="pc-legend-item"><div class="pc-legend-dot" style="background:#16A34A"></div> Win / Closed state</div>
+  <div class="pc-legend-item"><div class="pc-legend-dot" style="background:#DC2626"></div> Dead / end state</div>
+  <div class="pc-legend-item"><div class="pc-legend-dot" style="background:#F59E0B"></div> At-risk / needs attention</div>
+  <div class="pc-legend-item"><div class="pc-legend-dot" style="background:var(--fog);border:1px solid var(--silver)"></div> Standard stage</div>
+</div>
+
+<div class="pc-scroll">
+<div class="pc-grid" id="pc-grid">
+
+  <!-- COL 1: LEADS PIPELINE -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#EFF6FF;color:#1D4ED8;">
+      <div class="pl-name">1) Leads Pipeline</div>
+      <div class="pl-owner">Owner: Nicole</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('leads-prospects')">
+      <div class="pc-stage-name">Prospects</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('leads-redzones')">
+      <div class="pc-stage-name">Redzones</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('leads-priority')">
+      <div class="pc-stage-name">Priority Top 20%</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('leads-followup')">
+      <div class="pc-stage-name">Follow Up</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-handoff" onclick="pcDetail('leads-handoff')">
+      <div class="pc-stage-name">→ Closer Pipeline <span class="pc-badge pc-badge-handoff">Handoff</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-dead" onclick="pcDetail('leads-not-md')">
+      <div class="pc-stage-name">Not MD Lead <span class="pc-badge pc-badge-dead">Out of Market</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('leads-ai-queue')">
+      <div class="pc-stage-name">AI Follow Up Queue</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('leads-ai-review')">
+      <div class="pc-stage-name">AI Review</div>
+    </div>
+  </div>
+
+  <!-- COL 2: JOSH THE CLOSER -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#FEF7E0;color:#92400E;">
+      <div class="pl-name">3) Josh the Closer</div>
+      <div class="pl-owner">Owner: Joshua Hines</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('josh-preoffer')">
+      <div class="pc-stage-name">Pre-offer</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-dead" onclick="pcDetail('josh-noreach')">
+      <div class="pc-stage-name">Cannot Confirm/Reach <span class="pc-badge pc-badge-dead">Stalled</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('josh-aptsched')">
+      <div class="pc-stage-name">Appointment Scheduled</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('josh-offered')">
+      <div class="pc-stage-name">Offered</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('josh-1ydline')">
+      <div class="pc-stage-name">1 YD LINE <span class="pc-badge pc-badge-risk">Hot Deal</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('josh-ltfu')">
+      <div class="pc-stage-name">LTFU</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-win" onclick="pcDetail('josh-won')">
+      <div class="pc-stage-name">WON! <span class="pc-badge pc-badge-win">Signed</span></div>
+    </div>
+  </div>
+
+  <!-- COL 3: MIKE THE CLOSER -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#F5F3FF;color:#5B21B6;">
+      <div class="pl-name">2) Mike the Closer</div>
+      <div class="pl-owner">Owner: Mike</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('mike-aptsched')">
+      <div class="pc-stage-name">Appointment Scheduled</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('mike-offermade')">
+      <div class="pc-stage-name">Offer Made/Followup</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('mike-1ydline')">
+      <div class="pc-stage-name">1 YD LINE <span class="pc-badge pc-badge-risk">Hot Deal</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-dead" onclick="pcDetail('mike-lostoffer')">
+      <div class="pc-stage-name">Lost Offer <span class="pc-badge pc-badge-dead">End State</span></div>
+    </div>
+  </div>
+
+  <!-- COL 4: TC PIPELINE (first half) -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#F0FDF4;color:#166534;">
+      <div class="pl-name">5) Transaction Coord.</div>
+      <div class="pl-owner">Owner: Mike / EP</div>
+    </div>
+    <div class="pc-stage pc-handoff" onclick="pcDetail('tc-newdeal')">
+      <div class="pc-stage-name">New Deal! <span class="pc-badge pc-badge-handoff">Triggered by Contract</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-premark')">
+      <div class="pc-stage-name">Pre-Marketing / New File Received</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-vip')">
+      <div class="pc-stage-name">Marketing Phase 1 (VIP)</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-allbuyers')">
+      <div class="pc-stage-name">Marketing Phase 2 (All Buyers)</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-retrade')">
+      <div class="pc-stage-name">Marketing Phase 3 (Retrade)</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('tc-docusign')">
+      <div class="pc-stage-name">Ready for DocuSign B-C <span class="pc-badge pc-badge-risk">Action Req.</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-bcassigned')">
+      <div class="pc-stage-name">B-C Assigned</div>
+    </div>
+  </div>
+
+  <!-- COL 5: TC PIPELINE (second half) -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#F0FDF4;color:#166534;">
+      <div class="pl-name">5) TC — Closing</div>
+      <div class="pl-owner">Owner: Mike / EP</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('tc-extension')">
+      <div class="pc-stage-name">Extension Needed</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-closingsched')">
+      <div class="pc-stage-name">Closing Scheduled</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('tc-atrisk')">
+      <div class="pc-stage-name">AT RISK (Title/Closing Issue) <span class="pc-badge pc-badge-risk">Escalate Now</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-win" onclick="pcDetail('tc-closed')">
+      <div class="pc-stage-name">Closed — Dispo Complete <span class="pc-badge pc-badge-win">Won</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('tc-impactbuying')">
+      <div class="pc-stage-name">IMPACT Buying</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('tc-shortsale')">
+      <div class="pc-stage-name">Active Short Sale <span class="pc-badge pc-badge-risk">Long Timeline</span></div>
+    </div>
+  </div>
+
+  <!-- COL 6: BUYER MARKETING -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#FFF7ED;color:#9A3412;">
+      <div class="pl-name">6) Dispo: Buyer Marketing</div>
+      <div class="pl-owner">Owner: Ashley</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('dispo-general')">
+      <div class="pc-stage-name">General / Prospective Buyers</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('dispo-priority')">
+      <div class="pc-stage-name">Priority</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('dispo-prioritycomplete')">
+      <div class="pc-stage-name">Priority Complete</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('dispo-vip')">
+      <div class="pc-stage-name">VIP <span class="pc-badge pc-badge-risk">First Look</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('dispo-commvip')">
+      <div class="pc-stage-name">Community VIP</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('dispo-offerreceived')">
+      <div class="pc-stage-name">Offer Received</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-dead" onclick="pcDetail('dispo-dead')">
+      <div class="pc-stage-name">Dead Buyer / Black Listed <span class="pc-badge pc-badge-dead">Remove</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('dispo-jv')">
+      <div class="pc-stage-name">JV Partners</div>
+    </div>
+  </div>
+
+</div><!-- end pc-grid -->
+</div><!-- end pc-scroll -->
+
+<!-- DETAIL PANEL -->
+<div class="pc-detail" id="pc-detail">
+  <div class="pc-detail-empty">↑ Click any stage above to see what it means, what it unlocks, and what goes wrong if it's skipped.</div>
+</div>
+
+` }
+    ]
+  }
+];
+
+// ══════════════════════════════════════════════════════════
+// APP STATE & RENDER
+// ══════════════════════════════════════════════════════════
+let currentPage = null;
+
+function init() {
+  renderSidebar();
+  renderHome();
+}
+
+function renderSidebar() {
+  const sb = document.getElementById('sidebar');
+  let html = '';
+  SECTIONS.forEach(sec => {
+    html += `<div class="sidebar-section">
+      <div class="sidebar-section-header" onclick="toggleSection('${sec.id}', this)">
+        <div class="dot" style="background:${sec.color}"></div>
+        <span>${sec.label}</span>
+        <span class="arrow">▾</span>
+      </div>
+      <div class="sidebar-pages" id="sec-pages-${sec.id}">`;
+    sec.pages.forEach(p => {
+      html += `<a class="sidebar-page ${currentPage === p.id ? 'active' : ''}" onclick="showPage('${sec.id}','${p.id}')">${p.title}</a>`;
+    });
+    html += `</div></div>`;
+  });
+  sb.innerHTML = html;
+}
+
+function toggleSection(secId, el) {
+  const pages = document.getElementById(`sec-pages-${secId}`);
+  const isHidden = pages.classList.contains('hidden');
+  pages.classList.toggle('hidden');
+  el.classList.toggle('collapsed');
+}
+
+function renderHome() {
+  currentPage = null;
+  const area = document.getElementById('content-area');
+  let html = `<div class="home-hero">
+    <h1>Impact Home Team<br><span>Operations Manual</span></h1>
+    <p>The complete guide to how we operate — from brand standards to closing the deal.</p>
+  </div>
+  <div class="home-grid">`;
+
+  SECTIONS.forEach(sec => {
+    html += `<div class="home-card" style="border-top-color:${sec.color}" onclick="showPage('${sec.id}','${sec.pages[0].id}')">
+      <div class="dept-dot" style="background:${sec.color}"></div>
+      <h3>${sec.label}</h3>
+      <p>${sec.pages[0].dept}</p>
+      <div class="pages-count">${sec.pages.length} page${sec.pages.length !== 1 ? 's' : ''}</div>
+    </div>`;
+  });
+  html += `</div>`;
+  area.innerHTML = html;
+}
+
+function showPage(secId, pageId) {
+  const sec = SECTIONS.find(s => s.id === secId);
+  const page = sec.pages.find(p => p.id === pageId);
+  currentPage = pageId;
+
+  document.querySelectorAll('.sidebar-page').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.sidebar-page').forEach(el => {
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').includes(pageId)) el.classList.add('active');
+  });
+
+  const area = document.getElementById('content-area');
+
+  // Training home
+  if (pageId === 'training-home') {
+    area.innerHTML = renderTrainingHome();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  // Quiz pages
+  if (page.content && page.content.startsWith('__QUIZ__')) {
+    const quizKey = page.content.replace('__QUIZ__', '');
+    area.innerHTML = renderQuizPage(quizKey, page.title, sec.color);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  // Normal page
+  area.innerHTML = `
+    <div class="page-header">
+      <div class="page-dept-tag" style="background:${sec.color}22;color:${sec.color}">${page.dept}</div>
+      <h1>${page.title}</h1>
+      <div class="page-meta">
+        <span><strong>Owner:</strong> ${page.owner}</span>
+        <span><strong>Department:</strong> ${page.dept}</span>
+      </div>
+    </div>
+    <div class="prose">${page.content}</div>`;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── TRAINING HOME ──────────────────────────────────────────
+function renderTrainingHome() {
+  const quizList = [
+    { key: 'role-lead-manager',    label: 'Lead Manager Entry',    dept: 'Lead Management',          pageId: 'quiz-role-lead-manager' },
+    { key: 'role-acquisitions',    label: 'Acquisitions Entry',    dept: 'Acquisitions',             pageId: 'quiz-role-acquisitions' },
+    { key: 'role-dispositions',    label: 'Dispositions Entry',    dept: 'Dispositions',             pageId: 'quiz-role-dispositions' },
+    { key: 'role-tc',              label: 'TC Entry',              dept: 'Transaction Coordination', pageId: 'quiz-role-tc' },
+    { key: 'dept-lead-management', label: 'Lead Management Deep Dive', dept: 'Lead Management',     pageId: 'quiz-dept-lead-management' },
+    { key: 'dept-acquisitions',    label: 'Acquisitions Deep Dive', dept: 'Acquisitions',           pageId: 'quiz-dept-acquisitions' },
+    { key: 'dept-dispositions',    label: 'Dispositions Deep Dive', dept: 'Dispositions',           pageId: 'quiz-dept-dispositions' },
+    { key: 'dept-tc',              label: 'TC Deep Dive',          dept: 'Transaction Coordination', pageId: 'quiz-dept-tc' },
+    { key: 'dept-deal-lifecycle',  label: 'Deal Lifecycle',        dept: 'All Departments',          pageId: 'quiz-dept-deal-lifecycle' },
+    { key: 'dept-tools-systems',   label: 'Tools & Systems',       dept: 'All Departments',          pageId: 'quiz-dept-tools-systems' },
+  ];
+
+  const deptColors = {
+    'Lead Management': '#2563EB', 'Acquisitions': '#16a34a',
+    'Dispositions': '#E3A728', 'Transaction Coordination': '#7C3AED',
+    'All Departments': '#A52325'
+  };
+
+  let cards = quizList.map(q => {
+    const qz = QUIZZES[q.key];
+    const n = qz ? qz.questions.length : 0;
+    const pass = qz ? Math.ceil(n * 0.8) : 0;
+    const c = deptColors[q.dept] || '#555';
+    return `<div class="tq-card" onclick="showPage('training','${q.pageId}')" style="border-top:3px solid ${c};">
+      <div class="tq-card-dept" style="color:${c};">${q.dept}</div>
+      <div class="tq-card-title">${q.label}</div>
+      <div class="tq-card-meta">${n} questions · Pass: ${pass}/${n}</div>
+      <div class="tq-card-cta">Start Quiz →</div>
+    </div>`;
+  }).join('');
+
+  return `<div class="page-header">
+    <div class="page-dept-tag" style="background:#7C3AED22;color:#7C3AED;">All Departments</div>
+    <h1>Training Portal</h1>
+    <div class="page-meta"><span><strong>Owner:</strong> Ashley Hines</span><span><strong>Pass threshold:</strong> 80%</span></div>
+  </div>
+  <div class="prose">
+    <div style="background:#F5F3FF;border:1px solid #DDD6FE;border-radius:8px;padding:14px 18px;margin-bottom:24px;">
+      <strong style="color:#5B21B6;">📋 Instructions</strong>
+      <p style="margin:6px 0 0;font-size:13px;color:#4C1D95;">Complete the quizzes required for your role before working independently. You must score 80% or higher to pass. Results are submitted to the team tracker automatically.</p>
+    </div>
+    <div class="tq-grid">${cards}</div>
+  </div>`;
+}
+
+// ── QUIZ ENGINE ────────────────────────────────────────────
+var quizState = {};
+
+function renderQuizPage(key, title, color) {
+  const qz = QUIZZES[key];
+  if (!qz) return '<p>Quiz not found.</p>';
+
+  // init state
+  quizState[key] = quizState[key] || { current: 0, answers: {}, submitted: false, name: '' };
+  const st = quizState[key];
+
+  if (st.submitted) return renderQuizResults(key, color);
+
+  const q = qz.questions[st.current];
+  const total = qz.questions.length;
+  const pct = Math.round((st.current / total) * 100);
+
+  const choices = q.c.map((ch, i) => {
+    const sel = st.answers[st.current] === i;
+    return `<div class="qz-choice ${sel ? 'selected' : ''}" onclick="quizSelect('${key}',${i})">
+      <div class="qz-choice-letter">${['A','B','C','D'][i]}</div>
+      <div class="qz-choice-text">${ch}</div>
+    </div>`;
+  }).join('');
+
+  const answered = st.answers[st.current] !== undefined;
+  const isLast = st.current === total - 1;
+
+  const nameField = st.current === 0 ? `
+    <div style="margin-bottom:20px;">
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:6px;">Your Name (for results)</label>
+      <input id="qz-name-${key}" class="adm-input" style="max-width:280px;" placeholder="First Last" value="${st.name||''}" oninput="quizState['${key}'].name=this.value">
+    </div>` : '';
+
+  return `<div class="page-header">
+    <div class="page-dept-tag" style="background:${color}22;color:${color};">Quiz</div>
+    <h1>${title}</h1>
+    <div class="page-meta"><span><strong>Question:</strong> ${st.current+1} of ${total}</span><span><strong>Pass:</strong> ${Math.ceil(total*0.8)}/${total} correct</span></div>
+  </div>
+  <div class="prose">
+    <div class="qz-progress-wrap">
+      <div class="qz-progress-bar"><div class="qz-progress-fill" style="width:${pct}%;background:${color};"></div></div>
+      <span class="qz-progress-label">${pct}% complete</span>
+    </div>
+    ${nameField}
+    <div class="qz-card">
+      <div class="qz-q-num" style="color:${color};">Question ${st.current+1}</div>
+      <div class="qz-q-text">${q.q}</div>
+      <div class="qz-choices">${choices}</div>
+    </div>
+    <div class="qz-nav">
+      ${st.current > 0 ? `<button class="qz-btn qz-btn-ghost" onclick="quizNav('${key}',-1)">← Back</button>` : '<span></span>'}
+      ${isLast
+        ? `<button class="qz-btn qz-btn-submit" ${!answered?'disabled':''} onclick="quizSubmit('${key}')">Submit Quiz</button>`
+        : `<button class="qz-btn qz-btn-next" ${!answered?'disabled':''} onclick="quizNav('${key}',1)">Next →</button>`
+      }
+    </div>
+  </div>`;
+}
+
+function quizSelect(key, idx) {
+  const st = quizState[key];
+  if (!st || st.submitted) return;
+  st.answers[st.current] = idx;
+  // re-render current page
+  const sec = SECTIONS.find(s => s.id === 'training');
+  const page = sec.pages.find(p => p.content === '__QUIZ__' + key);
+  if (page) {
+    document.getElementById('content-area').innerHTML =
+      `<div class="page-header">
+        <div class="page-dept-tag" style="background:#7C3AED22;color:#7C3AED;">Quiz</div>
+        <h1>${page.title}</h1>
+        <div class="page-meta"><span><strong>Question:</strong> ${st.current+1} of ${QUIZZES[key].questions.length}</span><span><strong>Pass:</strong> ${Math.ceil(QUIZZES[key].questions.length*0.8)}/${QUIZZES[key].questions.length} correct</span></div>
+      </div>
+      <div class="prose">${renderQuizBody(key, '#7C3AED')}</div>`;
+  }
+}
+
+function renderQuizBody(key, color) {
+  const qz = QUIZZES[key];
+  const st = quizState[key];
+  const q = qz.questions[st.current];
+  const total = qz.questions.length;
+  const pct = Math.round((st.current / total) * 100);
+  const isLast = st.current === total - 1;
+  const answered = st.answers[st.current] !== undefined;
+
+  const choices = q.c.map((ch, i) => {
+    const sel = st.answers[st.current] === i;
+    return `<div class="qz-choice ${sel ? 'selected' : ''}" onclick="quizSelect('${key}',${i})">
+      <div class="qz-choice-letter">${['A','B','C','D'][i]}</div>
+      <div class="qz-choice-text">${ch}</div>
+    </div>`;
+  }).join('');
+
+  const nameField = st.current === 0 ? `
+    <div style="margin-bottom:20px;">
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:6px;">Your Name (for results)</label>
+      <input id="qz-name-${key}" class="adm-input" style="max-width:280px;" placeholder="First Last" value="${st.name||''}" oninput="quizState['${key}'].name=this.value">
+    </div>` : '';
+
+  return `<div class="qz-progress-wrap">
+    <div class="qz-progress-bar"><div class="qz-progress-fill" style="width:${pct}%;background:${color};"></div></div>
+    <span class="qz-progress-label">${pct}% complete</span>
+  </div>
+  ${nameField}
+  <div class="qz-card">
+    <div class="qz-q-num" style="color:${color};">Question ${st.current+1}</div>
+    <div class="qz-q-text">${q.q}</div>
+    <div class="qz-choices">${choices}</div>
+  </div>
+  <div class="qz-nav">
+    ${st.current > 0 ? `<button class="qz-btn qz-btn-ghost" onclick="quizNav('${key}',-1)">← Back</button>` : '<span></span>'}
+    ${isLast
+      ? `<button class="qz-btn qz-btn-submit" ${!answered?'disabled':''} onclick="quizSubmit('${key}')">Submit Quiz</button>`
+      : `<button class="qz-btn qz-btn-next" ${!answered?'disabled':''} onclick="quizNav('${key}',1)">Next →</button>`
+    }
+  </div>`;
+}
+
+function quizNav(key, dir) {
+  const st = quizState[key];
+  if (!st) return;
+  st.current = Math.max(0, Math.min(QUIZZES[key].questions.length - 1, st.current + dir));
+  const sec = SECTIONS.find(s => s.id === 'training');
+  const page = sec.pages.find(p => p.content === '__QUIZ__' + key);
+  if (page) showPage('training', page.id);
+}
+
+function quizSubmit(key) {
+  const st = quizState[key];
+  const qz = QUIZZES[key];
+  if (!st || !qz) return;
+  st.submitted = true;
+
+  // score
+  let correct = 0;
+  qz.questions.forEach((q, i) => { if (st.answers[i] === q.a) correct++; });
+  st.score = correct;
+  st.total = qz.questions.length;
+  st.pass = correct >= Math.ceil(qz.questions.length * 0.8);
+
+  // submit to Google Sheets webhook
+  const payload = {
+    name: st.name || 'Anonymous',
+    quiz: qz.title,
+    score: correct,
+    total: qz.questions.length,
+    passed: st.pass,
+    pct: Math.round((correct / qz.questions.length) * 100),
+    timestamp: new Date().toISOString()
+  };
+  const WEBHOOK = 'https://script.google.com/macros/s/AKfycbxVBaVCKmXyJkNDxMgO6KoiGAVLLtDnjIcQMZ3vy6OEfDaP3bSmME3zN3bV3VbXuXA/exec';
+  fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) }).catch(()=>{});
+
+  const sec = SECTIONS.find(s => s.id === 'training');
+  const page = sec.pages.find(p => p.content === '__QUIZ__' + key);
+  if (page) showPage('training', page.id);
+}
+
+function renderQuizResults(key, color) {
+  const qz = QUIZZES[key];
+  const st = quizState[key];
+  const pct = Math.round((st.score / st.total) * 100);
+  const pass = st.pass;
+
+  const review = qz.questions.map((q, i) => {
+    const userAns = st.answers[i];
+    const correct = userAns === q.a;
+    return `<div class="qz-review-item ${correct ? 'correct' : 'wrong'}">
+      <div class="qz-review-q">${i+1}. ${q.q}</div>
+      <div class="qz-review-row">
+        <span class="qz-review-badge ${correct?'badge-correct':'badge-wrong'}">${correct ? '✓ Correct' : '✗ Wrong'}</span>
+        ${!correct ? `<span class="qz-review-yours">Your answer: ${q.c[userAns] ?? 'skipped'}</span>` : ''}
+        <span class="qz-review-correct">Correct: ${q.c[q.a]}</span>
+      </div>
+      ${!correct ? `<div class="qz-review-exp">${q.e || ''}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  const retakeBtn = `<button class="qz-btn qz-btn-ghost" onclick="quizRetake('${key}')">Retake Quiz</button>`;
+  const backBtn = `<button class="qz-btn" style="background:#7C3AED;color:#fff;" onclick="showPage('training','training-home')">← All Quizzes</button>`;
+
+  return `<div class="page-header">
+    <div class="page-dept-tag" style="background:${pass?'#dcfce7':'#fee2e2'};color:${pass?'#16a34a':'#dc2626'};">${pass ? '✓ PASSED' : '✗ NOT PASSED'}</div>
+    <h1>${qz.title}</h1>
+    <div class="page-meta"><span><strong>Score:</strong> ${st.score}/${st.total} (${pct}%)</span><span><strong>Required:</strong> ${Math.ceil(st.total*0.8)}/${st.total}</span></div>
+  </div>
+  <div class="prose">
+    <div class="qz-result-hero" style="border-color:${pass?'#16a34a':'#dc2626'};">
+      <div class="qz-result-pct" style="color:${pass?'#16a34a':'#dc2626'};">${pct}%</div>
+      <div class="qz-result-msg">${pass ? '🎉 Great work! You passed.' : 'Keep studying — review the answers below and retake when ready.'}</div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px;">${backBtn}${retakeBtn}</div>
+    </div>
+    <h3 style="margin:24px 0 12px;font-size:15px;">Answer Review</h3>
+    <div class="qz-review">${review}</div>
+  </div>`;
+}
+
+function quizRetake(key) {
+  quizState[key] = { current: 0, answers: {}, submitted: false, name: quizState[key]?.name || '' };
+  const sec = SECTIONS.find(s => s.id === 'training');
+  const page = sec.pages.find(p => p.content === '__QUIZ__' + key);
+  if (page) showPage('training', page.id);
+}
+
+function handleSearch(val) {
+  if (!val.trim()) { renderSidebar(); return; }
+  const q = val.toLowerCase();
+  const sb = document.getElementById('sidebar');
+  let html = '';
+  let found = 0;
+  SECTIONS.forEach(sec => {
+    sec.pages.forEach(p => {
+      const text = (p.title + p.content).toLowerCase();
+      if (text.includes(q)) {
+        if (found === 0) html += `<div class="sidebar-label" style="margin-top:12px">Search Results</div>`;
+        html += `<a class="sidebar-page" onclick="showPage('${sec.id}','${p.id}')">${p.title}</a>`;
+        found++;
+      }
+    });
+  });
+  if (!found) html = `<div class="sidebar-label" style="margin-top:12px">No results found</div>`;
+  sb.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════════
+// PIPELINE REFERENCE DATA
+// ══════════════════════════════════════════════════════════
+const PC_DATA = {
+  'leads-prospects': { name:'Prospects', pipe:'1) Leads Pipeline',
+    means:['New inbound lead — initial qualification not yet done','Campaign source tag should be visible on the record','Nicole owns this lead until it moves forward'],
+    unlocks:['Qualification call to screen motivation, timeline, condition','MIST screening begins','If qualified: moves to Priority Top 20% or Redzones'],
+    skip:'Lead sits uncalled. No one knows who owns it. Two people may dial simultaneously. Missed response = dead opportunity within hours.' },
+  'leads-redzones': { name:'Redzones', pipe:'1) Leads Pipeline',
+    means:['Lead has a reason to move quickly — distress, estate, divorce, vacancy','Flagged for elevated follow-up priority','Should not sit here more than 24 hours without contact'],
+    unlocks:['Accelerated outreach cadence','Potential skip to appointment sooner than standard flow','Team awareness that this is a motivated seller'],
+    skip:'High-motivation seller treated like a cold lead. They get contacted 3 days later and have already signed with someone else.' },
+  'leads-priority': { name:'Priority Top 20%', pipe:'1) Leads Pipeline',
+    means:['Top-tier lead based on motivation score and property type','Has been pre-qualified — ready for appointment scheduling','Highest probability of converting to contract'],
+    unlocks:['Direct handoff to closer pipeline when appointment is set','Gets dedicated follow-up from lead manager','Appointment booking in GHL triggered'],
+    skip:'Best leads treated like average ones. Slower follow-up on the leads most likely to close. Missed revenue.' },
+  'leads-followup': { name:'Follow Up', pipe:'1) Leads Pipeline',
+    means:['Lead has been contacted but needs nurturing — not ready yet','Automated or manual follow-up sequence in play','Not dead — still has potential, just longer timeline'],
+    unlocks:['30/60/90-day drip keeps lead warm without manual effort','Returns to Priority if seller re-engages','Prevents premature dead-lead tagging'],
+    skip:'Warm leads go cold and are never re-engaged. These represent paid marketing dollars that walked out the door.' },
+  'leads-handoff': { name:'Closer Pipeline Handoff', pipe:'1) Leads Pipeline to Closer',
+    means:['Lead has an appointment booked and confirmed','Lead Management job is done — Closer now owns this contact','Stage change signals Acquisitions to prepare'],
+    unlocks:['Closer can see the appointment on their calendar','Lead Management stops all outreach — no more double-contact','Pre-appointment research begins: SDAT, preliminary comps'],
+    skip:'CRITICAL HANDOFF FAILURE. Nicole may keep calling someone Joshua has an appointment with. Seller gets confused. Trust breaks down before the appointment even happens.' },
+  'leads-not-md': { name:'Not MD Lead', pipe:'1) Leads Pipeline',
+    means:['Property is outside Maryland — outside our buy box','Lead will not convert for IHT','Should be tagged immediately when discovered'],
+    unlocks:['Frees pipeline of unworkable leads','Improves conversion rate accuracy','Can be referred out if a partner operates in that market'],
+    skip:'Out-of-market leads pollute your pipeline metrics. You think you have more opportunities than you do. Conversion rate looks artificially low.' },
+  'leads-ai-queue': { name:'AI Follow Up Queue', pipe:'1) Leads Pipeline',
+    means:['Lead routed to AI-powered follow-up automation','Human outreach has been exhausted or is paused','AI handles ongoing touchpoints'],
+    unlocks:['Continuous contact without manual labor','Re-engagement if seller responds to AI messages','Frees Nicole time for active leads'],
+    skip:'AI sequence never runs. Lead goes completely cold. Paid acquisition cost wasted.' },
+  'leads-ai-review': { name:'AI Review', pipe:'1) Leads Pipeline',
+    means:['AI has flagged this lead for human review after engagement','Possible re-engagement signal — seller responded','Needs a human to evaluate and decide next step'],
+    unlocks:['Human takes over from AI at the right moment','Re-qualifies the lead with fresh context','Prevents AI from over-engaging a ready seller'],
+    skip:'AI flags go unread. A seller who just responded to an automated message waits 3 days with no human follow-up. Deal lost.' },
+  'josh-preoffer': { name:'Pre-offer', pipe:'3) Josh the Closer',
+    means:['Appointment completed — property walked, rapport built','Comps have been run, repair estimate made','Offer not yet formally presented or paperwork signed'],
+    unlocks:['Final offer calculation and review','Appointment notes documented in GHL','If offer presented but not signed: moves to Offered'],
+    skip:'Deal sits in limbo. No clear record of where the conversation ended. No follow-up task created. Seller goes cold.' },
+  'josh-noreach': { name:'Cannot Confirm/Reach', pipe:'3) Josh the Closer',
+    means:['Appointment was set but seller is now unresponsive','Could not confirm appointment day/time','Risk of no-show is high'],
+    unlocks:['Re-engagement attempt via different channel','Return to Leads pipeline for long-term nurture if unresponsive after 3 attempts','Prevents wasted drive time to a no-show'],
+    skip:'Agent drives to an appointment that will not happen. Wasted time and mileage. No documentation that the attempt was made.' },
+  'josh-aptsched': { name:'Appointment Scheduled', pipe:'3) Josh the Closer',
+    means:['Date and time confirmed with seller','Property address verified','Credibility packet and comp materials prepared'],
+    unlocks:['Pre-appointment SDAT research','Preliminary ARV and repair estimate before walking in','Calendar visibility for entire team'],
+    skip:'Agent walks in blind — no comps, no ownership research. Weak negotiating position. Offer is likely wrong.' },
+  'josh-offered': { name:'Offered', pipe:'3) Josh the Closer',
+    means:['Formal offer has been presented to seller','Seller is considering — no signature yet','Active follow-up window is now open'],
+    unlocks:['24-hour follow-up task auto-set','Credibility packet reference during follow-up calls','Objection handling scripts become relevant'],
+    skip:'Seller has an offer out with no follow-up. They assume IHT is not serious. Signs with next person who calls.' },
+  'josh-1ydline': { name:'1 YD LINE', pipe:'3) Josh the Closer',
+    means:['Seller is very close to signing — verbal yes or near-commitment','One more strong follow-up or small concession may close it','Needs Joshua direct personal attention — not automation'],
+    unlocks:['Escalated follow-up: call same day, not tomorrow','Potential for same-day appointment to close','Drive to close — this is the highest conversion stage'],
+    skip:'Hot deal goes cold because someone waited 48 hours. Seller commits to a competitor. The deal was right there.' },
+  'josh-ltfu': { name:'LTFU', pipe:'3) Josh the Closer',
+    means:['Seller said no or not yet — but relationship is warm','Timeline is 3 to 12 months out','Still a potential deal — just longer runway'],
+    unlocks:['Long-term automated nurture sequence','Quarterly check-in reminder task for Joshua','Preserved relationship for future opportunity'],
+    skip:'Warm no treated as permanent no. Seller eventually decides to sell — calls someone else because IHT fell off the radar.' },
+  'josh-won': { name:'WON! Contract Signed', pipe:'3) Josh the Closer',
+    means:['Purchase agreement signed by seller','Google Drive property folder must be created NOW','Drive link must be in GHL record before leaving the property'],
+    unlocks:['TC pipeline: New Deal! stage triggered','Dispositions begins listing prep from Drive folder','Deal is officially in the pipeline — clock starts on all deadlines'],
+    skip:'MOST EXPENSIVE SKIP. TC does not know a contract exists. No title ordered. No listing built. Contract expires. Deal lost.' },
+  'mike-aptsched': { name:'Appointment Scheduled', pipe:'2) Mike the Closer',
+    means:['Appointment confirmed — Mike has date, time, address','Pre-appointment research should begin immediately','Lead Management has handed off — no more LM outreach to this seller'],
+    unlocks:['Mike runs preliminary comps and SDAT lookup','Credibility packet prepared and brought to appointment','Calendar entry visible to team'],
+    skip:'Mike shows up unprepared. No ARV, no ownership research. Seller senses it. Offer credibility suffers.' },
+  'mike-offermade': { name:'Offer Made/Followup', pipe:'2) Mike the Closer',
+    means:['Offer presented to seller — awaiting decision','May have gotten a soft yes or objection that needs addressing','Follow-up cadence should begin within 24 hours'],
+    unlocks:['Follow-up call task set in GHL','Objection scripts referenced','Deal still alive — just needs nurturing'],
+    skip:'No follow-up happens. Seller assumes Mike moved on. Signs with someone who called back.' },
+  'mike-1ydline': { name:'1 YD LINE', pipe:'2) Mike the Closer',
+    means:['Seller is on the verge of signing','Mike needs to call today — not tomorrow','Could close same day with right follow-up'],
+    unlocks:['Immediate personal call from Mike','Possible same-day or next-day appointment to execute contract','Ashley notified so she can support if needed'],
+    skip:'Hot deal goes cold in 24 hours. Seller was ready — IHT was not there at the right moment.' },
+  'mike-lostoffer': { name:'Lost Offer', pipe:'2) Mike the Closer',
+    means:['Seller declined, went with someone else, or property situation changed','Deal is over for now','Reason should be tagged: price, competition, seller changed mind, etc.'],
+    unlocks:['Accurate close-rate reporting from appointment to contract','Reason data informs future training and offer strategy','Warm sellers can be moved to Josh LTFU for future opportunity'],
+    skip:'No reason tagged. Team never learns why offers are not converting. Same mistakes repeat indefinitely.' },
+  'tc-newdeal': { name:'New Deal!', pipe:'5) Transaction Coordination',
+    means:['Signed A-B contract received — TC is now activated','Drive folder link should already be in GHL from Acquisitions','TC reviews property info sheet, signed contract, comps from Drive folder'],
+    unlocks:['Title search ordered within 24 hours','All critical dates calendared: inspection deadline, EMD due date, closing date','Dispositions also activated — listing prep begins simultaneously'],
+    skip:'TC never knows a contract exists. Title is not ordered. Inspection deadline passes. EMD is not collected. Deal collapses on process, not the deal itself.' },
+  'tc-premark': { name:'Pre-Marketing / New File Received', pipe:'5) Transaction Coordination',
+    means:['TC has the file — Drive folder confirmed, contract reviewed','Marketing materials being assembled by Dispo','Title search in progress'],
+    unlocks:['Dispositions can begin VIP blast prep','TC tracks inspection period expiration — exit window still open','Any title issues flagged to Ashley and Acquisitions immediately'],
+    skip:'Deal sits in New Deal! with no action. Marketing does not start. Days burn off the contract window.' },
+  'tc-vip': { name:'Marketing Phase 1 (VIP)', pipe:'5) Transaction Coordination',
+    means:['VIP buyer blast has gone out','Top-tier buyers have been notified with 24-48 hour exclusivity','TC coordinating timeline with Dispo'],
+    unlocks:['Fast-close VIP buyers can submit offers','Creates urgency — exclusivity window is limited','Dispo tracks VIP responses in GHL buyer records'],
+    skip:'VIP buyers feel disrespected if they see a deal publicly posted before they heard about it. Lose your best buyers. Slower closes.' },
+  'tc-allbuyers': { name:'Marketing Phase 2 (All Buyers)', pipe:'5) Transaction Coordination',
+    means:['Full buyer list blast sent','Maximum market exposure in play','All interest being logged — competing offers possible'],
+    unlocks:['Competitive offer environment created','Backup buyers identified while primary is in play','Offer deadline set to create urgency'],
+    skip:'Deal goes to too small an audience. Fewer offers, weaker negotiating position, no backup when primary falls through.' },
+  'tc-retrade': { name:'Marketing Phase 3 (Retrade)', pipe:'5) Transaction Coordination',
+    means:['Price adjustment — deal re-launched at new asking price','Primary buyer fell through or offer gap could not be bridged','Urgency is now critical — contract window is shrinking'],
+    unlocks:['Fresh blast to full list at new price','New offer deadline set','Backup buyers contacted first'],
+    skip:'Retrade happens but no one re-markets. Contract expires while team waits. Deal dies not because of the seller, but process.' },
+  'tc-docusign': { name:'Ready for DocuSign B-C', pipe:'5) Transaction Coordination',
+    means:['Buyer selected — assignment agreement ready to send','B-C contract drafted and in DocuSign queue','Waiting on buyer signature'],
+    unlocks:['Once signed: moves to B-C Assigned','EMD collection confirmed by title','TC coordinates simultaneous A-B and B-C closing'],
+    skip:'DocuSign sits unsent for days. Buyer cools off. Contract window shrinks. Other buyers stop waiting and move on.' },
+  'tc-bcassigned': { name:'B-C Assigned', pipe:'5) Transaction Coordination',
+    means:['Assignment agreement signed by end buyer','EMD collected and in escrow','Both A-B and B-C are fully executed — closing is the only remaining step'],
+    unlocks:['Closing date confirmed with title company','All parties receive closing instructions','TC posts update in #transactions Slack'],
+    skip:'BC assigned but closing never scheduled. Parties assume it is happening but no one coordinates. Closing missed.' },
+  'tc-extension': { name:'Extension Needed', pipe:'5) Transaction Coordination',
+    means:['Closing cannot happen on the original date','Reason documented: title issue, buyer delay, scheduling conflict','Seller consent required — TC must contact Acquisitions agent'],
+    unlocks:['Formal extension addendum drafted','New closing date negotiated and confirmed by all parties','TC alerts #transactions Slack with updated timeline'],
+    skip:'Extension assumed but not documented. Seller thinks the deal is dead. They call another buyer. Original contract expires unchallenged.' },
+  'tc-closingsched': { name:'Closing Scheduled', pipe:'5) Transaction Coordination',
+    means:['Date, time, and location confirmed with all parties','All closing documents sent 48 hours in advance','Both A-B and B-C closings coordinated'],
+    unlocks:['No last-minute surprises on closing day','Parties can review docs in advance','TC prepares closing confirmation for Slack'],
+    skip:'Parties show up with wrong IDs, missing wire info, or questions that derail the closing. Delay costs holding days.' },
+  'tc-atrisk': { name:'AT RISK (Title or Closing Issue)', pipe:'5) Transaction Coordination',
+    means:['Critical problem: open lien, title defect, buyer financing failure, or seller withdrawal','Deal may not close on current timeline','Immediate escalation to Ashley required'],
+    unlocks:['Ashley and Acquisitions agent looped in immediately','Remediation options explored: price reduction, lien payoff, replacement buyer','Hard decision made: push or exit'],
+    skip:'Issue known to TC but not escalated. Days pass. Contract expires. Deal lost — and the post-mortem reveals someone knew about the problem 2 weeks ago.' },
+  'tc-closed': { name:'Closed — Dispo Complete', pipe:'5) Transaction Coordination',
+    means:['Both A-B and B-C funded and recorded','Assignment fee received by IHT','Deal is officially complete'],
+    unlocks:['GHL stage moved to Closed immediately','Revenue logged in reporting','Win posted to #wins Slack channel'],
+    skip:'Deal shows as still open in pipeline. Revenue not captured. Reporting lies. Team misses the win recognition.' },
+  'tc-impactbuying': { name:'IMPACT Buying', pipe:'5) Transaction Coordination',
+    means:['IHT is acquiring this property for its own portfolio — not assigning','Different process: IHT is the end buyer, not an intermediary','TC coordinates direct purchase closing'],
+    unlocks:['Internal buy-and-hold or fix-and-flip process begins','Different financing and holding cost tracking','Ashley directly involved in all decisions'],
+    skip:'Treated like a standard wholesale. Wrong contracts, wrong process, wrong team members working it.' },
+  'tc-shortsale': { name:'Active Short Sale', pipe:'5) Transaction Coordination',
+    means:['Seller owes more than the property is worth — bank approval required','Extended timeline: 3 to 6 months is typical','Different process: lender must approve the short payoff'],
+    unlocks:['Short sale packet assembled and submitted to lender','Regular lender follow-up cadence set by TC','Buyer kept warm with regular updates'],
+    skip:'Short sale treated like a standard transaction. Wrong timeline expectations set. Buyer walks when approval takes 3 months. Deal lost.' },
+  'dispo-general': { name:'General / Prospective Buyers', pipe:'6) Dispo: Buyer Marketing',
+    means:['New buyer in the system — not yet verified or tiered','May have expressed interest but no proof of funds on file','Receives broad blast marketing only'],
+    unlocks:['Added to general email list','Buy box documented in contact notes','Moves to Priority or VIP as relationship develops'],
+    skip:'Buyer list never gets organized. Everyone gets every deal regardless of fit. Buyers tune out from irrelevant deals.' },
+  'dispo-priority': { name:'Priority', pipe:'6) Dispo: Buyer Marketing',
+    means:['Buyer has verified funds, clear buy box, and responds to blasts','Active — likely buying in the next 1 to 3 months','Gets priority notifications before general list'],
+    unlocks:['Included in targeted deal alerts matching their buy box','Faster response rate — keep deals moving','Builds toward VIP status'],
+    skip:'Priority buyers treated like general buyers. They feel undervalued and move their business to wholesalers who give them better access.' },
+  'dispo-prioritycomplete': { name:'Priority Complete', pipe:'6) Dispo: Buyer Marketing',
+    means:['Priority buyer has completed a transaction with IHT','Track record established','Relationship warm — repeat business likely'],
+    unlocks:['Natural path to VIP status','Referenced when selecting buyers for future deals','Testimonial/referral opportunity'],
+    skip:'Completed buyers fall back into the general pile. No relationship continuity. They do not feel like valued partners.' },
+  'dispo-vip': { name:'VIP', pipe:'6) Dispo: Buyer Marketing',
+    means:['Top-tier buyer — proven closer, fast mover, funds verified','Gets first look on every deal before general list','IHT most reliable revenue source'],
+    unlocks:['24-48 hour exclusivity window on new deals','Direct call or text from Ashley on hot deals','Priority consideration when multiple offers received'],
+    skip:'VIP buyers find out about deals from general blast same time as everyone else. They feel disrespected. Stop prioritizing IHT deals.' },
+  'dispo-commvip': { name:'Community VIP', pipe:'6) Dispo: Buyer Marketing',
+    means:['Buyer who is active in the broader REI community — agents, connectors, community leaders','May not buy directly but sends referrals and co-wholesale deals','Relationship asset beyond direct purchasing'],
+    unlocks:['Included in community-level deal sharing','JV opportunity identification','Referral pipeline from their network'],
+    skip:'Community relationships treated as low-priority. Referral and co-wholesale pipeline dries up.' },
+  'dispo-offerreceived': { name:'Offer Received', pipe:'6) Dispo: Buyer Marketing',
+    means:['Formal offer submitted — price, terms, closing date, POF attached','Being evaluated against other offers using the scoring matrix','Not yet accepted — still marketing to backup buyers'],
+    unlocks:['Offer matrix scoring: price (40%), certainty (30%), speed (20%), relationship (10%)','Backup buyers kept warm in parallel','Counter or acceptance within 24 hours'],
+    skip:'Offer sits unreviewed. Buyer assumes no interest and withdraws. Deal loses momentum and the best buyer.' },
+  'dispo-dead': { name:'Dead Buyer / Black Listed', pipe:'6) Dispo: Buyer Marketing',
+    means:['Buyer tied up a deal and could not close, or is blacklisted for bad behavior','Never receive deal alerts again','Reason documented for team awareness'],
+    unlocks:['Protects team from repeat bad actors','Keeps list clean — better engagement rates','Reason on file in case buyer returns under different name'],
+    skip:'Bad buyer gets another deal. Ties it up, cannot close again. Wasted weeks and a missed assignment fee.' },
+  'dispo-jv': { name:'JV Partners', pipe:'6) Dispo: Buyer Marketing',
+    means:['Joint venture partner — brings deals, capital, or buyers in exchange for a split','Different relationship than a standard buyer','Terms of JV agreement documented in contact record'],
+    unlocks:['Deal flow from their network','Capital partners for double-close or buy-box deals','Co-wholesale opportunities'],
+    skip:'JV relationships managed informally. No documented terms. Disputes over splits. Partnership dissolves over something preventable.' }
+};
+
+function pcDetail(id) {
+  var d = PC_DATA[id];
+  if (!d) return;
+  document.querySelectorAll('.pc-stage').forEach(function(el) { el.classList.remove('pc-active'); });
+  event.currentTarget.classList.add('pc-active');
+  var meansHTML = d.means.map(function(m) { return '<li>' + m + '</li>'; }).join('');
+  var unlocksHTML = d.unlocks.map(function(u) { return '<li>' + u + '</li>'; }).join('');
+  document.getElementById('pc-detail').innerHTML =
+    '<div class="pc-detail-inner">' +
+      '<div class="pc-detail-col">' +
+        '<div class="pc-detail-title">' + d.name + '</div>' +
+        '<div class="pc-detail-pipe">' + d.pipe + '</div>' +
+        '<h4>What This Stage Means</h4>' +
+        '<ul>' + meansHTML + '</ul>' +
+      '</div>' +
+      '<div class="pc-detail-col">' +
+        '<h4>What It Unlocks</h4>' +
+        '<ul>' + unlocksHTML + '</ul>' +
+      '</div>' +
+      '<div class="pc-detail-col">' +
+        '<h4>If This Stage Is Skipped</h4>' +
+        '<div class="pc-skip-box"><strong>&#9888; Consequence</strong><br>' + d.skip + '</div>' +
+      '</div>' +
+    '</div>';
+}
+
+// ══════════════════════════════════════════════════════════
+// QUIZ DATA (mirrors index.html — edit here, export to sync)
+// ══════════════════════════════════════════════════════════
+var QUIZZES = {
+  'role-lead-manager': { title: 'Lead Manager Role Entry', questions: [
+    { q: 'What is the maximum time allowed to respond to a new inbound lead?', c: ['30 minutes','15 minutes','1 hour','2 hours'], a: 1, e: 'New leads must be contacted within 15 minutes to maximize conversion.' },
+    { q: 'What does MIST stand for in the lead qualification framework?', c: ['Motivation, Interest, Situation, Timeline','Motivation, Issue, Situation, Timeline','Market, Intent, Sale, Timeline','Method, Issue, Stage, Time'], a: 1, e: 'MIST = Motivation, Issue, Situation, Timeline — the four qualification pillars.' },
+    { q: 'When a lead is not ready to sell but is not disqualified, which stage should they be moved to?', c: ['Dead Lead','Redzones','Long-Term Follow-Up','Priority Top 20%'], a: 2, e: 'Long-Term Follow-Up keeps warm leads in an automated nurture sequence.' },
+    { q: 'What is the correct action when a lead is outside Maryland?', c: ['Continue working it','Move to Redzones','Tag as Not MD Lead and stop outreach','Refer to Joshua'], a: 2, e: 'Out-of-market leads are tagged Not MD Lead to clean the pipeline and preserve accurate metrics.' },
+    { q: 'How many call attempts should be made before moving a lead to Long-Term Follow-Up?', c: ['1','2','3','5'], a: 2, e: 'Three call attempts plus a text within the first hour is the standard before LTFU.' }
+  ]},
+  'role-acquisitions': { title: 'Acquisitions Role Entry', questions: [
+    { q: 'What is the first thing an acquisitions agent should do when an appointment is confirmed?', c: ['Send the credibility packet','Run SDAT ownership lookup and preliminary comps','Call the seller back to confirm','Notify lead management the deal is theirs'], a: 1, e: 'Pre-appointment research — SDAT lookup and preliminary comps — should begin immediately after confirmation.' },
+    { q: 'What does MAO stand for?', c: ['Maximum Asking Offer','Maximum Allowable Offer','Minimum Acquisition Overhead','Market Adjusted Offer'], a: 1, e: 'MAO = Maximum Allowable Offer. Calculated as ARV x 70% minus estimated repairs.' },
+    { q: 'After a contract is signed, what must be created within 1 hour?', c: ['A title order','A Google Drive property folder with all docs','A listing in the TC pipeline','A Slack message to the team'], a: 1, e: 'The Drive folder must be created and linked in GHL within 1 hour of contract execution.' },
+    { q: 'What comp criteria distance is standard for Maryland suburban properties?', c: ['0.25 miles','0.5 miles','1 mile','2 miles'], a: 1, e: '0.5 miles is the standard comp radius for suburban Maryland properties.' },
+    { q: 'Where does the Google Drive folder link get pasted after the folder is created?', c: ['In the team Slack channel','In the GHL deal record notes or custom field','In an email to TC','In the Google Sheets tracker'], a: 1, e: 'The Drive folder link is pasted directly into the GHL deal record so TC and Dispo can access it without asking.' }
+  ]},
+  'role-dispositions': { title: 'Dispositions Role Entry', questions: [
+    { q: 'What is the first step in the dispositions process after a deal goes under contract?', c: ['Send a blast to all buyers','Build the listing headline','Pull the Google Drive folder link from GHL','Call the top VIP buyer directly'], a: 2, e: 'Always start by pulling the Drive folder link from the GHL deal record to access property data.' },
+    { q: 'In the offer evaluation matrix, what is the highest-weighted factor?', c: ['Speed of close','Buyer relationship','Price','Certainty of close'], a: 2, e: 'Price carries 40% of the evaluation weight, followed by Certainty (30%), Speed (20%), and Relationship (10%).' },
+    { q: 'Which buyer tier receives deal notifications first?', c: ['General buyers','Priority buyers','Community VIP','VIP buyers'], a: 3, e: 'VIP buyers get a 24-48 hour exclusivity window before the deal goes to any wider list.' },
+    { q: 'What should you continue doing until an EMD is physically received?', c: ['Marketing the deal to other buyers','Negotiating price with the seller','Ordering title','Requesting extensions'], a: 0, e: 'Never stop marketing until the EMD is collected — buyer backing out before EMD costs nothing to replace.' },
+    { q: 'What is the listing headline formula?', c: ['Address + ARV + Repair Estimate','ARV + Asking Price + Location hook','Price + Beds/Baths + Area','Seller Story + Property Condition + Price'], a: 1, e: 'The headline formula is ARV + Asking Price + Location — e.g., "$340K ARV | Asking $195K | Baltimore City".' }
+  ]},
+  'role-tc': { title: 'Transaction Coordinator Role Entry', questions: [
+    { q: 'Within how many hours of receiving a new deal must TC order title?', c: ['12 hours','24 hours','48 hours','72 hours'], a: 1, e: 'Title must be ordered within 24 hours of a deal entering the TC pipeline.' },
+    { q: 'Where does TC find the signed contract and property documents for a new deal?', c: ['In the team Slack channel','In an email from the acquisitions agent','In the Google Drive folder linked in the GHL deal record','In the Google Sheets tracker'], a: 2, e: 'All deal documents are in the Google Drive folder. The link is in the GHL deal record.' },
+    { q: 'What stage should TC move the deal to if a title issue is discovered?', c: ['Closing Scheduled','AT RISK (Title or Closing Issue)','Extension Needed','Dead Lead'], a: 1, e: 'AT RISK flags the deal for immediate review and escalation to Ashley and Acquisitions.' },
+    { q: 'When should all closing documents be sent to all parties?', c: ['Day of closing','1 week before','48 hours before closing','When the buyer asks'], a: 2, e: '48 hours before closing ensures all parties have time to review and avoids day-of surprises.' },
+    { q: 'Which Slack channel should TC use to post deal milestone updates?', c: ['#general','#wins','#transactions','#acquisitions'], a: 2, e: '#transactions is the dedicated channel for all TC deal milestones and updates.' }
+  ]},
+  'dept-lead-management': { title: 'Lead Management Deep Dive', questions: [
+    { q: 'What automation sequence runs when a lead is moved to Long-Term Follow-Up?', c: ['A one-time text','A 30/60/90-day drip sequence','A weekly email','Manual reminders only'], a: 1, e: 'LTFU triggers a 30/60/90-day automated drip to keep leads warm without manual effort.' },
+    { q: 'What is the purpose of the AI Follow Up Queue stage?', c: ['To disqualify leads automatically','To route unresponsive leads to AI-managed outreach','To generate new leads','To score inbound calls'], a: 1, e: 'The AI queue handles ongoing touchpoints for leads where human outreach has been exhausted.' },
+    { q: 'What is the correct response if a seller has already been contacted and has an appointment scheduled but Nicole receives a new lead for the same number?', c: ['Call the seller again to confirm','Check GHL stage — if appointment is set, do not reach out again','Send a text to introduce yourself','Assign to a second lead manager'], a: 1, e: 'Stage = ownership. If a closer already has the appointment, lead management must stop all outreach.' },
+    { q: 'What tag should be applied when a lead is permanently unresponsive after all sequences are exhausted?', c: ['LTFU','Redzone','Dead Lead','Not MD Lead'], a: 2, e: 'Dead Lead ends all outreach and automation. This keeps the pipeline clean and prevents TCPA violations.' },
+    { q: 'What is the Redzones stage used for?', c: ['Leads with high ARV properties','Leads with signs of urgency: distress, estate, divorce, vacancy','Out-of-state leads','Leads from paid ads only'], a: 1, e: 'Redzones flags motivated sellers who have a reason to move quickly and need accelerated follow-up.' }
+  ]},
+  'dept-acquisitions': { title: 'Acquisitions Deep Dive', questions: [
+    { q: 'What is the formula for Maximum Allowable Offer?', c: ['ARV x 65% + Repairs','ARV x 70% - Repairs','ARV - Repairs x 70%','ARV x 80% - Repairs'], a: 1, e: 'MAO = ARV x 70% minus estimated repairs. This is the ceiling, not the target.' },
+    { q: 'What comp sale date range is acceptable for standard ARV analysis?', c: ['Last 30 days only','Last 3 months','Last 6 months','Last 12 months'], a: 2, e: '6 months is the standard comp window. Tighter markets may use 3 months; slower markets up to 12.' },
+    { q: 'What four documents must be in the Google Drive folder before it is linked in GHL?', c: ['Contract, photos, POF, title report','Signed contract, property info sheet, comps, photos','Comps, repair estimate, photos, disclosure','Contract, ARV report, seller ID, photos'], a: 1, e: 'Signed contract + property info sheet + comps + photos are required at minimum before the folder link is pasted into GHL.' },
+    { q: 'What is the GHL stage the acquisitions agent should move the deal to after the Drive folder is linked?', c: ['Offered','Appointment Completed','Under Contract','WON!'], a: 2, e: 'Moving to Under Contract (or WON! in the closer pipeline) triggers both TC and Dispositions.' },
+    { q: 'Which property condition metric most significantly affects the repair cost estimate?', c: ['Year built','Square footage','Overall condition scope (cosmetic vs gut)','Lot size'], a: 2, e: 'Overall condition scope — cosmetic, moderate, heavy, or gut — drives the repair estimate more than any single line item.' }
+  ]},
+  'dept-dispositions': { title: 'Dispositions Deep Dive', questions: [
+    { q: 'What are the three buyer tiers in the IHT buyer system?', c: ['Hot, Warm, Cold','VIP, Active, General','Priority, Standard, New','Tier 1, Tier 2, Tier 3'], a: 1, e: 'IHT uses a three-tier buyer structure: VIP (top closers), Active (verified/engaged), and General (broad list).' },
+    { q: 'What information must be collected before a buyer is upgraded to VIP status?', c: ['Name and phone number only','Proof of funds, buy box details, and at least one completed transaction','A referral from an existing VIP buyer','Minimum $500K purchase history'], a: 1, e: 'VIP status requires verified proof of funds, a documented buy box, and a track record of closing.' },
+    { q: 'What happens if a buyer backs out before the EMD is received?', c: ['The deal is dead','Immediately re-market — contract with seller is still active','Notify the seller and ask for an extension','Move to AT RISK in TC pipeline'], a: 1, e: 'Pre-EMD fallthrough means the contract with the seller remains active. Re-market immediately.' },
+    { q: 'What must you include when sending a deal to the buyer list?', c: ['Seller name and motivation','ARV, asking price, repair estimate, photos, and address','Just the address and price','A link to the MLS listing'], a: 1, e: 'Every deal blast must include ARV, asking price, repair estimate, photos, and address — buyers need all five to evaluate.' },
+    { q: 'What is the correct action if your primary buyer is negotiating but has not yet signed?', c: ['Stop marketing and wait','Keep marketing to backup buyers','Give them a 1-week exclusive window','Reduce the price to speed up the decision'], a: 1, e: 'Never stop marketing until the EMD is in hand. Backup buyers protect the deal if the primary falls through.' }
+  ]},
+  'dept-tc': { title: 'TC Deep Dive', questions: [
+    { q: 'What is the difference between the A-B contract and the B-C contract in a wholesale deal?', c: ['A-B is with the buyer; B-C is with the seller','A-B is the seller purchase contract; B-C is the assignment or buyer sale contract','They are the same document signed twice','A-B is verbal; B-C is written'], a: 1, e: 'A-B is the purchase agreement between IHT and the seller. B-C is the assignment agreement (or sale) between IHT and the end buyer.' },
+    { q: 'What critical date must TC calendar immediately upon receiving a new deal?', c: ['The sellers birthday','The inspection period expiration date','The first scheduled showing','The MLS listing date'], a: 1, e: 'The inspection period expiration is the first critical deadline — missing it can prevent IHT from exiting a bad deal.' },
+    { q: 'What does TC do if a title search reveals an open lien on the property?', c: ['Close anyway and deal with it later','Ignore if the amount is under $5,000','Immediately escalate to Ashley and Acquisitions — do not proceed until resolved','Move the deal to Closing Scheduled'], a: 2, e: 'Any title issue must be escalated immediately. Do not proceed. Options: seller resolves the lien, price reduction to cover it, or deal exit.' },
+    { q: 'What is the maximum time between B-C signing and scheduling the closing?', c: ['2 weeks','Same business day or next day','1 week','3 business days'], a: 1, e: 'Closing should be scheduled same or next business day after B-C is signed. Delay creates buyer anxiety and deal risk.' },
+    { q: 'Which TC pipeline stage indicates the deal requires urgent escalation to Ashley?', c: ['Extension Needed','Closing Scheduled','AT RISK (Title or Closing Issue)','B-C Assigned'], a: 2, e: 'AT RISK is the escalation flag. It means something has gone wrong and Ashley needs to be in the decision loop immediately.' }
+  ]},
+  'dept-deal-lifecycle': { title: 'Deal Lifecycle', questions: [
+    { q: 'In what order do the following departments touch a deal? Lead Management, TC, Acquisitions, Dispositions', c: ['Acq → LM → Dispo → TC','LM → Acq → TC + Dispo simultaneously','LM → Acq → Dispo → TC','TC → LM → Acq → Dispo'], a: 1, e: 'Lead Management qualifies and hands off. Acquisitions signs the contract. TC and Dispositions both activate simultaneously after contract signing.' },
+    { q: 'What is the single document that serves as the handoff trigger from Acquisitions to both TC and Dispositions?', c: ['The MLS comp report','The signed A-B contract in the Google Drive folder, linked in GHL','A Slack notification to the team','An email with the property address'], a: 1, e: 'The Google Drive folder link in the GHL deal record is the official handoff. Both TC and Dispo work from this folder.' },
+    { q: 'What happens to the deal if the primary buyer falls through after B-C is signed but before closing?', c: ['The A-B contract automatically terminates','TC moves to AT RISK; Dispo immediately re-markets to backup buyers','The seller keeps the EMD','The deal is declared dead'], a: 1, e: 'A buyer fallthrough triggers AT RISK in TC and immediate re-marketing in Dispo. The A-B contract with the seller may still be active.' },
+    { q: 'Which GHL pipeline stage officially marks a deal as complete?', c: ['B-C Assigned','WON! in the closer pipeline','Closed - Dispo Complete in the TC pipeline','Closing Scheduled'], a: 2, e: '"Closed - Dispo Complete" in the TC pipeline is the official closed state. This is when GHL reporting counts the deal as won.' },
+    { q: 'What is the purpose of requiring the Drive folder link in the GHL deal record?', c: ['For MLS compliance','So anyone on the team can access all deal documents without asking another team member','For Google Ads tracking','So the seller can review their documents'], a: 1, e: 'The Drive link in GHL ensures zero-friction document access. No one needs to ask an acquisitions agent for files that are already there.' }
+  ]},
+  'dept-tools-systems': { title: 'Tools & Systems', questions: [
+    { q: 'What is the primary CRM platform used by Impact Home Team?', c: ['HubSpot','Salesforce','GoHighLevel (GHL)','Podio'], a: 2, e: 'GoHighLevel (GHL) is the central CRM, automation, and pipeline management platform for IHT.' },
+    { q: 'What Maryland state database is used to verify property ownership for seller leads?', c: ['MLS / BrightMLS','Maryland iMAP','SDAT (State Department of Assessments and Taxation)','MD Court Records'], a: 2, e: 'SDAT is the authoritative source for Maryland property ownership, assessed value, and property details.' },
+    { q: 'Where are training quiz results automatically sent after completion?', c: ['A shared Google Drive folder','The #training Slack channel','A Google Sheet via Apps Script webhook','An email to Ashley'], a: 2, e: 'Quiz results are piped to Google Sheets automatically via an Apps Script webhook embedded in the training portal.' },
+    { q: 'What is the correct tool for finding recent comparable sales for ARV analysis in Maryland?', c: ['Zillow only','BrightMLS / RESO API','Google Maps','SDAT only'], a: 1, e: 'BrightMLS (via RESO API) provides accurate, MLS-sourced comparable sales for Maryland ARV analysis.' },
+    { q: 'Which communication platform is used for all internal team coordination at IHT?', c: ['Email','Microsoft Teams','Slack','GHL conversations'], a: 2, e: 'Slack is the primary internal communication tool. All deal updates, milestones, and team coordination happen in Slack channels.' }
+  ]}
+};
+
+// ══════════════════════════════════════════════════════════
+// ADMIN STATE
+// ══════════════════════════════════════════════════════════
+const ADM_PASSWORD = 'iht2026admin';
+var admAuthenticated = false;
+var admCurrentPanel = 'content';
+var admCurrentPage = null;
+var admCurrentQuiz = 'role-lead-manager';
+var admDirtyPages = {};  // tracks unsaved page edits
+var admDirtyQuizzes = false;
+
+// ── ADMIN OPEN / CLOSE ──
+function openAdminLogin() {
+  document.getElementById('admin-overlay').classList.add('active');
+  document.getElementById('adm-login-screen').style.display = '';
+  document.getElementById('adm-main-screen').style.display = 'none';
+  setTimeout(function() { document.getElementById('adm-pw-input').focus(); }, 100);
+}
+
+function closeAdmin() {
+  if (admDirtyPages && Object.keys(admDirtyPages).length > 0 || admDirtyQuizzes) {
+    if (!confirm('You have unsaved changes. Close anyway?')) return;
+  }
+  document.getElementById('admin-overlay').classList.remove('active');
+  document.getElementById('adm-pw-input').value = '';
+  admAuthenticated = false;
+}
+
+function admLogin() {
+  var pw = document.getElementById('adm-pw-input').value;
+  if (pw === ADM_PASSWORD) {
+    admAuthenticated = true;
+    document.getElementById('adm-login-screen').style.display = 'none';
+    document.getElementById('adm-main-screen').style.display = 'flex';
+    admNav('content');
+  } else {
+    document.getElementById('adm-login-error').style.display = 'block';
+    document.getElementById('adm-pw-input').value = '';
+    document.getElementById('adm-pw-input').focus();
+  }
+}
+
+// ── ADMIN NAVIGATION ──
+function admNav(panel) {
+  admCurrentPanel = panel;
+  // highlight nav
+  document.querySelectorAll('.adm-nav-item').forEach(function(el) { el.classList.remove('active'); });
+  var navEl = document.getElementById('adm-nav-' + panel);
+  if (navEl) navEl.classList.add('active');
+  // render panel
+  var area = document.getElementById('adm-content-area');
+  if (panel === 'content') area.innerHTML = admRenderContentPanel();
+  else if (panel === 'quizzes') area.innerHTML = admRenderQuizPanel();
+  else if (panel === 'aigen') area.innerHTML = admRenderAiPanel();
+  else if (panel === 'export') area.innerHTML = admRenderExportPanel();
+}
+
+// ══════════════════════════════════════════════════════════
+// CONTENT EDITOR PANEL
+// ══════════════════════════════════════════════════════════
+function admRenderContentPanel() {
+  // Build page options
+  var options = '';
+  SECTIONS.forEach(function(sec) {
+    sec.pages.forEach(function(p) {
+      var dirty = admDirtyPages[p.id] ? ' ●' : '';
+      options += '<option value="' + sec.id + '|' + p.id + '">' + sec.label + ' › ' + p.title + dirty + '</option>';
+    });
+  });
+
+  var selectedKey = admCurrentPage || (SECTIONS[0].id + '|' + SECTIONS[0].pages[0].id);
+  var parts = selectedKey.split('|');
+  var sec = SECTIONS.find(function(s) { return s.id === parts[0]; });
+  var page = sec ? sec.pages.find(function(p) { return p.id === parts[1]; }) : null;
+  if (!page) { sec = SECTIONS[0]; page = sec.pages[0]; selectedKey = sec.id + '|' + page.id; }
+
+  var content = admDirtyPages[page.id] !== undefined ? admDirtyPages[page.id] : page.content;
+  var escaped = content.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  return '<div class="adm-card">' +
+    '<div class="adm-card-head"><h3>📄 Page Content Editor</h3><span class="adm-card-sub">Edit SOP text, tables, and callouts for any page</span></div>' +
+    '<div class="adm-card-body">' +
+      '<label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:6px;">Select Page</label>' +
+      '<select class="adm-page-select" id="adm-page-sel" onchange="admSelectPage(this.value)">' + options + '</select>' +
+      '<div class="adm-field-row">' +
+        '<div class="adm-field"><label>Page Title</label><input class="adm-input" id="adm-meta-title" value="' + page.title.replace(/"/g,'&quot;') + '"></div>' +
+        '<div class="adm-field"><label>Owner</label><input class="adm-input" id="adm-meta-owner" value="' + page.owner.replace(/"/g,'&quot;') + '"></div>' +
+      '</div>' +
+      '<div class="adm-editor-tabs">' +
+        '<div class="adm-tab active" id="tab-edit" onclick="admSwitchTab(\'edit\')">HTML Source</div>' +
+        '<div class="adm-tab" id="tab-preview" onclick="admSwitchTab(\'preview\')">Preview</div>' +
+      '</div>' +
+      '<div class="adm-editor-panel active" id="panel-edit">' +
+        '<textarea class="adm-textarea" id="adm-content-editor" oninput="admMarkDirty()">' + escaped + '</textarea>' +
+      '</div>' +
+      '<div class="adm-editor-panel" id="panel-preview">' +
+        '<div class="adm-preview prose" id="adm-preview-box"></div>' +
+      '</div>' +
+      '<div class="adm-editor-actions">' +
+        '<button class="adm-btn adm-btn-amber" onclick="admSavePage()">Save Page</button>' +
+        '<button class="adm-btn adm-btn-ghost" onclick="admRevertPage()">Revert</button>' +
+        '<span class="adm-save-status" id="adm-save-status">Changes saved in memory — export to make permanent</span>' +
+      '</div>' +
+    '</div></div>';
+}
+
+function admSelectPage(val) {
+  admCurrentPage = val;
+  admNav('content');
+}
+
+function admSwitchTab(tab) {
+  document.getElementById('tab-edit').classList.toggle('active', tab === 'edit');
+  document.getElementById('tab-preview').classList.toggle('active', tab === 'preview');
+  document.getElementById('panel-edit').classList.toggle('active', tab === 'edit');
+  document.getElementById('panel-preview').classList.toggle('active', tab === 'preview');
+  if (tab === 'preview') {
+    var html = document.getElementById('adm-content-editor').value;
+    document.getElementById('adm-preview-box').innerHTML = html;
+  }
+}
+
+function admMarkDirty() {
+  var status = document.getElementById('adm-save-status');
+  if (status) { status.textContent = '● Unsaved changes'; status.className = 'adm-save-status unsaved'; }
+}
+
+function admSavePage() {
+  if (!admCurrentPage) return;
+  var parts = admCurrentPage.split('|');
+  var sec = SECTIONS.find(function(s) { return s.id === parts[0]; });
+  if (!sec) return;
+  var page = sec.pages.find(function(p) { return p.id === parts[1]; });
+  if (!page) return;
+
+  var newContent = document.getElementById('adm-content-editor').value;
+  var newTitle = document.getElementById('adm-meta-title').value;
+  var newOwner = document.getElementById('adm-meta-owner').value;
+
+  page.content = newContent;
+  page.title = newTitle;
+  page.owner = newOwner;
+  admDirtyPages[page.id] = newContent;
+
+  var status = document.getElementById('adm-save-status');
+  if (status) { status.textContent = '✓ Saved'; status.className = 'adm-save-status saved'; }
+  admToast('Page saved: ' + page.title, 'success');
+}
+
+function admRevertPage() {
+  if (!admCurrentPage) return;
+  var parts = admCurrentPage.split('|');
+  var sec = SECTIONS.find(function(s) { return s.id === parts[0]; });
+  if (!sec) return;
+  var page = sec.pages.find(function(p) { return p.id === parts[1]; });
+  if (!page || !confirm('Revert to last saved version?')) return;
+  delete admDirtyPages[page.id];
+  admNav('content');
+}
+
+function admSaveAll() {
+  // flush all dirty pages into SECTIONS
+  Object.keys(admDirtyPages).forEach(function(pid) {
+    SECTIONS.forEach(function(sec) {
+      sec.pages.forEach(function(p) {
+        if (p.id === pid) p.content = admDirtyPages[pid];
+      });
+    });
+  });
+  admDirtyPages = {};
+  admDirtyQuizzes = false;
+  admToast('All changes saved to memory. Use Export to make permanent.', 'success');
+  if (admCurrentPanel) admNav(admCurrentPanel);
+}
+
+// ══════════════════════════════════════════════════════════
+// QUIZ EDITOR PANEL
+// ══════════════════════════════════════════════════════════
+function admRenderQuizPanel() {
+  var qzOpts = '';
+  Object.keys(QUIZZES).forEach(function(k) {
+    var sel = k === admCurrentQuiz ? ' selected' : '';
+    qzOpts += '<option value="' + k + '"' + sel + '>' + QUIZZES[k].title + ' (' + QUIZZES[k].questions.length + ' questions)</option>';
+  });
+
+  var qz = QUIZZES[admCurrentQuiz];
+  var questionsHTML = '';
+  qz.questions.forEach(function(q, i) {
+    var choices = ['A','B','C','D'];
+    var choiceInputs = q.c.map(function(ch, ci) {
+      return '<div class="adm-q-field"><label>' + choices[ci] + '</label>' +
+        '<input class="adm-q-input" id="qc_' + i + '_' + ci + '" value="' + ch.replace(/"/g,'&quot;') + '"></div>';
+    }).join('');
+
+    var answerOpts = choices.map(function(ch, ci) {
+      return '<option value="' + ci + '"' + (q.a === ci ? ' selected' : '') + '>' + ch + ' — ' + (q.c[ci] || '').substring(0,40) + '</option>';
+    }).join('');
+
+    questionsHTML +=
+      '<div class="adm-q-card" id="qcard_' + i + '">' +
+        '<div class="adm-q-head" onclick="admToggleQ(' + i + ')">' +
+          '<div class="adm-q-num">' + (i+1) + '</div>' +
+          '<div style="flex:1">' +
+            '<div class="adm-q-text">' + q.q + '</div>' +
+            '<div class="adm-q-meta">Correct: ' + choices[q.a] + ' · ' + q.c[q.a].substring(0,50) + '</div>' +
+          '</div>' +
+          '<div class="adm-q-toggle" id="qtog_' + i + '">▾</div>' +
+        '</div>' +
+        '<div class="adm-q-body" id="qbody_' + i + '">' +
+          '<div class="adm-q-field"><label>Question Text</label>' +
+            '<input class="adm-q-input" id="qq_' + i + '" value="' + q.q.replace(/"/g,'&quot;') + '"></div>' +
+          choiceInputs +
+          '<div class="adm-q-field"><label>Correct Answer</label>' +
+            '<select class="adm-q-answer-select" id="qa_' + i + '">' + answerOpts + '</select></div>' +
+          '<div class="adm-q-field"><label>Explanation</label>' +
+            '<input class="adm-q-input" id="qe_' + i + '" value="' + (q.e||'').replace(/"/g,'&quot;') + '"></div>' +
+          '<div class="adm-q-actions">' +
+            '<button class="adm-btn adm-btn-amber adm-btn-sm" onclick="admSaveQ(' + i + ')">Save</button>' +
+            '<button class="adm-btn adm-btn-danger adm-btn-sm" onclick="admDeleteQ(' + i + ')">Delete</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  });
+
+  return '<div class="adm-card">' +
+    '<div class="adm-card-head"><h3>📝 Quiz Question Editor</h3>' +
+      '<span class="adm-card-sub">Edit questions for any quiz · Changes sync to export</span></div>' +
+    '<div class="adm-card-body">' +
+      '<label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:6px;">Select Quiz</label>' +
+      '<select class="adm-quiz-select" onchange="admSelectQuiz(this.value)">' + qzOpts + '</select>' +
+      '<div style="font-size:12px;color:var(--steel);margin-bottom:12px;">' + qz.questions.length + ' questions · 80% pass threshold (≥' + Math.ceil(qz.questions.length * 0.8) + ' correct)</div>' +
+      questionsHTML +
+      admRenderNewQForm() +
+    '</div></div>';
+}
+
+function admRenderNewQForm() {
+  return '<div class="adm-new-q-form" id="adm-new-q-form">' +
+    '<h4>+ Add New Question</h4>' +
+    '<div class="adm-q-field"><label>Question Text</label>' +
+      '<input class="adm-q-input" id="nq_q" placeholder="Enter question..."></div>' +
+    '<div class="adm-q-answer-row">' +
+      '<div class="adm-q-field"><label>Choice A</label><input class="adm-q-input" id="nq_c0" placeholder="Choice A"></div>' +
+      '<div class="adm-q-field"><label>Choice B</label><input class="adm-q-input" id="nq_c1" placeholder="Choice B"></div>' +
+      '<div class="adm-q-field"><label>Choice C</label><input class="adm-q-input" id="nq_c2" placeholder="Choice C"></div>' +
+      '<div class="adm-q-field"><label>Choice D</label><input class="adm-q-input" id="nq_c3" placeholder="Choice D"></div>' +
+    '</div>' +
+    '<div class="adm-q-field"><label>Correct Answer</label>' +
+      '<select class="adm-q-answer-select" id="nq_a">' +
+        '<option value="0">A</option><option value="1">B</option>' +
+        '<option value="2">C</option><option value="3">D</option>' +
+      '</select></div>' +
+    '<div class="adm-q-field"><label>Explanation</label>' +
+      '<input class="adm-q-input" id="nq_e" placeholder="Why is this the correct answer?"></div>' +
+    '<div class="adm-q-actions" style="margin-top:12px;">' +
+      '<button class="adm-btn adm-btn-green adm-btn-sm" onclick="admAddQ()">Add Question</button>' +
+    '</div>' +
+  '</div>';
+}
+
+function admSelectQuiz(key) {
+  admCurrentQuiz = key;
+  admNav('quizzes');
+}
+
+function admToggleQ(i) {
+  var body = document.getElementById('qbody_' + i);
+  var tog = document.getElementById('qtog_' + i);
+  var open = body.classList.toggle('open');
+  if (tog) tog.textContent = open ? '▴' : '▾';
+}
+
+function admSaveQ(i) {
+  var qz = QUIZZES[admCurrentQuiz];
+  var c = [
+    document.getElementById('qc_'+i+'_0').value,
+    document.getElementById('qc_'+i+'_1').value,
+    document.getElementById('qc_'+i+'_2').value,
+    document.getElementById('qc_'+i+'_3').value
+  ];
+  qz.questions[i] = {
+    q: document.getElementById('qq_'+i).value,
+    c: c,
+    a: parseInt(document.getElementById('qa_'+i).value),
+    e: document.getElementById('qe_'+i).value
+  };
+  admDirtyQuizzes = true;
+  admToast('Question ' + (i+1) + ' saved', 'success');
+  admNav('quizzes');
+}
+
+function admDeleteQ(i) {
+  if (!confirm('Delete question ' + (i+1) + '?')) return;
+  QUIZZES[admCurrentQuiz].questions.splice(i, 1);
+  admDirtyQuizzes = true;
+  admToast('Question deleted', '');
+  admNav('quizzes');
+}
+
+function admAddQ() {
+  var q = document.getElementById('nq_q').value.trim();
+  if (!q) { admToast('Question text is required', 'error'); return; }
+  var c = [
+    document.getElementById('nq_c0').value.trim(),
+    document.getElementById('nq_c1').value.trim(),
+    document.getElementById('nq_c2').value.trim(),
+    document.getElementById('nq_c3').value.trim()
+  ];
+  if (c.some(function(x){return !x;})) { admToast('All 4 choices are required', 'error'); return; }
+  QUIZZES[admCurrentQuiz].questions.push({
+    q: q, c: c,
+    a: parseInt(document.getElementById('nq_a').value),
+    e: document.getElementById('nq_e').value.trim()
+  });
+  admDirtyQuizzes = true;
+  admToast('Question added to ' + QUIZZES[admCurrentQuiz].title, 'success');
+  admNav('quizzes');
+}
+
+// ══════════════════════════════════════════════════════════
+// AI QUESTION GENERATOR PANEL
+// ══════════════════════════════════════════════════════════
+function admRenderAiPanel() {
+  var qzOpts = '';
+  Object.keys(QUIZZES).forEach(function(k) {
+    var sel = k === admCurrentQuiz ? ' selected' : '';
+    qzOpts += '<option value="' + k + '"' + sel + '>' + QUIZZES[k].title + '</option>';
+  });
+
+  return '<div class="adm-card">' +
+    '<div class="adm-card-head"><h3>✨ AI Question Generator</h3>' +
+      '<span class="adm-card-sub">Paste SOP text → Claude generates quiz questions</span></div>' +
+    '<div class="adm-card-body">' +
+      '<div class="adm-ai-box">' +
+        '<h4>✨ Generate with Claude</h4>' +
+        '<div class="adm-ai-note">Paste any SOP, policy, or procedure text below. Claude will generate multiple-choice questions in the exact format used by the training portal.</div>' +
+        '<div class="adm-field-row" style="margin-bottom:10px;">' +
+          '<div class="adm-field"><label>Target Quiz</label>' +
+            '<select class="adm-ai-select" id="ai-quiz-target" style="width:100%;">' + qzOpts + '</select></div>' +
+          '<div class="adm-field"><label>Number of Questions</label>' +
+            '<select class="adm-ai-select" id="ai-count" style="width:100%;">' +
+              '<option value="3">3 questions</option>' +
+              '<option value="5" selected>5 questions</option>' +
+              '<option value="8">8 questions</option>' +
+              '<option value="10">10 questions</option>' +
+            '</select></div>' +
+        '</div>' +
+        '<label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:6px;">SOP / Source Text</label>' +
+        '<textarea class="adm-ai-textarea" id="ai-sop-text" placeholder="Paste your SOP, process description, or any training content here. The more specific the text, the better the questions."></textarea>' +
+        '<div class="adm-ai-controls">' +
+          '<button class="adm-btn adm-btn-amber" id="ai-gen-btn" onclick="admGenerateQuestions()">Generate Questions</button>' +
+          '<span class="adm-ai-status" id="ai-status"></span>' +
+        '</div>' +
+      '</div>' +
+
+      '<div id="ai-results" style="margin-top:16px;display:none;">' +
+        '<div class="adm-card-head" style="background:var(--amber-pale);border:1px solid #f0d070;border-radius:8px 8px 0 0;margin-bottom:0;">' +
+          '<h3 style="color:var(--ink);">Generated Questions</h3>' +
+          '<button class="adm-btn adm-btn-green adm-btn-sm" onclick="admAddAllGenerated()">Add All to Quiz</button>' +
+        '</div>' +
+        '<div id="ai-questions-list" style="border:1px solid #f0d070;border-top:none;border-radius:0 0 8px 8px;overflow:hidden;"></div>' +
+      '</div>' +
+    '</div></div>';
+}
+
+var admGeneratedQuestions = [];
+
+function admGenerateQuestions() {
+  var sop = document.getElementById('ai-sop-text').value.trim();
+  var count = document.getElementById('ai-count').value;
+  var target = document.getElementById('ai-quiz-target').value;
+  admCurrentQuiz = target;
+
+  if (!sop) { admToast('Paste SOP text first', 'error'); return; }
+
+  var btn = document.getElementById('ai-gen-btn');
+  var status = document.getElementById('ai-status');
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
+  status.textContent = 'Asking Claude to generate ' + count + ' questions…';
+  status.className = 'adm-ai-status';
+
+  var prompt = 'You are a quiz question writer for a real estate wholesaling company called Impact Home Team.\n\n' +
+    'Based on the following SOP/training content, generate exactly ' + count + ' multiple-choice quiz questions.\n\n' +
+    'RULES:\n' +
+    '- Each question must have exactly 4 answer choices\n' +
+    '- Exactly one choice is correct\n' +
+    '- Choices should be plausible — wrong answers should not be obviously wrong\n' +
+    '- Include a brief explanation (1-2 sentences) for why the correct answer is right\n' +
+    '- Questions should test practical knowledge, not trivia\n\n' +
+    'RESPOND WITH ONLY a valid JSON array, no markdown, no backticks, no preamble:\n' +
+    '[{"q":"question text","c":["Choice A","Choice B","Choice C","Choice D"],"a":0,"e":"explanation"}]\n\n' +
+    'Where "a" is the zero-based index of the correct answer (0=A, 1=B, 2=C, 3=D).\n\n' +
+    'SOP CONTENT:\n' + sop;
+
+  fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    btn.disabled = false;
+    btn.textContent = 'Generate Questions';
+    var text = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : '';
+    var clean = text.replace(/```json|```/g,'').trim();
+    try {
+      var questions = JSON.parse(clean);
+      admGeneratedQuestions = questions;
+      status.textContent = '✓ Generated ' + questions.length + ' questions';
+      status.className = 'adm-ai-status success';
+      admShowGeneratedQuestions(questions);
+    } catch(e) {
+      status.textContent = 'Parse error — try again or check SOP text';
+      status.className = 'adm-ai-status error';
+    }
+  })
+  .catch(function(e) {
+    btn.disabled = false;
+    btn.textContent = 'Generate Questions';
+    status.textContent = 'API error: ' + e.message;
+    status.className = 'adm-ai-status error';
+  });
+}
+
+function admShowGeneratedQuestions(questions) {
+  var resultsEl = document.getElementById('ai-results');
+  var listEl = document.getElementById('ai-questions-list');
+  if (!resultsEl || !listEl) return;
+  resultsEl.style.display = 'block';
+  var choices = ['A','B','C','D'];
+  var html = '';
+  questions.forEach(function(q, i) {
+    html += '<div style="padding:14px 16px;border-bottom:1px solid #f0d070;background:var(--white);">' +
+      '<div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;">' + (i+1) + '. ' + q.q + '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px;">' +
+        q.c.map(function(ch, ci) {
+          var isCorrct = ci === q.a;
+          return '<div style="font-size:12px;padding:4px 8px;border-radius:4px;background:' + (isCorrct?'#DCFCE7':'var(--cloud)') + ';color:' + (isCorrct?'#166534':'var(--graphite)') + ';">' +
+            '<strong>' + choices[ci] + '</strong> ' + ch + (isCorrct?' ✓':'') + '</div>';
+        }).join('') +
+      '</div>' +
+      '<div style="font-size:11px;color:var(--steel);font-style:italic;">' + (q.e||'') + '</div>' +
+      '<button class="adm-btn adm-btn-green adm-btn-sm" style="margin-top:8px;" onclick="admAddSingleGenerated(' + i + ')">Add to Quiz</button>' +
+    '</div>';
+  });
+  listEl.innerHTML = html;
+}
+
+function admAddSingleGenerated(i) {
+  var q = admGeneratedQuestions[i];
+  if (!q) return;
+  var target = document.getElementById('ai-quiz-target') ? document.getElementById('ai-quiz-target').value : admCurrentQuiz;
+  QUIZZES[target].questions.push(q);
+  admDirtyQuizzes = true;
+  admToast('Question added to ' + QUIZZES[target].title, 'success');
+}
+
+function admAddAllGenerated() {
+  var target = document.getElementById('ai-quiz-target') ? document.getElementById('ai-quiz-target').value : admCurrentQuiz;
+  admGeneratedQuestions.forEach(function(q) { QUIZZES[target].questions.push(q); });
+  admDirtyQuizzes = true;
+  admToast('Added ' + admGeneratedQuestions.length + ' questions to ' + QUIZZES[target].title, 'success');
+  admGeneratedQuestions = [];
+  document.getElementById('ai-results').style.display = 'none';
+}
+
+// ══════════════════════════════════════════════════════════
+// EXPORT / SYNC PANEL
+// ══════════════════════════════════════════════════════════
+function admRenderExportPanel() {
+  var totalPages = 0; SECTIONS.forEach(function(s){totalPages+=s.pages.length;});
+  var totalQ = 0; Object.keys(QUIZZES).forEach(function(k){totalQ+=QUIZZES[k].questions.length;});
+  var dirtyCount = Object.keys(admDirtyPages).length;
+
+  return '<div class="adm-card">' +
+    '<div class="adm-card-head"><h3>📤 Export &amp; Sync</h3>' +
+      '<span class="adm-card-sub">Copy updated content into the source files</span></div>' +
+    '<div class="adm-card-body">' +
+
+      '<div class="adm-stat-row">' +
+        '<div class="adm-stat"><strong>' + totalPages + '</strong> pages in manual</div>' +
+        '<div class="adm-stat"><strong>' + totalQ + '</strong> total quiz questions</div>' +
+        '<div class="adm-stat" style="' + (dirtyCount ? 'border-color:var(--amber);color:var(--amber-dark);' : '') + '">' +
+          '<strong>' + dirtyCount + '</strong> unsaved page edits</div>' +
+        '<div class="adm-stat"><strong>' + Object.keys(QUIZZES).length + '</strong> quizzes</div>' +
+      '</div>' +
+
+      '<div class="adm-export-box">' +
+        '<div class="adm-export-head">' +
+          '<span>Quiz JSON → replace var QUIZZES in index.html</span>' +
+          '<button class="adm-btn adm-btn-amber adm-btn-sm" onclick="admCopyQuizJSON()">Copy to Clipboard</button>' +
+        '</div>' +
+        '<textarea class="adm-export-textarea" id="adm-quiz-export" readonly></textarea>' +
+      '</div>' +
+
+      '<div class="adm-export-box">' +
+        '<div class="adm-export-head">' +
+          '<span>SECTIONS JSON → replace const SECTIONS in index.html</span>' +
+          '<button class="adm-btn adm-btn-amber adm-btn-sm" onclick="admCopySectionsJSON()">Copy to Clipboard</button>' +
+        '</div>' +
+        '<textarea class="adm-export-textarea" id="adm-sections-export" readonly></textarea>' +
+      '</div>' +
+
+      '<div style="background:var(--amber-pale);border:1px solid #f0d070;border-radius:8px;padding:14px 16px;margin-top:4px;">' +
+        '<div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px;">How to sync these changes permanently:</div>' +
+        '<div style="font-size:12px;color:var(--graphite);line-height:1.7;">' +
+          'Everything lives in <strong>one file: index.html</strong>.<br>' +
+          '<strong>Quiz changes:</strong> Copy the Quiz JSON → find <code>var QUIZZES = {</code> in this file → replace the object.<br>' +
+          '<strong>Content changes:</strong> Copy the SECTIONS JSON → find <code>const SECTIONS = [</code> in this file → replace the array.<br>' +
+          '<strong>Then:</strong> Push <code>index.html</code> to GitHub. Vercel auto-deploys in ~60 seconds.' +
+        '</div>' +
+      '</div>' +
+
+    '</div></div>';
+}
+
+function admCopyQuizJSON() {
+  var json = 'const QUIZZES = ' + JSON.stringify(QUIZZES, null, 2) + ';';
+  var ta = document.getElementById('adm-quiz-export');
+  if (ta) ta.value = json;
+  navigator.clipboard.writeText(json).then(function() {
+    admToast('Quiz JSON copied to clipboard', 'success');
+  }).catch(function() {
+    admToast('Select all text in the box and copy manually', '');
+  });
+}
+
+function admCopySectionsJSON() {
+  // Serialize SECTIONS — strip functions, keep data
+  var out = JSON.stringify(SECTIONS, null, 2);
+  var ta = document.getElementById('adm-sections-export');
+  if (ta) ta.value = 'const SECTIONS = ' + out + ';';
+  navigator.clipboard.writeText('const SECTIONS = ' + out + ';').then(function() {
+    admToast('SECTIONS JSON copied to clipboard', 'success');
+  }).catch(function() {
+    admToast('Select all text in the box and copy manually', '');
+  });
+}
+
+// ══════════════════════════════════════════════════════════
+// TOAST UTILITY
+// ══════════════════════════════════════════════════════════
+function admToast(msg, type) {
+  var t = document.getElementById('adm-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = 'adm-toast show ' + (type || '');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(function() { t.className = 'adm-toast'; }, 3000);
+}
+
+init();
+</script>
 </body>
 </html>
