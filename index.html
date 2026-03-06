@@ -1412,6 +1412,28 @@ const SECTIONS = [
 <h2>Tasks in GHL — Why They Matter</h2>
 <div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
 
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Every open follow-up must have a task in GHL. If it's not a task, it doesn't exist.</strong></div>
+</div>
+<h2>When to Create a Task</h2>
+<ul>
+  <li>Any time you tell a seller "I'll call you back"</li>
+  <li>Any time a lead needs action but isn't ready to move pipeline stages</li>
+  <li>Any time a lead is assigned to another team member</li>
+</ul>
+<h2>How to Create a Task</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Open the contact or opportunity in GHL.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Click <strong>"Add Task"</strong> in the activity section.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Fill in: <strong>Title</strong> (specific action — not just "call back"), <strong>Due Date</strong> (exact date), <strong>Assigned To</strong> (person responsible), <strong>Notes</strong> (context for next action).</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Save the task.</div></li>
+</ol>
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">Tasks get completed or rescheduled — never ignored. Mark a task done only after you have actually done the work.</div>
+</div>
 <p>A task in GHL is a scheduled action tied to a contact or deal. Tasks are how the system tells you that something needs to happen — a callback, a follow-up, a document request, a check-in with title. If a task is sitting open and overdue, work is not moving. Checking your task list is not optional — it is how you run your day.</p>
 
 <div class="callout crimson">
@@ -1518,6 +1540,18 @@ const SECTIONS = [
 
 <p>Every handoff between departments requires a specific trigger, a completed checklist, a pipeline move, and a Slack post. Handoffs that skip any of these steps create gaps — deals get missed, TC rejects files, and closers miss appointments.</p>
 
+
+<h2>Lead Handoff Protocol — Follower Role</h2>
+<p>When a lead transfers to a new owner, the previous owner stays on the contact as a <strong>Follower</strong> — visible and notified, but not responsible.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Update <span class="ghl-field">Assigned To</span> → new owner's name.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Add previous owner under <strong>Followers</strong> on the contact card.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Add a note: <code>[MM/DD/YY] — Lead transferred to [Name]. [Brief reason.]</code></div></li>
+</ol>
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body">The new owner is responsible from this point forward. The follower observes and can assist if the seller references a prior conversation, but does not take independent action.</div>
+</div>
 <h2>Lead Management → Acquisitions</h2>
 <div class="callout amber">
   <div class="callout-icon">📅</div>
@@ -1611,6 +1645,443 @@ const SECTIONS = [
   "B-C signed: [Address] — Buyer: [Name] — B-C Price: $[Price] — Fee: $[Fee] — EMD: [Status]." Tag Ashley.
 </div>
 ` },
+      
+      { id: 'calling-system', title: 'Lead Calling System — Overview', dept: 'Lead Management', owner: 'Ashley Hines',
+        content: `
+<h2>Lead Calling System — Overview</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
+
+<p>Every active lead in the pipeline has one rule: it must always have a <strong>Next Contact Date</strong> set. That single field drives every call task automatically. No manual task creation. No wondering what to call next. The date fires the task. The task fires the call.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body"><strong>Core rule: No interaction ends without setting Next Contact Date.</strong> Call, text, voicemail — doesn't matter. Before you close the record, set the next date. That's it.</div>
+</div>
+
+<h2>How It Works</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Set Next Contact Date</strong> after every interaction. Pick the date the lead should be called next.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>At 8:00 AM daily,</strong> GHL finds all leads with Next Contact Date = today, applies the <span class="ghl-field">powerdialer</span> tag, and creates a call task automatically.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>At 8:05 AM,</strong> the Overdue Rescue workflow catches any lead whose Next Contact Date passed without a call — resurfaces it with an ⚠️ prefix and increments the missed call counter.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Nicole opens GHL → Contacts → filter tag: <span class="ghl-field">powerdialer</span>.</strong> That is the full calling list. Nothing else.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>After each call, Nicole sets Last Contact Outcome.</strong> The outcome workflow routes the lead, resets the tag, and queues the next task automatically.</div></li>
+</ol>
+
+<h2>Active Stages</h2>
+<p>This system covers these four stages only. All other stages are excluded from the workflows.</p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Priority</th><th>Missed Call Threshold</th></tr>
+  <tr><td><span class="ghl-field">Prospects</span></td><td>Tier 2 — same day, 3 attempts</td><td>3 missed → move to Follow Up</td></tr>
+  <tr><td><span class="ghl-field">Redzones</span></td><td>Tier 1 — daily</td><td>3 missed → Slack alert to Ashley, no auto-move</td></tr>
+  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>Tier 1 — daily</td><td>3 missed → move to Redzones</td></tr>
+  <tr><td><span class="ghl-field">Follow Up</span></td><td>Tier 3 — per task date</td><td>5 missed → FU-LongTerm nurture</td></tr>
+</table>
+
+<h2>Custom Fields — Create First</h2>
+<p>Go to <strong>Settings → Custom Fields → Contacts</strong> and create all four before building any workflow.</p>
+<table class="data-table">
+  <tr><th>Field Name</th><th>Type</th><th>Notes</th></tr>
+  <tr><td><span class="ghl-field">Next Contact Date</span></td><td>Date</td><td>Set after every interaction. Drives all task creation.</td></tr>
+  <tr><td><span class="ghl-field">Last Contact Outcome</span></td><td>Dropdown</td><td>Values: No Answer / Left Voicemail / Spoke — Not Qualified / Spoke — Follow Up Set / Spoke — Appointment Booked / Wrong Number / Bad Contact</td></tr>
+  <tr><td><span class="ghl-field">Missed Call Count</span></td><td>Number</td><td>Auto-incremented by workflows. Starts at 0.</td></tr>
+  <tr><td><span class="ghl-field">Last Contact Date</span></td><td>Date</td><td>Auto-stamped on task completion.</td></tr>
+</table>
+
+<h2>Tags — Create Before Building Workflows</h2>
+<p>Go to <strong>Settings → Tags</strong> and create each of these exactly as written:</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px;">
+  <span class="ghl-field" style="background:#FEF3C7;color:#92400E;padding:4px 12px;border-radius:5px;">powerdialer</span>
+  <span class="ghl-field" style="background:#FEE2E2;color:#991B1B;padding:4px 12px;border-radius:5px;">vm-sent</span>
+  <span class="ghl-field" style="background:#DBEAFE;color:#1D4ED8;padding:4px 12px;border-radius:5px;">same-day-callback</span>
+  <span class="ghl-field" style="background:#D1FAE5;color:#065F46;padding:4px 12px;border-radius:5px;">re-engaged</span>
+  <span class="ghl-field" style="background:#F3F4F6;color:#374151;padding:4px 12px;border-radius:5px;">FU-LongTerm</span>
+</div>
+
+<h2>Workflow Build Order</h2>
+<table class="data-table">
+  <tr><th>#</th><th>Workflow Name</th><th>Purpose</th></tr>
+  <tr><td>1</td><td>IHT — New Lead First Contact</td><td>Fires immediately on new Prospects entry</td></tr>
+  <tr><td>2</td><td>IHT — Morning Power Dialer Queue</td><td>Creates today's tasks at 8:00 AM</td></tr>
+  <tr><td>3</td><td>IHT — Overdue Call Rescue</td><td>Resurfaces missed calls at 8:05 AM</td></tr>
+  <tr><td>4</td><td>IHT — Call Outcome Router</td><td>Routes lead after each completed task</td></tr>
+  <tr><td>5</td><td>IHT — Same Day Callback</td><td>Urgent task on tag application</td></tr>
+  <tr><td>6</td><td>IHT — Long-Term Nurture Enrollment</td><td>Enrolls FU-LongTerm leads in drip</td></tr>
+  <tr><td>7</td><td>IHT — Nurture Re-Engagement</td><td>Pulls nurture leads back when they reply</td></tr>
+</table>
+` },
+
+      { id: 'calling-workflows', title: 'Lead Calling Workflows — GHL Build Guide', dept: 'Lead Management', owner: 'Ashley Hines',
+        content: `
+<h2>Lead Calling Workflows — GHL Build Guide</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
+
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body"><strong>Copy-paste ready.</strong> Every field name, tag, stage name, and message below is the exact text to enter in GHL. Build in numbered order.</div>
+</div>
+
+<h2>Step 1 — Create Custom Fields</h2>
+<p>Go to <strong>Settings → Custom Fields → Contacts → Add Field</strong> for each row below. These must exist before any workflow is built.</p>
+<table class="data-table">
+  <tr><th>Field Label (copy exactly)</th><th>Field Type</th><th>Dropdown Values (if applicable)</th></tr>
+  <tr>
+    <td><span class="ghl-field">Next Contact Date</span></td>
+    <td>Date</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Last Contact Outcome</span></td>
+    <td>Dropdown</td>
+    <td>
+      No Answer<br>
+      Left Voicemail<br>
+      Spoke — Not Qualified<br>
+      Spoke — Follow Up Set<br>
+      Spoke — Appointment Booked<br>
+      Wrong Number / Bad Contact
+    </td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Missed Call Count</span></td>
+    <td>Number</td>
+    <td>—</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Last Contact Date</span></td>
+    <td>Date</td>
+    <td>—</td>
+  </tr>
+</table>
+
+<h2>Step 2 — Create Tags</h2>
+<p>Go to <strong>Settings → Tags → Add Tag</strong>. Copy each tag name exactly — spelling and capitalization must match what is used in the workflows below.</p>
+<table class="data-table">
+  <tr><th>Tag Name (copy exactly)</th><th>Purpose</th></tr>
+  <tr><td><span class="ghl-field">powerdialer</span></td><td>Applied to every lead with a call due today. Nicole filters by this tag to get her daily list.</td></tr>
+  <tr><td><span class="ghl-field">vm-sent</span></td><td>Applied after a voicemail is left. Prevents duplicate VMs on the same attempt cycle.</td></tr>
+  <tr><td><span class="ghl-field">same-day-callback</span></td><td>Applied manually by Nicole when a lead needs a same-day callback outside of the morning queue.</td></tr>
+  <tr><td><span class="ghl-field">re-engaged</span></td><td>Applied when a long-term nurture lead replies to a message. Triggers re-entry into the active calling system.</td></tr>
+  <tr><td><span class="ghl-field">FU-LongTerm</span></td><td>Applied when a lead has exhausted the active calling cycle and moves to the long-term drip sequence.</td></tr>
+</table>
+
+<div class="callout amber">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Do not start building workflows until all fields and tags above are created.</strong> Workflows reference these by name — if the name doesn't match exactly, the condition will not fire.</div>
+</div>
+
+<h2>Step 3 — Build Workflows</h2>
+<p>Build in the numbered order below. Each workflow may reference triggers or tags set by a previous one.</p>
+
+<style>
+.wf-block{background:var(--white);border:1px solid var(--fog);border-radius:10px;margin:24px 0;overflow:hidden;}
+.wf-head{background:var(--ink);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px;}
+.wf-num{width:28px;height:28px;border-radius:50%;background:var(--amber);color:var(--ink);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wf-title{font-family:var(--font-serif);font-size:15px;font-weight:700;}
+.wf-sub{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.wf-body{padding:18px 20px;}
+.wf-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--amber-dark);margin:16px 0 8px;display:flex;align-items:center;gap:6px;}
+.wf-label::after{content:'';flex:1;height:1px;background:var(--fog);}
+.cb{background:var(--cloud);border:1px solid var(--fog);border-radius:6px;padding:10px 14px;font-family:var(--font-mono);font-size:12px;line-height:1.9;margin:6px 0;}
+.cb .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);display:block;margin-bottom:2px;font-family:var(--font-sans);}
+.cv{color:var(--ink);font-weight:600;}
+.branch{border-left:3px solid var(--amber);padding:10px 0 10px 14px;margin:10px 0;}
+.branch-if{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--amber-dark);margin-bottom:6px;}
+.branch ul{padding-left:16px;font-size:13px;line-height:2.1;margin:0;}
+.wf-note{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:10px 14px;font-size:12px;color:#1E40AF;margin:8px 0;}
+.sp{display:inline-block;background:var(--cloud);border:1px solid var(--fog);border-radius:4px;padding:1px 8px;font-family:var(--font-mono);font-size:11px;color:var(--charcoal);}
+</style>
+
+<!-- WF 1 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">1</div><div><div class="wf-title">IHT — New Lead First Contact</div><div class="wf-sub">Fires immediately when a new lead enters Prospects</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Pipeline Stage Changed</span><br><span class="lbl">Pipeline</span><span class="cv">1) Leads</span><br><span class="lbl">Stage</span><span class="cv">Prospects</span></div>
+  <div class="wf-label">Filters — ALL must be true</div>
+  <div class="cb"><span class="lbl">Filter 1</span><span class="cv">Contact Created Date is within last 60 minutes</span></div>
+  <div class="wf-note">Prevents this from firing when a lead is manually moved back to Prospects. Only new entries trigger it.</div>
+  <div class="wf-label">Actions — in this exact order</div>
+  <div class="cb"><span class="lbl">Action 1 — Update Field</span>Field: <span class="cv">Next Contact Date</span><br>Value: <span class="cv">{{now}} (today)</span></div>
+  <div class="cb"><span class="lbl">Action 2 — Add Tag</span>Tag: <span class="cv">powerdialer</span></div>
+  <div class="cb"><span class="lbl">Action 3 — Create Task</span>Title: <span class="cv">🆕 NEW LEAD — Call {{contact.first_name}} {{contact.last_name}} — {{contact.pipeline_stage}}</span><br>Due Date: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span><br>Description: <span class="cv">New lead — first contact. Source: {{contact.lead_source}}</span></div>
+</div>
+</div>
+
+<!-- WF 2 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">2</div><div><div class="wf-title">IHT — Morning Power Dialer Queue</div><div class="wf-sub">Runs at 8:00 AM daily — tags and tasks every lead due today</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Date/Time</span><br><span class="lbl">Field</span><span class="cv">Next Contact Date</span><br><span class="lbl">Condition</span><span class="cv">On date (same day)</span><br><span class="lbl">Time</span><span class="cv">8:00 AM</span></div>
+  <div class="wf-label">Filters — ALL must be true</div>
+  <div class="cb"><span class="lbl">Filter 1</span><span class="cv">Pipeline Stage is: Prospects</span> OR <span class="cv">Redzones</span> OR <span class="cv">Priority Top 20%</span> OR <span class="cv">Follow Up</span><br><span class="lbl">Filter 2</span><span class="cv">Tags does not contain: FU-LongTerm</span><br><span class="lbl">Filter 3</span><span class="cv">Next Contact Date is set</span></div>
+  <div class="wf-note">Scope is limited to the four active stages only. All AI stages, Not MD Lead, and DNC are excluded by the stage filter.</div>
+  <div class="wf-label">Actions — in this exact order</div>
+  <div class="cb"><span class="lbl">Action 1 — Add Tag</span>Tag: <span class="cv">powerdialer</span></div>
+  <div class="cb"><span class="lbl">Action 2 — Remove Tag</span>Tag: <span class="cv">same-day-callback</span></div>
+  <div class="cb"><span class="lbl">Action 3 — Create Task</span>Title: <span class="cv">Call — {{contact.pipeline_stage}} — {{contact.first_name}} {{contact.last_name}}</span><br>Due Date: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span><br>Description: <span class="cv">Last outcome: {{contact.last_contact_outcome}} | Missed calls: {{contact.missed_call_count}}</span></div>
+  <div class="cb"><span class="lbl">Action 4 — Update Field</span>Field: <span class="cv">Last Contact Date</span><br>Value: <span class="cv">{{now}}</span></div>
+</div>
+</div>
+
+<!-- WF 3 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">3</div><div><div class="wf-title">IHT — Overdue Call Rescue</div><div class="wf-sub">Runs at 8:05 AM — resurfaces any call missed yesterday or earlier</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Date/Time</span><br><span class="lbl">Field</span><span class="cv">Next Contact Date</span><br><span class="lbl">Condition</span><span class="cv">Date has passed (before today)</span><br><span class="lbl">Time</span><span class="cv">8:05 AM</span></div>
+  <div class="wf-note">Runs 5 minutes after WF2. Fresh tasks fire first — overdue tasks don't compete at the same second.</div>
+  <div class="wf-label">Filters — ALL must be true</div>
+  <div class="cb"><span class="lbl">Filter 1</span><span class="cv">Next Contact Date is before: today</span><br><span class="lbl">Filter 2</span><span class="cv">Tags does not contain: powerdialer</span><br><span class="lbl">Filter 3</span><span class="cv">Tags does not contain: FU-LongTerm</span><br><span class="lbl">Filter 4</span><span class="cv">Pipeline Stage is: Prospects</span> OR <span class="cv">Redzones</span> OR <span class="cv">Priority Top 20%</span> OR <span class="cv">Follow Up</span></div>
+  <div class="wf-label">Actions — in this exact order</div>
+  <div class="cb"><span class="lbl">Action 1 — Remove Task</span>Remove all open Call tasks on this contact</div>
+  <div class="cb"><span class="lbl">Action 2 — Add Tag</span>Tag: <span class="cv">powerdialer</span></div>
+  <div class="cb"><span class="lbl">Action 3 — Math Operation</span>Field: <span class="cv">Missed Call Count</span><br>Operation: <span class="cv">Add</span><br>Value: <span class="cv">1</span></div>
+  <div class="cb"><span class="lbl">Action 4 — Update Field</span>Field: <span class="cv">Next Contact Date</span><br>Value: <span class="cv">Today {{now}}</span></div>
+  <div class="cb"><span class="lbl">Action 5 — Create Task</span>Title: <span class="cv">⚠️ OVERDUE — Call {{contact.pipeline_stage}} — {{contact.first_name}} {{contact.last_name}}</span><br>Due Date: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span><br>Description: <span class="cv">Missed call count: {{contact.missed_call_count}} | Last outcome: {{contact.last_contact_outcome}}</span></div>
+  <div class="wf-label">Action 6 — If/Else Branches</div>
+
+  <div class="branch">
+    <div class="branch-if">Branch A — IF Missed Call Count ≥ 3 AND Stage = Prospects</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition 1</span><span class="cv">Missed Call Count is greater than or equal to: 3</span><br><span class="lbl">Condition 2</span><span class="cv">Pipeline Stage is: Prospects</span></div>
+    <ul>
+      <li>Change Pipeline Stage → <span class="sp">Follow Up</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">+3 days</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Remove Tag: <span class="cv">powerdialer</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span><br>Message: <span class="cv">{{contact.first_name}} {{contact.last_name}} moved to Follow Up after 3 missed calls. Phone: {{contact.phone}}</span></li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch B — ELSE IF Missed Call Count ≥ 5 AND Stage = Follow Up</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition 1</span><span class="cv">Missed Call Count is greater than or equal to: 5</span><br><span class="lbl">Condition 2</span><span class="cv">Pipeline Stage is: Follow Up</span></div>
+    <ul>
+      <li>Add Tag: <span class="cv">FU-LongTerm</span></li>
+      <li>Remove Tag: <span class="cv">powerdialer</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">clear / blank</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Enroll in Workflow: <span class="cv">IHT — Long-Term Nurture Enrollment</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span><br>Message: <span class="cv">{{contact.first_name}} {{contact.last_name}} moved to long-term nurture after 5 missed follow-up calls.</span></li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch C — ELSE IF Missed Call Count ≥ 3 AND Stage = Redzones</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition 1</span><span class="cv">Missed Call Count is greater than or equal to: 3</span><br><span class="lbl">Condition 2</span><span class="cv">Pipeline Stage is: Redzones</span></div>
+    <ul>
+      <li><strong>Do NOT change stage</strong> — human decision required</li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span> (tag Ashley AND Nicole)<br>Message: <span class="cv">⚠️ REDZONE ALERT: {{contact.first_name}} {{contact.last_name}} has {{contact.missed_call_count}} missed calls. Manual review needed. Phone: {{contact.phone}}</span></li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch D — ELSE IF Missed Call Count ≥ 3 AND Stage = Priority Top 20%</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition 1</span><span class="cv">Missed Call Count is greater than or equal to: 3</span><br><span class="lbl">Condition 2</span><span class="cv">Pipeline Stage is: Priority Top 20%</span></div>
+    <ul>
+      <li>Change Pipeline Stage → <span class="sp">Redzones</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Remove Tag: <span class="cv">powerdialer</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span><br>Message: <span class="cv">{{contact.first_name}} {{contact.last_name}} moved from Priority to Redzones after 3 missed calls.</span></li>
+    </ul>
+  </div>
+
+  <div class="branch" style="border-left-color:var(--fog);">
+    <div class="branch-if" style="color:var(--steel);">Branch E — ELSE (threshold not hit yet)</div>
+    <ul>
+      <li>No stage change</li>
+      <li>Task stays with ⚠️ OVERDUE prefix</li>
+      <li>Contact remains tagged <span class="cv">powerdialer</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- WF 4 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">4</div><div><div class="wf-title">IHT — Call Outcome Router</div><div class="wf-sub">Fires when a call task is marked complete — routes the lead based on outcome</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Task Status Changed</span><br><span class="lbl">Condition</span><span class="cv">Task status changed to: Completed</span><br><span class="lbl">Filter</span><span class="cv">Task title contains: Call —</span><br><span class="lbl">Filter (OR)</span><span class="cv">Task title contains: OVERDUE</span><br><span class="lbl">Filter (OR)</span><span class="cv">Task title contains: Re-dial</span></div>
+  <div class="wf-note">Nicole must select Last Contact Outcome from the dropdown before or immediately after marking the task complete. That field drives the branch below.</div>
+  <div class="wf-label">Branches — on Last Contact Outcome</div>
+
+  <div class="branch">
+    <div class="branch-if">Branch A — No Answer</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: No Answer</span></div>
+    <p style="font-size:12px;color:var(--steel);margin:0 0 6px;">Sub-branch by stage:</p>
+    <div style="margin-left:10px;">
+      <div class="branch" style="border-left-color:#E3A728;">
+        <div class="branch-if" style="color:var(--amber-dark);">Stage = Redzones OR Priority Top 20%</div>
+        <ul>
+          <li>Keep tag: <span class="cv">powerdialer</span> (stay on today's list for re-dial)</li>
+          <li>Create Task:<br>Title: <span class="cv">Re-dial — {{contact.first_name}} {{contact.last_name}}</span><br>Due: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span></li>
+          <li>Send SMS: <span class="cv">Hi {{contact.first_name}}, this is [Agent Name] with Impact Home Team. I tried reaching you about your property — I'll try again shortly or feel free to text me back here.</span></li>
+          <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+        </ul>
+      </div>
+      <div class="branch" style="border-left-color:#2563EB;">
+        <div class="branch-if" style="color:#1D4ED8;">Stage = Prospects</div>
+        <ul>
+          <li>Remove Tag: <span class="cv">powerdialer</span></li>
+          <li>Math: Missed Call Count <span class="cv">+ 1</span></li>
+          <li>Update Field: Next Contact Date → <span class="cv">+1 day</span></li>
+          <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+        </ul>
+      </div>
+      <div class="branch" style="border-left-color:#7C3AED;">
+        <div class="branch-if" style="color:#5B21B6;">Stage = Follow Up</div>
+        <ul>
+          <li>Remove Tag: <span class="cv">powerdialer</span></li>
+          <li>Math: Missed Call Count <span class="cv">+ 1</span></li>
+          <li>Update Field: Next Contact Date → <span class="cv">+2 days</span></li>
+          <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch B — Left Voicemail</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: Left Voicemail</span></div>
+    <ul>
+      <li>Remove Tag: <span class="cv">powerdialer</span></li>
+      <li>Add Tag: <span class="cv">vm-sent</span></li>
+      <li>Math: Missed Call Count <span class="cv">+ 1</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">+1 day</span></li>
+      <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+      <li>Wait: <span class="cv">4 hours</span></li>
+      <li>Send SMS (only if Missed Call Count ≥ 2): <span class="cv">Hi {{contact.first_name}}, left you a voicemail earlier about your property at {{contact.address}}. Feel free to text me back here whenever works.</span></li>
+      <li>Remove Tag: <span class="cv">vm-sent</span> (after SMS sends)</li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch C — Spoke, Not Qualified</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: Spoke — Not Qualified</span></div>
+    <ul>
+      <li>Remove Tags: <span class="cv">powerdialer</span>, <span class="cv">vm-sent</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Change Pipeline Stage → <span class="sp">Follow Up</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">+14 days</span></li>
+      <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span><br>Message: <span class="cv">{{contact.first_name}} {{contact.last_name}} — spoke, not qualified. Moved to Follow Up. Next contact in 14 days.</span></li>
+    </ul>
+    <div class="wf-note">Adjust Next Contact Date manually if the seller gave a specific timeframe.</div>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch D — Spoke, Follow Up Set</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: Spoke — Follow Up Set</span></div>
+    <ul>
+      <li>Remove Tags: <span class="cv">powerdialer</span>, <span class="cv">vm-sent</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+      <li><strong>Next Contact Date: set manually by Nicole</strong> based on what the seller requested before closing the record</li>
+    </ul>
+    <div class="wf-note">No auto-date on this branch. The seller gave a specific time. Nicole sets it before closing. The morning workflow re-tags powerdialer on that date automatically.</div>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch E — Spoke, Appointment Booked</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: Spoke — Appointment Booked</span></div>
+    <ul>
+      <li>Remove Tags: <span class="cv">powerdialer</span>, <span class="cv">vm-sent</span>, <span class="cv">same-day-callback</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">clear / blank</span></li>
+      <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+      <li>Change Pipeline Stage → if Mike: <span class="sp">2) Mike the Closer — Appointment Scheduled</span> / if Joshua: <span class="sp">3) Josh The Closer — Appointment Scheduled</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#appointments</span><br>Message: <span class="cv">🗓️ APPOINTMENT BOOKED: {{contact.first_name}} {{contact.last_name}} — {{contact.address}} — booked by Nicole</span></li>
+    </ul>
+  </div>
+
+  <div class="branch">
+    <div class="branch-if">Branch F — Wrong Number / Bad Contact</div>
+    <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition</span><span class="cv">Last Contact Outcome is: Wrong Number / Bad Contact</span></div>
+    <ul>
+      <li>Remove Tags: <span class="cv">powerdialer</span>, <span class="cv">vm-sent</span></li>
+      <li>Update Field: Next Contact Date → <span class="cv">clear / blank</span></li>
+      <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
+      <li>Change Pipeline Stage → <span class="sp">Dead Lead</span></li>
+      <li>Add Tag: <span class="cv">Dead - Wrong Number</span></li>
+      <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- WF 5 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">5</div><div><div class="wf-title">IHT — Same Day Callback</div><div class="wf-sub">Fires immediately when Nicole applies the same-day-callback tag</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Tag Added</span><br><span class="lbl">Tag</span><span class="cv">same-day-callback</span></div>
+  <div class="wf-label">Filters</div>
+  <div class="cb"><span class="lbl">Filter 1</span><span class="cv">Tags does not contain: powerdialer</span></div>
+  <div class="wf-note">Prevents duplicate task if the morning workflow already fired for this contact today.</div>
+  <div class="wf-label">Actions</div>
+  <div class="cb"><span class="lbl">Action 1 — Add Tag</span>Tag: <span class="cv">powerdialer</span></div>
+  <div class="cb"><span class="lbl">Action 2 — Create Task</span>Title: <span class="cv">⚡ CALLBACK TODAY — {{contact.first_name}} {{contact.last_name}}</span><br>Due Date: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span><br>Description: <span class="cv">Same-day callback requested. Last outcome: {{contact.last_contact_outcome}}</span></div>
+</div>
+</div>
+
+<!-- WF 6 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">6</div><div><div class="wf-title">IHT — Long-Term Nurture Enrollment</div><div class="wf-sub">Fires on FU-LongTerm tag — removes from active calling, starts monthly drip</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Tag Added</span><br><span class="lbl">Tag</span><span class="cv">FU-LongTerm</span></div>
+  <div class="wf-label">Exit Condition (set at top of workflow)</div>
+  <div class="cb"><span class="lbl">Exit If</span><span class="cv">Tag: re-engaged is added → stop workflow</span></div>
+  <div class="wf-label">Actions</div>
+  <div class="cb"><span class="lbl">Action 1 — Remove Tags</span>Tags: <span class="cv">powerdialer, vm-sent, same-day-callback</span></div>
+  <div class="cb"><span class="lbl">Action 2 — Update Field</span>Field: <span class="cv">Next Contact Date</span><br>Value: <span class="cv">clear / blank</span></div>
+  <div class="cb"><span class="lbl">Action 3 — Update Field</span>Field: <span class="cv">Missed Call Count</span><br>Value: <span class="cv">0</span></div>
+  <div class="cb"><span class="lbl">Action 4 — Wait</span>Duration: <span class="cv">30 days</span></div>
+  <div class="cb"><span class="lbl">Action 5 — Send Email</span>Subject: <span class="cv">Still thinking about selling {{contact.address}}?</span><br>Template: <span class="cv">Long-Term Nurture — Month 1</span></div>
+  <div class="cb"><span class="lbl">Action 6 — Wait</span>Duration: <span class="cv">60 days</span></div>
+  <div class="cb"><span class="lbl">Action 7 — Send SMS</span>Message: <span class="cv">Hey {{contact.first_name}}, [Your Name] here with Impact Home Team. Still buying in your area — if you ever decide to sell {{contact.address}}, I'd love to make you an offer. Just reply here anytime.</span></div>
+  <div class="cb"><span class="lbl">Action 8 — Loop back to Action 4</span>Continue monthly email + quarterly SMS indefinitely until exit condition fires</div>
+</div>
+</div>
+
+<!-- WF 7 -->
+<div class="wf-block">
+<div class="wf-head"><div class="wf-num">7</div><div><div class="wf-title">IHT — Nurture Re-Engagement</div><div class="wf-sub">Fires when a FU-LongTerm lead replies to any message</div></div></div>
+<div class="wf-body">
+  <div class="wf-label">Trigger</div>
+  <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Inbound Message Received</span><br><span class="lbl">Channel</span><span class="cv">Any (SMS, Email)</span></div>
+  <div class="wf-label">Filters — ALL must be true</div>
+  <div class="cb"><span class="lbl">Filter 1</span><span class="cv">Tags contains: FU-LongTerm</span><br><span class="lbl">Filter 2</span><span class="cv">Message body does not contain: STOP</span><br><span class="lbl">Filter 3</span><span class="cv">Message body does not contain: unsubscribe</span></div>
+  <div class="wf-label">Actions</div>
+  <div class="cb"><span class="lbl">Action 1 — Add Tag</span>Tag: <span class="cv">re-engaged</span></div>
+  <div class="cb"><span class="lbl">Action 2 — Remove Tag</span>Tag: <span class="cv">FU-LongTerm</span></div>
+  <div class="cb"><span class="lbl">Action 3 — Add Tag</span>Tag: <span class="cv">powerdialer</span></div>
+  <div class="cb"><span class="lbl">Action 4 — Change Pipeline Stage</span>Stage: <span class="cv">Redzones</span></div>
+  <div class="cb"><span class="lbl">Action 5 — Update Field</span>Field: <span class="cv">Next Contact Date</span><br>Value: <span class="cv">Today {{now}}</span></div>
+  <div class="cb"><span class="lbl">Action 6 — Create Task</span>Title: <span class="cv">🔥 RE-ENGAGED from nurture — Call {{contact.first_name}} {{contact.last_name}}</span><br>Due Date: <span class="cv">Today</span><br>Assigned To: <span class="cv">{{contact.assigned_user}}</span></div>
+  <div class="cb"><span class="lbl">Action 7 — Send Internal Notification</span>Channel: <span class="cv">#impact-lead-management</span><br>Message: <span class="cv">🔥 NURTURE RE-ENGAGEMENT: {{contact.first_name}} {{contact.last_name}} just replied after being in long-term nurture. Phone: {{contact.phone}} | Address: {{contact.address}}</span></div>
+</div>
+</div>
+
+<h2 style="margin-top:32px;">Testing Checklist</h2>
+<p>Run every scenario with a test contact before going live:</p>
+<table class="data-table">
+  <tr><th style="width:30px;"></th><th>Test Scenario</th><th>Expected Result</th></tr>
+  <tr><td>☐</td><td>New lead moved to Prospects</td><td>WF1 fires → task + powerdialer tag created immediately</td></tr>
+  <tr><td>☐</td><td>Next Contact Date set to today</td><td>WF2 fires 8:00 AM → task + powerdialer tag</td></tr>
+  <tr><td>☐</td><td>Next Contact Date set to yesterday</td><td>WF3 fires 8:05 AM → ⚠️ OVERDUE task, count incremented</td></tr>
+  <tr><td>☐</td><td>Missed Call Count = 3, stage = Prospects</td><td>Auto-moves to Follow Up, count resets, Slack alert</td></tr>
+  <tr><td>☐</td><td>Missed Call Count = 3, stage = Redzones</td><td>Slack alert to Ashley + Nicole, NO stage change</td></tr>
+  <tr><td>☐</td><td>Missed Call Count = 3, stage = Priority</td><td>Moves to Redzones, count resets, Slack alert</td></tr>
+  <tr><td>☐</td><td>Missed Call Count = 5, stage = Follow Up</td><td>FU-LongTerm tag, nurture enrolled, powerdialer removed</td></tr>
+  <tr><td>☐</td><td>Task complete + outcome = No Answer + Redzones</td><td>Re-dial task fires same day, SMS sends</td></tr>
+  <tr><td>☐</td><td>Task complete + outcome = Appointment Booked</td><td>Stage moves to closer, #appointments notified</td></tr>
+  <tr><td>☐</td><td>same-day-callback tag applied</td><td>WF5 fires → ⚡ CALLBACK TODAY task created immediately</td></tr>
+  <tr><td>☐</td><td>FU-LongTerm contact replies to SMS or email</td><td>WF7 fires → Redzones, powerdialer, task today</td></tr>
+</table>
+` },
+
       { id: 'conv-overview', title: 'Conversations', dept: 'All Departments', owner: 'Ashley Hines',
         content: `
 <h2>Conversations</h2>
@@ -1695,6 +2166,26 @@ const SECTIONS = [
   <tr><td><strong>Live Chat</strong></td><td>Chats from the website widget if enabled. Seller inquiries from the website land here.</td></tr>
 </table>
 
+
+<h2>Inbox Ownership</h2>
+<p>Every lead in the inbox needs a human owner. If you are handling that lead, assign yourself in GHL. Unowned leads fall through the cracks.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open the contact in GHL.</strong></div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Find the "Assigned To" field</strong> on the contact card and select your name.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>If a lead is being transferred to you,</strong> the previous owner updates this field to your name and sets themselves as a <strong>Follower</strong>.</div></li>
+</ol>
+<div class="callout crimson">
+  <div class="callout-icon">📌</div>
+  <div class="callout-body"><strong>Rule: If you are actively working a lead, your name is on it. No exceptions.</strong></div>
+</div>
+<h2>Starring Conversations</h2>
+<p>Stars are for quick visual flagging — not for tracking follow-ups. Stars mean "come back to this." Tasks mean "this must happen by a date."</p>
+<ul>
+  <li><strong>To star:</strong> Open the conversation → click the <strong>star icon</strong> in the top right.</li>
+  <li>Starred conversations appear in the <span class="ghl-field">⭐ Starred</span> filter in the left sidebar.</li>
+  <li>Once you've taken action, unstar it. A growing starred list means tasks aren't being created.</li>
+  <li><strong>Stars are not a substitute for tasks.</strong></li>
+</ul>
 <h2>Rules for Conversations at IHT</h2>
 <div class="callout amber">
   <div class="callout-icon">📌</div>
@@ -2015,11 +2506,21 @@ const SECTIONS = [
 <table class="data-table">
   <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
   <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
-  <tr><td>Text/GHL</td><td>Within 1 hour</td><td>Within 15 minutes (new leads)</td></tr>
+  <tr><td>Text/GHL</td><td>Within 1 hour</td><td><strong>Within 10 minutes</strong> — this is the standard, not a goal</td></tr>
   <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
   <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
 </table>
 
+
+<div class="callout crimson">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>10-Minute Response Rule.</strong> Respond to every inbound text or message within 10 minutes during business hours. If you cannot respond, immediately assign the lead to another team member. This is not a goal. It is the standard.</div>
+</div>
+<h2>Note-Taking Standard — Date Requirement</h2>
+<p>Every note entry must begin with today's date.</p>
+<p><strong>Format:</strong> <code>[MM/DD/YY] — Your note here.</code></p>
+<p><strong>Example:</strong> <code>03/05/26 — Called seller, no answer. Left voicemail. Will follow up Thursday.</code></p>
+<p>This makes the timeline of any deal readable at a glance. No date on a note = the note is incomplete.</p>
 <h2>Slack Channel Guide</h2>
 <p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
 <table class="data-table">
@@ -2076,6 +2577,56 @@ const SECTIONS = [
   {
     id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
     pages: [
+      { id: 'calling-routine', title: "Nicole's Daily Calling Routine", dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Nicole's Daily Calling Routine</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body"><strong>The system builds your list. Your job is to work it top to bottom and set Next Contact Date after every single interaction before closing the record.</strong></div>
+</div>
+
+<h2>Morning Start-Up (8:00–8:15 AM)</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open GHL → Contacts → filter tag: powerdialer.</strong> Every contact here has a call due today. This is your full list — nothing else.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Sort by task title A→Z.</strong> ⚠️ OVERDUE tasks appear first — work these before fresh calls.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Scan for ⚡ CALLBACK TODAY</strong> contacts — these are urgent same-day requests, work after OVERDUE.</div></li>
+</ol>
+
+<h2>Every Call — The Three-Step Close</h2>
+<p>Every single call ends with all three of these completed before you move to the next contact:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Set Last Contact Outcome</strong> from the dropdown on the contact record.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Set Next Contact Date</strong> — every lead, every time, no exceptions. The outcome router will handle the routing. But this field must be set for the next task to generate.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Add a dated note:</strong> <code>[MM/DD/YY] — what happened.</code></div></li>
+</ol>
+
+<h2>What to Set for Next Contact Date</h2>
+<table class="data-table">
+  <tr><th>Outcome</th><th>Next Contact Date</th></tr>
+  <tr><td>No answer, first attempt</td><td>Tomorrow</td></tr>
+  <tr><td>No answer, second attempt</td><td>+2 days</td></tr>
+  <tr><td>Left voicemail</td><td>Tomorrow</td></tr>
+  <tr><td>Spoke — seller gave a callback date</td><td>Exact date they said</td></tr>
+  <tr><td>Spoke — not qualified, no timeframe</td><td>+14 days (workflow auto-sets)</td></tr>
+  <tr><td>Appointment booked</td><td>Clear the field — workflow handles it</td></tr>
+  <tr><td>Moving to long-term nurture</td><td>Clear the field — workflow handles it</td></tr>
+</table>
+
+<h2>End of Day Check</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Filter contacts by tag: powerdialer.</strong> Goal is zero remaining. If contacts are still tagged, they were not called today and will become OVERDUE tomorrow.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>If you cannot finish the list,</strong> flag to Ashley before end of day — do not let it roll silently to overdue.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Check open tasks.</strong> Every open task should have a due date. If any task is open with no date, set the date now.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Never close a contact record without setting Next Contact Date.</strong> No date = no task tomorrow = dropped lead.</div>
+</div>
+` },
+
       { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
         content: `
 <h2>Department Purpose</h2>
@@ -2269,6 +2820,68 @@ const SECTIONS = [
     </div>
   </div>
 </div>
+
+<h2>Seller Check-Back Automation — "Date for Follow Up Automation to Start"</h2>
+<p>When a seller says "check back with me in 30 days" (or any future date), do not create a manual task or set Next Contact Date. Instead, use the <span class="ghl-field">Date for Follow Up Automation to Start</span> field. This field triggers a full automated sequence on the exact date you set — texts, emails, and a voicemail drop — so the seller is already warmed up before Nicole makes contact.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">📌</div>
+  <div class="callout-body"><strong>This applies to all active stages.</strong> Any time a seller gives you a future callback date — regardless of what stage they're in — set this field instead of manually scheduling a task.</div>
+</div>
+
+<h2>How to Use It</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Open the contact record in GHL.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Find the <span class="ghl-field">Date for Follow Up Automation to Start</span> field and set it to the exact date the seller requested.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Add a dated note: <code>[MM/DD/YY] — Seller requested follow up on [date]. Follow up automation set.</code></div></li>
+  <li><div class="step-num">4</div><div class="step-content">Do not set Next Contact Date or create a manual task — the automation handles everything from here.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Do not set both fields at the same time.</strong> Setting Next Contact Date AND Date for Follow Up Automation to Start on the same contact will cause both sequences to fire simultaneously — double contact, bad experience for the seller.</div>
+</div>
+
+<h2>What the Automation Does on the Start Date</h2>
+<table class="data-table">
+  <tr><th>Timing</th><th>Channel</th><th>Action</th></tr>
+  <tr><td>Start date — morning</td><td>SMS</td><td>Automated text to seller re-introducing IHT and the property</td></tr>
+  <tr><td>Start date — morning</td><td>RVM</td><td>Voicemail drop — no call needed from Nicole</td></tr>
+  <tr><td>Start date — morning</td><td>Email</td><td>Automated email follow-up to seller</td></tr>
+  <tr><td>Start date — same day</td><td>Task</td><td>Task created for Nicole: <span class="ghl-field">Follow up call — automation fired — {{contact.first_name}}</span> due same day</td></tr>
+</table>
+
+<p>The automated messages warm the seller before Nicole calls. By the time Nicole dials, the seller has already heard from IHT that morning — the call feels like a natural follow-up, not a cold reach.</p>
+
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body"><strong>After the automation fires,</strong> Nicole works the task as normal — calls the seller, sets Last Contact Outcome, and sets Next Contact Date for whatever comes next. The Follow Up Automation field does not repeat automatically. If the seller pushes out again, set a new date in the same field.</div>
+</div>
+
+<h2>Next Contact Date — Automated Pre-Call Sequence</h2>
+<p>The <span class="ghl-field">Next Contact Date</span> field does more than create Nicole's task. When that date arrives, GHL simultaneously fires an automated outreach sequence to the seller — texts, RVM, and email — independent of any action Nicole takes. The automation runs regardless of whether Nicole calls that day.</p>
+
+<table class="data-table">
+  <tr><th>Timing</th><th>Channel</th><th>Action</th></tr>
+  <tr><td>8:00 AM — same day</td><td>SMS</td><td>Automated text sent to seller</td></tr>
+  <tr><td>8:00 AM — same day</td><td>RVM</td><td>Voicemail drop fired automatically</td></tr>
+  <tr><td>8:00 AM — same day</td><td>Email</td><td>Automated email sent to seller</td></tr>
+  <tr><td>8:00 AM — same day</td><td>Task</td><td>Nicole's call task created — <span class="ghl-field">powerdialer</span> tag applied — appears on her daily list</td></tr>
+</table>
+
+<div class="callout amber">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body"><strong>The automation and Nicole's task fire in parallel — neither depends on the other.</strong> The seller receives outreach that morning no matter what. Nicole's job is to follow up on that outreach with a live call. Even if Nicole can't get to the call that day, the seller has already heard from IHT.</div>
+</div>
+
+<h2>Which Field to Use — Quick Reference</h2>
+<table class="data-table">
+  <tr><th>Situation</th><th>Use This Field</th></tr>
+  <tr><td>Seller said "call me back in X days/weeks"</td><td><span class="ghl-field">Date for Follow Up Automation to Start</span></td></tr>
+  <tr><td>Standard next call in the normal rotation</td><td><span class="ghl-field">Next Contact Date</span></td></tr>
+  <tr><td>Same-day urgent callback needed</td><td>Apply tag <span class="ghl-field">same-day-callback</span> — do not use either date field</td></tr>
+  <tr><td>Long-term nurture (no specific date, just passive)</td><td>Apply tag <span class="ghl-field">FU-LongTerm</span> — clear both date fields</td></tr>
+</table>
 
 <h2>Long-Term Nurture Sequence</h2>
 <p>Leads that go cold (no response after 30 days) enter the long-term nurture. This runs indefinitely until the lead responds, is tagged <span class="ghl-field">Dead</span>, or opts out.</p>
