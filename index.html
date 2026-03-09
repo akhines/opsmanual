@@ -2604,14 +2604,19 @@ const SECTIONS = [
 
 <h2>What to Set for Next Contact Date</h2>
 <table class="data-table">
-  <tr><th>Outcome</th><th>Next Contact Date</th></tr>
-  <tr><td>No answer, first attempt</td><td>Tomorrow</td></tr>
-  <tr><td>No answer, second attempt</td><td>+2 days</td></tr>
-  <tr><td>Left voicemail</td><td>Tomorrow</td></tr>
-  <tr><td>Spoke — seller gave a callback date</td><td>Exact date they said</td></tr>
-  <tr><td>Spoke — not qualified, no timeframe</td><td>+14 days (workflow auto-sets)</td></tr>
-  <tr><td>Appointment booked</td><td>Clear the field — workflow handles it</td></tr>
-  <tr><td>Moving to long-term nurture</td><td>Clear the field — workflow handles it</td></tr>
+  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date</th></tr>
+  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Clear field — workflow handles it</td></tr>
+  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
+  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
 </table>
 
 <h2>End of Day Check</h2>
@@ -2626,6 +2631,116 @@ const SECTIONS = [
   <div class="callout-body"><strong>Never close a contact record without setting Next Contact Date.</strong> No date = no task tomorrow = dropped lead.</div>
 </div>
 ` },
+      { id: 'call-outcome-next-steps', title: 'Call Outcome Next Steps', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Appointment Setter — Next Step Rules</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+
+<p>After every call attempt, select a disposition, log a short call note, and set the next task or contact date before closing the record. No active lead ends the day without a next contact task.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Golden Rule: No active lead should end the day without a next contact task and date. No exceptions.</strong></div>
+</div>
+
+<h2>1. No Answer</h2>
+<p><strong>Log:</strong> <code>No Answer</code></p>
+<p><strong>Set next call task:</strong></p>
+<ul>
+  <li>Redzone: +1 day</li>
+  <li>Priority Top 20%: +2 days</li>
+  <li>Follow Up: +5 days</li>
+</ul>
+
+<h2>2. Left Voicemail</h2>
+<p><strong>Log:</strong> <code>Left Voicemail</code></p>
+<p><strong>Set next call task:</strong></p>
+<ul>
+  <li>Redzone: +1 day</li>
+  <li>Priority Top 20%: +2 days</li>
+  <li>Follow Up: +5 days</li>
+</ul>
+
+<h2>3. Connected — Not Booked</h2>
+<p><strong>Log:</strong> <code>Connected – Follow Up</code></p>
+<p><strong>Must set next task before ending the call:</strong></p>
+<ul>
+  <li>Redzone: +1 to +2 days</li>
+  <li>Priority Top 20%: +2 to +3 days</li>
+  <li>Follow Up: +7 to +14 days</li>
+</ul>
+
+<h2>4. Appointment Booked</h2>
+<p><strong>Log:</strong> <code>Connected – Appointment Set</code></p>
+<ul>
+  <li>Move lead to appointment stage</li>
+  <li>Remove from call-day queue</li>
+  <li>No further call task unless instructed by closer</li>
+</ul>
+
+<div class="callout green">
+  <div class="callout-icon">✓</div>
+  <div class="callout-body"><strong>When an appointment is booked, GHL automatically posts to #appointments in Slack. You do not need to post manually.</strong></div>
+</div>
+
+<h2>5. Not Interested</h2>
+<p><strong>Log:</strong> <code>Not Interested</code></p>
+<ul>
+  <li>Set future follow-up task: +30 days</li>
+  <li>Exception: if lead says "never contact again," apply DNC status immediately</li>
+</ul>
+
+<h2>6. Bad Number</h2>
+<p><strong>Log:</strong> <code>Bad Number</code></p>
+<ul>
+  <li>Mark phone invalid in GHL</li>
+  <li>Remove from active call queue</li>
+  <li>No new call task until a corrected number exists</li>
+</ul>
+
+<h2>7. Not a Maryland Lead</h2>
+<p><strong>Log:</strong> <code>Not MD Lead</code></p>
+<ul>
+  <li>Move to disqualified / not-MD stage</li>
+  <li>Remove from active call queue</li>
+</ul>
+
+<h2>8. DNC Requested</h2>
+<p><strong>Log:</strong> <code>DNC Requested</code></p>
+<ul>
+  <li>Apply DNC status immediately — no delay</li>
+  <li>Remove from all call workflows</li>
+  <li>No future call tasks — ever</li>
+</ul>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>DNC is a legal compliance requirement.</strong> Once applied, no one on the team contacts this person again for any reason.</div>
+</div>
+
+<h2>Required Before Closing Any Task</h2>
+<ol>
+  <li><strong>Disposition selected</strong> — pick from the log options above</li>
+  <li><strong>Short call note entered</strong> — one sentence minimum: what happened</li>
+  <li><strong>Next task / date set</strong> — unless lead is booked, disqualified, or DNC</li>
+</ol>
+
+<table class="data-table">
+  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date</th></tr>
+  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Clear field — workflow handles it</td></tr>
+  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
+  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
+</table>
+`},
 
       { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
         content: `
