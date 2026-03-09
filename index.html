@@ -1663,7 +1663,7 @@ const SECTIONS = [
   <li><div class="step-num">1</div><div class="step-content"><strong>Set Next Contact Date</strong> after every interaction. Pick the date the lead should be called next.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>At 8:00 AM daily,</strong> GHL finds all leads with Next Contact Date = today, applies the <span class="ghl-field">powerdialer</span> tag, and creates a call task automatically.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>At 8:05 AM,</strong> the Overdue Rescue workflow catches any lead whose Next Contact Date passed without a call — resurfaces it with an ⚠️ prefix and increments the missed call counter.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Nicole opens GHL → Contacts → filter tag: <span class="ghl-field">powerdialer</span>.</strong> That is the full calling list. Nothing else.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Nicole opens GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to her, select all, then apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions as her calling list.</div></li>
   <li><div class="step-num">5</div><div class="step-content"><strong>After each call, Nicole sets Last Contact Outcome.</strong> The outcome workflow routes the lead, resets the tag, and queues the next task automatically.</div></li>
 </ol>
 
@@ -2589,7 +2589,7 @@ const SECTIONS = [
 
 <h2>Morning Start-Up (8:00–8:15 AM)</h2>
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Open GHL → Contacts → filter tag: powerdialer.</strong> Every contact here has a call due today. This is your full list — nothing else.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to you, select all, apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions — that is your calling list for the day.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Sort by task title A→Z.</strong> ⚠️ OVERDUE tasks appear first — work these before fresh calls.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>Scan for ⚡ CALLBACK TODAY</strong> contacts — these are urgent same-day requests, work after OVERDUE.</div></li>
 </ol>
@@ -2614,14 +2614,14 @@ const SECTIONS = [
   <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
   <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
   <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
-  <tr><td>Appointment Booked</td><td>Any</td><td>Clear field — workflow handles it</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td></tr>
   <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
   <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
 </table>
 
 <h2>End of Day Check</h2>
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Filter contacts by tag: powerdialer.</strong> Goal is zero remaining. If contacts are still tagged, they were not called today and will become OVERDUE tomorrow.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Go to Conversations → Manual Actions.</strong> Goal is zero remaining. If contacts are still in the queue, they were not called today and will become OVERDUE tomorrow.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>If you cannot finish the list,</strong> flag to Ashley before end of day — do not let it roll silently to overdue.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>Check open tasks.</strong> Every open task should have a due date. If any task is open with no date, set the date now.</div></li>
 </ol>
@@ -2736,7 +2736,7 @@ const SECTIONS = [
   <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
   <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
   <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
-  <tr><td>Appointment Booked</td><td>Any</td><td>Clear field — workflow handles it</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td></tr>
   <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
   <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
 </table>
