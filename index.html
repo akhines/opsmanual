@@ -2890,8 +2890,8 @@ const SECTIONS = [
 </ul>
 
 <div class="callout blue" style="margin:16px 0;">
-  <div class="callout-icon">🔍</div>
-  <div class="callout-body"><strong>Per-step detail still needed:</strong> Which custom value key fires at each step, wait durations, and the Branch IF/ELSE condition. Drop zoomed-in workflow screenshots and these fill in.</div>
+  <div class="callout-icon">✅</div>
+  <div class="callout-body"><strong>Messaging schedule documented below.</strong> Full copy for every step (Day 0 through Day 12). Still outstanding: the GHL custom_value key name bound to each step and the exact Branch IF/ELSE condition — needs zoomed workflow screenshots.</div>
 </div>
 
 <h3>Related Pages</h3>
@@ -2899,6 +2899,124 @@ const SECTIONS = [
   <li><a onclick="showPage('lead-mgmt','fu-campaign-map')" style="cursor:pointer;color:#0EA5E9;">Workflow to Message Mapping</a> — full Campaign #1 documentation</li>
   <li><a onclick="showPage('lead-mgmt','fu-sms-josh')" style="cursor:pointer;color:#0EA5E9;">SMS — Josh Message Bank</a> — the message pool pulled into ST drip steps</li>
 </ul>
+
+<hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
+
+<h2>Complete Messaging Schedule — Not Ready ST (No Appointment)</h2>
+<p>Actual message copy for every step of the Not Ready — Short Term follow-up campaign when the contact has <strong>no appointment booked</strong>. The campaign runs 12 days from the date set in Next Contact Date &amp; Time (Day 0).</p>
+
+<div class="callout amber" style="margin:16px 0;">
+  <div class="callout-icon">📅</div>
+  <div class="callout-body"><strong>Schedule at a glance:</strong> Day 0 (Email + SMS + VM), Day 1 (SMS), Day 3 (Email + SMS), Day 4 (Email + SMS), Day 6 (SMS + VM), Day 10 (SMS), Day 12 (SMS + final RVM).</div>
+</div>
+
+<h3>Day 0 — Kickoff</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email · from Josh</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi -
+Wanted to follow up one more time about {{contact.address1}}.
+Not trying to chase you — I just do better when I know where things stand. Are you still trying to sell it, or has that moved off the table for now?
+Either answer is fine. I just don't want to keep bothering you if the timing isn't right.
+Reply back with whichever fits best:
+Sell
+Wait
+Keep
+— Josh</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hey there just wanted to circle back on the property at {{contact.address1}}. Are you still even considering selling or is that off the table now?</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Voicemail Drop #1</div>
+  <div style="font-size:13px;line-height:1.6;font-style:italic;">"Checking in"</div>
+</div>
+
+<h3>Day 1 — 1 day later</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS #2</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">If you're not interested in the offer, that's fine. But silence doesn't help either of us. Let me know how I can best help here. You reached out to us. If something changed, just let us know!</div>
+</div>
+
+<h3>Day 3</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email · from Ashley</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi {{contact.first_name}} — quick one.
+Do you want me to keep your cash-offer request open for {{contact.full_address}}, or are you all set?
+If you're still open to it, reply with what matters most (price, closing date, as-is, tenant situation) and I'll take the next step.
+Thanks,
+Ashley</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">I'm not trying to chase you around about {{contact.address1}}. I just need to know whether to keep this open or close it out. Let me know either way?</div>
+</div>
+
+<h3>Day 4</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi {{contact.first_name}},
+When you're ready, selling your home can be simple. Here's exactly how it works:
+
+ Step 1: Call or text me.
+ Step 2: I'll review your options with you, no obligation.
+ Step 3: You decide what works best.
+
+That's it. No pressure, no endless waiting on banks or agents.
+Reply to this email or text me at {{user.phone}} whenever you're ready.
+{{user.email_signature}}</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Did something change with the {{contact.address1}}?</div>
+</div>
+
+<h3>Day 6</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Circling back here... just trying to help — any changes with {{contact.address1}} since we last talked? (Repairs, tenants, timeline, etc.)</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Voicemail Drop #2</div>
+  <div style="font-size:13px;line-height:1.6;font-style:italic;">(VM drop — script TBD)</div>
+</div>
+
+<h3>Day 10</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hey so — I'm assuming this is a no for now unless you tell me otherwise. Should I mark {{contact.address1}} as not selling?</div>
+</div>
+
+<h3>Day 12 — Final Touch</h3>
+
+<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
+  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Closing the file on my end. If you want to revisit selling {{contact.address1}} later, just text me SELL and I'll pick it back up.</div>
+</div>
+
+<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
+  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Last RVM</div>
+  <div style="font-size:13px;line-height:1.6;font-style:italic;">(Final ringless voicemail — script TBD)</div>
+</div>
+
+<h3>Exit / Response Handling</h3>
+<ul>
+  <li>Seller replies <strong>SELL</strong> — re-open the file, route back to active pipeline</li>
+  <li>Seller replies <strong>WAIT</strong> or <strong>KEEP</strong> — mark not-selling-now, follow team dead-lead process</li>
+  <li>No reply by Day 12 — file closes automatically at end of campaign</li>
+</ul>
+
 `},
       { id: 'fu-after-apt', title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
