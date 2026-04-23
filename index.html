@@ -2869,7 +2869,7 @@ const SECTIONS = [
 <p>The <a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS Josh campaign</a> — 12 text messages from Josh spaced over 62 days, plus a general check-in voicemail on Day 1. Full message copy and schedule is on the Active Campaigns page.</p>
 
 <h3>Alternate Enrollment</h3>
-<p>You can also enroll a contact into SMS Josh immediately (without a date) by setting <span class="ghl-field">Follow Up Automation</span> to On and <span class="ghl-field">Follow Up Strategy</span> to SMS Josh. Either path leads to the same campaign.</p>
+<p>You can also enroll a contact into SMS Josh immediately (without a date) by setting <span class="ghl-field">Follow Up Strategy</span> to <strong>SMS Josh</strong>. Either path leads to the same campaign (these are OR triggers — not both required).</p>
 
 
 `},
@@ -2925,8 +2925,8 @@ const SECTIONS = [
   <tr><td>Tag Added</td>
       <td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr>
   <tr><td rowspan="2"><strong>SMS Josh</strong></td>
-      <td>Combined Field State (AND)</td>
-      <td><span class="ghl-field">Follow Up Automation</span> = <strong>On</strong> AND <span class="ghl-field">Follow Up Strategy</span> = <strong>SMS Josh</strong></td></tr>
+      <td>Contact Field Change</td>
+      <td><span class="ghl-field">Follow Up Strategy</span> dropdown set to <strong>SMS Josh</strong></td></tr>
   <tr><td>Date Trigger</td>
       <td><span class="ghl-field">Next Follow Up Date For SMS Campaign</span> reached — the date set in this field becomes Day 1 of the SMS Josh sequence</td></tr>
 </table>
@@ -3033,7 +3033,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <span><strong>Channel:</strong> SMS only (+ VM1 on Day 1)</span>
 </div>
 
-<p><strong>When to use this campaign (at enrollment):</strong> Any seller lead you want on the Josh-voice nurture rotation. Two ways to enroll: (1) set Follow Up Strategy to "SMS Josh" with Follow Up Automation on, or (2) set <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> to a future date — the campaign starts on that date.</p>
+<p><strong>When to use this campaign (at enrollment):</strong> Any seller lead you want on the Josh-voice nurture rotation. Two ways to enroll (either one fires — OR, not both): (1) set <span class="ghl-field">Follow Up Strategy</span> to <strong>SMS Josh</strong>, or (2) set <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> to a future date — the campaign starts on that date.</p>
 
 <h3>Day-by-Day Breakdown</h3>
 <table class="data-table">
