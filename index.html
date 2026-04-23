@@ -2839,6 +2839,67 @@ const SECTIONS = [
 <div class="callout amber" style="margin:0 0 24px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Index page — no single trigger.</strong> Each campaign page below has its own Trigger / Enrollment section. All workflow enrollment details (tags, pipeline filters, exit conditions) need to be filled in from the GHL workflow builder — the screenshots of the Custom Values page show message copy only, not how contacts enter each workflow.</div></div>
 <h2>What This Section Covers</h2><p>Every follow-up campaign message copy, custom value key, and lead scoring trigger used in GHL — in one place. Use this when editing workflows, training team members, or auditing the follow-up system.</p><div class="callout amber"><div class="callout-icon">&#128204;</div><div class="callout-body"><strong>GHL Location</strong>All custom values live at <em>Settings &rarr; Custom Values</em> in the GHL sub-account. Location ID: <code>Js1OZngrzWeqSwiHjbRx</code></div></div><h2>Follow-Up Campaign Library</h2><p>The follow-up system is built around <strong>4 message categories</strong> plus supporting infrastructure. Every campaign is a sequence of these custom values injected into GHL workflows.</p><div class="stat-row"><div class="stat-box"><div class="num">7</div><div class="label">After Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">After Apt Short msgs</div></div><div class="stat-box"><div class="num">9</div><div class="label">No Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">No Apt Short msgs</div></div><div class="stat-box"><div class="num">12</div><div class="label">SMS - Josh</div></div><div class="stat-box"><div class="num">6</div><div class="label">Email follow-up</div></div></div><h2>When Each Sequence Fires</h2><table class="data-table"><tr><th>Folder</th><th>Triggered When</th><th>Goal</th></tr><tr><td><strong>After Apt Long</strong></td><td>Appointment happened + no deal + long-cycle seller</td><td>Win back over 7-touch sequence</td></tr><tr><td><strong>After Apt Short</strong></td><td>Appointment happened + no deal + short-cycle seller</td><td>Quick 6-touch close attempt</td></tr><tr><td><strong>No Apt Long</strong></td><td>Lead came in, never booked appt, long-cycle nurture</td><td>Re-engage cold leads, 9 touches</td></tr><tr><td><strong>No Apt Short</strong></td><td>Lead came in, never booked appt, short-cycle</td><td>Fast 6-touch conversion</td></tr><tr><td><strong>SMS - Josh</strong></td><td>Any campaign needing Josh-voice SMS</td><td>Personal-feel outreach from acquisitions</td></tr><tr><td><strong>Email Follow Up</strong></td><td>Drip email campaigns</td><td>Warm leads via inbox</td></tr><tr><td><strong>Direct Mail (YLHQ)</strong></td><td>Yellow Letter HQ direct mail pulls</td><td>Agent info injected into mailers</td></tr></table><h2>How to Edit a Message</h2><ol class="step-list"><li><div class="step-num">1</div><div class="step-content"><strong>Find the key</strong> in the page below (e.g. <code>{{custom_values.no_apt_short__1}}</code>)</div></li><li><div class="step-num">2</div><div class="step-content">Open GHL &rarr; Settings &rarr; Custom Values</div></li><li><div class="step-num">3</div><div class="step-content">Search the key. Click to edit the value.</div></li><li><div class="step-num">4</div><div class="step-content">Save. Changes apply to every workflow using that value immediately.</div></li></ol><div class="callout crimson"><div class="callout-icon">&#9888;</div><div class="callout-body"><strong>Editing in place is a global change.</strong>A single custom value may be used by 5+ workflows. Before editing, search workflows for the key to understand the blast radius.</div></div>
 `},
+      { id: 'fu-next-contact-date', title: 'Next Contact Date Trigger', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Next Contact Date Trigger</h2>
+<p>When a rep sets the <span class="ghl-field">Next Contact Date &amp; Time</span> field on a contact, GHL automatically enrolls that contact into the <strong>Not Ready — Short Term (ST)</strong> follow-up sequence, and the sequence <strong>begins on the date selected</strong>.</p>
+
+<div class="callout amber" style="margin:16px 0;">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>How it works:</strong> The date you set becomes Day 0 of the campaign. Every step in the Not Ready ST workflow (SMS touches, wait periods, branch) runs relative to that date — not relative to today.</div>
+</div>
+
+<h3>When to Use It</h3>
+<ul>
+  <li>Seller says "call me back on [specific date]" or "check in on me in [X] days"</li>
+  <li>Lead is warm but not ready to decide today — you want automated touches to start on the date they pick, not right now</li>
+  <li>You want the full Short Term drip to run hands-off from the date forward</li>
+</ul>
+
+<h3>How to Set It</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Open the contact record in GHL</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Find the <span class="ghl-field">Next Contact Date &amp; Time</span> field</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Set it to the exact date the seller requested</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Save — enrollment into Not Ready ST fires automatically on that date</div></li>
+</ol>
+
+<hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
+
+<h2>Campaign Triggered: Not Ready — Short Term (Campaign #1)</h2>
+<div class="page-meta" style="margin-bottom:16px;">
+  <span><strong>Workflow name:</strong> Campaign #1 — Not Ready to Make a Decision</span>
+  <span><strong>Pipeline:</strong> Short Term</span>
+  <span><strong>Workflow ID:</strong> <code>ca4b07c7-4413-449a-ba7a-985fdfbea132</code></span>
+</div>
+
+<h3>All 3 Ways a Contact Enters This Campaign</h3>
+<p>A contact gets enrolled when <strong>any</strong> of the following fires:</p>
+<table class="data-table">
+  <tr><th>#</th><th>Trigger Type</th><th>Condition</th></tr>
+  <tr><td>1</td><td>Custom Field Change</td><td><span class="ghl-field">Follow Up Automation</span> flipped from <strong>Off</strong> → <strong>On</strong></td></tr>
+  <tr><td>2</td><td>Date Trigger</td><td><span class="ghl-field">Next Contact Date &amp; Time</span> reached — <strong>this page</strong></td></tr>
+  <tr><td>3</td><td>Tag Added</td><td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr>
+</table>
+
+<h3>Workflow Structure</h3>
+<ul>
+  <li>~20 total steps</li>
+  <li>Linear drip: Day 1 → Day 2 → Day 3 → Day 7 → … SMS touches spaced with <strong>Wait</strong> and <strong>Wait-for-Tag</strong> actions</li>
+  <li>One <strong>Branch (IF/ELSE)</strong> decision mid-flow</li>
+</ul>
+
+<div class="callout blue" style="margin:16px 0;">
+  <div class="callout-icon">🔍</div>
+  <div class="callout-body"><strong>Per-step detail still needed:</strong> Which custom value key fires at each step, wait durations, and the Branch IF/ELSE condition. Drop zoomed-in workflow screenshots and these fill in.</div>
+</div>
+
+<h3>Related Pages</h3>
+<ul>
+  <li><a onclick="showPage('lead-mgmt','fu-campaign-map')" style="cursor:pointer;color:#0EA5E9;">Workflow to Message Mapping</a> — full Campaign #1 documentation</li>
+  <li><a onclick="showPage('lead-mgmt','fu-sms-josh')" style="cursor:pointer;color:#0EA5E9;">SMS — Josh Message Bank</a> — the message pool pulled into ST drip steps</li>
+</ul>
+`},
       { id: 'fu-after-apt', title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Re-engages sellers whose appointment did not convert. Long = long-cycle nurture (7 touches); Short = compressed close attempt (6 touches).<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
