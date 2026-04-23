@@ -2926,8 +2926,8 @@ const SECTIONS = [
 <table class="data-table">
   <tr><th>Campaign</th><th>Trigger Type</th><th>Condition</th></tr>
   <tr><td rowspan="2"><strong>Campaign #1 — Not Ready ST</strong></td>
-      <td>Custom Field Change</td>
-      <td><span class="ghl-field">Follow Up Automation</span> flipped from <strong>Off</strong> → <strong>On</strong></td></tr>
+      <td>Combined Field State (AND)</td>
+      <td><span class="ghl-field">Follow Up Automation</span> = <strong>On</strong> AND the <span class="ghl-field">Follow Up Campaign</span> dropdown = <strong style="background:#FEF3C7;color:#92400E;padding:2px 6px;border-radius:3px;">[Not Ready ST option — confirm exact label in GHL]</strong></td></tr>
   <tr><td>Tag Added</td>
       <td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr>
   <tr><td rowspan="2"><strong>SMS Josh</strong></td>
@@ -2953,6 +2953,10 @@ const SECTIONS = [
 </div>
 
 <p><strong>When to use this campaign (at enrollment):</strong> Seller came through intake with an inbound inquiry but did not book an appointment, and their posture is "not ready to decide right now." This campaign gives them 12 days of low-pressure re-engagement — if no response, file closes. If they reply SELL, file reopens.</p>
+<div class="callout amber" style="margin:12px 0;">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>Enrollment via field change:</strong> Before flipping <span class="ghl-field">Follow Up Automation</span> to On, the rep must first set the <span class="ghl-field">Follow Up Campaign</span> dropdown to the Not Ready ST option. That combination is what routes the contact into Campaign #1. Alternatively, adding the <code>fu - st not ready - begin</code> tag enrolls directly.</div>
+</div>
 
 <h3>Day-by-Day Breakdown</h3>
 <table class="data-table">
