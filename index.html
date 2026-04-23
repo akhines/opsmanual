@@ -2870,12 +2870,12 @@ const SECTIONS = [
 </div>
 
 <h3>Campaign Triggered: SMS Josh</h3>
-<p>See the <a onclick="showPage('lead-mgmt','fu-sms-josh')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS — Josh Message Bank</a> page for the full 12-touch spacing schedule, trigger logic, and message copy. Day 1 of the campaign includes Text 1 SMS + Voicemail #1 general check-in.</p>
+<p>See the <a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS — Josh Message Bank</a> page for the full 12-touch spacing schedule, trigger logic, and message copy. Day 1 of the campaign includes Text 1 SMS + Voicemail #1 general check-in.</p>
 
 <h3>Related Pages</h3>
 <ul>
-  <li><a onclick="showPage('lead-mgmt','fu-sms-josh')" style="cursor:pointer;color:#0EA5E9;">SMS — Josh Message Bank</a> — schedule + copy for the campaign this trigger fires</li>
-  <li><a onclick="showPage('lead-mgmt','fu-campaign-1')" style="cursor:pointer;color:#0EA5E9;">Campaign #1 — Not Ready ST</a> — triggers + 12-day schedule</li>
+  <li><a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;">SMS — Josh Message Bank</a> — schedule + copy for the campaign this trigger fires</li>
+  <li><a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;">Campaign #1 — Not Ready ST</a> — triggers + 12-day schedule</li>
 </ul>
 
 `},
@@ -2891,56 +2891,7 @@ const SECTIONS = [
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Enrollment trigger (e.g. "Contact Created" + source filter or tag)</li><li>How Long vs Short is decided</li><li>Exit condition (appointment booked)</li></ul></div></div>
 <h2>No Appointment Sequences</h2><p>These run when a lead came in but <strong>never booked an appointment</strong>. Goal: re-engage and either book an appointment or kill the lead cleanly.</p><div class="callout amber"><div class="callout-icon">&#128161;</div><div class="callout-body"><strong>Hook Style: The "Wrong Number" Opener</strong>Several messages use the "wrong number / how embarrassing" opener (see No Apt Long 1 &amp; 9). This is a pattern-interrupt — sellers reply to correct you, which re-opens the conversation.</div></div><h3>No Apt Long (9 messages)</h3><p>Extended nurture — used for seller leads with longer consideration windows.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>No Apt Long - 1</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__1}}</code></td><td>Hi, Just left a VM but I have the feeling I have the wrong #. How embarrassing. You weren't looking for a cash offer on a property were you?</td></tr><tr><td><strong>No Apt Long - 2</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__2}}</code></td><td>Were we supposed to put together an offer on your house for you? Did I goof up and get the wrong person?</td></tr><tr><td><strong>No Apt Long - 3</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__3}}</code></td><td>We're looking to buy 2 houses in your area. Do you know anyone that's selling?</td></tr><tr><td><strong>No Apt Long - 4</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__4}}</code></td><td>Did you want to chat about possibly selling your house?</td></tr><tr><td><strong>No Apt Long - 5</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__5}}</code></td><td>Hello, we just sold a property and freed up some cash. We're looking to buy in your area. Let me know if you're looking at selling</td></tr><tr><td><strong>No Apt Long - 6</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__6}}</code></td><td>Good day. Did you have a sec to chat? Just wanted to see if you still had interest in selling your house.</td></tr><tr><td><strong>No Apt Long - 7</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__7}}</code></td><td>I get the feeling you might not have a house for sale and don't want to see a cash offer. Am I right?</td></tr><tr><td><strong>No Apt Long - 8</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__8}}</code></td><td>Still interested in buying a house in your area if you happen to know of any. Love to chat if you have 2 minutes. If not, no worries.</td></tr><tr><td><strong>No Apt Long - 9</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__9}}</code></td><td>I have a feeling that I have a wrong #. How embarrassing if that's the case. You weren't looking for a cash offer on a property, were you?</td></tr></table><h3>No Apt Short (6 messages)</h3><p>Fast 6-touch version — used when we want to either convert or disqualify quickly.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>No Apt Short - 1</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__1}}</code></td><td>Josh here with Impact Home Team. Still open to a cash offer, or did you decide to hold off?</td></tr><tr><td><strong>No Apt Short - 2</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__2}}</code></td><td>I can usually give a pretty tight range without a walkthrough. Want me to send a quick estimate, or would you rather do a 5-min call?</td></tr><tr><td><strong>No Apt Short - 3</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__3}}</code></td><td>I'm finalizing purchase slots for the next couple weeks. If you still want to explore selling, what timeline fits best? 1) ASAP 2) 30-60 days 3) 60+ days</td></tr><tr><td><strong>No Apt Short - 4</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__4}}</code></td><td>Most sellers we help just want a simple sale (no showings, no repairs). If I could cover closing costs and close on your timeline, would that help? Reply Y/N</td></tr><tr><td><strong>No Apt Short - 5</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__5}}</code></td><td>Totally fine either way — do you want me to put together a quick 'as-is' number for you?</td></tr><tr><td><strong>No Apt Short - 6</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__6}}</code></td><td>Hi it's Josh with Impact. Circling back to you — are you still looking for an offer? Reply: 1) Yes 2) Maybe later 3) Not anymore</td></tr></table>
 `},
-      { id: 'fu-sms-josh', title: 'SMS — Josh Message Bank', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<div class="callout amber" style="margin:0 0 20px 0;">
-  <div class="callout-icon">⚡</div>
-  <div class="callout-body"><strong>Purpose:</strong> 12-touch SMS campaign in Josh's voice. Runs as its own standalone sequence whenever a contact is routed to the SMS Josh strategy.</div>
-</div>
-
-<h2>Enrollment Triggers</h2>
-<p>A contact enters the SMS Josh sequence when <strong>either</strong> of the following conditions fires:</p>
-<table class="data-table">
-  <tr><th>#</th><th>Condition</th><th>Detail</th></tr>
-  <tr><td>1</td><td>Combined field state (AND)</td><td><span class="ghl-field">Follow Up Automation</span> = <strong>On</strong> AND <span class="ghl-field">Follow Up Strategy</span> = <strong>SMS Josh</strong></td></tr>
-  <tr><td>2</td><td>Date trigger</td><td><span class="ghl-field">Next Contact Date &amp; Time</span> reached — see the <a onclick="showPage('lead-mgmt','fu-next-contact-date')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">Next Contact Date Trigger</a> page</td></tr>
-</table>
-
-<div class="callout blue" style="margin:16px 0;">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body"><strong>Voice &amp; tone:</strong> Short, conversational, attributed to Josh. Most messages end with a reply prompt or numbered option to make responding easy.</div>
-</div>
-
-<h2>Message Spacing — 12 Touches Over 62 Days</h2>
-<p>Day numbers below are counted from the enrollment moment (Day 0 = trigger fires). The wait column is the gap between this message and the previous one.</p>
-<table class="data-table">
-  <tr><th>Msg #</th><th>Name</th><th>Day</th><th>Wait Since Previous</th></tr>
-  <tr><td>1</td><td>Text 1 SMS - Josh <strong>+ Voicemail #1 (general check-in)</strong></td><td>Day 1</td><td>— (enrollment)</td></tr>
-  <tr><td>2</td><td>Text 2 SMS - Josh</td><td>Day 2</td><td>1 day</td></tr>
-  <tr><td>3</td><td>Text 3 SMS - Josh</td><td>Day 5</td><td>3 days</td></tr>
-  <tr><td>4</td><td>Text 4 SMS - Josh</td><td>Day 6</td><td>1 day</td></tr>
-  <tr><td>5</td><td>Text 5 SMS - Josh</td><td>Day 8</td><td>2 days</td></tr>
-  <tr><td>6</td><td>Text 6 SMS - Josh</td><td>Day 9</td><td>1 day</td></tr>
-  <tr><td>7</td><td>Text 7 SMS - Josh</td><td>Day 16</td><td>7 days</td></tr>
-  <tr><td>8</td><td>Text 8 SMS - Josh</td><td>Day 22</td><td>6 days</td></tr>
-  <tr><td>9</td><td>Text 9 SMS - Josh</td><td>Day 30</td><td>8 days</td></tr>
-  <tr><td>10</td><td>Text 10 SMS - Josh</td><td>Day 37</td><td>7 days</td></tr>
-  <tr><td>11</td><td>Text 11 SMS - Josh</td><td>Day 47</td><td>10 days</td></tr>
-  <tr><td>12</td><td>Text 12 SMS - Josh</td><td>Day 62</td><td>15 days</td></tr>
-</table>
-
-<h3>Day 1 — Voicemail #1 (General Check-In)</h3>
-<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Voicemail Drop #1 · fires Day 1 alongside Text 1 SMS</div>
-  <div style="font-size:13px;line-height:1.6;font-style:italic;">General check-in — (script TBD; drop current VM1 audio reference in GHL)</div>
-</div>
-
-<h2>Message Bank</h2>
-<p>The full copy for each of the 12 Josh-voice SMS values. Edit in GHL &rarr; Settings &rarr; Custom Values.</p>
-
-<h3>SMS - Josh (12 messages)</h3><p>Always signed or attributed to Josh. Short. Conversational. Often end with a numbered reply option to make responding easy.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>Text 1 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_1_sms__josh}}</code></td><td>Hey it's Josh &amp; I want to help with your property... are you still planning to sell or did you decide to hold off?</td></tr><tr><td><strong>Text 2 SMS - Josh (Test)</strong></td><td><code style="font-size:11px;">{{custom_values.test_2_smsjosh}}</code></td><td>If you are still open, what's the #1 thing you'd want in an offer (price, closing date, as-is, tenant situation, etc.)?</td></tr><tr><td><strong>Text 3 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_3_sms__josh}}</code></td><td>Hey there - could me or my team help with your property? Feel free to call or text. -Josh</td></tr><tr><td><strong>Text 4 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_4_sms__josh}}</code></td><td>If you're thinking "maybe later," totally fine—are you thinking more like 30–60 days, or not this year?</td></tr><tr><td><strong>Text 5 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_5_sms__josh}}</code></td><td>I can usually give a pretty tight range without a walkthrough. Want me to send a quick estimate, or would you rather do a 5-min call?</td></tr><tr><td><strong>Text 6 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_6_sms__josh}}</code></td><td>Did I goof up and get the wrong person?</td></tr><tr><td><strong>Text 7 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_7_sms__josh}}</code></td><td>I'm curious- if you could get your price, would you even want to sell this year?</td></tr><tr><td><strong>Text 8 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_8_sms__josh}}</code></td><td>I've tried to reach you a bunch of times but can't seem to reach you. Where do we go from here?</td></tr><tr><td><strong>Text 9 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_9_sms__josh}}</code></td><td>Did you already give up on selling it?</td></tr><tr><td><strong>Text 10 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_10_sms__josh}}</code></td><td>This is Josh and I'm guessing you already sold the property.</td></tr><tr><td><strong>Text 11 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_11_sms__josh}}</code></td><td>No matter which way you decide to sell the property, I'm confident that we can help. Call me maybe?</td></tr><tr><td><strong>Text 12 SMS - Josh</strong></td><td><code style="font-size:11px;">{{custom_values.text_12_sms__josh}}</code></td><td>I know you have a lot of choices. Here's more about us: https://youtu.be/dZhSF9veJPU?si=EBNf6GPnAUcI86X5</td></tr></table>
-`},
-      { id: 'fu-email-dm', hidden: true, title: 'Email & Direct Mail', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-email-dm', hidden: true, title: 'Email & Direct Mail', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Email Drip = inbox-preference nurture parallel to SMS. YLHQ Direct Mail = physical mailers sent on Yellow Letter HQ pull schedule.<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Email workflow trigger (tag or filter)</li><li>YLHQ pull cadence (monthly? quarterly?)</li><li>How mailer recipients are selected</li><li>Exit/suppress tag</li></ul></div></div>
@@ -2952,23 +2903,63 @@ const SECTIONS = [
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Point value for each of the 35 keys</li><li>Whether scoring feeds a Workflow Action or only analytics</li><li>Threshold that flips a contact to "hot"</li></ul></div></div>
 <h2>Lead Scoring Values</h2><p>These custom values do not contain message copy — they are <strong>numerical scoring triggers</strong> used by GHL's scoring engine. Each time one of these events happens (a call, an email open, an appointment set), GHL adds or subtracts points from the contact's lead score.</p><div class="callout blue"><div class="callout-icon">&#128202;</div><div class="callout-body"><strong>Values Currently Blank</strong>All 35 scoring values currently have empty value fields. This means scoring is not yet firing — these are placeholders waiting to be populated with point values (e.g. +10 for Appointment Confirmed, -5 for DNC).</div></div><h3>Action Item</h3><p>Assign point values to each scoring key. Suggested starting framework:</p><table class="data-table"><tr><th>Category</th><th>Suggested Range</th><th>Logic</th></tr><tr><td>Appointment - Confirmed/Showed</td><td>+15 to +25</td><td>Strongest buying signal</td></tr><tr><td>Appointment - New/Set</td><td>+10 to +15</td><td>Active interest</td></tr><tr><td>Appointment - Cancelled/No-Show</td><td>-5 to -10</td><td>Disengagement signal</td></tr><tr><td>Motivation - Hot</td><td>+20</td><td>Top priority</td></tr><tr><td>Motivation - Warm</td><td>+10</td><td>Active nurture</td></tr><tr><td>Motivation - Cold</td><td>0 or -5</td><td>Background nurture</td></tr><tr><td>Email Open / Click</td><td>+1 / +3</td><td>Small engagement signal</td></tr><tr><td>SMS Reply</td><td>+5</td><td>Higher engagement than email</td></tr><tr><td>Phone Outbound - Completed</td><td>+5</td><td>Live conversation</td></tr><tr><td>Phone Outbound - Missed/VM</td><td>+1</td><td>Attempt made, no contact</td></tr><tr><td>Phone Status - DNC / Dead / Wrong</td><td>-25 (or kill)</td><td>Hard disqualifiers</td></tr><tr><td>Next Action - Deal</td><td>+30</td><td>Highest value state</td></tr><tr><td>Next Action - Dead / Remove from List</td><td>-30 (or kill)</td><td>End state</td></tr></table><h3>Full Scoring Value List</h3><table class="data-table"><tr><th style="width:40%">Name</th><th>Key</th></tr><tr><td><strong>Appointment - Cancelled</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__cancelled__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - Confirmed</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__confirmed__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - New</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__new__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - No-Show</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__noshow__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - Showed</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__showed__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - invalid</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__invalid__lead_scoring}}</code></td></tr><tr><td><strong>Email Clicked</strong></td><td><code style="font-size:11px;">{{custom_values.email_clicked__lead_scoring}}</code></td></tr><tr><td><strong>Email Open</strong></td><td><code style="font-size:11px;">{{custom_values.email_open__lead_scoring}}</code></td></tr><tr><td><strong>Mirror Podio</strong></td><td><code style="font-size:11px;">{{custom_values.mirror_podio}}</code></td></tr><tr><td><strong>Motivation - Cold</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__cold__lead_scoring}}</code></td></tr><tr><td><strong>Motivation - Hot</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__hot__lead_scoring}}</code></td></tr><tr><td><strong>Motivation - Warm</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__warm__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Completed</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_completed__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Follow Up</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_follow_up__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment No Show</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_no_show__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Reschedule</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_reschedule__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Set</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_set__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Dead</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__dead__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Deal</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__deal__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Canceled</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_canceled__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Follow Up</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_follow_up__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Made</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_made__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Remove from List</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__remove_from_list__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - Connection Made</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__connection_made__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - No Answer</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__no_answer__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__voicemail__lead_scoring}}</code></td></tr><tr><td><strong>Phone Inbound - Completed</strong></td><td><code style="font-size:11px;">{{custom_values.phone_inbound__completed__lead_score}}</code></td></tr><tr><td><strong>Phone Inbound - Missed/Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.phone_inbound__missedvoicemail__lead_score}}</code></td></tr><tr><td><strong>Phone Outbound - Completed</strong></td><td><code style="font-size:11px;">{{custom_values.phone_outbound__completed__lead_score}}</code></td></tr><tr><td><strong>Phone Outbound - Missed/Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.phone_outbound__missedvoicemail__lead_score}}</code></td></tr><tr><td><strong>Phone Status - Correct Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__correct_number__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - DNC</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__dnc__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - Dead Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__dead_number__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - Wrong Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__wrong_number__lead_scoring}}</code></td></tr><tr><td><strong>SMS Reply</strong></td><td><code style="font-size:11px;">{{custom_values.sms_reply__lead_scoring}}</code></td></tr></table>
 `},
-      { id: 'fu-campaign-1', title: 'Campaign #1 — Not Ready ST', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-active-campaigns', title: 'Active Campaigns', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
-<h2>Not Ready — Short Term (Campaign #1)</h2><div class="callout amber" style="margin:16px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Active campaign.</strong> This is the full operational page for Campaign #1 — triggers, structure, and the complete 12-day messaging schedule. Use the Share Link button (top of page) to send just this page to a teammate.</div></div>
-<h3>Campaign #1 — Not Ready to Make a Decision (Short Term Sequence)</h3><div class="page-meta" style="margin-bottom:16px;"><span><strong>Workflow ID:</strong> <code>ca4b07c7-4413-449a-ba7a-985fdfbea132</code></span><span><strong>Pipeline:</strong> Short Term</span></div><h4 style="margin-top:20px;">Enrollment Triggers (2)</h4><p>A contact enters Campaign #1 when <strong>either</strong> of the following fires:</p><table class="data-table"><tr><th>#</th><th>Trigger Type</th><th>Condition</th></tr><tr><td>1</td><td>Custom Field Change</td><td><span class="ghl-field">Follow Up Automation</span> flipped from <strong>Off</strong> → <strong>On</strong></td></tr><tr><td>2</td><td>Tag Added</td><td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr></table><div class="callout blue" style="margin:12px 0;"><div class="callout-icon">🔀</div><div class="callout-body"><strong>Next Contact Date trigger removed.</strong> That trigger now routes to SMS Josh instead. See the <a onclick="showPage('lead-mgmt','fu-next-contact-date')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">Next Contact Date Trigger</a> page.</div></div><h4 style="margin-top:20px;">Workflow Structure (from screenshot)</h4><ul><li>~20 total steps</li><li>Linear Day 1 → Day 2 → Day 3 → Day 7 → … SMS drip with <strong>Wait</strong> / <strong>Wait for Tag</strong> actions between each touch</li><li>One <strong>Branch (IF/ELSE)</strong> decision mid-flow — condition not yet documented (needs zoomed-in screenshot)</li></ul><div class="callout blue" style="margin:16px 0;"><div class="callout-icon">🔍</div><div class="callout-body"><strong>Still needed:</strong> Per-step custom value key used (e.g. <code>{{custom_values.after_apt_short__1}}</code>), wait duration between steps, and the branch IF/ELSE condition. Requires zoomed-in screenshots of each workflow step.</div></div>
-<h2>Campaign #1 Full Message Schedule — Not Ready ST (No Appointment)</h2>
-<p>Actual message copy for every step of the Not Ready — Short Term follow-up campaign when the contact has <strong>no appointment booked</strong>. The campaign runs 12 days from the date set in Next Contact Date &amp; Time (Day 0).</p>
 
-<div class="callout amber" style="margin:16px 0;">
-  <div class="callout-icon">📅</div>
-  <div class="callout-body"><strong>Schedule at a glance:</strong> Day 0 (Email + SMS + VM), Day 1 (SMS), Day 3 (Email + SMS), Day 4 (Email + SMS), Day 6 (SMS + VM), Day 10 (SMS), Day 12 (SMS + final RVM).</div>
+<h2>Overview</h2>
+<p>Only two follow-up campaigns are active right now. Everything else is built in GHL but turned off. This page is the single source of truth: campaign status, triggers, and the full day-by-day breakdown of every message.</p>
+
+<h2>Campaign Status</h2>
+<table class="data-table">
+  <tr><th>Campaign</th><th>Status</th><th>GHL Message Folder</th><th>Documented?</th></tr>
+  <tr><td><strong>Campaign #1 — Not Ready ST (No Appointment)</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>Custom messaging (not from library)</td><td>Yes — full schedule below</td></tr>
+  <tr><td><strong>SMS Josh</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>SMS - Josh</td><td>Yes — 12-touch schedule below</td></tr>
+  <tr><td>After Appointment — Long</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>After Long - 1</td><td>—</td></tr>
+  <tr><td>After Appointment — Short</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>After APT Short</td><td>—</td></tr>
+  <tr><td>No Appointment — Long</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>No Apt Long</td><td>—</td></tr>
+  <tr><td>No Appointment — Short</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>No Apt Short</td><td>—</td></tr>
+  <tr><td>Email Drip</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Email follow up</td><td>—</td></tr>
+  <tr><td>YLHQ Direct Mail</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Direct Mail</td><td>—</td></tr>
+</table>
+
+<h2>Triggers — How Contacts Enter Each Active Campaign</h2>
+<table class="data-table">
+  <tr><th>Campaign</th><th>Trigger Type</th><th>Condition</th></tr>
+  <tr><td rowspan="2"><strong>Campaign #1 — Not Ready ST</strong></td>
+      <td>Custom Field Change</td>
+      <td><span class="ghl-field">Follow Up Automation</span> flipped from <strong>Off</strong> → <strong>On</strong></td></tr>
+  <tr><td>Tag Added</td>
+      <td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr>
+  <tr><td rowspan="2"><strong>SMS Josh</strong></td>
+      <td>Combined Field State (AND)</td>
+      <td><span class="ghl-field">Follow Up Automation</span> = <strong>On</strong> AND <span class="ghl-field">Follow Up Strategy</span> = <strong>SMS Josh</strong></td></tr>
+  <tr><td>Date Trigger</td>
+      <td><span class="ghl-field">Next Contact Date &amp; Time</span> reached — date becomes Day 0 of campaign</td></tr>
+</table>
+
+<div class="callout blue" style="margin:16px 0;">
+  <div class="callout-icon">🔀</div>
+  <div class="callout-body"><strong>Routing note:</strong> Next Contact Date originally fired Campaign #1. It was re-wired to fire SMS Josh instead. Campaign #1 now only fires from the Follow Up Automation Off→On flip or the <code>fu - st not ready - begin</code> tag.</div>
 </div>
 
-<h3>Day 0 — Kickoff</h3>
+<hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
 
-<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email · from Josh</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi -
+<h2>Campaign #1 — Not Ready ST (No Appointment)</h2>
+<div class="page-meta" style="margin-bottom:16px;">
+  <span><strong>Workflow name:</strong> Campaign #1 — Not Ready to Make a Decision</span>
+  <span><strong>Pipeline:</strong> Short Term</span>
+  <span><strong>Workflow ID:</strong> <code>ca4b07c7-4413-449a-ba7a-985fdfbea132</code></span>
+  <span><strong>Duration:</strong> 12 days</span>
+</div>
+
+<p><strong>When to use this campaign (at enrollment):</strong> Seller came through intake with an inbound inquiry but did not book an appointment, and their posture is "not ready to decide right now." This campaign gives them 12 days of low-pressure re-engagement — if no response, file closes. If they reply SELL, file reopens.</p>
+
+<h3>Day-by-Day Breakdown</h3>
+<table class="data-table">
+  <tr><th>Day</th><th>Message</th><th>Intent</th><th>When to Use</th><th>Copy</th></tr>
+
+  <tr><td>Day 0</td><td>Email — from Josh</td><td>Open the door, ask for a status check</td><td>Initial kickoff touch</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hi -
 Wanted to follow up one more time about {{contact.address1}}.
 Not trying to chase you — I just do better when I know where things stand. Are you still trying to sell it, or has that moved off the table for now?
 Either answer is fine. I just don't want to keep bothering you if the timing isn't right.
@@ -2976,110 +2967,122 @@ Reply back with whichever fits best:
 Sell
 Wait
 Keep
-— Josh</div>
-</div>
+— Josh</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hey there just wanted to circle back on the property at {{contact.address1}}. Are you still even considering selling or is that off the table now?</div>
-</div>
+  <tr><td>Day 0</td><td>SMS</td><td>Quick pattern-interrupt ping</td><td>Same-day as kickoff email</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hey there just wanted to circle back on the property at {{contact.address1}}. Are you still even considering selling or is that off the table now?</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Voicemail Drop #1</div>
-  <div style="font-size:13px;line-height:1.6;font-style:italic;">"Checking in"</div>
-</div>
+  <tr><td>Day 0</td><td>Voicemail Drop #1 — "checking in"</td><td>Human voice touch</td><td>Same-day as email/SMS</td>
+    <td style="font-style:italic;font-size:12px;">(VM script — general check-in; audio in GHL)</td></tr>
 
-<h3>Day 1 — 1 day later</h3>
+  <tr><td>Day 1</td><td>SMS #2</td><td>Push for any response — silence isn't helpful</td><td>After no Day 0 response</td>
+    <td style="white-space:pre-wrap;font-size:12px;">If you're not interested in the offer, that's fine. But silence doesn't help either of us. Let me know how I can best help here. You reached out to us. If something changed, just let us know!</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS #2</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">If you're not interested in the offer, that's fine. But silence doesn't help either of us. Let me know how I can best help here. You reached out to us. If something changed, just let us know!</div>
-</div>
-
-<h3>Day 3</h3>
-
-<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email · from Ashley</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi {{contact.first_name}} — quick one.
+  <tr><td>Day 3</td><td>Email — from Ashley</td><td>Ask permission to keep cash-offer file open</td><td>Mid-early nurture — change of voice</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hi {{contact.first_name}} — quick one.
 Do you want me to keep your cash-offer request open for {{contact.full_address}}, or are you all set?
 If you're still open to it, reply with what matters most (price, closing date, as-is, tenant situation) and I'll take the next step.
 Thanks,
-Ashley</div>
-</div>
+Ashley</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">I'm not trying to chase you around about {{contact.address1}}. I just need to know whether to keep this open or close it out. Let me know either way?</div>
-</div>
+  <tr><td>Day 3</td><td>SMS</td><td>Not-chasing framing — keep file open OR close it</td><td>Paired with Day 3 email</td>
+    <td style="white-space:pre-wrap;font-size:12px;">I'm not trying to chase you around about {{contact.address1}}. I just need to know whether to keep this open or close it out. Let me know either way?</td></tr>
 
-<h3>Day 4</h3>
-
-<div style="background:var(--cloud);border-left:3px solid #2563EB;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Email</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hi {{contact.first_name}},
+  <tr><td>Day 4</td><td>Email</td><td>Simplify the selling process — 3-step</td><td>Mid nurture — remove friction</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hi {{contact.first_name}},
 When you're ready, selling your home can be simple. Here's exactly how it works:
 
- Step 1: Call or text me.
- Step 2: I'll review your options with you, no obligation.
- Step 3: You decide what works best.
+Step 1: Call or text me.
+Step 2: I'll review your options with you, no obligation.
+Step 3: You decide what works best.
 
 That's it. No pressure, no endless waiting on banks or agents.
 Reply to this email or text me at {{user.phone}} whenever you're ready.
-{{user.email_signature}}</div>
-</div>
+{{user.email_signature}}</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Did something change with the {{contact.address1}}?</div>
-</div>
+  <tr><td>Day 4</td><td>SMS</td><td>Check if situation changed</td><td>Paired with Day 4 email</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Did something change with the {{contact.address1}}?</td></tr>
 
-<h3>Day 6</h3>
+  <tr><td>Day 6</td><td>SMS</td><td>Circle back, surface any new info</td><td>Later-stage nurture</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Circling back here... just trying to help — any changes with {{contact.address1}} since we last talked? (Repairs, tenants, timeline, etc.)</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Circling back here... just trying to help — any changes with {{contact.address1}} since we last talked? (Repairs, tenants, timeline, etc.)</div>
-</div>
+  <tr><td>Day 6</td><td>Voicemail #2</td><td>Second voice touch</td><td>Paired with Day 6 SMS</td>
+    <td style="font-style:italic;font-size:12px;">(VM script — TBD)</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Voicemail Drop #2</div>
-  <div style="font-size:13px;line-height:1.6;font-style:italic;">(VM drop — script TBD)</div>
-</div>
+  <tr><td>Day 10</td><td>SMS</td><td>Soft close — assume no</td><td>Near end of sequence</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hey so — I'm assuming this is a no for now unless you tell me otherwise. Should I mark {{contact.address1}} as not selling?</td></tr>
 
-<h3>Day 10</h3>
+  <tr><td>Day 12</td><td>SMS</td><td>Close file with reopen option (text SELL)</td><td>Final touch</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Closing the file on my end. If you want to revisit selling {{contact.address1}} later, just text me SELL and I'll pick it back up.</td></tr>
 
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Hey so — I'm assuming this is a no for now unless you tell me otherwise. Should I mark {{contact.address1}} as not selling?</div>
-</div>
+  <tr><td>Day 12</td><td>Last RVM</td><td>Final voice goodbye</td><td>End of sequence</td>
+    <td style="font-style:italic;font-size:12px;">(RVM script — TBD)</td></tr>
+</table>
 
-<h3>Day 12 — Final Touch</h3>
-
-<div style="background:var(--cloud);border-left:3px solid #0EA5E9;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">SMS</div>
-  <div style="white-space:pre-wrap;font-size:13px;line-height:1.6;">Closing the file on my end. If you want to revisit selling {{contact.address1}} later, just text me SELL and I'll pick it back up.</div>
-</div>
-
-<div style="background:var(--cloud);border-left:3px solid #7C3AED;padding:14px 18px;margin:12px 0;border-radius:4px;">
-  <div style="font-weight:700;font-size:12px;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Last RVM</div>
-  <div style="font-size:13px;line-height:1.6;font-style:italic;">(Final ringless voicemail — script TBD)</div>
-</div>
-
-<h3>Exit / Response Handling</h3>
+<h4>Exit / Response Handling</h4>
 <ul>
   <li>Seller replies <strong>SELL</strong> — re-open the file, route back to active pipeline</li>
   <li>Seller replies <strong>WAIT</strong> or <strong>KEEP</strong> — mark not-selling-now, follow team dead-lead process</li>
   <li>No reply by Day 12 — file closes automatically at end of campaign</li>
 </ul>
 
-`},
-      { id: 'fu-campaign-map', title: 'Workflow to Message Mapping', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<div class="callout amber" style="margin:0 0 24px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Reference page — no direct trigger.</strong> This is the master map. Each row in the "Other Follow-Up Campaigns (To Document)" table below needs its trigger, tags, and filters filled in from GHL workflow screenshots.</div></div>
-<h2>Workflow &rarr; Message Mapping</h2><p>This page maps each <strong>GHL workflow</strong> to the specific custom values it uses. Keep this updated so anyone editing a workflow knows exactly which message keys are in play.</p><div class="callout amber"><div class="callout-icon">📋</div><div class="callout-body"><strong>Campaign status matrix.</strong> Only 2 follow-up campaigns are currently active: <a onclick="showPage('lead-mgmt','fu-campaign-1')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">Campaign #1 — Not Ready ST</a> and <a onclick="showPage('lead-mgmt','fu-sms-josh')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS Josh</a>. Full Campaign #1 detail (triggers, schedule, copy) lives on its own page — click the link above.</div></div><h3>Campaign Documentation Status</h3><table class="data-table"><tr><th>Campaign / Workflow</th><th>Message Folder (GHL)</th><th>Triggers Documented?</th><th>Status</th></tr>
-<tr><td><strong>Campaign #1 — Not Ready to Make a Decision (Short Term)</strong></td><td>— (Uses multiple folders per step)</td><td><strong>Yes — triggers documented above</strong></td><td>Partial — step detail needed</td></tr>
-<tr><td>After Appointment — Long</td><td>After Long - 1, SMS - Josh</td><td>—</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td></tr><tr><td>After Appointment — Short</td><td>After APT Short, SMS - Josh</td><td>—</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td></tr><tr><td>No Appointment — Long</td><td>No Apt Long, SMS - Josh, Email follow up</td><td>—</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td></tr><tr><td>Not Ready ST — No Appointment (Campaign #1)</td><td>Custom messaging (not from library)</td><td><strong>Yes — full triggers + 12-day schedule documented</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td></tr><tr><td>SMS - Josh</td><td>SMS - Josh</td><td><strong>Yes — 2 triggers, 12-touch spacing documented</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td></tr><tr><td>Email Drip</td><td>Email follow up</td><td>—</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td></tr>
-<tr><td>YLHQ Direct Mail Pulls</td><td>Direct Mail</td><td>—</td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td></tr></table><h3>How to Fill This In</h3><ol class="step-list"><li><div class="step-num">1</div><div class="step-content">Open each workflow in GHL &rarr; Automation &rarr; Workflows</div></li><li><div class="step-num">2</div><div class="step-content">Screenshot each step, note the custom value key used, and the wait period between steps</div></li><li><div class="step-num">3</div><div class="step-content">Send to Ashley — she'll drop them into this page</div></li></ol><h3>Quick Reference — Key Naming Conventions</h3><table class="data-table"><tr><th>Prefix Pattern</th><th>Meaning</th></tr><tr><td><code>after_apt_long__</code></td><td>After appointment, long-cycle sequence</td></tr><tr><td><code>after_apt_short__</code></td><td>After appointment, short-cycle sequence</td></tr><tr><td><code>no_apt_long__</code></td><td>No appointment booked, long nurture</td></tr><tr><td><code>no_apt_short__</code></td><td>No appointment booked, short nurture</td></tr><tr><td><code>text_X_sms__josh</code></td><td>SMS from Josh, numbered sequence</td></tr><tr><td><code>ylhq_dm__</code></td><td>Yellow Letter HQ direct mail variable</td></tr><tr><td><code>*_lead_scoring</code> / <code>*_lead_score</code></td><td>Point values for GHL lead scoring</td></tr></table>
 <hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
+
+<h2>SMS Josh (12 Touches over 62 Days)</h2>
+<div class="page-meta" style="margin-bottom:16px;">
+  <span><strong>Voice:</strong> Josh (acquisitions)</span>
+  <span><strong>Duration:</strong> 62 days</span>
+  <span><strong>Channel:</strong> SMS only (+ VM1 on Day 1)</span>
+</div>
+
+<p><strong>When to use this campaign (at enrollment):</strong> Any seller lead you want on the Josh-voice nurture rotation — either set Follow Up Strategy to "SMS Josh" with Follow Up Automation on, or set a Next Contact Date &amp; Time and the campaign starts on that date.</p>
+
+<h3>Day-by-Day Breakdown</h3>
+<table class="data-table">
+  <tr><th>Day</th><th>Message</th><th>Intent</th><th>When to Use</th><th>Copy</th></tr>
+
+  <tr><td>Day 1</td><td>Text 1 SMS - Josh</td><td>Re-open dialogue — confirm intent to sell</td><td>Enrollment / kickoff</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hey it's Josh &amp; I want to help with your property... are you still planning to sell or did you decide to hold off?</td></tr>
+
+  <tr><td>Day 1</td><td>Voicemail #1 — general check-in</td><td>Human voice alongside first SMS</td><td>Paired with Text 1</td>
+    <td style="font-style:italic;font-size:12px;">(General check-in VM — audio in GHL)</td></tr>
+
+  <tr><td>Day 2</td><td>Text 2 SMS - Josh (Test)</td><td>Surface top priority (price/date/as-is)</td><td>1 day after kickoff</td>
+    <td style="white-space:pre-wrap;font-size:12px;">If you are still open, what's the #1 thing you'd want in an offer (price, closing date, as-is, tenant situation, etc.)?</td></tr>
+
+  <tr><td>Day 5</td><td>Text 3 SMS - Josh</td><td>Offer general help, low pressure</td><td>3 days after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Hey there - could me or my team help with your property? Feel free to call or text. -Josh</td></tr>
+
+  <tr><td>Day 6</td><td>Text 4 SMS - Josh</td><td>Qualify by timeline (30-60 days vs not this year)</td><td>1 day after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">If you're thinking "maybe later," totally fine — are you thinking more like 30–60 days, or not this year?</td></tr>
+
+  <tr><td>Day 8</td><td>Text 5 SMS - Josh</td><td>Remove friction — offer range without walkthrough</td><td>2 days after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">I can usually give a pretty tight range without a walkthrough. Want me to send a quick estimate, or would you rather do a 5-min call?</td></tr>
+
+  <tr><td>Day 9</td><td>Text 6 SMS - Josh</td><td>Pattern-interrupt "wrong number" framing</td><td>1 day after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Did I goof up and get the wrong person?</td></tr>
+
+  <tr><td>Day 16</td><td>Text 7 SMS - Josh</td><td>Explore motivation — get-your-price hypothetical</td><td>1-week gap</td>
+    <td style="white-space:pre-wrap;font-size:12px;">I'm curious- if you could get your price, would you even want to sell this year?</td></tr>
+
+  <tr><td>Day 22</td><td>Text 8 SMS - Josh</td><td>Acknowledge silence, ask "where do we go"</td><td>6 days after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">I've tried to reach you a bunch of times but can't seem to reach you. Where do we go from here?</td></tr>
+
+  <tr><td>Day 30</td><td>Text 9 SMS - Josh</td><td>Direct question — have they given up</td><td>~8 days after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">Did you already give up on selling it?</td></tr>
+
+  <tr><td>Day 37</td><td>Text 10 SMS - Josh</td><td>Assume sold — invite correction</td><td>1 week after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">This is Josh and I'm guessing you already sold the property.</td></tr>
+
+  <tr><td>Day 47</td><td>Text 11 SMS - Josh</td><td>Confidence close — we can help either way</td><td>10 days after previous</td>
+    <td style="white-space:pre-wrap;font-size:12px;">No matter which way you decide to sell the property, I'm confident that we can help. Call me maybe?</td></tr>
+
+  <tr><td>Day 62</td><td>Text 12 SMS - Josh</td><td>Credibility drop — final touch with video</td><td>~2 weeks after previous (final)</td>
+    <td style="white-space:pre-wrap;font-size:12px;">I know you have a lot of choices. Here's more about us: https://youtu.be/dZhSF9veJPU?si=EBNf6GPnAUcI86X5</td></tr>
+</table>
+
+<h4>Spacing Reference</h4>
+<p>Gaps between messages: 1 day, 3, 1, 2, 1, 7, 6, 8, 7, 10, 15 days.</p>
 
 
 `},
