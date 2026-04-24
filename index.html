@@ -2917,6 +2917,114 @@ const SECTIONS = [
 `},
 { id: 'fu-active-campaigns', title: 'Active Campaigns', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
+<h2>How to Enroll a Contact — GHL Field Reference</h2>
+<p>The Contact Details panel in GHL has four follow-up-related fields. Set the correct field for the campaign you want — that field change <em>is</em> the enrollment trigger.</p>
+<div class="callout crimson" style="margin:16px 0;border-left-color:#991B1B;">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body"><strong>CRITICAL — BULK ACTION FIRES EVERYTHING INSTANTLY.</strong> If a campaign is applied via <strong>Bulk Action</strong> (mass tag / mass field update on many contacts at once), every automated message in that campaign fires <strong>immediately</strong> to every contact — no staggering, no delays. <strong>Never bulk tag or bulk-apply a follow-up field without explicit permission from Ashley.</strong> One-off contact updates are fine; bulk is not.</div>
+</div>
+<div style="text-align:center;margin:12px 0 20px 0;">
+  <img src="/ghl-followup-fields.png" alt="GHL Contact Details — Follow-Up Fields" style="max-width:100%;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" />
+  <div style="font-size:12px;color:var(--steel);margin-top:6px;font-style:italic;">The actual GHL Contact Details panel showing the follow-up fields.</div>
+</div>
+
+<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-top:20px;">
+
+  <!-- Simulated GHL Contact Details left-panel card -->
+  <div style="flex:1;min-width:320px;max-width:440px;background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:16px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">
+    <div style="font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Contact Details — Follow-Up Fields</div>
+
+    <!-- Follow Up On/OFF -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #9CA3AF;background:#F9FAFB;border-radius:4px;">
+      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Field</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Follow Up On/OFF</div>
+      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Master toggle. Leave <strong>OFF</strong> to prevent any follow-up automation from firing on this contact.</div>
+    </div>
+
+    <!-- Follow-Up Strategy (SMS) -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #16A34A;background:#F0FDF4;border-radius:4px;">
+      <div style="font-size:11px;color:#166534;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">SMS Josh trigger</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Follow-Up Strategy (SMS)</div>
+      <div style="font-size:12px;color:#065F46;margin-top:4px;">Set to <strong>SMS Josh</strong> &rarr; enrolls contact into the 12-touch SMS Josh campaign immediately.</div>
+    </div>
+
+    <!-- Pick Your Follow Up Campaign (Email/SMS) -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #2563EB;background:#EFF6FF;border-radius:4px;">
+      <div style="font-size:11px;color:#1E3A8A;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Campaign #1 trigger</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Pick Your Follow Up Campaign (Email/SMS)</div>
+      <div style="font-size:12px;color:#1E3A8A;margin-top:4px;">Set to <strong>Not Ready to Make a Decision Short Term</strong> &rarr; enrolls contact into Campaign #1 (13 touches over 12 days).</div>
+    </div>
+
+    <!-- Set It & Forget It - Direct Mail Campaigns (inactive) -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;opacity:.6;">
+      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Inactive</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Set It &amp; Forget It — Direct Mail Campaigns</div>
+      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Direct mail campaigns are currently turned off.</div>
+    </div>
+
+    <!-- Last inbound contact date (read only) -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;">
+      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Read-only</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Last inbound contact date</div>
+      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Auto-populated by GHL. Don't edit manually.</div>
+    </div>
+
+    <!-- Follow Up Status (optional tracking) -->
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;">
+      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Tracking</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Follow Up Status</div>
+      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Optional status field for reporting.</div>
+    </div>
+
+    <!-- Next Follow Up Date For SMS Campaign -->
+    <div style="padding:10px 12px;border-left:4px solid #7C3AED;background:#F5F3FF;border-radius:4px;">
+      <div style="font-size:11px;color:#5B21B6;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">SMS Josh · scheduled start</div>
+      <div style="font-weight:700;font-size:14px;color:#111;">Next Follow Up Date For SMS Campaign</div>
+      <div style="font-size:12px;color:#5B21B6;margin-top:4px;">Set a future date &rarr; SMS Josh campaign starts on that date instead of immediately.</div>
+    </div>
+  </div>
+
+  <!-- Campaign-by-field cheat sheet -->
+  <div style="flex:1;min-width:320px;">
+    <h3 style="margin-top:0;">Cheat Sheet — Which Field for Which Campaign</h3>
+    <table class="data-table">
+      <tr><th>Campaign</th><th>Field to Set</th><th>Value</th></tr>
+      <tr>
+        <td rowspan="2" style="background:#EFF6FF;"><strong style="color:#1E3A8A;">Campaign #1 — Not Ready ST</strong></td>
+        <td>Pick Your Follow Up Campaign (Email/SMS)</td>
+        <td><strong>Not Ready to Make a Decision Short Term</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="background:#EFF6FF;font-size:12px;color:#1E3A8A;">Alternate: add the tag <code>fu - st not ready - begin</code> instead.</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="background:#F0FDF4;"><strong style="color:#166534;">SMS Josh — immediate</strong></td>
+        <td>Follow-Up Strategy (SMS)</td>
+        <td><strong>SMS Josh</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2" style="background:#F0FDF4;font-size:12px;color:#065F46;">Campaign starts immediately (12 touches over 62 days).</td>
+      </tr>
+      <tr>
+        <td rowspan="2" style="background:#F5F3FF;"><strong style="color:#5B21B6;">SMS Josh — scheduled</strong></td>
+        <td>Next Follow Up Date For SMS Campaign</td>
+        <td>Date seller requested (future date)</td>
+      </tr>
+      <tr>
+        <td colspan="2" style="background:#F5F3FF;font-size:12px;color:#5B21B6;">Campaign starts on the date you set — the date becomes Day 1.</td>
+      </tr>
+    </table>
+
+    <div class="callout amber" style="margin-top:16px;">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-body"><strong>One field at a time.</strong> Set the field that matches the campaign you want. Setting multiple campaign fields at once may double-enroll the contact.</div>
+    </div>
+  </div>
+
+</div>
+
+<hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
+
 
 <h2>Overview</h2>
 <p>Only two follow-up campaigns are active right now. Everything else is built in GHL but turned off. This page is the single source of truth: campaign status, triggers, and the full day-by-day breakdown of every message.</p>
@@ -3103,105 +3211,6 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 
 
-<hr style="margin:32px 0;border:0;border-top:2px solid #E5E7EB;">
-
-<h2>How to Enroll a Contact — GHL Field Reference</h2>
-<p>The Contact Details panel in GHL has four follow-up-related fields. The card below mirrors that panel and highlights which field you set for each campaign. Setting the correct field is the enrollment trigger — no other action needed.</p>
-
-<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-top:20px;">
-
-  <!-- Simulated GHL Contact Details left-panel card -->
-  <div style="flex:1;min-width:320px;max-width:440px;background:#fff;border:1px solid #E5E7EB;border-radius:8px;padding:16px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">
-    <div style="font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Contact Details — Follow-Up Fields</div>
-
-    <!-- Follow Up On/OFF -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #9CA3AF;background:#F9FAFB;border-radius:4px;">
-      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Field</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Follow Up On/OFF</div>
-      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Master toggle. Leave <strong>OFF</strong> to prevent any follow-up automation from firing on this contact.</div>
-    </div>
-
-    <!-- Follow-Up Strategy (SMS) -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #16A34A;background:#F0FDF4;border-radius:4px;">
-      <div style="font-size:11px;color:#166534;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">SMS Josh trigger</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Follow-Up Strategy (SMS)</div>
-      <div style="font-size:12px;color:#065F46;margin-top:4px;">Set to <strong>SMS Josh</strong> &rarr; enrolls contact into the 12-touch SMS Josh campaign immediately.</div>
-    </div>
-
-    <!-- Pick Your Follow Up Campaign (Email/SMS) -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #2563EB;background:#EFF6FF;border-radius:4px;">
-      <div style="font-size:11px;color:#1E3A8A;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Campaign #1 trigger</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Pick Your Follow Up Campaign (Email/SMS)</div>
-      <div style="font-size:12px;color:#1E3A8A;margin-top:4px;">Set to <strong>Not Ready to Make a Decision Short Term</strong> &rarr; enrolls contact into Campaign #1 (13 touches over 12 days).</div>
-    </div>
-
-    <!-- Set It & Forget It - Direct Mail Campaigns (inactive) -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;opacity:.6;">
-      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Inactive</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Set It &amp; Forget It — Direct Mail Campaigns</div>
-      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Direct mail campaigns are currently turned off.</div>
-    </div>
-
-    <!-- Last inbound contact date (read only) -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;">
-      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Read-only</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Last inbound contact date</div>
-      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Auto-populated by GHL. Don't edit manually.</div>
-    </div>
-
-    <!-- Follow Up Status (optional tracking) -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #D1D5DB;background:#F9FAFB;border-radius:4px;">
-      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Tracking</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Follow Up Status</div>
-      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Optional status field for reporting.</div>
-    </div>
-
-    <!-- Next Follow Up Date For SMS Campaign -->
-    <div style="padding:10px 12px;border-left:4px solid #7C3AED;background:#F5F3FF;border-radius:4px;">
-      <div style="font-size:11px;color:#5B21B6;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">SMS Josh · scheduled start</div>
-      <div style="font-weight:700;font-size:14px;color:#111;">Next Follow Up Date For SMS Campaign</div>
-      <div style="font-size:12px;color:#5B21B6;margin-top:4px;">Set a future date &rarr; SMS Josh campaign starts on that date instead of immediately.</div>
-    </div>
-  </div>
-
-  <!-- Campaign-by-field cheat sheet -->
-  <div style="flex:1;min-width:320px;">
-    <h3 style="margin-top:0;">Cheat Sheet — Which Field for Which Campaign</h3>
-    <table class="data-table">
-      <tr><th>Campaign</th><th>Field to Set</th><th>Value</th></tr>
-      <tr>
-        <td rowspan="2" style="background:#EFF6FF;"><strong style="color:#1E3A8A;">Campaign #1 — Not Ready ST</strong></td>
-        <td>Pick Your Follow Up Campaign (Email/SMS)</td>
-        <td><strong>Not Ready to Make a Decision Short Term</strong></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="background:#EFF6FF;font-size:12px;color:#1E3A8A;">Alternate: add the tag <code>fu - st not ready - begin</code> instead.</td>
-      </tr>
-      <tr>
-        <td rowspan="2" style="background:#F0FDF4;"><strong style="color:#166534;">SMS Josh — immediate</strong></td>
-        <td>Follow-Up Strategy (SMS)</td>
-        <td><strong>SMS Josh</strong></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="background:#F0FDF4;font-size:12px;color:#065F46;">Campaign starts immediately (12 touches over 62 days).</td>
-      </tr>
-      <tr>
-        <td rowspan="2" style="background:#F5F3FF;"><strong style="color:#5B21B6;">SMS Josh — scheduled</strong></td>
-        <td>Next Follow Up Date For SMS Campaign</td>
-        <td>Date seller requested (future date)</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="background:#F5F3FF;font-size:12px;color:#5B21B6;">Campaign starts on the date you set — the date becomes Day 1.</td>
-      </tr>
-    </table>
-
-    <div class="callout amber" style="margin-top:16px;">
-      <div class="callout-icon">⚡</div>
-      <div class="callout-body"><strong>One field at a time.</strong> Set the field that matches the campaign you want. Setting multiple campaign fields at once may double-enroll the contact.</div>
-    </div>
-  </div>
-
-</div>
 
 `},
             { id: 'fu-next-contact-date', title: 'Schedule Follow Up Automation for a Specific Date', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
