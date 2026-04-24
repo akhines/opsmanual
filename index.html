@@ -947,7 +947,379 @@ body {
 // SECTIONS DATA
 // ══════════════════════════════════════════════════════════
 const SECTIONS = [
-  {
+    {
+    id: 'brand', label: 'Company Overview', color: '#E3A728',
+    pages: [
+      { id: 'brand-kit', title: 'Brand Kit', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Brand Overview</h2>
+<p>Impact Home Team is a Maryland-based wholesale real estate investment company. Our brand communicates trust, professionalism, and speed — built for homeowners who need solutions, not complications. Every piece of communication your team produces should reflect this identity.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">★</div>
+  <div class="callout-body">
+    <strong>Brand Mission Statement</strong>
+    Helping Maryland homeowners solve problems with speed, respect, and transparency — while creating opportunity for investors to grow their portfolios.
+  </div>
+</div>
+
+<h2>Color Palette</h2>
+<p>Our palette is built around Amber and Crimson — warm, authoritative, and distinctive. Use these values precisely for print, digital, and presentations.</p>
+
+<div class="swatch-row">
+  <div class="swatch">
+    <div class="swatch-color" style="background:#E3A728;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Amber</div>
+      <div class="swatch-hex">#E3A728</div>
+      <div class="swatch-role">Primary · CTAs · Accents</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#C48E1F;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Dark</div>
+      <div class="swatch-hex">#C48E1F</div>
+      <div class="swatch-role">Hover states · Body links</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#FEF7E0;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Amber Pale</div>
+      <div class="swatch-hex">#FEF7E0</div>
+      <div class="swatch-role">Backgrounds · Callouts</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#A52325;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Impact Crimson</div>
+      <div class="swatch-hex">#A52325</div>
+      <div class="swatch-role">Secondary accent · Urgency</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#1A1A1A;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Charcoal Ink</div>
+      <div class="swatch-hex">#1A1A1A</div>
+      <div class="swatch-role">Headers · Backgrounds</div>
+    </div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-color" style="background:#F5F4F1;"></div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cloud</div>
+      <div class="swatch-hex">#F5F4F1</div>
+      <div class="swatch-role">Page backgrounds</div>
+    </div>
+  </div>
+</div>
+
+<h2>Typography</h2>
+<p>We use two typefaces. Always pull from Google Fonts when building digital assets.</p>
+
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Serif Display',serif;">DM Serif Display</div>
+  <div class="meta">font-family: 'DM Serif Display', Georgia, serif</div>
+  <div class="alphabet" style="font-family:'DM Serif Display',serif;">Aa Bb Cc — Headlines, Section Titles, Hero Text</div>
+</div>
+<div class="font-spec">
+  <div class="display" style="font-family:'DM Sans',sans-serif;font-weight:400;">DM Sans</div>
+  <div class="meta">font-family: 'DM Sans', system-ui, sans-serif · Weights: 300, 400, 500, 600, 700</div>
+  <div class="alphabet" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Body copy, labels, UI elements, all prose</div>
+</div>
+
+<h2>Logo Usage</h2>
+<p>The Impact Home Team logo uses the lettermark "I" in our amber/gold color. Below are the approved usage contexts:</p>
+
+<div class="logo-grid">
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#1A1A1A;">
+      <div class="logo-mark-lg" style="background:#E3A728;">I</div>
+    </div>
+    <div class="logo-label">✓ Dark background (primary use)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#fff;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ White/light background (reversed)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:#E3A728;">
+      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
+    </div>
+    <div class="logo-label">✓ Amber background (event materials)</div>
+  </div>
+  <div class="logo-box">
+    <div class="logo-preview" style="background:linear-gradient(135deg,#667eea,#764ba2);">
+      <div style="font-size:32px;">✗</div>
+    </div>
+    <div class="logo-label">✗ Never on non-brand backgrounds</div>
+  </div>
+</div>
+
+<div class="callout blue">
+  <div class="callout-icon">ℹ</div>
+  <div class="callout-body">
+    <strong>Logo files</strong>
+    All logo files (SVG, PNG, variations) are stored in the <a href="#">Brand Assets Google Drive folder</a>. Never recreate the logo from scratch — always pull from that folder.
+  </div>
+</div>
+
+<h2>Voice & Tone</h2>
+<table class="data-table">
+  <tr><th>We Are</th><th>We Are Not</th></tr>
+  <tr><td><strong>Direct</strong> — Get to the point. Sellers are stressed; don't waste their time.</td><td><strong>Pushy</strong> — No high-pressure tactics.</td></tr>
+  <tr><td><strong>Empathetic</strong> — Acknowledge their situation before presenting solutions.</td><td><strong>Transactional</strong> — Every interaction should feel human.</td></tr>
+  <tr><td><strong>Confident</strong> — We know our numbers and stand behind them.</td><td><strong>Arrogant</strong> — Humility closes more deals.</td></tr>
+  <tr><td><strong>Professional</strong> — Proper grammar, clean materials, on-brand everything.</td><td><strong>Corporate/Cold</strong> — We're a family business.</td></tr>
+</table>
+
+<h2>Brand Application Checklist</h2>
+<p>Before sending any document, email, or presentation to an external party:</p>
+<ul>
+  <li>✓ Uses Amber (#E3A728) and/or Crimson (#A52325) — not random colors</li>
+  <li>✓ DM Serif Display for headings, DM Sans for body</li>
+  <li>✓ Company name is always "Impact Home Team" — never shortened to "IHT" externally</li>
+  <li>✓ Contact info is current (sellyourmdhousenow.com)</li>
+  <li>✓ No clip art, generic stock photos, or off-brand fonts</li>
+</ul>
+`},
+      { id: 'credibility-packet', title: 'Credibility Packet', dept: 'Acquisitions', owner: 'Ashley Hines',
+        content: `
+<h2>What Is the Credibility Packet?</h2>
+<p>The credibility packet is a leave-behind document given to sellers after an in-person or virtual appointment. Its purpose is to answer remaining doubts, reinforce trust, and motivate the seller to sign — even if they didn't commit at the meeting.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body">
+    <strong>Primary Goal</strong>
+    Move the seller from "I need to think about it" to "I'm ready to sign." Every section of this packet is designed to handle a specific objection.
+  </div>
+</div>
+
+<h2>When to Use It</h2>
+<ul>
+  <li>Leave a printed or digital copy at every in-person appointment</li>
+  <li>Send the PDF link via text/email within 1 hour after a virtual appointment</li>
+  <li>Reference specific sections when following up — "You'll see on page 2 why our timeline is flexible..."</li>
+</ul>
+
+<h2>Packet Structure</h2>
+<ol class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Cover / Introduction</strong>
+      Company name, tagline, and a human opening that acknowledges the seller's situation. Sets the tone before they read a single fact.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Who We Are</strong>
+      8+ years of experience, family-owned, Maryland-focused. Photo of the team when possible. Humanizes the transaction.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>How Our Process Works (3 Steps)</strong>
+      Step 1: We make an offer. Step 2: You decide. Step 3: We close on your timeline. No repairs, no agents, no fees.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>IHT vs. Traditional Sale Comparison</strong>
+      Side-by-side table: repairs, commissions, timeline, certainty of close, closing costs. This is the highest-converting section.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>What Sellers Say (Testimonials)</strong>
+      2–3 real or representative testimonials. Focus on relief, speed, and professionalism — not just the offer amount.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Proof of Funds</strong>
+      Current Kiavi or funding partner letter. Must be dated within the past 12 months. Ashley updates this annually.
+    </div>
+  </li>
+  <li>
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Why Act Now</strong>
+      Address the "I need to think about it" hesitation directly. Include carrying cost calculator if applicable (taxes, insurance, maintenance by the month).
+    </div>
+  </li>
+  <li>
+    <div class="step-num">8</div>
+    <div class="step-content">
+      <strong>FAQ / Objection Handling</strong>
+      Reframed as questions sellers actually ask. Covers: "How did you come up with that price?", "Is this legal?", "What if I owe more than the offer?", "Can I choose my closing date?"
+    </div>
+  </li>
+  <li>
+    <div class="step-num">9</div>
+    <div class="step-content">
+      <strong>Next Steps / CTA</strong>
+      Clear call to action: "Sign today and we handle everything from here." Include direct phone number and the acquisitions agent's name.
+    </div>
+  </li>
+</ol>
+
+<h2>IHT vs. Traditional Sale — Key Comparison Points</h2>
+<table class="compare-table">
+  <tr>
+    <th></th>
+    <th>Impact Home Team</th>
+    <th>Traditional Listing</th>
+  </tr>
+  <tr>
+    <td>Repairs Required</td>
+    <td class="check">✓ None — as-is</td>
+    <td class="cross">✗ Often $10K–$40K+</td>
+  </tr>
+  <tr>
+    <td>Agent Commission</td>
+    <td class="check">✓ $0</td>
+    <td class="cross">✗ 5–6% of sale price</td>
+  </tr>
+  <tr>
+    <td>Closing Costs</td>
+    <td class="check">✓ We cover them</td>
+    <td class="cross">✗ Seller pays 2–3%</td>
+  </tr>
+  <tr>
+    <td>Time to Close</td>
+    <td class="check">✓ 2–4 weeks (your choice)</td>
+    <td class="cross">✗ 60–90+ days average</td>
+  </tr>
+  <tr>
+    <td>Showings / Open Houses</td>
+    <td class="check">✓ None</td>
+    <td class="cross">✗ Multiple (strangers in your home)</td>
+  </tr>
+  <tr>
+    <td>Deal Falls Through Risk</td>
+    <td class="check">✓ Rare — cash buyers</td>
+    <td class="cross">✗ ~30% of listings fall out of escrow</td>
+  </tr>
+  <tr>
+    <td>Flexibility on Closing Date</td>
+    <td class="check">✓ You set the date</td>
+    <td class="cross">✗ Buyer controls the timeline</td>
+  </tr>
+</table>
+
+<h2>Top Objections & How to Handle Them</h2>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I need to think about it."</strong>
+    "Totally understand — this is a big decision. What would need to be true for you to feel comfortable moving forward? Is it the price, the timeline, or something else?" Then address the specific concern.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I think I can get more on the market."</strong>
+    "You might be right — after repairs, commissions, and closing costs, what would you net? Let's do the math together." Walk through the comparison table.
+  </div>
+</div>
+<div class="callout dark">
+  <div class="callout-icon">💬</div>
+  <div class="callout-body">
+    <strong>"I'm going to call a few more buyers."</strong>
+    "Absolutely — shop around, that's smart. One thing to know: our offer is good for 48 hours. After that, we move on to our next deal. No pressure, just something to keep in mind."
+  </div>
+</div>
+
+<h2>File Location</h2>
+<p>The credibility packet (both dark and white HTML versions) is stored in the <strong>Brand Assets → Credibility Packet</strong> folder in Google Drive. Update the Proof of Funds section whenever the funding letter is renewed. Use the dark version for digital sends; print the white version for in-person leave-behinds.</p>
+` },
+      { id: 'pol-comms', title: 'Communication Standards', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Response Time Standards</h2>
+<table class="data-table">
+  <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
+  <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
+  <tr><td>Text/GHL</td><td>Within 1 hour</td><td><strong>Within 10 minutes</strong> — this is the standard, not a goal</td></tr>
+  <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
+  <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
+</table>
+
+
+<div class="callout crimson">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>10-Minute Response Rule.</strong> Respond to every inbound text or message within 10 minutes during business hours. If you cannot respond, immediately assign the lead to another team member. This is not a goal. It is the standard.</div>
+</div>
+<h2>Note-Taking Standard — Date Requirement</h2>
+<p>Every note entry must begin with today's date.</p>
+<p><strong>Format:</strong> <code>[MM/DD/YY] — Your note here.</code></p>
+<p><strong>Example:</strong> <code>03/05/26 — Called seller, no answer. Left voicemail. Will follow up Thursday.</code></p>
+<p>This makes the timeline of any deal readable at a glance. No date on a note = the note is incomplete.</p>
+<h2>Slack Channel Guide</h2>
+<p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
+<table class="data-table">
+  <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
+  <tr><td>#team</td><td>Everyone</td><td>Company-wide announcements, scheduling, general updates</td></tr>
+  <tr><td>#leads</td><td>Lead Management</td><td>New leads, hot prospects, follow-up flags</td></tr>
+  <tr><td>#acquisitions</td><td>Acq team</td><td>Appointment notes, comp questions, offer updates</td></tr>
+  <tr><td>#dispositions</td><td>Dispo + all</td><td>New listings, buyer interest, offer activity</td></tr>
+  <tr><td>#[property-address]</td><td>TC + all</td><td>Deal milestones, title updates, closing confirmations — one channel per property</td></tr>
+  <tr><td>#wins</td><td>Everyone</td><td>Closed deals, compliments, team shoutouts</td></tr>
+</table>
+
+<h2>GHL Documentation Requirements</h2>
+<p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
+<ul>
+  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
+  <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
+  <li>Every deal under contract must have the Google Drive folder link in the record</li>
+  <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
+</ul>
+`},
+      { id: 'pol-training', title: 'Team Training', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Training Requirements</h2>
+<p>Every team member is required to pass the training quizzes before performing their role independently. Quizzes are taken at <a href="https://training-8w71lslej-ashleys-projects-58e2b9d4.vercel.app/" target="_blank" style="color:var(--amber);font-weight:600;">the training portal</a>.</p>
+
+<table class="data-table">
+  <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
+  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
+  <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
+  <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
+</table>
+
+<h2>Re-certification</h2>
+<ul>
+  <li>All team members re-take their department quizzes every 6 months</li>
+  <li>Quizzes are updated when SOPs change — team will be notified via #team Slack channel</li>
+  <li>Scores are tracked in Google Sheets automatically via the quiz portal</li>
+</ul>
+
+<h2>Onboarding New Team Members</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
+</ol>
+`}
+    ]
+  },
+    {
     id: 'pipeline-ref', label: 'Go High Level Overview', color: '#0EA5E9',
     pages: [
       { id: 'pipeline-deal-lifecycle', title: 'Deal Lifecycle & Pipeline Architecture', dept: 'All Departments', owner: 'Ashley / Joshua',
@@ -2224,379 +2596,7 @@ const SECTIONS = [
 `}
 ]
   },
-    {
-    id: 'brand', label: 'Company Overview', color: '#E3A728',
-    pages: [
-      { id: 'brand-kit', title: 'Brand Kit', dept: 'All Departments', owner: 'Ashley Hines',
-        content: `
-<h2>Brand Overview</h2>
-<p>Impact Home Team is a Maryland-based wholesale real estate investment company. Our brand communicates trust, professionalism, and speed — built for homeowners who need solutions, not complications. Every piece of communication your team produces should reflect this identity.</p>
-
-<div class="callout amber">
-  <div class="callout-icon">★</div>
-  <div class="callout-body">
-    <strong>Brand Mission Statement</strong>
-    Helping Maryland homeowners solve problems with speed, respect, and transparency — while creating opportunity for investors to grow their portfolios.
-  </div>
-</div>
-
-<h2>Color Palette</h2>
-<p>Our palette is built around Amber and Crimson — warm, authoritative, and distinctive. Use these values precisely for print, digital, and presentations.</p>
-
-<div class="swatch-row">
-  <div class="swatch">
-    <div class="swatch-color" style="background:#E3A728;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Impact Amber</div>
-      <div class="swatch-hex">#E3A728</div>
-      <div class="swatch-role">Primary · CTAs · Accents</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#C48E1F;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Amber Dark</div>
-      <div class="swatch-hex">#C48E1F</div>
-      <div class="swatch-role">Hover states · Body links</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#FEF7E0;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Amber Pale</div>
-      <div class="swatch-hex">#FEF7E0</div>
-      <div class="swatch-role">Backgrounds · Callouts</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#A52325;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Impact Crimson</div>
-      <div class="swatch-hex">#A52325</div>
-      <div class="swatch-role">Secondary accent · Urgency</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#1A1A1A;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Charcoal Ink</div>
-      <div class="swatch-hex">#1A1A1A</div>
-      <div class="swatch-role">Headers · Backgrounds</div>
-    </div>
-  </div>
-  <div class="swatch">
-    <div class="swatch-color" style="background:#F5F4F1;"></div>
-    <div class="swatch-info">
-      <div class="swatch-name">Cloud</div>
-      <div class="swatch-hex">#F5F4F1</div>
-      <div class="swatch-role">Page backgrounds</div>
-    </div>
-  </div>
-</div>
-
-<h2>Typography</h2>
-<p>We use two typefaces. Always pull from Google Fonts when building digital assets.</p>
-
-<div class="font-spec">
-  <div class="display" style="font-family:'DM Serif Display',serif;">DM Serif Display</div>
-  <div class="meta">font-family: 'DM Serif Display', Georgia, serif</div>
-  <div class="alphabet" style="font-family:'DM Serif Display',serif;">Aa Bb Cc — Headlines, Section Titles, Hero Text</div>
-</div>
-<div class="font-spec">
-  <div class="display" style="font-family:'DM Sans',sans-serif;font-weight:400;">DM Sans</div>
-  <div class="meta">font-family: 'DM Sans', system-ui, sans-serif · Weights: 300, 400, 500, 600, 700</div>
-  <div class="alphabet" style="font-family:'DM Sans',sans-serif;">Aa Bb Cc — Body copy, labels, UI elements, all prose</div>
-</div>
-
-<h2>Logo Usage</h2>
-<p>The Impact Home Team logo uses the lettermark "I" in our amber/gold color. Below are the approved usage contexts:</p>
-
-<div class="logo-grid">
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#1A1A1A;">
-      <div class="logo-mark-lg" style="background:#E3A728;">I</div>
-    </div>
-    <div class="logo-label">✓ Dark background (primary use)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#fff;">
-      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
-    </div>
-    <div class="logo-label">✓ White/light background (reversed)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:#E3A728;">
-      <div class="logo-mark-lg" style="background:#1A1A1A;">I</div>
-    </div>
-    <div class="logo-label">✓ Amber background (event materials)</div>
-  </div>
-  <div class="logo-box">
-    <div class="logo-preview" style="background:linear-gradient(135deg,#667eea,#764ba2);">
-      <div style="font-size:32px;">✗</div>
-    </div>
-    <div class="logo-label">✗ Never on non-brand backgrounds</div>
-  </div>
-</div>
-
-<div class="callout blue">
-  <div class="callout-icon">ℹ</div>
-  <div class="callout-body">
-    <strong>Logo files</strong>
-    All logo files (SVG, PNG, variations) are stored in the <a href="#">Brand Assets Google Drive folder</a>. Never recreate the logo from scratch — always pull from that folder.
-  </div>
-</div>
-
-<h2>Voice & Tone</h2>
-<table class="data-table">
-  <tr><th>We Are</th><th>We Are Not</th></tr>
-  <tr><td><strong>Direct</strong> — Get to the point. Sellers are stressed; don't waste their time.</td><td><strong>Pushy</strong> — No high-pressure tactics.</td></tr>
-  <tr><td><strong>Empathetic</strong> — Acknowledge their situation before presenting solutions.</td><td><strong>Transactional</strong> — Every interaction should feel human.</td></tr>
-  <tr><td><strong>Confident</strong> — We know our numbers and stand behind them.</td><td><strong>Arrogant</strong> — Humility closes more deals.</td></tr>
-  <tr><td><strong>Professional</strong> — Proper grammar, clean materials, on-brand everything.</td><td><strong>Corporate/Cold</strong> — We're a family business.</td></tr>
-</table>
-
-<h2>Brand Application Checklist</h2>
-<p>Before sending any document, email, or presentation to an external party:</p>
-<ul>
-  <li>✓ Uses Amber (#E3A728) and/or Crimson (#A52325) — not random colors</li>
-  <li>✓ DM Serif Display for headings, DM Sans for body</li>
-  <li>✓ Company name is always "Impact Home Team" — never shortened to "IHT" externally</li>
-  <li>✓ Contact info is current (sellyourmdhousenow.com)</li>
-  <li>✓ No clip art, generic stock photos, or off-brand fonts</li>
-</ul>
-`},
-      { id: 'credibility-packet', title: 'Credibility Packet', dept: 'Acquisitions', owner: 'Ashley Hines',
-        content: `
-<h2>What Is the Credibility Packet?</h2>
-<p>The credibility packet is a leave-behind document given to sellers after an in-person or virtual appointment. Its purpose is to answer remaining doubts, reinforce trust, and motivate the seller to sign — even if they didn't commit at the meeting.</p>
-
-<div class="callout amber">
-  <div class="callout-icon">🎯</div>
-  <div class="callout-body">
-    <strong>Primary Goal</strong>
-    Move the seller from "I need to think about it" to "I'm ready to sign." Every section of this packet is designed to handle a specific objection.
-  </div>
-</div>
-
-<h2>When to Use It</h2>
-<ul>
-  <li>Leave a printed or digital copy at every in-person appointment</li>
-  <li>Send the PDF link via text/email within 1 hour after a virtual appointment</li>
-  <li>Reference specific sections when following up — "You'll see on page 2 why our timeline is flexible..."</li>
-</ul>
-
-<h2>Packet Structure</h2>
-<ol class="step-list">
-  <li>
-    <div class="step-num">1</div>
-    <div class="step-content">
-      <strong>Cover / Introduction</strong>
-      Company name, tagline, and a human opening that acknowledges the seller's situation. Sets the tone before they read a single fact.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">2</div>
-    <div class="step-content">
-      <strong>Who We Are</strong>
-      8+ years of experience, family-owned, Maryland-focused. Photo of the team when possible. Humanizes the transaction.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">3</div>
-    <div class="step-content">
-      <strong>How Our Process Works (3 Steps)</strong>
-      Step 1: We make an offer. Step 2: You decide. Step 3: We close on your timeline. No repairs, no agents, no fees.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">4</div>
-    <div class="step-content">
-      <strong>IHT vs. Traditional Sale Comparison</strong>
-      Side-by-side table: repairs, commissions, timeline, certainty of close, closing costs. This is the highest-converting section.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">5</div>
-    <div class="step-content">
-      <strong>What Sellers Say (Testimonials)</strong>
-      2–3 real or representative testimonials. Focus on relief, speed, and professionalism — not just the offer amount.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">6</div>
-    <div class="step-content">
-      <strong>Proof of Funds</strong>
-      Current Kiavi or funding partner letter. Must be dated within the past 12 months. Ashley updates this annually.
-    </div>
-  </li>
-  <li>
-    <div class="step-num">7</div>
-    <div class="step-content">
-      <strong>Why Act Now</strong>
-      Address the "I need to think about it" hesitation directly. Include carrying cost calculator if applicable (taxes, insurance, maintenance by the month).
-    </div>
-  </li>
-  <li>
-    <div class="step-num">8</div>
-    <div class="step-content">
-      <strong>FAQ / Objection Handling</strong>
-      Reframed as questions sellers actually ask. Covers: "How did you come up with that price?", "Is this legal?", "What if I owe more than the offer?", "Can I choose my closing date?"
-    </div>
-  </li>
-  <li>
-    <div class="step-num">9</div>
-    <div class="step-content">
-      <strong>Next Steps / CTA</strong>
-      Clear call to action: "Sign today and we handle everything from here." Include direct phone number and the acquisitions agent's name.
-    </div>
-  </li>
-</ol>
-
-<h2>IHT vs. Traditional Sale — Key Comparison Points</h2>
-<table class="compare-table">
-  <tr>
-    <th></th>
-    <th>Impact Home Team</th>
-    <th>Traditional Listing</th>
-  </tr>
-  <tr>
-    <td>Repairs Required</td>
-    <td class="check">✓ None — as-is</td>
-    <td class="cross">✗ Often $10K–$40K+</td>
-  </tr>
-  <tr>
-    <td>Agent Commission</td>
-    <td class="check">✓ $0</td>
-    <td class="cross">✗ 5–6% of sale price</td>
-  </tr>
-  <tr>
-    <td>Closing Costs</td>
-    <td class="check">✓ We cover them</td>
-    <td class="cross">✗ Seller pays 2–3%</td>
-  </tr>
-  <tr>
-    <td>Time to Close</td>
-    <td class="check">✓ 2–4 weeks (your choice)</td>
-    <td class="cross">✗ 60–90+ days average</td>
-  </tr>
-  <tr>
-    <td>Showings / Open Houses</td>
-    <td class="check">✓ None</td>
-    <td class="cross">✗ Multiple (strangers in your home)</td>
-  </tr>
-  <tr>
-    <td>Deal Falls Through Risk</td>
-    <td class="check">✓ Rare — cash buyers</td>
-    <td class="cross">✗ ~30% of listings fall out of escrow</td>
-  </tr>
-  <tr>
-    <td>Flexibility on Closing Date</td>
-    <td class="check">✓ You set the date</td>
-    <td class="cross">✗ Buyer controls the timeline</td>
-  </tr>
-</table>
-
-<h2>Top Objections & How to Handle Them</h2>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I need to think about it."</strong>
-    "Totally understand — this is a big decision. What would need to be true for you to feel comfortable moving forward? Is it the price, the timeline, or something else?" Then address the specific concern.
-  </div>
-</div>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I think I can get more on the market."</strong>
-    "You might be right — after repairs, commissions, and closing costs, what would you net? Let's do the math together." Walk through the comparison table.
-  </div>
-</div>
-<div class="callout dark">
-  <div class="callout-icon">💬</div>
-  <div class="callout-body">
-    <strong>"I'm going to call a few more buyers."</strong>
-    "Absolutely — shop around, that's smart. One thing to know: our offer is good for 48 hours. After that, we move on to our next deal. No pressure, just something to keep in mind."
-  </div>
-</div>
-
-<h2>File Location</h2>
-<p>The credibility packet (both dark and white HTML versions) is stored in the <strong>Brand Assets → Credibility Packet</strong> folder in Google Drive. Update the Proof of Funds section whenever the funding letter is renewed. Use the dark version for digital sends; print the white version for in-person leave-behinds.</p>
-` },
-      { id: 'pol-comms', title: 'Communication Standards', dept: 'All Departments', owner: 'Ashley Hines',
-        content: `
-<h2>Response Time Standards</h2>
-<table class="data-table">
-  <tr><th>Channel</th><th>Internal Team</th><th>Sellers / Buyers</th></tr>
-  <tr><td>Slack</td><td>Within 2 hours during business hours</td><td>N/A</td></tr>
-  <tr><td>Text/GHL</td><td>Within 1 hour</td><td><strong>Within 10 minutes</strong> — this is the standard, not a goal</td></tr>
-  <tr><td>Email</td><td>Same business day</td><td>Same business day</td></tr>
-  <tr><td>Phone call</td><td>Return within 2 hours</td><td>Return within 1 hour</td></tr>
-</table>
-
-
-<div class="callout crimson">
-  <div class="callout-icon">⚡</div>
-  <div class="callout-body"><strong>10-Minute Response Rule.</strong> Respond to every inbound text or message within 10 minutes during business hours. If you cannot respond, immediately assign the lead to another team member. This is not a goal. It is the standard.</div>
-</div>
-<h2>Note-Taking Standard — Date Requirement</h2>
-<p>Every note entry must begin with today's date.</p>
-<p><strong>Format:</strong> <code>[MM/DD/YY] — Your note here.</code></p>
-<p><strong>Example:</strong> <code>03/05/26 — Called seller, no answer. Left voicemail. Will follow up Thursday.</code></p>
-<p>This makes the timeline of any deal readable at a glance. No date on a note = the note is incomplete.</p>
-<h2>Slack Channel Guide</h2>
-<p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
-<table class="data-table">
-  <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
-  <tr><td>#team</td><td>Everyone</td><td>Company-wide announcements, scheduling, general updates</td></tr>
-  <tr><td>#leads</td><td>Lead Management</td><td>New leads, hot prospects, follow-up flags</td></tr>
-  <tr><td>#acquisitions</td><td>Acq team</td><td>Appointment notes, comp questions, offer updates</td></tr>
-  <tr><td>#dispositions</td><td>Dispo + all</td><td>New listings, buyer interest, offer activity</td></tr>
-  <tr><td>#[property-address]</td><td>TC + all</td><td>Deal milestones, title updates, closing confirmations — one channel per property</td></tr>
-  <tr><td>#wins</td><td>Everyone</td><td>Closed deals, compliments, team shoutouts</td></tr>
-</table>
-
-<h2>GHL Documentation Requirements</h2>
-<p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
-<ul>
-  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
-  <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
-  <li>Every deal under contract must have the Google Drive folder link in the record</li>
-  <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
-</ul>
-`},
-      { id: 'pol-training', title: 'Team Training', dept: 'All Departments', owner: 'Ashley Hines',
-        content: `
-<h2>Training Requirements</h2>
-<p>Every team member is required to pass the training quizzes before performing their role independently. Quizzes are taken at <a href="https://training-8w71lslej-ashleys-projects-58e2b9d4.vercel.app/" target="_blank" style="color:var(--amber);font-weight:600;">the training portal</a>.</p>
-
-<table class="data-table">
-  <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
-  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
-  <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
-  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
-  <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
-  <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
-</table>
-
-<h2>Re-certification</h2>
-<ul>
-  <li>All team members re-take their department quizzes every 6 months</li>
-  <li>Quizzes are updated when SOPs change — team will be notified via #team Slack channel</li>
-  <li>Scores are tracked in Google Sheets automatically via the quiz portal</li>
-</ul>
-
-<h2>Onboarding New Team Members</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
-</ol>
-`}
-    ]
-  },
-  {
+{
     id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
     pages: [
       { id: 'calling-routine', title: "Nicole's Daily Calling Routine", dept: 'Lead Management', owner: 'Nicole',
@@ -2846,41 +2846,7 @@ const SECTIONS = [
 <div class="callout amber" style="margin:0 0 24px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Index page — no single trigger.</strong> Each campaign page below has its own Trigger / Enrollment section. All workflow enrollment details (tags, pipeline filters, exit conditions) need to be filled in from the GHL workflow builder — the screenshots of the Custom Values page show message copy only, not how contacts enter each workflow.</div></div>
 <h2>What This Section Covers</h2><p>Every follow-up campaign message copy, custom value key, and lead scoring trigger used in GHL — in one place. Use this when editing workflows, training team members, or auditing the follow-up system.</p><div class="callout amber"><div class="callout-icon">&#128204;</div><div class="callout-body"><strong>GHL Location</strong>All custom values live at <em>Settings &rarr; Custom Values</em> in the GHL sub-account. Location ID: <code>Js1OZngrzWeqSwiHjbRx</code></div></div><h2>Follow-Up Campaign Library</h2><p>The follow-up system is built around <strong>4 message categories</strong> plus supporting infrastructure. Every campaign is a sequence of these custom values injected into GHL workflows.</p><div class="stat-row"><div class="stat-box"><div class="num">7</div><div class="label">After Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">After Apt Short msgs</div></div><div class="stat-box"><div class="num">9</div><div class="label">No Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">No Apt Short msgs</div></div><div class="stat-box"><div class="num">12</div><div class="label">SMS - Josh</div></div><div class="stat-box"><div class="num">6</div><div class="label">Email follow-up</div></div></div><h2>Active Campaigns</h2><p>Only two follow-up campaigns are active right now. Everything else is built but turned off until activated.</p><div class="callout amber" style="margin:12px 0;"><div class="callout-icon">✅</div><div class="callout-body"><strong>Active:</strong> (1) Campaign #1 — Not Ready to Make a Decision (Short Term, No Appointment) &middot; (2) SMS - Josh.<br><strong>Inactive (hidden from nav):</strong> After Apt Long/Short, No Apt Long/Short, Email Drip.</div></div><table class="data-table"><tr><th>Folder</th><th>Status</th><th>Triggered When</th></tr><tr><td><strong>After Apt Long</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Appointment happened + no deal + long-cycle seller</td></tr><tr><td><strong>After Apt Short</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Appointment happened + no deal + short-cycle seller</td></tr><tr><td><strong>No Apt Long</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Lead came in, never booked appt, long-cycle nurture</td></tr><tr><td><strong>Not Ready ST — No Apt (Campaign #1)</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>Follow Up Automation Off→On · Next Contact Date reached · Tag "fu - st not ready - begin"</td></tr><tr><td><strong>SMS - Josh</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>Follow Up Automation = On AND Follow Up Strategy = "SMS Josh"</td></tr><tr><td><strong>Email Follow Up</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Drip email campaigns</td></tr><tr><td><strong>Direct Mail (YLHQ)</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>YLHQ direct mail pulls</td></tr></table><h2>How to Edit a Message</h2><ol class="step-list"><li><div class="step-num">1</div><div class="step-content"><strong>Find the key</strong> in the page below (e.g. <code>{{custom_values.no_apt_short__1}}</code>)</div></li><li><div class="step-num">2</div><div class="step-content">Open GHL &rarr; Settings &rarr; Custom Values</div></li><li><div class="step-num">3</div><div class="step-content">Search the key. Click to edit the value.</div></li><li><div class="step-num">4</div><div class="step-content">Save. Changes apply to every workflow using that value immediately.</div></li></ol><div class="callout crimson"><div class="callout-icon">&#9888;</div><div class="callout-body"><strong>Editing in place is a global change.</strong>A single custom value may be used by 5+ workflows. Before editing, search workflows for the key to understand the blast radius.</div></div>
 `},
-      { id: 'fu-next-contact-date', title: 'Schedule Follow Up Automation for a Specific Date', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-
-<h2>Schedule Follow Up Automation for a Specific Date</h2>
-<p>When you need the SMS Josh follow-up sequence to start on a specific future date (not right away), set the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field on the contact. The date you set becomes Day 1 of the SMS Josh campaign, and every touch (SMS + VM1 on Day 1, and the 11 subsequent SMS through Day 62) runs forward from there.</p>
-
-<div class="callout amber" style="margin:16px 0;">
-  <div class="callout-icon">⚡</div>
-  <div class="callout-body"><strong>Field name:</strong> <span class="ghl-field">Next Follow Up Date For SMS Campaign</span>. This is a dedicated field — not the same as the generic Next Contact Date &amp; Time field.</div>
-</div>
-
-<h3>When to Use It</h3>
-<ul>
-  <li>Seller says "call me back on [specific date]" or "check in on me in [X] days"</li>
-  <li>Lead is warm but not ready today — you want Josh-voice SMS touches starting on the date they picked</li>
-  <li>You want the full 62-day SMS Josh drip to run hands-off from that date forward</li>
-</ul>
-
-<h3>How to Set It</h3>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Open the contact record in GHL</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Find the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Set it to the exact date the seller requested</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Save — SMS Josh enrollment fires automatically on that date</div></li>
-</ol>
-
-<h3>What Fires on the Date</h3>
-<p>The <a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS Josh campaign</a> — 12 text messages from Josh spaced over 62 days, plus a general check-in voicemail on Day 1. Full message copy and schedule is on the Active Campaigns page.</p>
-
-<h3>Alternate Enrollment</h3>
-<p>You can also enroll a contact into SMS Josh immediately (without a date) by setting <span class="ghl-field">Follow Up Strategy</span> to <strong>SMS Josh</strong>. Either path leads to the same campaign (these are OR triggers — not both required).</p>
-
-
-`},
-      { id: 'fu-after-apt', hidden: true, title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-after-apt', hidden: true, title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Re-engages sellers whose appointment did not convert. Long = long-cycle nurture (7 touches); Short = compressed close attempt (6 touches).<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Enrollment tag(s) added when appointment outcome = "not signed"</li><li>Pipeline stage filter</li><li>Long-vs-Short routing condition</li><li>Exit tag on deal/dead</li></ul></div></div>
@@ -3085,7 +3051,41 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 
 `},
-      { id: 'lm-dead-leads', title: 'Dead Lead Management', dept: 'Lead Management', owner: 'Nicole / Joshua',
+            { id: 'fu-next-contact-date', title: 'Schedule Follow Up Automation for a Specific Date', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+
+<h2>Schedule Follow Up Automation for a Specific Date</h2>
+<p>When you need the SMS Josh follow-up sequence to start on a specific future date (not right away), set the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field on the contact. The date you set becomes Day 1 of the SMS Josh campaign, and every touch (SMS + VM1 on Day 1, and the 11 subsequent SMS through Day 62) runs forward from there.</p>
+
+<div class="callout amber" style="margin:16px 0;">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>Field name:</strong> <span class="ghl-field">Next Follow Up Date For SMS Campaign</span>. This is a dedicated field — not the same as the generic Next Contact Date &amp; Time field.</div>
+</div>
+
+<h3>When to Use It</h3>
+<ul>
+  <li>Seller says "call me back on [specific date]" or "check in on me in [X] days"</li>
+  <li>Lead is warm but not ready today — you want Josh-voice SMS touches starting on the date they picked</li>
+  <li>You want the full 62-day SMS Josh drip to run hands-off from that date forward</li>
+</ul>
+
+<h3>How to Set It</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Open the contact record in GHL</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Find the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Set it to the exact date the seller requested</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Save — SMS Josh enrollment fires automatically on that date</div></li>
+</ol>
+
+<h3>What Fires on the Date</h3>
+<p>The <a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;color:#0EA5E9;font-weight:600;">SMS Josh campaign</a> — 12 text messages from Josh spaced over 62 days, plus a general check-in voicemail on Day 1. Full message copy and schedule is on the Active Campaigns page.</p>
+
+<h3>Alternate Enrollment</h3>
+<p>You can also enroll a contact into SMS Josh immediately (without a date) by setting <span class="ghl-field">Follow Up Strategy</span> to <strong>SMS Josh</strong>. Either path leads to the same campaign (these are OR triggers — not both required).</p>
+
+
+`},
+{ id: 'lm-dead-leads', title: 'Dead Lead Management', dept: 'Lead Management', owner: 'Nicole / Joshua',
         content: `
 <h2>Dead Lead Management</h2>
 <div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole / Joshua</span></div>
