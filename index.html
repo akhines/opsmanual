@@ -2935,10 +2935,10 @@ const SECTIONS = [
     <div style="font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;">Contact Details — Follow-Up Fields</div>
 
     <!-- Follow Up On/OFF -->
-    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #9CA3AF;background:#F9FAFB;border-radius:4px;">
-      <div style="font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.05em;">Field</div>
+    <div style="padding:10px 12px;margin-bottom:10px;border-left:4px solid #DC2626;background:#FEF2F2;border-radius:4px;">
+      <div style="font-size:11px;color:#991B1B;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Required — master toggle</div>
       <div style="font-weight:700;font-size:14px;color:#111;">Follow Up On/OFF</div>
-      <div style="font-size:12px;color:#6B7280;margin-top:4px;">Master toggle. Leave <strong>OFF</strong> to prevent any follow-up automation from firing on this contact.</div>
+      <div style="font-size:12px;color:#991B1B;margin-top:4px;"><strong>Must be set to ON for Campaign #1 to enroll the contact.</strong> If this is OFF, setting the campaign dropdown does nothing. Leave OFF only when you want to suppress all follow-up on this contact.</div>
     </div>
 
     <!-- Follow-Up Strategy (SMS) -->
@@ -2990,12 +2990,16 @@ const SECTIONS = [
     <table class="data-table">
       <tr><th>Campaign</th><th>Field to Set</th><th>Value</th></tr>
       <tr>
-        <td rowspan="2" style="background:#EFF6FF;"><strong style="color:#1E3A8A;">Campaign #1 — Not Ready ST</strong></td>
+        <td rowspan="3" style="background:#EFF6FF;"><strong style="color:#1E3A8A;">Campaign #1 — Not Ready ST</strong></td>
+        <td><strong>Follow Up On/OFF</strong></td>
+        <td><strong style="color:#991B1B;">ON (required first)</strong></td>
+      </tr>
+      <tr>
         <td>Pick Your Follow Up Campaign (Email/SMS)</td>
         <td><strong>Not Ready to Make a Decision Short Term</strong></td>
       </tr>
       <tr>
-        <td colspan="2" style="background:#EFF6FF;font-size:12px;color:#1E3A8A;">Alternate: add the tag <code>fu - st not ready - begin</code> instead.</td>
+        <td colspan="2" style="background:#EFF6FF;font-size:12px;color:#1E3A8A;">Alternate to the dropdown: add the tag <code>fu - st not ready - begin</code> instead. Follow Up On/OFF must still be ON.</td>
       </tr>
       <tr>
         <td rowspan="2" style="background:#F0FDF4;"><strong style="color:#166534;">SMS Josh — immediate</strong></td>
@@ -3045,8 +3049,10 @@ const SECTIONS = [
 <h2>Triggers — How Contacts Enter Each Active Campaign</h2>
 <table class="data-table">
   <tr><th>Campaign</th><th>Trigger Type</th><th>Condition</th></tr>
-  <tr><td rowspan="2"><strong>Campaign #1 — Not Ready ST</strong></td>
-      <td>Contact Field Change</td>
+  <tr><td rowspan="3"><strong>Campaign #1 — Not Ready ST</strong></td>
+      <td><strong>Prerequisite</strong></td>
+      <td><span class="ghl-field">Follow Up On/OFF</span> = <strong style="color:#991B1B;">ON</strong> (must be set first — nothing enrolls if this is OFF)</td></tr>
+  <tr><td>Contact Field Change</td>
       <td><span class="ghl-field">Follow Up Campaign</span> dropdown set to <strong style="background:#FEF3C7;color:#92400E;padding:2px 6px;border-radius:3px;">Not Ready to Make a Decision Short Term</strong></td></tr>
   <tr><td>Tag Added</td>
       <td>Tag <span class="ghl-field" style="background:#FEF3C7;color:#92400E;">fu - st not ready - begin</span> applied to contact</td></tr>
