@@ -2625,21 +2625,27 @@ const SECTIONS = [
 </ol>
 
 <h2>What to Set for Next Contact Date</h2>
+<p><strong>Next Contact Date</strong> drives the manual call queue. If you also want an automated follow-up sequence (SMS Josh) to fire on a specific date, set the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field — it is a separate field from Next Contact Date. The table below covers both.</p>
 <table class="data-table">
-  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date</th></tr>
-  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td></tr>
-  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td></tr>
-  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td></tr>
-  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td></tr>
-  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td></tr>
-  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
-  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td></tr>
-  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
-  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
+  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(manual call queue)</span></th><th>Next Follow Up Date For SMS Campaign<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(fires SMS Josh automation)</span></th></tr>
+  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
+  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td><td>Leave blank — keep on manual queue</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td><td>Leave blank — keep on manual queue</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td><td>Set to start of the nurture window if handing off to SMS Josh</td></tr>
+  <tr><td>Seller says "check back on [date]"</td><td>Any</td><td>Leave blank or match the date</td><td><strong>Set to the date the seller gave</strong> — SMS Josh starts that day (recommended)</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td><td>Leave blank — not needed</td></tr>
+  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td><td>Leave blank</td></tr>
+  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td><td>Clear field — remove from queue</td></tr>
 </table>
+<div class="callout amber" style="margin:12px 0;">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>The two fields are independent.</strong> Next Contact Date queues the manual call for Nicole; Next Follow Up Date For SMS Campaign fires the SMS Josh automation. You can use either, both, or neither depending on what you want to happen.</div>
+</div>
 
 <h2>End of Day Check</h2>
 <ol class="step-list">
