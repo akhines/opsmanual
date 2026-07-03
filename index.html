@@ -2815,6 +2815,63 @@ const SECTIONS = [
 </table>
 `},
 
+      { id: 'power-dialer-sop', title: 'Power Dialer SOP (GHL Manual Actions)', dept: 'Lead Management', owner: 'Ashley',
+        content: `
+<h2>Power Dialer SOP (GHL Manual Actions)</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Jul 2026</span><span><strong>Owner:</strong> Ashley</span></div>
+
+<div class="callout amber">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body"><strong>Quick Reference:</strong> The Power Dialer does <strong>not</strong> load contacts based on the list you select. It loads contacts based on a <strong>tag</strong>. Selecting a Smart List only tells you <em>who</em> to tag — it doesn't put them in the dialer.</div>
+</div>
+
+<h2>Loading a List into the Dialer</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Go to <strong>Contacts</strong> and pull up the Smart List (or manually select) the contacts you want to call.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Note how many contacts you selected — you'll use this to verify the load worked.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Use the bulk <strong>Add Tag</strong> action and apply the tag <span class="ghl-field">powerdialer</span> — exact spelling, all lowercase, <strong>no space</strong>. "Power Dialer" or "power dialer" will silently fail to populate the queue.</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Go to <strong>Conversations → Manual Actions</strong>. Your contacts should now appear there.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Count looks short?</strong> Check pagination before troubleshooting — Manual Actions only shows <strong>20 contacts per page</strong>. A "missing" contact is almost always just sitting on page 2.</div></li>
+</ol>
+
+<h2>Selecting the Outbound (Calling From) Number</h2>
+<p>The number is chosen in the <strong>Dialer / softphone window</strong>, via a <strong>"Calling From" dropdown</strong> at the top — not in the Manual Actions screen itself.</p>
+<p>Whether you can see that dropdown depends on your user permissions:</p>
+<ul>
+  <li><strong>"Assigned data only"</strong> → number is locked to whatever's pre-assigned; no dropdown shown.</li>
+  <li><strong>"All records" enabled</strong> → dropdown appears; you can pick a different number.</li>
+</ul>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>You cannot switch numbers mid-session.</strong> To dial from a different number: (1) end the current dialing session, (2) change the outbound number in the Calling From dropdown, (3) start a new session.</div>
+</div>
+
+<p>To check or change a user's permission level: <strong>Settings → My Staff</strong> → select the user → confirm "All records" vs. "Assigned data only."</p>
+
+<h2>Verifying a Contact's Tag</h2>
+<p>If a specific contact isn't showing up in Manual Actions:</p>
+<ol>
+  <li>Open the contact record.</li>
+  <li>Scroll to the bottom → <strong>Audit Log</strong>.</li>
+  <li>Confirm whether / when the <span class="ghl-field">powerdialer</span> tag was actually added.</li>
+</ol>
+
+<h2>Common Issues &amp; Fixes</h2>
+<table class="data-table">
+  <tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
+  <tr><td>Selected list ≠ what shows in Manual Actions</td><td>Dialer pulls by tag, not list</td><td>Bulk-add the <span class="ghl-field">powerdialer</span> tag to the list first</td></tr>
+  <tr><td>Tag added, contact still missing</td><td>Tag has a space ("power dialer")</td><td>Re-tag using exact spelling <span class="ghl-field">powerdialer</span></td></tr>
+  <tr><td>Count looks short by 1–2</td><td>Pagination (20/page)</td><td>Check page 2 before assuming a contact is missing</td></tr>
+  <tr><td>Need to call from a different number mid-list</td><td>Not supported dynamically</td><td>End session → change Calling From number → restart</td></tr>
+</table>
+
+<div class="callout dark">
+  <div class="callout-icon">📄</div>
+  <div class="callout-body"><strong>Source:</strong> Patriot Business Systems support ticket #2026116123158, resolved Jan 2026; outbound number behavior confirmed via GHL support docs, Jul 2026.</div>
+</div>
+`},
+
       { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
         content: `
 <h2>Department Purpose</h2>
