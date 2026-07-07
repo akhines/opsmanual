@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1A1A1A">
+<meta name="mobile-web-app-capable" content="yes">
 <title>Impact Home Team — Operations Manual</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -70,6 +72,27 @@ body {
 }
 .topbar-search:focus { background: rgba(255,255,255,0.15); width: 260px; }
 .topbar-search::placeholder { color: rgba(255,255,255,0.4); }
+
+/* Hamburger — hidden on desktop, shown on mobile */
+.topbar-hamburger {
+  display: none;
+  width: 38px; height: 38px; flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px; color: #fff;
+  font-size: 18px; line-height: 1; cursor: pointer;
+  align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.topbar-hamburger:active { background: rgba(255,255,255,0.18); }
+
+/* Backdrop behind the mobile drawer */
+.sidebar-backdrop {
+  display: none; position: fixed; inset: 58px 0 0 0;
+  background: rgba(0,0,0,0.45); z-index: 90;
+  opacity: 0; transition: opacity 0.25s;
+}
+.sidebar-backdrop.open { display: block; opacity: 1; }
 
 /* ── SIDEBAR ── */
 .sidebar {
@@ -512,9 +535,55 @@ body {
 
 /* ── PRINT / RESPONSIVE ── */
 @media (max-width: 900px) {
-  .sidebar { display: none; }
+  .topbar-hamburger { display: flex; }
+  .topbar { padding: 0 14px; gap: 10px; }
+  .topbar-tag { display: none; }
+  .topbar-right { flex: 1; }
+  .topbar-search { width: 100%; }
+  .topbar-search:focus { width: 100%; }
+
+  /* Sidebar becomes a slide-in drawer */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    width: 82vw; max-width: 300px;
+    box-shadow: 2px 0 20px rgba(0,0,0,0.18);
+    z-index: 150;
+  }
+  .sidebar.open { transform: translateX(0); }
+
   .main { margin-left: 0; }
-  .content-wrap { padding: 28px 20px 60px; }
+  .content-wrap { padding: 24px 18px 60px; }
+
+  /* Roomier tap targets in the drawer */
+  .sidebar-page { padding: 11px 18px 11px 32px; font-size: 14px; }
+  .sidebar-section-header { padding: 0 18px 8px; }
+}
+
+@media (max-width: 560px) {
+  .content-wrap { padding: 20px 14px 56px; }
+
+  .page-header h1 { font-size: 26px; }
+  .prose h2 { font-size: 19px; }
+  .home-hero { padding: 30px 22px; }
+  .home-hero h1 { font-size: 28px; }
+  .home-hero p { font-size: 15px; }
+
+  /* Single-column grids on small phones */
+  .home-grid { grid-template-columns: 1fr; }
+  .logo-grid { grid-template-columns: 1fr; }
+  .tq-grid { grid-template-columns: 1fr; }
+
+  /* Let wide tables scroll instead of overflowing the page */
+  .data-table, .compare-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+
+  .stat-row { gap: 10px; }
+  .stat-box { min-width: calc(50% - 5px); padding: 14px; }
+  .swatch { width: calc(50% - 6px); }
+
+  .qz-card, .qz-result-hero { padding: 18px; }
+  .qz-nav { flex-wrap: wrap; gap: 10px; }
+  .qz-btn { flex: 1; min-width: 120px; text-align: center; }
 }
 
 /* ══════════════════════════════════════
@@ -857,6 +926,7 @@ body {
 
 <!-- TOP BAR -->
 <div class="topbar">
+  <button class="topbar-hamburger" id="menu-toggle" onclick="toggleMobileMenu()" aria-label="Open navigation menu">☰</button>
   <div class="topbar-logo" ondblclick="openAdminLogin()" title="Double-click for admin">I</div>
   <div class="topbar-name">Impact Home Team</div>
   <div class="topbar-tag">Operations Manual</div>
@@ -935,6 +1005,7 @@ body {
 <div class="adm-toast" id="adm-toast"></div>
 
 <!-- SIDEBAR -->
+<div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileMenu()"></div>
 <div class="sidebar" id="sidebar"></div>
 
 <!-- MAIN CONTENT -->
@@ -4338,7 +4409,23 @@ function renderHome() {
   area.innerHTML = html;
 }
 
+// ── Mobile navigation drawer ──
+function toggleMobileMenu() {
+  const sb = document.getElementById('sidebar');
+  if (sb.classList.contains('open')) closeMobileMenu();
+  else openMobileMenu();
+}
+function openMobileMenu() {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('sidebar-backdrop').classList.add('open');
+}
+function closeMobileMenu() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-backdrop').classList.remove('open');
+}
+
 function showPage(secId, pageId) {
+  closeMobileMenu();
   const sec = SECTIONS.find(s => s.id === secId);
   const page = sec.pages.find(p => p.id === pageId);
   currentPage = pageId;
@@ -4670,7 +4757,9 @@ function quizRetake(key) {
 }
 
 function handleSearch(val) {
-  if (!val.trim()) { renderSidebar(); return; }
+  if (!val.trim()) { renderSidebar(); if (window.innerWidth <= 900) closeMobileMenu(); return; }
+  // On mobile, reveal the drawer so search results are visible
+  if (window.innerWidth <= 900) openMobileMenu();
   const q = val.toLowerCase();
   const sb = document.getElementById('sidebar');
   let html = '';
