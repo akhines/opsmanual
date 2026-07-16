@@ -1448,7 +1448,7 @@ const SECTIONS = [
   <div class="callout-body"><strong>10 pipelines. Each one represents a different phase of the deal lifecycle.</strong> Understanding which pipeline a lead belongs in — and when to move them — is critical to keeping deals from falling through the cracks.</div>
 </div>
 
-<h2>Pipeline 1: Leads — 10 Stages</h2>
+<h2>Pipeline 1: Leads — 5 Stages</h2>
 <p>Every new lead starts here. <strong>Nicole owns this pipeline.</strong></p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
@@ -1457,11 +1457,6 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>Leads that score in the top 20% based on motivation and deal potential. Called after Redzones.</td></tr>
   <tr><td><span class="ghl-field">Follow Up</span></td><td>Contacted but need additional follow-up before qualifying.</td></tr>
   <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Outside our Maryland target markets. Tagged for potential referral or removal.</td></tr>
-  <tr><td><span class="ghl-field">AI Follow Up Queue</span></td><td>Being worked by the AI assistant for initial outreach and qualification.</td></tr>
-  <tr><td><span class="ghl-field">AI - Review</span></td><td>AI flagged for human review — a real person needs to evaluate the conversation.</td></tr>
-  <tr><td><span class="ghl-field">AI - Appointment Booked</span></td><td>AI has booked an appointment. Lead manager must verify and confirm.</td></tr>
-  <tr><td><span class="ghl-field">AI - Return to Queue</span></td><td>AI was unable to qualify or engage. Returns to the manual calling queue.</td></tr>
-  <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">AI - DNC</span></td><td>Contact requested DNC through AI interaction. Automatically tagged and removed from all outreach.</td></tr>
 </table>
 
 <h2>Pipeline 2: Mike the Closer — 4 Stages</h2>
@@ -1476,6 +1471,16 @@ const SECTIONS = [
 
 <h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
 <p>Joshua's acquisitions pipeline. Same concept as Mike's but with more granular stages for Joshua's workflow. When Nicole books for Joshua, the lead moves here.</p>
+
+<h2>Pipeline: Robin the Closer — 4 Stages</h2>
+<p>Robin's acquisitions pipeline. When Nicole books an appointment for Robin, the lead moves HERE.</p>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th></tr>
+  <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Robin reviews the lead card, conversation history, and 4 Pillars fields before the meeting.</td></tr>
+  <tr><td><span class="ghl-field">Offer Made/Followup</span></td><td>Robin met the seller and presented an offer. Awaiting response or in negotiation. Follow-up task with a specific date is required.</td></tr>
+  <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Deal is very close — seller nearly committed. One more conversation or minor concession away from signing. Highest-priority stage — contact before anything else.</td></tr>
+  <tr><td><span class="ghl-field">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the specific reason in notes.</td></tr>
+</table>
 
 <h2>Pipeline 4: Offer Followup — 4 Stages</h2>
 <p>Deals where an offer has been made but no contract is signed. Used for systematic follow-up on pending offers across both closers.</p>
@@ -1517,6 +1522,7 @@ const SECTIONS = [
     <ul style="margin:8px 0 0;padding-left:18px;">
       <li>Assigned to Mike → move to <span class="ghl-field">2) Mike the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
       <li>Assigned to Joshua → move to <span class="ghl-field">3) Josh The Closer</span> pipeline, equivalent appointment stage</li>
+      <li>Assigned to Robin → move to <span class="ghl-field">Robin the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
     </ul>
     <p style="margin:8px 0 0;font-size:13px;">Do NOT leave the lead in the Leads pipeline after booking. The closer needs to see the appointment in their own pipeline to prep. If the lead stays in Leads, the closer may not see it and the appointment gets missed.</p>
   </div>
@@ -1728,14 +1734,7 @@ const SECTIONS = [
     <div class="pc-stage pc-dead" onclick="pcDetail('leads-not-md')">
       <div class="pc-stage-name">Not MD Lead <span class="pc-badge pc-badge-dead">Out of Market</span></div>
     </div>
-    <div class="pc-arrow">↓</div>
-    <div class="pc-stage" onclick="pcDetail('leads-ai-queue')">
-      <div class="pc-stage-name">AI Follow Up Queue</div>
-    </div>
-    <div class="pc-arrow">↓</div>
-    <div class="pc-stage" onclick="pcDetail('leads-ai-review')">
-      <div class="pc-stage-name">AI Review</div>
-    </div>
+
   </div>
 
   <!-- COL 2: JOSH THE CLOSER -->
@@ -2710,6 +2709,149 @@ const SECTIONS = [
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Point value for each of the 35 keys</li><li>Whether scoring feeds a Workflow Action or only analytics</li><li>Threshold that flips a contact to "hot"</li></ul></div></div>
 <h2>Lead Scoring Values</h2><p>These custom values do not contain message copy — they are <strong>numerical scoring triggers</strong> used by GHL's scoring engine. Each time one of these events happens (a call, an email open, an appointment set), GHL adds or subtracts points from the contact's lead score.</p><div class="callout blue"><div class="callout-icon">&#128202;</div><div class="callout-body"><strong>Values Currently Blank</strong>All 35 scoring values currently have empty value fields. This means scoring is not yet firing — these are placeholders waiting to be populated with point values (e.g. +10 for Appointment Confirmed, -5 for DNC).</div></div><h3>Action Item</h3><p>Assign point values to each scoring key. Suggested starting framework:</p><table class="data-table"><tr><th>Category</th><th>Suggested Range</th><th>Logic</th></tr><tr><td>Appointment - Confirmed/Showed</td><td>+15 to +25</td><td>Strongest buying signal</td></tr><tr><td>Appointment - New/Set</td><td>+10 to +15</td><td>Active interest</td></tr><tr><td>Appointment - Cancelled/No-Show</td><td>-5 to -10</td><td>Disengagement signal</td></tr><tr><td>Motivation - Hot</td><td>+20</td><td>Top priority</td></tr><tr><td>Motivation - Warm</td><td>+10</td><td>Active nurture</td></tr><tr><td>Motivation - Cold</td><td>0 or -5</td><td>Background nurture</td></tr><tr><td>Email Open / Click</td><td>+1 / +3</td><td>Small engagement signal</td></tr><tr><td>SMS Reply</td><td>+5</td><td>Higher engagement than email</td></tr><tr><td>Phone Outbound - Completed</td><td>+5</td><td>Live conversation</td></tr><tr><td>Phone Outbound - Missed/VM</td><td>+1</td><td>Attempt made, no contact</td></tr><tr><td>Phone Status - DNC / Dead / Wrong</td><td>-25 (or kill)</td><td>Hard disqualifiers</td></tr><tr><td>Next Action - Deal</td><td>+30</td><td>Highest value state</td></tr><tr><td>Next Action - Dead / Remove from List</td><td>-30 (or kill)</td><td>End state</td></tr></table><h3>Full Scoring Value List</h3><table class="data-table"><tr><th style="width:40%">Name</th><th>Key</th></tr><tr><td><strong>Appointment - Cancelled</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__cancelled__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - Confirmed</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__confirmed__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - New</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__new__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - No-Show</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__noshow__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - Showed</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__showed__lead_scoring}}</code></td></tr><tr><td><strong>Appointment - invalid</strong></td><td><code style="font-size:11px;">{{custom_values.appointment__invalid__lead_scoring}}</code></td></tr><tr><td><strong>Email Clicked</strong></td><td><code style="font-size:11px;">{{custom_values.email_clicked__lead_scoring}}</code></td></tr><tr><td><strong>Email Open</strong></td><td><code style="font-size:11px;">{{custom_values.email_open__lead_scoring}}</code></td></tr><tr><td><strong>Mirror Podio</strong></td><td><code style="font-size:11px;">{{custom_values.mirror_podio}}</code></td></tr><tr><td><strong>Motivation - Cold</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__cold__lead_scoring}}</code></td></tr><tr><td><strong>Motivation - Hot</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__hot__lead_scoring}}</code></td></tr><tr><td><strong>Motivation - Warm</strong></td><td><code style="font-size:11px;">{{custom_values.motivation__warm__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Completed</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_completed__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Follow Up</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_follow_up__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment No Show</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_no_show__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Reschedule</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_reschedule__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Appointment Set</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__appointment_set__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Dead</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__dead__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Deal</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__deal__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Canceled</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_canceled__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Follow Up</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_follow_up__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Offer Made</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__offer_made__lead_scoring}}</code></td></tr><tr><td><strong>Next Action - Remove from List</strong></td><td><code style="font-size:11px;">{{custom_values.next_action_status__remove_from_list__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - Connection Made</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__connection_made__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - No Answer</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__no_answer__lead_scoring}}</code></td></tr><tr><td><strong>Outbound Call - Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.outbound_call_outcome__voicemail__lead_scoring}}</code></td></tr><tr><td><strong>Phone Inbound - Completed</strong></td><td><code style="font-size:11px;">{{custom_values.phone_inbound__completed__lead_score}}</code></td></tr><tr><td><strong>Phone Inbound - Missed/Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.phone_inbound__missedvoicemail__lead_score}}</code></td></tr><tr><td><strong>Phone Outbound - Completed</strong></td><td><code style="font-size:11px;">{{custom_values.phone_outbound__completed__lead_score}}</code></td></tr><tr><td><strong>Phone Outbound - Missed/Voicemail</strong></td><td><code style="font-size:11px;">{{custom_values.phone_outbound__missedvoicemail__lead_score}}</code></td></tr><tr><td><strong>Phone Status - Correct Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__correct_number__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - DNC</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__dnc__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - Dead Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__dead_number__lead_scoring}}</code></td></tr><tr><td><strong>Phone Status - Wrong Number</strong></td><td><code style="font-size:11px;">{{custom_values.phone_status__wrong_number__lead_scoring}}</code></td></tr><tr><td><strong>SMS Reply</strong></td><td><code style="font-size:11px;">{{custom_values.sms_reply__lead_scoring}}</code></td></tr></table>
 `}
+    ,
+      { id: 'ghl-onboarding', title: 'New Closer Onboarding', dept: 'Go High Level Overview', owner: 'Ashley Hines',
+        content: `
+<h2>New Closer Onboarding — GHL Setup & Orientation</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Jul 2026</span><span><strong>Owner:</strong> Ashley Hines</span></div>
+
+<p>This page covers everything a new acquisitions closer needs to get set up in GHL and start taking appointments. Complete every item below before your first independent appointment.</p>
+
+<h2>Day 1 — GHL Setup Checklist</h2>
+<div class="callout blue">
+  <div class="callout-icon">⚙️</div>
+  <div class="callout-body">
+    <ol style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:2.2;">
+      <li><strong>GHL Login:</strong> Accept the email invite (check spam). Log in and verify your profile — name, email, phone, photo.</li>
+      <li><strong>Notifications:</strong> Turn on desktop + mobile push notifications for tasks, conversation replies, and calendar reminders.</li>
+      <li><strong>Calendar:</strong> Go to Settings → Calendars. Sync your calendar. Set your availability hours so Nicole can book appointments during the right windows.</li>
+      <li><strong>Phone Number:</strong> Ashley assigns a GHL number. All outbound seller communication goes through GHL.</li>
+      <li><strong>Mobile App:</strong> Install the GHL mobile app. Enable push notifications.</li>
+      <li><strong>Slack:</strong> Confirm you are in: #appointments, #transactions, #impact-lead-management, #objectionproof-call-grading.</li>
+      <li><strong>Pipeline:</strong> Navigate to Opportunities → your closer pipeline. Confirm you can see your 4 stages: Appointment Scheduled, Offer Made/Followup, 1 YD LINE, Lost Offer.</li>
+      <li><strong>Conversations:</strong> Open Conversations → Assigned to Me. This is your daily command center.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Your Closer Pipeline — 4 Stages</h2>
+<table class="data-table">
+  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
+  <tr>
+    <td><span class="ghl-field">Appointment Scheduled</span></td>
+    <td>Nicole booked and confirmed the appointment. The lead is now your responsibility. Review the contact card, conversation history, and 4 Pillars fields before the meeting.</td>
+    <td>Prep for appointment. Review all notes, comps, and seller motivation. Show up ready.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">Offer Made / Followup</span></td>
+    <td>You met the seller and presented an offer. Awaiting seller response or actively negotiating terms.</td>
+    <td>Log offer details on the contact record. Set a follow-up task with a specific date. Do not let an offer sit without a scheduled next action.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field">1 YD LINE</span></td>
+    <td>Deal is very close — seller is nearly committed. One more conversation or minor concession away from a signed contract. Highest-priority stage.</td>
+    <td>Contact before anything else in the pipeline. Move heaven and earth to close. Log what is left to get the signature.</td>
+  </tr>
+  <tr>
+    <td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Lost Offer</span></td>
+    <td>Seller rejected the offer or went with another buyer.</td>
+    <td>Log the specific reason in notes (price gap, listed with agent, not selling, etc.). This data is used for process improvement and potential re-engagement.</td>
+  </tr>
+</table>
+
+<h2>Daily Rhythm — Non-Negotiable</h2>
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body">
+    <ol style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:2.2;">
+      <li>Open <strong>Conversations → Assigned to Me</strong> — clear every unread message.</li>
+      <li>Check <strong>Starred</strong> — any replies or updates on leads you are watching?</li>
+      <li>Check <strong>Recents</strong> — anything hot that just came in?</li>
+      <li>Work your <strong>Task list</strong> — complete tasks that involve replying or following up.</li>
+      <li>Review your <strong>closer pipeline</strong> — what is in each stage? What needs action today?</li>
+    </ol>
+  </div>
+</div>
+
+<h2>How Leads Get to You</h2>
+<p>Nicole qualifies leads using MIST screening (Motivation, Information, Situation, Timeline) in the Leads pipeline. When a lead is ready, she books an appointment on your calendar and moves the opportunity into your closer pipeline → <span class="ghl-field">Appointment Scheduled</span>. GHL auto-posts the appointment to #appointments in Slack.</p>
+<div class="callout red">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body"><strong>You prep from your own pipeline.</strong> If a lead is still sitting in the Leads pipeline after booking, something went wrong with the handoff — flag it to Nicole immediately.</div>
+</div>
+
+<h2>After Every Appointment — Logging Notes on the Contact Record</h2>
+<p>No matter the outcome, your <strong>first action</strong> after every appointment is to open the contact record in GHL and log detailed notes. If it is not in the contact record, it did not happen.</p>
+<div class="callout amber">
+  <div class="callout-icon">📝</div>
+  <div class="callout-body">
+    <strong>What to log on the contact record after every appointment:</strong>
+    <ul style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:2;">
+      <li>Date/time of the appointment and who you met with</li>
+      <li>Property condition — what you saw firsthand</li>
+      <li>What you offered (dollar amount and terms)</li>
+      <li>Seller reaction — interested, hesitant, hostile, emotional?</li>
+      <li>Objections raised — price too low, need to talk to spouse, want to list with agent, etc.</li>
+      <li>Next steps — what did you tell the seller would happen next?</li>
+      <li>Timeline — when do they expect to hear from you? When do they need to sell by?</li>
+      <li>Anything unusual — liens, tenants, code violations, estate/probate, etc.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Signed A-B Contract — Full Workflow</h2>
+<p>When a seller signs, follow this exact sequence. Do not skip steps or change the order.</p>
+<ol style="padding-left:18px;font-size:13px;line-height:2.2;">
+  <li><strong>Mark Won in GHL</strong> — non-negotiable for reporting. If you do not mark it Won, the deal does not show up in our numbers.</li>
+  <li><strong>Create the Google Drive Property Folder</strong> — open Google Drive, navigate to the IHT shared property folders, create a new folder named with the property address (e.g., "123 Main St, Baltimore MD 21201"). This folder is the single source of truth — TC, Dispo, and Ashley all pull from it.</li>
+  <li><strong>Upload Property Photos (minimum 15)</strong> — upload all photos to the Drive folder you just created.</li>
+</ol>
+
+<div class="callout blue">
+  <div class="callout-icon">📸</div>
+  <div class="callout-body">
+    <strong>Photos to capture at the property:</strong>
+    <ul style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:1.8;">
+      <li>Front of house (street view, straight on)</li>
+      <li>Both sides of the house</li>
+      <li>Back of house / backyard</li>
+      <li>Every room inside (living room, kitchen, bedrooms, bathrooms)</li>
+      <li>Kitchen appliances and countertops</li>
+      <li>Bathroom fixtures</li>
+      <li>Basement (if applicable)</li>
+      <li>Roof (from the ground, any visible damage)</li>
+      <li>HVAC / water heater / electrical panel</li>
+      <li>Any major damage or repair areas</li>
+      <li>Any unique features (garage, deck, porch, lot size)</li>
+    </ul>
+  </div>
+</div>
+
+<ol start="4" style="padding-left:18px;font-size:13px;line-height:2.2;">
+  <li><strong>Add deal documents to the folder:</strong> fully executed A-B contract, comp link/sheet with ARV, repair estimate, property info sheet (address, beds/baths, sq ft, lot, year built, ARV, offer price, repair estimate), any seller-provided disclosures.</li>
+  <li><strong>Paste the Drive folder link into GHL</strong> — open the contact record, paste the Google Drive folder URL into the designated field. This is how TC and Dispo find everything. If the link is not there, the deal stalls.</li>
+  <li><strong>Draft listing copy</strong> — brief deal description for Dispo: address, beds/baths/sq ft, ARV, repair estimate, asking price, highlights.</li>
+  <li><strong>Move to TC Pipeline</strong> — move the opportunity to <span class="ghl-field">Pipeline 5: Transaction Coordination → New Deal!</span></li>
+  <li><strong>Post in Slack</strong> — post in #transactions: "New deal entering TC: [Address] — A-B at $[Price] — Target close [Date]." Tag Ashley.</li>
+</ol>
+<div class="callout red">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body"><strong>If any required item is missing, Ashley sends the deal back to you.</strong> TC will not accept an incomplete file.</div>
+</div>
+
+<h2>Communication Rules</h2>
+<p><strong>GHL Conversations gets checked at the start of every shift. No exceptions.</strong> All seller communication goes through GHL. Always call the seller back from the number they called in on. If a seller calls your personal cell, log the outcome in GHL immediately. Reply to seller texts same business day, ideally within the hour.</p>
+
+<h2>Training Requirements</h2>
+<p>Before taking independent appointments, every new closer must:</p>
+<ol style="padding-left:18px;font-size:13px;line-height:2.2;">
+  <li>Read the Operations Manual — Acquisitions section + Deal Lifecycle / Handoff Triggers.</li>
+  <li>Shadow the department lead for 5 live interactions.</li>
+  <li>Pass Acquisitions Entry, Acquisitions Deep Dive, and Deal Lifecycle quizzes (80% each).</li>
+  <li>Complete GHL orientation — pipeline navigation, note logging, stage updates.</li>
+  <li>Be added to all relevant Slack channels by Ashley.</li>
+</ol>
+`}
 ]
   },
 {
@@ -2976,8 +3118,7 @@ const SECTIONS = [
   <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. Nicole stops all outreach immediately.</td></tr>
   <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Property is outside Maryland or otherwise outside our buy criteria.</td><td>Tag reason and archive. Refer to a partner if applicable. Frees pipeline of unworkable leads.</td></tr>
   <tr><td><span class="ghl-field">Out of Market</span></td><td>Lead is geographically outside our current operating area.</td><td>Tag and archive. Do not leave in active pipeline — pollutes conversion metrics.</td></tr>
-  <tr><td><span class="ghl-field">AI Follow Up Queue</span></td><td>Lead has been handed to the AI assistant for automated follow-up sequences.</td><td>Monitor AI responses. Escalate to Nicole immediately if seller re-engages with real intent.</td></tr>
-  <tr><td><span class="ghl-field">AI Review</span></td><td>AI flagged this lead for human review — response or behavior triggered a review alert.</td><td>Nicole reviews within same business day. Either re-engage manually or re-route.</td></tr>
+
 </table>
 
 <div class="callout amber" style="margin-top:18px;">
@@ -4806,14 +4947,7 @@ const PC_DATA = {
     means:['Property is outside Maryland — outside our buy box','Lead will not convert for IHT','Should be tagged immediately when discovered'],
     unlocks:['Frees pipeline of unworkable leads','Improves conversion rate accuracy','Can be referred out if a partner operates in that market'],
     skip:'Out-of-market leads pollute your pipeline metrics. You think you have more opportunities than you do. Conversion rate looks artificially low.' },
-  'leads-ai-queue': { name:'AI Follow Up Queue', pipe:'1) Leads Pipeline',
-    means:['Lead routed to AI-powered follow-up automation','Human outreach has been exhausted or is paused','AI handles ongoing touchpoints'],
-    unlocks:['Continuous contact without manual labor','Re-engagement if seller responds to AI messages','Frees Nicole time for active leads'],
-    skip:'AI sequence never runs. Lead goes completely cold. Paid acquisition cost wasted.' },
-  'leads-ai-review': { name:'AI Review', pipe:'1) Leads Pipeline',
-    means:['AI has flagged this lead for human review after engagement','Possible re-engagement signal — seller responded','Needs a human to evaluate and decide next step'],
-    unlocks:['Human takes over from AI at the right moment','Re-qualifies the lead with fresh context','Prevents AI from over-engaging a ready seller'],
-    skip:'AI flags go unread. A seller who just responded to an automated message waits 3 days with no human follow-up. Deal lost.' },
+
   'josh-preoffer': { name:'Pre-offer', pipe:'3) Josh the Closer',
     means:['Appointment completed — property walked, rapport built','Comps have been run, repair estimate made','Offer not yet formally presented or paperwork signed'],
     unlocks:['Final offer calculation and review','Appointment notes documented in GHL','If offer presented but not signed: moves to Offered'],
@@ -5004,7 +5138,7 @@ var QUIZZES = {
   ]},
   'dept-lead-management': { title: 'Lead Management Deep Dive', questions: [
     { q: 'What automation sequence runs when a lead is moved to Long-Term Follow-Up?', c: ['A one-time text','A 30/60/90-day drip sequence','A weekly email','Manual reminders only'], a: 1, e: 'LTFU triggers a 30/60/90-day automated drip to keep leads warm without manual effort.' },
-    { q: 'What is the purpose of the AI Follow Up Queue stage?', c: ['To disqualify leads automatically','To route unresponsive leads to AI-managed outreach','To generate new leads','To score inbound calls'], a: 1, e: 'The AI queue handles ongoing touchpoints for leads where human outreach has been exhausted.' },
+
     { q: 'What is the correct response if a seller has already been contacted and has an appointment scheduled but Nicole receives a new lead for the same number?', c: ['Call the seller again to confirm','Check GHL stage — if appointment is set, do not reach out again','Send a text to introduce yourself','Assign to a second lead manager'], a: 1, e: 'Stage = ownership. If a closer already has the appointment, lead management must stop all outreach.' },
     { q: 'What tag should be applied when a lead is permanently unresponsive after all sequences are exhausted?', c: ['LTFU','Redzone','Dead Lead','Not MD Lead'], a: 2, e: 'Dead Lead ends all outreach and automation. This keeps the pipeline clean and prevents TCPA violations.' },
     { q: 'What is the Redzones stage used for?', c: ['Leads with high ARV properties','Leads with signs of urgency: distress, estate, divorce, vacancy','Out-of-state leads','Leads from paid ads only'], a: 1, e: 'Redzones flags motivated sellers who have a reason to move quickly and need accelerated follow-up.' }
