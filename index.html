@@ -1648,16 +1648,16 @@ const SECTIONS = [
 .pc-why-card p { font-size: 12px; color: var(--steel); line-height: 1.5; }
 
 /* pipeline scroll container */
-.pc-scroll { overflow-x: auto; margin: 0 -4px; padding-bottom: 8px; }
+.pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; margin: 0 -4px; padding: 4px 4px 10px; }
 .pc-scroll::-webkit-scrollbar { height: 5px; }
 .pc-scroll::-webkit-scrollbar-thumb { background: var(--fog); border-radius: 3px; }
 
 /* pipeline grid */
 .pc-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(170px, 1fr));
+  grid-template-columns: repeat(7, minmax(170px, 1fr));
   gap: 10px;
-  min-width: 1060px;
+  min-width: 1250px;
   padding: 4px;
 }
 
@@ -1894,6 +1894,29 @@ const SECTIONS = [
     </div>
     <div class="pc-arrow">↓</div>
     <div class="pc-stage pc-dead" onclick="pcDetail('mike-lostoffer')">
+      <div class="pc-stage-name">Lost Offer <span class="pc-badge pc-badge-dead">End State</span></div>
+    </div>
+  </div>
+
+  <!-- COL: ROBIN THE CLOSER -->
+  <div class="pc-col">
+    <div class="pc-col-head" style="background:#FFF1F2;color:#9F1239;">
+      <div class="pl-name">Robin the Closer</div>
+      <div class="pl-owner">Owner: Robin</div>
+    </div>
+    <div class="pc-stage" onclick="pcDetail('robin-aptsched')">
+      <div class="pc-stage-name">Appointment Scheduled</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage" onclick="pcDetail('robin-offermade')">
+      <div class="pc-stage-name">Offer Made/Followup</div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-risk" onclick="pcDetail('robin-1ydline')">
+      <div class="pc-stage-name">1 YD LINE <span class="pc-badge pc-badge-risk">Hot Deal</span></div>
+    </div>
+    <div class="pc-arrow">↓</div>
+    <div class="pc-stage pc-dead" onclick="pcDetail('robin-lostoffer')">
       <div class="pc-stage-name">Lost Offer <span class="pc-badge pc-badge-dead">End State</span></div>
     </div>
   </div>
@@ -5095,6 +5118,22 @@ const PC_DATA = {
     means:['Seller declined, went with someone else, or property situation changed','Deal is over for now','Reason should be tagged: price, competition, seller changed mind, etc.'],
     unlocks:['Accurate close-rate reporting from appointment to contract','Reason data informs future training and offer strategy','Warm sellers can be moved to Josh LTFU for future opportunity'],
     skip:'No reason tagged. Team never learns why offers are not converting. Same mistakes repeat indefinitely.' },
+  'robin-aptsched': { name:'Appointment Scheduled', pipe:'Robin the Closer',
+    means:['Nicole booked and confirmed the appointment — it is on Robin\'s calendar','The lead is now Robin\'s responsibility; Lead Management outreach stops','Prep begins immediately: contact card, conversation history, and the 4 Pillars fields'],
+    unlocks:['Robin reviews notes and runs pre-appointment research','Property address shows in the calendar title','Team can see the appointment is owned and covered'],
+    skip:'Robin shows up cold — no context, no comps. The seller senses it and offer credibility suffers.' },
+  'robin-offermade': { name:'Offer Made/Followup', pipe:'Robin the Closer',
+    means:['Robin met the seller and presented an offer','Awaiting a response or actively negotiating','A follow-up task with a specific date is required'],
+    unlocks:['Follow-up cadence starts within 24 hours','Objections logged and addressed','Deal stays alive with a scheduled next action'],
+    skip:'The offer sits with no next step. The seller assumes Robin moved on and signs elsewhere.' },
+  'robin-1ydline': { name:'1 YD LINE', pipe:'Robin the Closer',
+    means:['Seller is on the verge of signing','One conversation or a minor concession away from a contract','Robin\'s highest-priority stage — contact before anything else'],
+    unlocks:['Immediate personal call from Robin','Possible same-day contract execution','Ashley notified so she can support if needed'],
+    skip:'A ready seller goes cold within 24 hours. IHT was not there at the moment that mattered.' },
+  'robin-lostoffer': { name:'Lost Offer', pipe:'Robin the Closer',
+    means:['Seller declined or went with another buyer','The deal is over for now','Reason must be tagged: price gap, listed with an agent, changed mind, etc.'],
+    unlocks:['Accurate close-rate reporting from appointment to contract','Reason data improves future offer strategy','Warm sellers can be revived later'],
+    skip:'No reason tagged. The team never learns why offers are not converting and repeats the same mistakes.' },
   'tc-newdeal': { name:'New Deal!', pipe:'5) Transaction Coordination',
     means:['Signed A-B contract received — TC is now activated','Drive folder link should already be in GHL from Acquisitions','TC reviews property info sheet, signed contract, comps from Drive folder'],
     unlocks:['Title search ordered within 24 hours','All critical dates calendared: inspection deadline, EMD due date, closing date','Dispositions also activated — listing prep begins simultaneously'],
