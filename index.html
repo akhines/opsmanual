@@ -371,6 +371,32 @@ body {
   color: var(--charcoal); display: inline-block;
 }
 
+/* ── FILL-IN PLACEHOLDER ── */
+.fill {
+  background: #FFF3D6; color: #7A3E00;
+  border-bottom: 1.5px dotted #7A3E00;
+  padding: 1px 6px; border-radius: 3px;
+  font-family: var(--font-mono); font-size: 0.86em;
+  font-weight: 500; white-space: nowrap;
+}
+
+/* ── CALL SCRIPT DIALOGUE ── */
+.script-you, .script-seller {
+  padding: 10px 16px; margin: 0 0 8px;
+  border-radius: 0 8px 8px 0; font-size: 14px; line-height: 1.6;
+}
+.script-you {
+  background: var(--amber-pale); border-left: 4px solid var(--amber);
+}
+.script-seller {
+  background: var(--cloud); border-left: 4px solid var(--silver);
+  color: var(--graphite); margin-bottom: 18px;
+}
+.script-you strong, .script-seller strong {
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.06em; display: inline-block; margin-right: 6px;
+}
+
 /* ── HOME SCREEN ── */
 .home-hero {
   background: var(--ink);
@@ -3210,6 +3236,322 @@ const SECTIONS = [
   <div class="callout-body"><strong>Source:</strong> Patriot Business Systems support ticket #2026116123158, resolved Jan 2026; outbound number behavior confirmed via GHL support docs, Jul 2026.</div>
 </div>
 `},
+
+      { id: 'dialer-and-calendar', title: 'The Dialer & The Calendar (New Hire Guide)', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>The Dialer &amp; The Calendar</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Aug 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Audience:</strong> New hire</span></div>
+<p>Everything you need to run a calling block and book the right kind of appointment. Read it once before your first session, then keep it open on a second monitor.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">✏️</div>
+  <div class="callout-body"><strong>Highlighted fields still need filling.</strong> Anything shown like <span class="fill">[LIST NAMES]</span> is a placeholder. Fill every one of them in before this page goes to a new hire.</div>
+</div>
+
+<h2>Part One — Kixie PowerDialer</h2>
+<p>Kixie is how we make outbound calls. Rather than dialing one number at a time, the PowerDialer works through a loaded list of sellers in the background and hands you the call once someone picks up.</p>
+<p>We run it with <strong>AI Human Detect</strong> switched on. The system dials several numbers at once, listens to each answer, and throws away anything that turns out to be a voicemail greeting or an automated menu. You only ever get handed a live human.</p>
+<p>What that means for your day: you will spend close to zero time listening to ringing or voicemail beeps. Your job is to be ready to talk the second a call lands.</p>
+
+<h3>Before your first dial</h3>
+<p>Work through this with your manager on day one. Do not start a session with anything unchecked.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Kixie login created at <strong>app.kixie.com</strong>, password set.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Chrome installed, plus the <strong>Kixie PowerCall</strong> Chrome extension, signed in.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Wired</strong> USB headset tested — mic and speaker both.</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Assigned to the right PowerLists: <span class="fill">[LIST NAMES]</span></div></li>
+  <li><div class="step-num">5</div><div class="step-content">AI Human Detect enabled on your agent profile by an admin.</div></li>
+  <li><div class="step-num">6</div><div class="step-content">Outbound caller ID confirmed: <span class="fill">[NUMBER]</span></div></li>
+  <li><div class="step-num">7</div><div class="step-content">Test call logs correctly into GHL.</div></li>
+  <li><div class="step-num">8</div><div class="step-content">Call script and 4 Pillars questions reviewed: <span class="fill">[SCRIPT LINK]</span></div></li>
+  <li><div class="step-num">9</div><div class="step-content">Compliance rules reviewed and signed: <span class="fill">[POLICY LINK]</span></div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Not a preference — the headset must be wired.</strong> Bluetooth adds a delay that eats the first second or two of every conversation, and on a multiline dialer the seller has already said hello before you are connected. You cannot afford to lose that second.</div>
+</div>
+
+<h3>The PowerDialer window</h3>
+<p>You will live in one window with three tabs for your entire calling block.</p>
+
+<h4>Overview — your scoreboard</h4>
+<table class="data-table">
+  <tr><th>Reads</th><th>Means</th></tr>
+  <tr><td><strong>Queued</strong></td><td>Numbers you are allowed to call right now.</td></tr>
+  <tr><td><strong>Deferred</strong></td><td>Numbers temporarily off limits because of the list's daily attempt cap or its minimum gap between retries.</td></tr>
+  <tr><td><strong>Dialed</strong></td><td>Total dials this session.</td></tr>
+  <tr><td><strong>Answered</strong></td><td>How many of those were picked up.</td></tr>
+  <tr><td><strong>Connected</strong></td><td>Answered calls that lasted long enough to count as a real conversation.</td></tr>
+  <tr><td><strong>Talk Time</strong></td><td>Total time on live calls this session.</td></tr>
+  <tr><td><strong>Machines Detected</strong></td><td>Voicemails and phone menus Human Detect skipped so you did not have to.</td></tr>
+</table>
+<p>Everything except Queued and Deferred resets to zero the moment you hit Start Dialing. Write your numbers down before you start a fresh session.</p>
+
+<h4>Session — start and stop</h4>
+<ul>
+  <li>Your assigned PowerLists appear here with checkboxes. Tick the one you are working and click <strong>Start Dialing</strong>.</li>
+  <li>Tick more than one and the dialer rotates evenly between them.</li>
+  <li><strong>Pause / Resume</strong> and <strong>End Session</strong> live here.</li>
+  <li><strong>Reserved Contacts</strong> shows what is queued up next.</li>
+  <li>A <strong>Need Outcome</strong> flag means the dialer is stopped, waiting on you to disposition the last call. Nothing moves until you do.</li>
+</ul>
+
+<h4>Outcome — where the work happens</h4>
+<table class="data-table">
+  <tr><th>Field</th><th>What it does</th></tr>
+  <tr><td><strong>Contact</strong></td><td>Name, title, company, email, pulled from the uploaded list.</td></tr>
+  <tr><td><strong>PowerList Notes</strong></td><td>Notes that stick to this phone number and reappear on every future call to it. Use it for what the next caller needs: <em>asked for a callback after 5</em>, <em>co-owns with brother</em>.</td></tr>
+  <tr><td><strong>CRM Notes</strong></td><td>Pushes a note into the matching record in GHL along with your disposition. This is what the rest of the team sees.</td></tr>
+  <tr><td><strong>Do Not Call Sooner Than</strong></td><td>Set a date and time; the number stays deferred until then. This is your callback tool.</td></tr>
+  <tr><td><strong>Call Outcome</strong></td><td>The disposition dropdown. Choosing one releases the dialer to place the next calls.</td></tr>
+  <tr><td><strong>SMS Template</strong></td><td>Sends a pre-approved text to the number you just spoke with.</td></tr>
+</table>
+
+<h3>Running a session</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open the PowerDialer window and keep it visible.</strong> Do not minimize it or bury it behind tabs. There is no ring — the seller is just suddenly there.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Check the AI Human Detect toggle is on.</strong> It sits to the right of Start Dialing.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Select your PowerList</strong> on the Session tab.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Click Start Dialing.</strong></div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Wait through the green screen.</strong> A green panel covers the Session tab while the system works numbers in the background. Do nothing. Do not click away.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Green panel disappears — you are live.</strong></div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Work the call,</strong> taking notes in the Outcome tab as you go.</div></li>
+  <li><div class="step-num">8</div><div class="step-content"><strong>Disposition it.</strong> The dialer will not advance until you do.</div></li>
+  <li><div class="step-num">9</div><div class="step-content">Repeat. End Session when your block is over.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🔴</div>
+  <div class="callout-body"><strong>The one habit that matters most.</strong> When the green panel drops, <strong>they have already said hello.</strong> The seller answered a few seconds ago and has been talking into silence. Open as if you heard them: <em>"Hey — is this <span class="fill">[NAME]</span>?"</em> Never open with "Hello? Hello?" and never pause to gather yourself. That dead air is where hangups come from. Have your first line ready before you hit Start Dialing, not after.</div>
+</div>
+
+<h4>Turning Human Detect off</h4>
+<p>The toggle only moves when no session is running, so end your session first. Switched off, the dialer reverts to a fixed number of lines per the PowerList settings and connects you to the first answer — machine or not. Leave it on unless <span class="fill">[MANAGER]</span> tells you otherwise.</p>
+
+<h3>Dispositions</h3>
+<p>Every call gets one. This is not optional — it is how the dialer knows to move on, and how we find out whether a list is worth calling at all.</p>
+<table class="data-table">
+  <tr><th>Outcome</th><th>Use it when</th><th>Then</th></tr>
+  <tr><td><span class="fill">[OUTCOME 1]</span></td><td><span class="fill">[DEFINITION]</span></td><td><span class="fill">[NEXT ACTION]</span></td></tr>
+  <tr><td><span class="fill">[OUTCOME 2]</span></td><td><span class="fill">[DEFINITION]</span></td><td><span class="fill">[NEXT ACTION]</span></td></tr>
+  <tr><td><strong>Callback requested</strong></td><td>Seller wants to talk, not now</td><td>Set <strong>Do Not Call Sooner Than</strong></td></tr>
+  <tr><td><strong>Wrong number</strong></td><td>Not the owner, never was</td><td><span class="fill">[NEXT ACTION]</span></td></tr>
+  <tr><td><strong>Do not call</strong></td><td>Seller asks to be removed, in any wording</td><td>Stop. See compliance.</td></tr>
+  <tr><td><strong>No answer / machine</strong></td><td>No live human reached</td><td>Stays in rotation</td></tr>
+</table>
+<div class="callout amber">
+  <div class="callout-icon">📝</div>
+  <div class="callout-body"><strong>Replace this table.</strong> Pull the real disposition list out of Kixie and write real definitions for each one. Two people using "not interested" differently makes every report downstream meaningless.</div>
+</div>
+<p><strong>Notes standard:</strong> every conversation gets a CRM note. One line minimum — who you spoke to, what they said about the property, what happens next.</p>
+
+<h3>When it breaks</h3>
+<table class="data-table">
+  <tr><th>Symptom</th><th>Do this</th></tr>
+  <tr><td><strong>I got connected to a voicemail anyway</strong></td><td>Detection is not perfect and depends on an account-level timeout setting. Kixie's own testing puts the sweet spot at 3 seconds. If it keeps happening, tell <span class="fill">[MANAGER]</span> — it is an admin setting, not yours.</td></tr>
+  <tr><td><strong>The dialer stopped and will not move</strong></td><td>Check the Session tab for a <strong>Need Outcome</strong> flag. You have an undispositioned call.</td></tr>
+  <tr><td><strong>Nothing is queued</strong></td><td>Everything eligible probably slid into <strong>Deferred</strong> under the daily cap or retry spacing. Check Overview, then switch lists or tell <span class="fill">[MANAGER]</span> the list is done for today.</td></tr>
+  <tr><td><strong>Audio is choppy, or they cannot hear me</strong></td><td>Wired headset plugged straight in, close other tabs and video calls, hardwire to ethernet if you can. Still bad — run a speed test and send it over.</td></tr>
+  <tr><td><strong>Calls are not showing in GHL</strong></td><td>Stop dialing and report it immediately. Untracked calls are lost work.</td></tr>
+</table>
+<p>Escalate to <span class="fill">[MANAGER / SLACK CHANNEL]</span>. Platform-level problems go to Kixie at <a href="https://support.kixie.com" target="_blank" rel="noopener">support.kixie.com</a>.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚖️</div>
+  <div class="callout-body"><strong>Compliance — read twice.</strong> We call into Maryland, and Maryland is stricter than the federal baseline in several places. Calling hours, do-not-call handling, how you identify yourself, call recording disclosure, texting consent, and what you may and may not say about licensing all have rules. They live here: <span class="fill">[COMPLIANCE POLICY LINK]</span>. If someone asks to be removed, in any wording, the conversation is over. Thank them, disposition it, move on. No rebuttal. If you are ever unsure whether you can say something, do not say it — ask after the call.</div>
+</div>
+
+<h2>Part Two — Which Calendar</h2>
+<p>Once the 4 Pillars tell you a seller is worth an appointment, the next call is <strong>which kind</strong>. We run two calendars and they are not interchangeable. Pick wrong and you either burn half a day of someone's field time or let a hot seller go cold.</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;">
+  <div class="workflow-card" style="margin:0;">
+    <h4 style="color:var(--amber-dark);">DEFAULT — Virtual</h4>
+    <p style="font-size:13px;color:var(--steel);margin-bottom:10px;">Phone or video with <span class="fill">[ACQ REP]</span></p>
+    <ul style="font-size:14px;">
+      <li>Motivation is medium — or you honestly are not sure</li>
+      <li>Timeline is 30 to 90 days</li>
+      <li>There is a reason to sell but it is soft</li>
+      <li>Price expectation is high but not immovable</li>
+      <li>Outside the drive radius, or out of state</li>
+      <li>Tenant-occupied with no access</li>
+      <li>The seller asked for virtual</li>
+    </ul>
+    <p style="font-size:12px;margin-bottom:0;"><strong>Book here:</strong><br><a href="https://link.patriotbusinesssystems.com/widget/bookings/ihtvirtualappt" target="_blank" rel="noopener" style="word-break:break-all;">link.patriotbusinesssystems.com/widget/bookings/ihtvirtualappt</a></p>
+  </div>
+  <div class="workflow-card" style="margin:0;">
+    <h4 style="color:#16A34A;">EARNED — In person</h4>
+    <p style="font-size:13px;color:var(--steel);margin-bottom:10px;">At the property</p>
+    <ul style="font-size:14px;">
+      <li>Smoking hot only</li>
+      <li>All four pillars green</li>
+      <li>The seller stated a clear <em>why</em></li>
+      <li>They want out as soon as possible</li>
+      <li>Inside the drive radius</li>
+      <li>Access to the property is confirmed</li>
+      <li>Every owner on title is on board</li>
+    </ul>
+    <p style="font-size:12px;margin-bottom:0;"><strong>Book here:</strong><br><a href="https://link.patriotbusinesssystems.com/widget/bookings/ihtinpersonappts1mbmna" target="_blank" rel="noopener" style="word-break:break-all;">link.patriotbusinesssystems.com/widget/bookings/ihtinpersonappts1mbmna</a></p>
+  </div>
+</div>
+
+<div class="callout dark">
+  <div class="callout-icon">🚗</div>
+  <div class="callout-body"><strong>Virtual is the default. In person is earned.</strong> A virtual appointment can always be upgraded once we hear the seller out. A wasted drive cannot be recovered — that is fuel, hours, and a slot another seller could have had. If you have to talk yourself into it, it is not one.</div>
+</div>
+
+<h3>The in-person bar</h3>
+<p>Book in person only when <strong>every</strong> line below is true. Miss one and it is virtual.</p>
+<table class="data-table">
+  <tr><th>Pillar</th><th>Must hear</th><th>Sounds like</th></tr>
+  <tr><td><strong>Timeline</strong></td><td>As soon as possible, or inside 30 days</td><td><em>"Yesterday." "Soon as you can."</em></td></tr>
+  <tr><td><strong>Motivation</strong></td><td>A clear, stated why — inheritance, divorce, relocation, financial pressure, tired landlord, tax issue</td><td><em>"My mom passed and I live out of state."</em></td></tr>
+  <tr><td><strong>Condition</strong></td><td>Needs work, or the seller admits it is not retail ready</td><td><em>"It needs a roof and the kitchen is original."</em></td></tr>
+  <tr><td><strong>Price</strong></td><td>At or under roughly 80% of estimated ARV, or flexible with no number set</td><td><em>"I don't know — what do you think it's worth?"</em></td></tr>
+  <tr><td><strong>Access</strong></td><td>The decision maker will be on site and can let us in</td><td><em>"I'll meet you there, I've got the keys."</em></td></tr>
+  <tr><td><strong>Geography</strong></td><td>Property is within <span class="fill">[DRIVE RADIUS]</span> of <span class="fill">[MARKET]</span></td><td>—</td></tr>
+</table>
+
+<div class="callout amber">
+  <div class="callout-icon">👥</div>
+  <div class="callout-body"><strong>Everyone on title, on the appointment.</strong> If there is a sibling, an ex-spouse, or a co-heir who has not agreed to sell, that stays a virtual conversation until they are aligned. We do not drive out to a house where half the decision makers are missing.</div>
+</div>
+
+<h4>When you are not sure</h4>
+<p>You will get calls where the seller sounds interested but you cannot pin down the why, or they dodge the price question, or the timeline keeps sliding. That is not a failed call. That is a virtual appointment.</p>
+<ul>
+  <li>Do not stretch a soft lead into an in-person slot because the day looks empty.</li>
+  <li>Do not book in person because the seller asked for it. If they clear the bar, great. If not, virtual.</li>
+  <li>Do not book in person to make sure we do not lose them. Speed keeps a lead. Format does not.</li>
+  <li>If the virtual call reveals a hot seller, the acquisitions rep converts it from there. That path is open. The reverse is not.</li>
+</ul>
+
+<h3>Booking it on the call</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Decide the calendar before you offer a time.</strong> Never say "let me get someone out to you" until you know it is in person. Walking that back is the fastest way to lose a seller's trust.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Open the right link</strong> while they are still on the phone.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Offer two specific times, not an open question.</strong> "I've got Tuesday at 10 or Wednesday at 2 — which is better?" beats "when are you free?" every single time.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Confirm details out loud</strong> — full property address, best callback number, email, and who else will be there.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Book it while they are on the line.</strong> Never hang up planning to send a link. Booked-on-the-call holds. Sent-a-link does not.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Read it back.</strong> Day, date, time, time zone, and format — phone or video versus at the property.</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Set expectations.</strong> In person: how long it takes, that we walk the property, that we can make an offer on the spot. Virtual: it is a conversation, no obligation, nobody is coming to the house yet.</div></li>
+</ol>
+
+<h3>The minute you hang up</h3>
+<table class="data-table">
+  <tr><th>Step</th><th>What to do</th></tr>
+  <tr><td><strong>Move the opportunity</strong></td><td>Drag the card to <span class="fill">[APPOINTMENT STAGE]</span>. An appointment that is not reflected in the stage does not exist to anyone else.</td></tr>
+  <tr><td><strong>Log the note</strong></td><td>All four pillar answers in the seller's own words, the stated why, their number if they gave one, condition highlights, and anything the rep needs before walking in.</td></tr>
+  <tr><td><strong>Tag the format</strong></td><td>Apply <span class="fill">[VIRTUAL TAG]</span> or <span class="fill">[IN-PERSON TAG]</span> so we can see which format actually converts.</td></tr>
+  <tr><td><strong>Set Next Contact Date</strong></td><td>The day before, for the confirmation call. This drives your task list — leave it blank and the confirmation never happens.</td></tr>
+  <tr><td><strong>Confirm within 24 hours</strong></td><td>Call, do not just text. Use the confirmation script. An unconfirmed in-person appointment is a coin flip.</td></tr>
+</table>
+
+<div class="callout green">
+  <div class="callout-icon">✅</div>
+  <div class="callout-body"><strong>The note is the handoff.</strong> The acquisitions rep is walking into a stranger's kitchen based on what you typed. Four pillar answers, in the seller's words, every time. If it is not in GHL, it did not happen.</div>
+</div>
+
+<h3>Quick card — print and tape to your monitor</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0;">
+  <div class="workflow-card" style="margin:0;">
+    <h4>BEFORE YOU START</h4>
+    <ul style="font-size:14px;margin-bottom:0;">
+      <li>Wired headset in</li>
+      <li>PowerDialer window open and visible</li>
+      <li>Human Detect toggle on</li>
+      <li>Right PowerList ticked</li>
+      <li>Opening line ready</li>
+    </ul>
+  </div>
+  <div class="workflow-card" style="margin:0;">
+    <h4>GREEN SCREEN DROPS</h4>
+    <p style="font-weight:700;font-size:15px;">They already said hello. Talk now.</p>
+    <ul style="font-size:14px;margin-bottom:0;"><li><em>"Hey — is this [Name]?"</em></li></ul>
+  </div>
+  <div class="workflow-card" style="margin:0;">
+    <h4>AFTER EVERY CALL</h4>
+    <ul style="font-size:14px;margin-bottom:0;">
+      <li>Disposition it — dialer will not move otherwise</li>
+      <li>CRM note: who, what about the property, what is next</li>
+      <li>Callback? Set Do Not Call Sooner Than</li>
+    </ul>
+  </div>
+  <div class="workflow-card" style="margin:0;">
+    <h4>WHICH CALENDAR</h4>
+    <p style="font-weight:700;font-size:15px;">Not sure? Virtual.</p>
+    <ul style="font-size:14px;margin-bottom:0;">
+      <li>All four pillars + access + radius = in person</li>
+      <li>Anything less = virtual</li>
+      <li>Asked to be removed? Stop. Thank them. Done.</li>
+    </ul>
+  </div>
+</div>
+`},
+
+      { id: 'cold-call-script', title: 'Cold Call Script — Outbound Seller', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Cold Call Script — Outbound Seller</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Aug 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Use with:</strong> The Dialer &amp; The Calendar</span></div>
+<p>This is the outbound cold call. Learn the shape of it, not the words — the goal is a natural conversation that gets you the four pillars and a reason to call back with numbers.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">📍</div>
+  <div class="callout-body"><strong>Do not say the street number.</strong> Open with the street name only. The full address comes later, once they have engaged.</div>
+</div>
+
+<h3>The call</h3>
+
+<div class="script-you"><strong>YOU:</strong> Hello Jane?</div>
+<div class="script-seller"><strong>SELLER:</strong> Yes, this is she... how can I help you?</div>
+
+<div class="script-you"><strong>YOU:</strong> Yes, my name is <span class="fill">[YOUR NAME]</span> and I'm calling in regards to your property on Constitution Ave NE.<br><em style="color:var(--crimson);">(Street name only — do not say the street number yet.)</em></div>
+<div class="script-seller"><strong>SELLER:</strong> Okay, what about it?<br><em>(If they ask "How did you get my number?" — see Rebuttals / Extras.)</em></div>
+
+<div class="script-you"><strong>YOU:</strong> The reason I'm calling is because our company just bought a home right by yours and wanted to reach out to you to make you a fair cash offer on your home, if you are interested in selling.</div>
+<div class="script-seller"><strong>SELLER:</strong> Yes, what's your offer? — or — I'm open to hearing an offer…</div>
+
+<div class="script-you"><strong>YOU:</strong> Great! Well, we don't formulate an offer until we get an OK from the homeowner, but the process is very simple. I just need to ask you a few questions about the condition of the home — is that OK?</div>
+<div class="script-seller"><strong>SELLER:</strong> Yes.</div>
+
+<h3>The questions</h3>
+
+<div class="script-you"><strong>YOU:</strong> Great, can you tell me a little bit about the property? Just some basics — number of beds and baths, square footage, any updates or improvements, the HVAC, things like that.</div>
+<div class="script-seller"><strong>SELLER:</strong> [Gives property info]</div>
+
+<div class="script-you"><strong>YOU:</strong> Wow, seems like a great property. Why are you looking to sell, or at least get an offer?</div>
+<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
+
+<div class="script-you"><strong>YOU:</strong> I see. How long have you thought about selling?<br><em>(Use this when the seller is not seriously interested and just wants to hear an offer.)</em></div>
+
+<div class="script-you"><strong>YOU:</strong> Is the property vacant? Are there tenants, or are you living in the property?</div>
+<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
+
+<div class="script-you"><strong>YOU:</strong> Okay, great. Considering everything we just discussed, did you have any ideas about what you think the property might be worth?</div>
+<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
+
+<div class="script-you"><strong>YOU:</strong> Okay, sounds good. Well, if we presented you an all-cash offer that you liked, when would you be ready to sell — 7 days, 30 days, or 60 days?</div>
+<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
+
+<h3>The close</h3>
+
+<div class="script-you"><strong>YOU:</strong> Okay. Thank you for this information! What I'll do now is have my manager run the numbers on our end, and we'll call you back with an offer ready to go. Sound good?</div>
+<div class="script-seller"><strong>SELLER:</strong> Yes, thank you.</div>
+
+<div class="script-you"><strong>YOU:</strong> Perfect. Have a great day!</div>
+
+<div class="callout green">
+  <div class="callout-icon">✅</div>
+  <div class="callout-body"><strong>What this call is actually collecting.</strong> Condition, motivation (the why), occupancy, price expectation, and timeline — that is the four pillars plus occupancy. Get those in the seller's own words into the CRM note before you dial the next number.</div>
+</div>
+
+<div class="callout amber">
+  <div class="callout-icon">🔗</div>
+  <div class="callout-body"><strong>Rebuttals / Extras:</strong> <span class="fill">[LINK TO REBUTTALS PAGE]</span> — including the answer to "How did you get my number?"</div>
+</div>
+`},
+
 
       { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
         content: `
