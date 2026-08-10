@@ -397,6 +397,41 @@ body {
   letter-spacing: 0.06em; display: inline-block; margin-right: 6px;
 }
 
+/* ── VIDEO EMBED ── */
+.video {
+  position: relative; padding-bottom: 56.25%; height: 0;
+  margin: 18px 0 6px; border-radius: 10px; overflow: hidden;
+  background: var(--ink); border: 1px solid var(--fog);
+}
+.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.vid-cap {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.04em; color: var(--steel); margin-bottom: 18px;
+}
+
+/* ── MANAGERS-ONLY FLAG ── */
+.admin-flag {
+  background: var(--cloud); border: 1px solid var(--fog);
+  border-left: 4px solid var(--ink); border-radius: 0 8px 8px 0;
+  padding: 14px 20px; margin: 16px 0 24px; font-size: 14px;
+}
+.admin-flag strong {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase; display: block; margin-bottom: 5px; color: var(--crimson);
+}
+
+/* ── DOC LINK LIST ── */
+.docs { border: 1px solid var(--fog); border-radius: 10px; overflow: hidden; margin: 16px 0 8px; background: var(--white); }
+.doc {
+  display: block; padding: 18px 20px; text-decoration: none; color: inherit;
+  border-bottom: 1px solid var(--fog); transition: background 0.12s;
+}
+.doc:last-child { border-bottom: none; }
+.doc:hover { background: var(--cloud); text-decoration: none; }
+.doc .dt { font-weight: 700; font-size: 15px; margin-bottom: 4px; color: var(--ink); }
+.doc .dd { font-size: 14px; color: var(--graphite); margin-bottom: 8px; }
+.doc .du { font-family: var(--font-mono); font-size: 11px; color: var(--amber-dark); word-break: break-all; }
+
 /* ── HOME SCREEN ── */
 .home-hero {
   background: var(--ink);
@@ -3273,7 +3308,12 @@ const SECTIONS = [
 </div>
 
 <h3>The PowerDialer window</h3>
-<p>You will live in one window with three tabs for your entire calling block.</p>
+<p>You will live in one window with three tabs for your entire calling block. Kixie's own walkthrough of this screen runs about five minutes and is worth watching once before your first session.</p>
+
+<div class="video">
+  <iframe src="https://www.youtube-nocookie.com/embed/2ACCnpTRZvk" title="How to 10x your outbound calls with the Kixie PowerDialer" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<p class="vid-cap">Source: Kixie Help Center — Introduction to the PowerDialer Window</p>
 
 <h4>Overview — your scoreboard</h4>
 <table class="data-table">
@@ -3488,6 +3528,70 @@ const SECTIONS = [
     </ul>
   </div>
 </div>
+
+<h2>Appendix — Admin Setup</h2>
+<div class="admin-flag">
+  <strong>Managers only</strong>
+  If you are new here, skip this. Nothing below is something a caller changes — these are account-level settings, and changing them affects everyone on the floor.
+</div>
+
+<h3>Turning on AI Human Detect for an agent</h3>
+<p>Every new caller needs this switched on before their first session, or they will get the standard fixed-line dialer and no machine skipping.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Sign in at <strong>app.kixie.com</strong>.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Sidebar, click <strong>Manage</strong>.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Under Manage, click <strong>Agents</strong>.</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Find the agent and click them. The search bar is faster than scrolling.</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Click <strong>Edit Agent</strong> near the top of the page.</div></li>
+  <li><div class="step-num">6</div><div class="step-content">Open the <strong>Manage</strong> tab.</div></li>
+  <li><div class="step-num">7</div><div class="step-content">Under <strong>User Products</strong>, expand the <strong>PowerDialer Product</strong> dropdown.</div></li>
+  <li><div class="step-num">8</div><div class="step-content">Choose <strong>PowerDialer AI Human Detect</strong>.</div></li>
+  <li><div class="step-num">9</div><div class="step-content">Click <strong>Save</strong>. A confirmation window lists every product applied to that agent — changed and unchanged. Click <strong>Save</strong> at the bottom to commit.</div></li>
+</ol>
+
+<div class="callout green">
+  <div class="callout-icon">👥</div>
+  <div class="callout-body"><strong>Onboarding several people at once.</strong> The confirmation window has a <strong>Save and apply to more agents</strong> button in the lower left. Use it when you are setting up a whole new calling pod rather than walking the flow nine times.</div>
+</div>
+
+<h3>Timeout duration</h3>
+<p>This is the single setting that decides how often voicemails leak through to your callers. It controls how long the system listens before committing to a verdict on whether an answer is a human or a machine.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Sign in at <strong>app.kixie.com</strong>.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Manage</strong>, then <strong>Account Settings</strong>.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Click <strong>Edit All</strong> at the top right.</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Open the <strong>Options</strong> tab.</div></li>
+  <li><div class="step-num">5</div><div class="step-content">Under <strong>PowerDialer AI Human Detect</strong>, open <strong>Timeout Duration (seconds)</strong>.</div></li>
+  <li><div class="step-num">6</div><div class="step-content">Pick a value from 2 to 5 seconds, in half-second steps.</div></li>
+</ol>
+<table class="data-table">
+  <tr><th>Setting</th><th>Trade</th></tr>
+  <tr><td><strong>Longer (4–5s)</strong></td><td>More accurate machine detection. The human who picked up waits longer in silence before a caller is connected, so more of them hang up first.</td></tr>
+  <tr><td><strong>Shorter (2–2.5s)</strong></td><td>Faster connection for the seller. Detection has less to work with, so more voicemails reach your callers.</td></tr>
+  <tr><td><strong>3 seconds</strong></td><td>Where Kixie's own testing lands — accuracy climbs sharply at this point with only a slight delay. Start here and only move it if the floor reports a pattern.</td></tr>
+</table>
+<p>Two other things worth knowing at the admin layer. With Human Detect on, the system decides for itself how many lines to dial at once, adjusting from session data, rather than using the fixed per-line count set on each PowerList. And any conditional rules you have built into a PowerList — CRM record ownership and the like — still apply while it is running.</p>
+
+<h2>Kixie's Own Documentation</h2>
+<p>Three articles cover everything on this page from the vendor's side. When something in the interface does not match what you read here, theirs is current and ours may have drifted — tell <span class="fill">[MANAGER]</span> so this page gets fixed.</p>
+<div class="docs">
+  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/4582890954907-Introduction-to-the-PowerDialer-Window" target="_blank" rel="noopener">
+    <div class="dt">Introduction to the PowerDialer Window</div>
+    <div class="dd">The three tabs, every metric on the Overview scoreboard, how reserved contacts and the Need Outcome flag behave, and what each field on the Outcome tab writes to. Includes the video walkthrough embedded above. Start here.</div>
+    <span class="du">support.kixie.com/hc/en-us/articles/4582890954907</span>
+  </a>
+  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/22656918351259-PowerDialer-with-AI-Human-Detect" target="_blank" rel="noopener">
+    <div class="dt">PowerDialer with AI Human Detect</div>
+    <div class="dd">The setup article. Enabling the product per agent, where the toggle lives in the dialer window, and how to reach the timeout duration setting. This is the source for the admin appendix above, with screenshots of each screen.</div>
+    <span class="du">support.kixie.com/hc/en-us/articles/22656918351259</span>
+  </a>
+  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/24665570825755-PowerDialer-with-AI-Human-Detect-FAQs" target="_blank" rel="noopener">
+    <div class="dt">AI Human Detect — FAQs</div>
+    <div class="dd">Why voicemails still get through sometimes, how the dynamic line count works, what happens to conditional PowerList rules, and why the green dialing panel behaves the way it does. Read this one if the tool is doing something you did not expect.</div>
+    <span class="du">support.kixie.com/hc/en-us/articles/24665570825755</span>
+  </a>
+</div>
+<p class="vid-cap">Kixie support, general: support.kixie.com</p>
 `},
 
       { id: 'cold-call-script', title: 'Cold Call Script — Outbound Seller', dept: 'Lead Management', owner: 'Nicole',
