@@ -432,7 +432,26 @@ body {
 .doc .dd { font-size: 14px; color: var(--graphite); margin-bottom: 8px; }
 .doc .du { font-family: var(--font-mono); font-size: 11px; color: var(--amber-dark); word-break: break-all; }
 
+/* ── COPYABLE PROMPT / SCRIPT BLOCK ── */
+.codeblock {
+  background: var(--ink); color: #EDEDED;
+  border-radius: 8px; padding: 16px 18px; margin: 14px 0;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.65;
+  white-space: pre-wrap; word-break: break-word;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.codeblock.light {
+  background: var(--cloud); color: var(--charcoal);
+  border: 1px solid var(--fog);
+}
+.cb-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--steel);
+  margin: 18px 0 -6px; display: block;
+}
+
 /* ── HOME SCREEN ── */
+
 .home-hero {
   background: var(--ink);
   padding: 48px;
@@ -637,6 +656,8 @@ body {
 
   /* Let wide tables scroll instead of overflowing the page */
   .data-table, .compare-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+
+  .codeblock { font-size: 11.5px; padding: 14px; }
 
   .stat-row { gap: 10px; }
   .stat-box { min-width: calc(50% - 5px); padding: 14px; }
@@ -1531,7 +1552,7 @@ const SECTIONS = [
   <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
   <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
   <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
-  <tr><td>Mike</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
+  <tr><td>Robin</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
   <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
   <tr><td>Ashley</td><td>All quizzes (admin, can retake anytime)</td><td>80% on each</td></tr>
 </table>
@@ -1561,7 +1582,7 @@ const SECTIONS = [
 <div class="page-meta" style="margin-bottom:16px;">
   <span><strong>Source:</strong> <a href="https://docs.google.com/spreadsheets/d/1MLyGptEARWfZ26gzhEXU-sj-8iRxlkGe2LIIoi_icgk/edit" target="_blank" style="color:#0EA5E9;">2026 Payroll Dates sheet</a></span>
   <span><strong>Frequency:</strong> Biweekly</span>
-  <span><strong>Team tracked:</strong> Mike, Ted, Nicole, Emma</span>
+  <span><strong>Team tracked:</strong> Robin, Ted, Nicole, Emma</span>
 </div>
 
 <h3>2026 Schedule</h3>
@@ -1623,19 +1644,6 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Outside our Maryland target markets. Tagged for potential referral or removal.</td></tr>
 </table>
 
-<h2>Pipeline 2: Mike the Closer — 4 Stages</h2>
-<p>Mike's acquisitions pipeline. When Nicole books an appointment for Mike, the lead moves HERE.</p>
-<table class="data-table">
-  <tr><th>Stage</th><th>Definition</th></tr>
-  <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Mike reviews the lead card and preps.</td></tr>
-  <tr><td><span class="ghl-field">Offer Made/Followup</span></td><td>Mike met the seller and presented an offer. Awaiting response or in negotiation.</td></tr>
-  <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Deal is very close — seller nearly committed. One more conversation or minor concession away from signing.</td></tr>
-  <tr><td><span class="ghl-field">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the reason in notes.</td></tr>
-</table>
-
-<h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
-<p>Joshua's acquisitions pipeline. Same concept as Mike's but with more granular stages for Joshua's workflow. When Nicole books for Joshua, the lead moves here.</p>
-
 <h2>Pipeline: Robin the Closer — 4 Stages</h2>
 <p>Robin's acquisitions pipeline. When Nicole books an appointment for Robin, the lead moves HERE.</p>
 <table class="data-table">
@@ -1645,6 +1653,9 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Deal is very close — seller nearly committed. One more conversation or minor concession away from signing. Highest-priority stage — contact before anything else.</td></tr>
   <tr><td><span class="ghl-field">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the specific reason in notes.</td></tr>
 </table>
+
+<h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
+<p>Joshua's acquisitions pipeline. Same concept as Robin's but with more granular stages for Joshua's workflow. When Nicole books for Joshua, the lead moves here.</p>
 
 <h2>Pipeline 4: Offer Followup — 4 Stages</h2>
 <p>Deals where an offer has been made but no contract is signed. Used for systematic follow-up on pending offers across both closers.</p>
@@ -1684,7 +1695,6 @@ const SECTIONS = [
   <div class="callout-body">
     <strong>When Nicole books an appointment, she must move the lead to the correct closer's pipeline immediately.</strong>
     <ul style="margin:8px 0 0;padding-left:18px;">
-      <li>Assigned to Mike → move to <span class="ghl-field">2) Mike the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
       <li>Assigned to Joshua → move to <span class="ghl-field">3) Josh The Closer</span> pipeline, equivalent appointment stage</li>
       <li>Assigned to Robin → move to <span class="ghl-field">Robin the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
     </ul>
@@ -1936,29 +1946,6 @@ const SECTIONS = [
     </div>
   </div>
 
-  <!-- COL 3: MIKE THE CLOSER -->
-  <div class="pc-col">
-    <div class="pc-col-head" style="background:#F5F3FF;color:#5B21B6;">
-      <div class="pl-name">2) Mike the Closer</div>
-      <div class="pl-owner">Owner: Mike</div>
-    </div>
-    <div class="pc-stage" onclick="pcDetail('mike-aptsched')">
-      <div class="pc-stage-name">Appointment Scheduled</div>
-    </div>
-    <div class="pc-arrow">↓</div>
-    <div class="pc-stage" onclick="pcDetail('mike-offermade')">
-      <div class="pc-stage-name">Offer Made/Followup</div>
-    </div>
-    <div class="pc-arrow">↓</div>
-    <div class="pc-stage pc-risk" onclick="pcDetail('mike-1ydline')">
-      <div class="pc-stage-name">1 YD LINE <span class="pc-badge pc-badge-risk">Hot Deal</span></div>
-    </div>
-    <div class="pc-arrow">↓</div>
-    <div class="pc-stage pc-dead" onclick="pcDetail('mike-lostoffer')">
-      <div class="pc-stage-name">Lost Offer <span class="pc-badge pc-badge-dead">End State</span></div>
-    </div>
-  </div>
-
   <!-- COL: ROBIN THE CLOSER -->
   <div class="pc-col">
     <div class="pc-col-head" style="background:#FFF1F2;color:#9F1239;">
@@ -1986,7 +1973,7 @@ const SECTIONS = [
   <div class="pc-col">
     <div class="pc-col-head" style="background:#F0FDF4;color:#166534;">
       <div class="pl-name">5) Transaction Coord.</div>
-      <div class="pl-owner">Owner: Mike / EP</div>
+      <div class="pl-owner">Owner: Robin / EP</div>
     </div>
     <div class="pc-stage pc-handoff" onclick="pcDetail('tc-newdeal')">
       <div class="pc-stage-name">New Deal! <span class="pc-badge pc-badge-handoff">Triggered by Contract</span></div>
@@ -2021,7 +2008,7 @@ const SECTIONS = [
   <div class="pc-col">
     <div class="pc-col-head" style="background:#F0FDF4;color:#166534;">
       <div class="pl-name">5) TC — Closing</div>
-      <div class="pl-owner">Owner: Mike / EP</div>
+      <div class="pl-owner">Owner: Robin / EP</div>
     </div>
     <div class="pc-stage" onclick="pcDetail('tc-extension')">
       <div class="pc-stage-name">Extension Needed</div>
@@ -2255,7 +2242,7 @@ const SECTIONS = [
 </table>
 <p><strong>Pipeline movement:</strong> Nicole moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
 <ul>
-  <li>Assigned to Mike → <span class="ghl-field">2) Mike the Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
+  <li>Assigned to Robin → <span class="ghl-field">Robin the Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
   <li>Assigned to Joshua → <span class="ghl-field">3) Josh The Closer</span> → appointment stage</li>
 </ul>
 <div class="callout blue" style="margin-top:10px;">
@@ -2679,7 +2666,7 @@ const SECTIONS = [
       <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
       <li>Update Field: Next Contact Date → <span class="cv">clear / blank</span></li>
       <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
-      <li>Change Pipeline Stage → if Mike: <span class="sp">2) Mike the Closer — Appointment Scheduled</span> / if Joshua: <span class="sp">3) Josh The Closer — Appointment Scheduled</span></li>
+      <li>Change Pipeline Stage → if Robin: <span class="sp">Robin the Closer — Appointment Scheduled</span> / if Joshua: <span class="sp">3) Josh The Closer — Appointment Scheduled</span></li>
       <li>Send Internal Notification → Channel: <span class="cv">#appointments</span><br>Message: <span class="cv">🗓️ APPOINTMENT BOOKED: {{contact.first_name}} {{contact.last_name}} — {{contact.address}} — booked by Nicole</span></li>
     </ul>
   </div>
@@ -4212,7 +4199,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <li>
     <div class="step-num">3</div>
     <div class="step-content">
-      <strong>Choose the date and time.</strong> GHL only shows available slots based on Joshua's and Mike's calendar availability. Pick the earliest available slot. If the seller has a specific preference, verify that slot is open before confirming.
+      <strong>Choose the date and time.</strong> GHL only shows available slots based on Joshua's and Robin's calendar availability. Pick the earliest available slot. If the seller has a specific preference, verify that slot is open before confirming.
     </div>
   </li>
   <li>
@@ -4230,7 +4217,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
     <div class="step-content">
       <strong>Assign to the right person.</strong>
       <ul style="margin-top:8px;font-size:13px;">
-        <li>In-person appointments → Mike or Joshua based on territory</li>
+        <li>In-person appointments → Robin or Joshua based on territory</li>
         <li>Virtual appointments → Joshua unless otherwise directed</li>
       </ul>
     </div>
@@ -4416,8 +4403,8 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 <h2>Your Pipelines in GHL</h2>
 
-<h3>Pipeline 2: Mike the Closer — 4 Stages</h3>
-<p>When Nicole books an appointment for Mike, the lead moves here immediately.</p>
+<h3>Pipeline: Robin the Closer — 4 Stages</h3>
+<p>When Nicole books an appointment for Robin, the lead moves here immediately.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Review the lead card and prep before arriving.</td></tr>
@@ -4677,13 +4664,1273 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 <h2>Adding Buyers to GHL</h2>
 <p>Every buyer should be a contact in GHL tagged with: <span class="ghl-field">Buyer</span> + their tier tag (<span class="ghl-field">VIP</span>, <span class="ghl-field">Active</span>, or <span class="ghl-field">General</span>). Log their buy box in the contact notes so you can filter by deal type.</p>
+`},
+      { id: 'dispo-24hr', title: 'The 24-Hour Dispo System', dept: 'Dispositions', owner: 'Joshua Hines',
+        content: `
+<h2>The 24-Hour Dispo System</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Joshua Hines</span></div>
+
+<p>Your deal + your CRM + InvestorBase + Claude = the best 100 buyers for any deal. The old way is to blast the whole list, wait, and cut the price. This way you rank the list against <em>this</em> deal, work it in order, and open every message with the buyer's own prior purchase. Same list, different order, contract inside the offer window.</p>
+
+<div class="docs">
+  <a class="doc" href="/The-24-Hour-Dispo-System.pdf" target="_blank" rel="noopener">
+    <div class="dt">The 24-Hour Dispo System — printable PDF</div>
+    <div class="dd">The full 14-page workflow document, formatted for print and for sending outside the team. Everything in it is reproduced on this page.</div>
+    <span class="du">The-24-Hour-Dispo-System.pdf</span>
+  </a>
+</div>
+
+<div class="callout amber">
+  <div class="callout-icon">⏱️</div>
+  <div class="callout-body"><strong>Set up once — 2.5 hours, then never again.</strong>
+  ① InvestorBase account, search geography saved. ② In GHL: build the dispo pipeline template, the tag structure, and the 12 custom fields (see CRM Setup below). Do this <em>before</em> your first import or the CRM drops the columns silently. ③ Save the ranking prompt as a Claude Project. ④ Confirm the title company has closed an assignment before.</div>
+</div>
+
+<h2>The Run — 4.5 Hours, One Day</h2>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>#</th><th>Do this</th><th>Time</th><th>You get</th></tr>
+  <tr><td><strong>1</strong></td><td>Fill the deal outline (see Deal Outline below). Verify square footage against a second source — public record is wrong often and by hundreds of feet. It corrupts the ranking and then the listing.</td><td>45m</td><td>Deal outline</td></tr>
+  <tr><td><strong>2</strong></td><td>InvestorBase: subject as center, 24-month window. Widen the radius until you clear 100+ buyers. Record the radius. Wider = more volume, less relevance — the ranking re-sorts for it.</td><td>15m</td><td>Buyer pool</td></tr>
+  <tr><td><strong>3</strong></td><td>Export to CSV. Confirm purchase addresses, dates and prices survived. Contact-only export = no ranking. Re-export if they didn't.</td><td>5m</td><td>Raw export</td></tr>
+  <tr><td><strong>4</strong></td><td>Run the ranking prompt. Paste the outline in full, attach the CSV. Review the A tier before you import anything.</td><td>30m</td><td>Ranked CSV + buyer PDF</td></tr>
+  <tr><td><strong>5</strong></td><td>Publish the listing. Live before Step 7 — all three touches point at it.</td><td>—</td><td>Listing URL</td></tr>
+  <tr><td><strong>6</strong></td><td>Import to GHL. Opportunity Value = fit score, so the board sorts itself into the call list.</td><td>20m</td><td>Sorted pipeline</td></tr>
+  <tr><td><strong>7</strong></td><td><strong>Hour 1</strong> — SMS, Tier A only. Opens with their prior purchase. Asks for two minutes, not a decision.</td><td>25m</td><td>Touch 1</td></tr>
+  <tr><td><strong>8</strong></td><td><strong>Hour 2</strong> — Email, one per buyer. Plain text, 3–6 lines, no formatting. References the text.</td><td>45m</td><td>Touch 2</td></tr>
+  <tr><td><strong>9</strong></td><td><strong>Hour 4</strong> — Call the top 20% of the full ranked list, in order. Voicemail names the text and the email.</td><td>90m</td><td>Touch 3</td></tr>
+</table>
+</div>
+<p>Budget another 2–3 hours the same day for inbound — if the ranking worked, they call back while you're still dialing.</p>
+
+<h2>After Day 1</h2>
+<h3>Cadence</h3>
+<p>Day 2 AM: one pattern-interrupt text to A-tier non-responders. Day 2 midday: run the full sequence on Tier B. Day 2 PM: second dial to A, no voicemail. Day 3: A-tier at five touches with zero response moves to nurture — keep their durable tags, stop dialing. Tier C gets the standard blast. Full table in Reference below.</p>
+
+<h3>Inbound</h3>
+<p>One named person owns the line for all of day one. Solo? Stop dialing when inbound starts. Ask in this order: seen the listing → what have you closed like this → how are you funding it → when can you walk it → what number gets it done. <strong>Price is fifth on purpose.</strong></p>
+
+<h3>Stop rule</h3>
+<p>The list is exhausted when two of these are true: A tier through five touches with no replies · three or more buyers naming the same objection · you're dialing below the top 40% · two walkthroughs and no offer. Then it's a price change or a wider radius — <strong>not more dials</strong>.</p>
+
+<h3>Keep the list</h3>
+<p>Within a week of closing, promote the durable tags (<code>scope-gut</code>, <code>fin-cash</code>, <code>buys-[submarket]</code>), record who responded and who objected to what, and append to one master buyer file. Deal two costs three hours. Deal ten costs one.</p>
+
+<h2>The Ranking Prompt</h2>
+<p>It scores every buyer in your export across seven weighted dimensions, gates them into three tiers, and writes per-buyer outreach copy for the top tier. Weights: scope/product-type match 30 · price-band match 20 · proximity 15 · purchase count and recency 15 · financing 10 · systems (well/septic) 5 · vintage 5.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>The one instruction you must not delete: scope is weighted double proximity.</strong> Distance is the cleanest, most sortable field in the file, and a model left alone will quietly let it dominate — producing a beautiful ranked list of people who happen to live nearby. A gut buyer forty minutes away beats a light-rehab buyer four minutes away. Every time.</div>
+</div>
+
+<p>Fill the eight bracketed fields, all in the first block. Paste the deal outline in full — not a summary.</p>
+
+<span class="cb-label">Claude version</span>
+<div class="codeblock">You are ranking a cash buyer list against one specific off-market deal for a
+wholesaler running a 24-hour dispositions sequence. Your output determines
+the order in which real people get called today. Precision matters more than
+completeness.
+
+=====================================================================
+INPUT 1 — THE DEAL
+=====================================================================
+[PASTE YOUR FULL DEAL OUTLINE HERE — ALL FIELDS, NOT A SUMMARY]
+
+Search radius used to build the buyer list: [INSERT RADIUS IN MILES]
+Offer deadline: [INSERT DATE AND TIME]
+My name: [INSERT]        My callback number: [INSERT]
+Title company: [INSERT]  Listing URL: [INSERT]
+
+=====================================================================
+INPUT 2 — THE BUYER LIST
+=====================================================================
+The attached CSV is an InvestorBase export of cash buyers who closed
+transactions within [INSERT RADIUS] miles of the subject over the trailing
+24 months. Each row is a buyer with purchase history attached.
+
+=====================================================================
+SCORING — SEVEN DIMENSIONS, 100 POINTS
+=====================================================================
+1. SCOPE / PRODUCT-TYPE MATCH — 30 points
+   Classify each buyer's history into a scope class using purchase price
+   relative to area value, property characteristics, year built, and any
+   condition or remarks data present:
+     GUT     — deep-discount, distressed stock, heavy renovation
+     MEDIUM  — meaningful discount, systems and cosmetic work
+     LIGHT   — modest discount, cosmetic and turn work
+     TURNKEY — at or near market, rent-ready or retail
+   Score their class against THIS deal's class. Exact match full. One class
+   away partial. Two or more classes away near zero — a turnkey rental buyer
+   is not a buyer for a gut, no matter how close they live.
+
+2. PRICE-BAND MATCH — 20 points
+   Score against BOTH numbers: does their history bracket the buy-it-now
+   price, and does it show exits or holds in the ARV range. Measure the
+   overlap between their demonstrated band and this deal's band.
+
+3. PROXIMITY — 15 points
+   Distance to their NEAREST prior purchase, on a curve calibrated to the
+   [INSERT RADIUS]-mile radius. Use the export's distance field where present.
+
+4. PURCHASE COUNT AND RECENCY — 15 points
+   Trailing 12-month count weighted roughly double the 24-month count. Four
+   purchases last year outranks eight that closed 20 months ago.
+
+5. FINANCING TYPE — 10 points
+   Cash highest, hard money close behind, conventional materially lower.
+   Where absent: neutral mid-value, tag fin-unknown, and FLAG it as imputed.
+   Never infer financing from purchase price alone.
+
+6. SYSTEMS MATCH — 5 points
+   Well/septic experience where the subject has well/septic. If the subject
+   is on public utilities this is neutral for everyone — do not use it to
+   manufacture separation.
+
+7. VINTAGE MATCH — 5 points
+   Era overlap between the subject's year built and their purchase history.
+
+=====================================================================
+CRITICAL WEIGHTING INSTRUCTION — DO NOT SOFTEN THIS
+=====================================================================
+SCOPE MATCH IS WEIGHTED DOUBLE PROXIMITY, DELIBERATELY.
+A gut-rehab buyer forty minutes away BEATS a light-rehab buyer four minutes
+away. Wrong scope is a wrong buyer; distance is only a drive.
+You will be tempted to over-index on proximity because distance is the
+cleanest and most sortable field in this dataset. Do not. Before you output,
+check whether your A tier is essentially ordered by distance. If it is, you
+have made the error this instruction exists to prevent. Fix it.
+
+=====================================================================
+TIERS — GATES FIRST. SCORE ONLY ORDERS WITHIN A TIER.
+=====================================================================
+TIER A — must pass ALL FOUR:
+  (1) SCOPE    A prior purchase in this deal's scope class, or one adjacent
+  (2) PRICE    A prior purchase priced between [buy x 0.5] and [ARV x 1.25]
+  (3) RECENCY  At least one purchase closed in the trailing 12 months
+  (4) SCORE    Composite 70 or above
+
+TIER B — passes the scope gate OR the price gate, has a purchase in the
+  trailing 24 months, and scores 45 to 69 inclusive.
+
+TIER C — everything else not excluded.
+
+EXCLUDED, with the reason stated: no purchase in 24 months; entire history
+two or more scope classes away; new-construction-only, commercial-only,
+land-only, or institutional/iBuyer volume purchasing; no phone and no email.
+
+State every gate result per buyer as pass/fail so the tiering reproduces
+across runs. DO NOT PAD TIER A. If six buyers pass, Tier A has six buyers —
+report the count plainly and say the pool may need a wider radius.
+
+=====================================================================
+RULES OF ENGAGEMENT
+=====================================================================
+1. Flag every assumption inline, on that buyer's row — not in a footnote.
+2. Never source property facts from public record or your own knowledge when
+   I have supplied them. My deal outline is authoritative for square footage,
+   beds, baths, systems, lot size and year built. Note conflicts; do not
+   resolve them in favor of the CSV.
+3. State, in one paragraph at the top, which missing input would most change
+   this ranking and what it would move.
+4. Do not pad any tier to reach a number.
+5. If a required column is missing, say so before scoring and tell me what
+   will be degraded. Do not silently substitute.
+
+=====================================================================
+OUTPUT 1 — RANKED CSV, best to worst, CRM-native headers
+=====================================================================
+First Name, Last Name, Phone, Email, Company Name, Address, City, State,
+Postal Code, Tags, buyer_tier, buyer_rank, fit_score, call_priority,
+prior_deals_24mo, prior_deals_12mo, nearest_prior_address,
+nearest_prior_distance_mi, nearest_prior_price, nearest_prior_date,
+scope_class, scope_evidence, price_band_match, financing_type,
+systems_match, vintage_match, why_this_fits, assumptions_flagged
+
+Tags: semicolon-delimited, lowercase, hyphenated —
+dispo-[address-slug]; tier-[a/b/c]; scope-[class]; band-[match/near/out];
+fin-[cash/hard-money/conventional/unknown]; radius-[n]mi; buys-[submarket]
+
+call_priority is the literal dial order, 1 through N.
+why_this_fits is ONE sentence naming their specific prior deal, readable
+aloud as a call opener with no editing.
+Every evidence count must be a real number from the data, not an estimate.
+
+=====================================================================
+OUTPUT 2 — COMPREHENSIVE PDF
+=====================================================================
+Everything in the CSV, plus a one-page profile for EVERY Tier A buyer:
+  - Their nearby past deals NAMED INDIVIDUALLY: address, date, price,
+    distance, characteristics. The addresses, not "3 purchases within 5 miles"
+  - Why this deal fits their demonstrated pattern, tied to those deals
+  - The honest counter-case: why it might not fit, one or two lines
+  - SMS under 300 characters naming their prior purchase
+  - Email: plain text, 3-6 short lines, one-to-one voice, no formatting, no
+    marketing structure, references the SMS sent an hour earlier, includes
+    the listing URL, the comp link, and both phone numbers
+  - Cold-call opener and voicemail, written to be spoken
+
+Open with a summary page: tier counts, the thinnest part of the pool, the
+missing input from Rule 3, and any data-quality problems in the export.
+Show me the summary and tier counts first, then ask before generating the
+full per-buyer profiles.</div>
+
+<span class="cb-label">ChatGPT version</span>
+<p style="font-size:13px;color:var(--graphite);margin-top:10px;">Same scoring, same gates, restructured for how ChatGPT handles long instructions and files. <strong>Upload the CSV first, then paste.</strong></p>
+<div class="codeblock">ROLE: You are a dispositions analyst ranking a cash buyer list against one
+specific off-market deal. Your ranking sets the order in which real buyers
+get called today.
+
+Work in phases. Do not skip ahead.
+  PHASE 1 — Read the deal and the CSV. Report data quality. Stop.
+  PHASE 2 — Score and tier every buyer. Output the CSV. Stop.
+  PHASE 3 — On my confirmation, produce the per-buyer profiles.
+
+--- THE DEAL ---
+[PASTE YOUR FULL DEAL OUTLINE HERE — ALL FIELDS, NOT A SUMMARY]
+Search radius used: [INSERT RADIUS IN MILES]
+Offer deadline: [INSERT DATE AND TIME]
+My name: [INSERT]        My callback number: [INSERT]
+Title company: [INSERT]  Listing URL: [INSERT]
+
+--- THE DATA ---
+The uploaded CSV is an InvestorBase export: cash buyers with closed
+transactions within [INSERT RADIUS] miles of the subject over 24 months,
+with purchase history attached. Use the Python tool for the counting,
+distance handling and banding. Do not eyeball the numbers.
+
+--- PHASE 1: DATA QUALITY (then stop) ---
+Report row count, and which of these are present and populated: buyer entity,
+contact name, phone, email, mailing address, purchase addresses, purchase
+dates, purchase prices, property characteristics, distance from subject,
+financing type. Say what scoring is degraded by anything missing. Then stop.
+
+--- PHASE 2: SCORING, 100 POINTS ---
+1. SCOPE / PRODUCT-TYPE MATCH ....... 30   Classify each buyer's history as
+   GUT, MEDIUM, LIGHT or TURNKEY from purchase price vs. area value, property
+   characteristics, year built and any condition data. Score against THIS
+   deal's class. Exact full, one class away partial, two or more near zero.
+   A turnkey rental buyer is not a buyer for a gut.
+2. PRICE-BAND MATCH ................. 20   Against both the buy price and the
+   ARV. Measure band overlap.
+3. PROXIMITY ........................ 15   Nearest prior purchase, on a curve
+   calibrated to the [INSERT RADIUS]-mile radius.
+4. PURCHASE COUNT AND RECENCY ....... 15   12-month count weighted ~2x the
+   24-month count.
+5. FINANCING TYPE ................... 10   Cash highest, hard money close
+   behind, conventional materially lower. Absent = neutral, tag fin-unknown,
+   flag as imputed. Never infer financing from price.
+6. SYSTEMS MATCH .................... 5    Well/septic where the subject has
+   them. Neutral for all if public utilities — do not manufacture spread.
+7. VINTAGE MATCH .................... 5    Era overlap.
+
+*** WEIGHTING — DO NOT SOFTEN ***
+Scope is double proximity on purpose. A gut buyer forty minutes away BEATS a
+light-rehab buyer four minutes away. Distance is the cleanest field in this
+file and you will be tempted to let it dominate. Before you output, check
+whether your A tier is essentially sorted by distance. If it is, fix it.
+
+--- TIERS: GATES FIRST, SCORE ONLY ORDERS WITHIN A TIER ---
+TIER A passes all four: (1) prior purchase in this deal's scope class or one
+adjacent; (2) prior purchase priced between [buy x 0.5] and [ARV x 1.25];
+(3) a purchase closed in the trailing 12 months; (4) score >= 70.
+TIER B passes the scope gate OR the price gate, has a purchase in 24 months,
+scores 45-69.
+TIER C is everything else not excluded.
+EXCLUDED, reason stated: no purchase in 24 months; history two or more scope
+classes away; new-construction-only, commercial-only, land-only or
+institutional volume buyers; no phone and no email.
+Report gate results per buyer as pass/fail so the tiering reproduces exactly.
+DO NOT PAD TIER A. If six qualify, output six and say so.
+
+--- RULES ---
+Flag every assumption inline on the buyer's row. My deal outline is
+authoritative — never override my property facts with public record or your
+own knowledge; note conflicts. State in one paragraph which missing input
+would most change this ranking. Do not pad any tier. If a required column is
+missing, say so before scoring rather than substituting.
+
+--- PHASE 2 OUTPUT: DOWNLOADABLE .CSV ---
+Ranked best to worst, columns exactly:
+First Name, Last Name, Phone, Email, Company Name, Address, City, State,
+Postal Code, Tags, buyer_tier, buyer_rank, fit_score, call_priority,
+prior_deals_24mo, prior_deals_12mo, nearest_prior_address,
+nearest_prior_distance_mi, nearest_prior_price, nearest_prior_date,
+scope_class, scope_evidence, price_band_match, financing_type,
+systems_match, vintage_match, why_this_fits, assumptions_flagged
+Tags semicolon-delimited, lowercase, hyphenated: dispo-[address-slug];
+tier-[a/b/c]; scope-[class]; band-[match/near/out]; fin-[type];
+radius-[n]mi; buys-[submarket]
+call_priority is the literal dial order. why_this_fits is ONE sentence naming
+their specific prior deal, readable aloud as a call opener. Then stop.
+
+--- PHASE 3 (after I confirm): PDF ---
+Everything in the CSV plus a one-page profile for EVERY Tier A buyer: their
+nearby past deals named individually with address, date, price, distance and
+characteristics; why this deal fits their pattern; the counter-case in one or
+two lines; an SMS under 300 characters naming their prior purchase; a
+plain-text email of 3-6 short lines in one-to-one voice referencing the SMS,
+with listing URL, comp link and both phone numbers; and a cold-call opener
+and voicemail written to be spoken. Lead with a summary page: tier counts,
+the thinnest part of the pool, the missing input, and data-quality problems.</div>
+
+<div class="callout blue">
+  <div class="callout-icon">🔁</div>
+  <div class="callout-body"><strong>Re-run the ranking any time you change the price.</strong> The price gate is defined off the buy number — a price cut moves the band, which moves who qualifies. Working the old ranking after a price change is working a list built for a different deal.</div>
+</div>
+
+<h2>Templates</h2>
+<p>The <code>{{variables}}</code> map to the CRM fields below. Populate them on import and these fill themselves.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">✍️</div>
+  <div class="callout-body"><strong>Copy rules for all of them.</strong> No taglines, no slogans, straight factual language. Never call a rehab "cosmetic" unless it is; never say "full rehab" — describe the remaining work and let them scope it at walkthrough. No rehab estimates, all-in assumptions or yield math — ARV, price and rent only. Always include the comp link when one exists. <strong style="display:inline;">Baltimore City deals: no neighborhood names, use the street address.</strong></div>
+</div>
+
+<h3>SMS — Touch 1, Hour 1</h3>
+<div class="codeblock light">{{first_name}} — {{my_first_name}} here. Saw you picked up
+{{nearest_prior_address}} back in {{nearest_prior_date}}.
+
+Got one about {{nearest_prior_distance_mi}} miles from it,
+{{subject_address}}, off market.
+
+Worth 2 minutes on the phone? {{listing_url}}</div>
+
+<p style="font-size:13px;color:var(--graphite);"><strong>Multiple nearby purchases:</strong></p>
+<div class="codeblock light">{{first_name}} — {{my_first_name}}. You've bought {{prior_deals_12mo}} in this
+pocket in the last year, {{nearest_prior_address}} most recently.
+
+Have one off market at {{subject_address}}. Same kind of project.
+
+Got 2 minutes today? {{listing_url}}</div>
+
+<p style="font-size:13px;color:var(--graphite);"><strong>Distant buyer, strong scope match</strong> — this is the one people skip. Don't:</p>
+<div class="codeblock light">{{first_name}} — {{my_first_name}}. You did {{nearest_prior_address}}, which is
+the same scope as one I just picked up at {{subject_address}}.
+
+Not your usual pocket but it's your usual project.
+
+Worth a look? {{listing_url}}</div>
+
+<p>Under 300 characters. <strong>Never open with the deal — open with their purchase.</strong> Ask for two minutes, not a decision. Send from a number a human answers, staggered over 15–20 minutes.</p>
+
+<h3>Email — Touch 2, Hour 2</h3>
+<p>Subject: the address. Nothing else.</p>
+<div class="codeblock light">{{first_name}} —
+
+Sent you a text earlier, following up here.
+
+You bought {{nearest_prior_address}} in {{nearest_prior_date}}.
+{{why_this_fits}}
+
+{{subject_address}}. {{beds}}/{{baths}}, {{sqft}} sf, {{price}}.
+ARV {{arv}}. {{scope_remaining}}.
+
+Full details and photos: {{listing_url}}
+Comps: {{comp_link}}
+
+Showings this week, offers due {{deadline}}.
+
+Call or text me at {{my_cell}} — I have you at {{their_cell}}.
+
+{{my_first_name}}</div>
+
+<table class="compare-table">
+  <tr><th>Rule</th><th>Do</th><th>Don't</th></tr>
+  <tr><td>Send method</td><td>Plain-text, individually</td><td>The drag-and-drop email builder</td></tr>
+  <tr><td>Length</td><td>3–6 short lines</td><td>Paragraphs, bullets, bold, headers</td></tr>
+  <tr><td>Line three</td><td>Their address</td><td>Header image, logo, banner</td></tr>
+  <tr><td>Contact</td><td>Both phone numbers in the body</td><td>Signature block with icons</td></tr>
+  <tr><td>Subject</td><td>The address</td><td>"New Investment Opportunity — 22% Below ARV"</td></tr>
+</table>
+<p><strong>The test:</strong> hold it next to an email you actually typed on your phone to a buyer you know. Not the same species of message? Rewrite it.</p>
+
+<h3>Cold-call opener — Touch 3, Hour 4</h3>
+<div class="script-you"><strong>YOU</strong>{{first_name}}? {{my_full_name}}, Impact Home Team — you got a minute?<br><br>
+Reason I'm calling: you bought {{nearest_prior_address}} back in {{nearest_prior_date}}. I've got one about {{nearest_prior_distance_mi}} miles from that, off market, {{subject_address}}.<br><br>
+{{why_this_fits}}<br><br>
+Sent you a text this morning and an email an hour ago — didn't want to just leave it in your inbox.<br><br>
+You still buying in that pocket?</div>
+<p><strong>Then stop talking.</strong> The next thing said comes from them. If they say "send me the info," it's already in their inbox — say so, and ask what would make it a fit.</p>
+
+<h3>Voicemail</h3>
+<div class="script-you"><strong>YOU</strong>{{first_name}}, {{my_full_name}} with Impact Home Team, {{my_cell}}.<br><br>
+Calling about an off-market property at {{subject_address}} — about {{nearest_prior_distance_mi}} miles from {{nearest_prior_address}}, which I know you bought in {{nearest_prior_date}}.<br><br>
+{{beds}}/{{baths}}, {{sqft}} square feet, asking {{price}}, ARV around {{arv}}.<br><br>
+I texted you this morning and sent an email about an hour ago, so it's all in there — photos, comps, scope.<br><br>
+Offers are due {{deadline}}. {{my_cell}}. Thanks {{first_name}}.</div>
+<p>Under 30 seconds. Number at the front and the end. Name both prior touches — that reference is what makes this the callback-generating touch instead of the third ignored message. <strong>No second voicemail inside 48 hours.</strong></p>
+
+<h3>Inbound qualifying script</h3>
+<div class="script-you"><strong>OPEN</strong>This is {{my_first_name}} — thanks for calling back. Which property, {{subject_address}}?</div>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>"Have you had a chance to look at the listing yet, or do you want me to walk you through it?"</strong>Tells you whether you're answering or presenting.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>"What have you closed recently that's similar to this one?"</strong>If this contradicts the ranking, the ranking is wrong about this person. Fix the record while they're talking.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>"How are you funding this one — cash, hard money, or a lender?"</strong>A close-date question, not a credit question. Ask it that way.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>"When can you walk it? I've got {{showing_windows}}."</strong>The showing commitment is the actual qualification. Everything before this is conversation.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>"What number gets this done for you today?"</strong>Last. A caller asked for price in the first thirty seconds invents a low anchor to protect themselves, and now you're negotiating against a number they made up before they understood the deal.</div></li>
+</ol>
+<div class="script-you"><strong>CLOSE</strong>Offers are due {{deadline}}. If you want it, get me a signed contract and your deposit to {{title_company}} and it's yours — I'm signing the best terms on the table, not the highest number.</div>
+<p><strong>Log every answer while you're on the call.</strong> There is no <em>after</em> on day one.</p>
+
+<h3>Offer comparison sheet</h3>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Line</th><th>A</th><th>B</th><th>C</th></tr>
+  <tr><td>Buyer entity</td><td></td><td></td><td></td></tr>
+  <tr><td>Tier and rank</td><td></td><td></td><td></td></tr>
+  <tr><td>Price</td><td></td><td></td><td></td></tr>
+  <tr><td>Deposit — amount, and hard when?</td><td></td><td></td><td></td></tr>
+  <tr><td>Funding: cash / hard money / conventional</td><td></td><td></td><td></td></tr>
+  <tr><td>Proof of funds received and dated</td><td></td><td></td><td></td></tr>
+  <tr><td>Inspection period (days)</td><td></td><td></td><td></td></tr>
+  <tr><td>Close-by date</td><td></td><td></td><td></td></tr>
+  <tr><td>Have they walked it?</td><td></td><td></td><td></td></tr>
+  <tr><td>Contingencies beyond inspection</td><td></td><td></td><td></td></tr>
+  <tr><td>Prior closes with you</td><td></td><td></td><td></td></tr>
+  <tr><td>Prior closes in this submarket</td><td></td><td></td><td></td></tr>
+  <tr><td>Assignment or double close</td><td></td><td></td><td></td></tr>
+  <tr><td>Contract changes requested</td><td></td><td></td><td></td></tr>
+  <tr><td>Net to you</td><td></td><td></td><td></td></tr>
+  <tr><td><strong>Close probability — high / med / low</strong></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<p><strong>The bottom two rows are the decision; price is an input to it.</strong> A hard deposit and a short inspection from a buyer with prior closes in this submarket beats a bigger number from a first-timer with a 14-day inspection and no proof of funds. Tell the losing buyers the same day, in a sentence, and tell them what won. Cheapest relationship investment in the whole system, and it's why they answer next time.</p>
+
+<h2>CRM Setup</h2>
+<div class="callout amber">
+  <div class="callout-icon">🔧</div>
+  <div class="callout-body"><strong>One-time build. Do it before your first import.</strong> Unmapped columns are dropped silently — you find out at hour one with 140 empty records.</div>
+</div>
+
+<p><strong>Pipeline:</strong> <span class="ghl-field">Dispo — [SUBJECT ADDRESS]</span>, one per deal. Stages: Ranked–Not Contacted → Touch 1 Sent → Touch 2 Sent → Touch 3 Sent → Engaged → Showing Scheduled → Offer Received → Under Contract → Dead/Nurture.</p>
+<p><strong>Opportunity name:</strong> <span class="ghl-field">[BUYER ENTITY] — [SUBJECT ADDRESS]</span>. The property address lives on the contact record and won't show on the card, which is exactly when you need it.</p>
+<p><strong>Opportunity Value = fit score (0–100).</strong> Not a dollar figure — a sort key. The board sorts by value, so the pipeline <em>is</em> the ranked call list. Anyone who opens it works top-down without being told to.</p>
+
+<p><strong>Twelve custom fields:</strong> <code>buyer_tier</code> · <code>buyer_rank</code> · <code>fit_score</code> · <code>call_priority</code> · <code>prior_deals_24mo</code> · <code>prior_deals_12mo</code> · <code>nearest_prior_address</code> · <code>nearest_prior_distance_mi</code> · <code>nearest_prior_price</code> · <code>nearest_prior_date</code> · <code>scope_evidence</code> · <code>why_this_fits</code></p>
+
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Tag</th><th>Example</th><th>Purpose</th></tr>
+  <tr><td><code>dispo-[address-slug]</code></td><td><code>dispo-412-oak-st</code></td><td>Everyone on this deal</td></tr>
+  <tr><td><code>tier-a</code> / <code>tier-b</code> / <code>tier-c</code></td><td></td><td>Drives every segmented send</td></tr>
+  <tr><td><code>scope-gut</code> / <code>-medium</code> / <code>-light</code> / <code>-turnkey</code></td><td></td><td><strong>Durable.</strong> The most reusable tag you'll build</td></tr>
+  <tr><td><code>band-match</code> / <code>-near</code> / <code>-out</code></td><td></td><td>Price band fit</td></tr>
+  <tr><td><code>fin-cash</code> / <code>-hard-money</code> / <code>-conventional</code> / <code>-unknown</code></td><td></td><td><strong>Durable.</strong> Financing evidence</td></tr>
+  <tr><td><code>radius-[n]mi</code></td><td><code>radius-4mi</code></td><td>Distance bucket</td></tr>
+  <tr><td><code>buys-[submarket]</code></td><td><code>buys-dundalk</code></td><td><strong>Durable.</strong> Compounds across deals</td></tr>
+  <tr><td><code>touch1-sent</code> / <code>touch2-sent</code> / <code>touch3-sent</code></td><td></td><td>Applied by automation, not import</td></tr>
+</table>
+</div>
+
+<p><strong>Import map:</strong> First/Last Name, Phone, Email, Company Name, Address block and Tags go to the standard fields — Tags semicolon-delimited. The twelve columns above map to the twelve custom fields of the same name. Then set Pipeline, Stage = <span class="ghl-field">Ranked–Not Contacted</span>, Opportunity Value = <code>fit_score</code>, Source = <span class="ghl-field">Dispo Rank — [SUBJECT ADDRESS]</span>. <strong>Confirm every mapping on the preview screen, every time.</strong></p>
+
+<h2>Deal Outline + Pre-Launch Checklist</h2>
+<h3>Required fields — no blanks before Step 2</h3>
+<p>Address · buy-it-now price · ARV · % of ARV · above-grade SF · basement SF (finished and unfinished separately) · total under roof · beds · baths (full and half separately) · lot size · year built · water source (well: depth, last test) · sewer (septic: tank age, last pump, inspection status) · outbuildings with condition · road surface, public or private, frontage, who maintains · scope completed · scope remaining · terms (assignment or double close, deposit, inspection period, close-by date) · title company and contact · showing availability · offer deadline to the minute · comp link</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">📐</div>
+  <div class="callout-body"><strong>On square footage — the most expensive error in the system.</strong> Public record is wrong often, and when it's wrong it's frequently off by hundreds of feet: missed additions, finished basements counted above grade, decades-old data, some jurisdictions never measured at all. Two failure paths: <em>in the ranking</em>, SF feeds product-type and price-band scoring, so a 1,900 SF house entered as 1,400 gets scored against the wrong buyer cohort and you have no way to see it. <em>In the listing</em>, a buyer who walks a house 400 feet smaller than advertised doesn't renegotiate — they leave, and they discount everything else you told them. Verify against the tax record <em>and</em> an appraisal, a prior MLS listing with measured SF, or a physical measurement. Where sources disagree, state both with the source named and let the discrepancy be visible.</div>
+</div>
+
+<h3>Pre-launch checklist — nothing unchecked before the hour-one text</h3>
+<div class="workflow-card">
+  <h4>DEAL</h4>
+  <ul>
+    <li>☐ Every field above filled</li>
+    <li>☐ SF verified against a second source</li>
+    <li>☐ Scope honest, no "cosmetic," no "full rehab"</li>
+    <li>☐ Title company confirmed and reachable today</li>
+    <li>☐ Deadline set to the minute</li>
+    <li>☐ Comp link live and correct</li>
+  </ul>
+</div>
+<div class="workflow-card">
+  <h4>DATA</h4>
+  <ul>
+    <li>☐ Subject as search center</li>
+    <li>☐ Result count above 100</li>
+    <li>☐ Radius recorded</li>
+    <li>☐ Export opened and verified: purchase addresses, dates, prices all present</li>
+  </ul>
+</div>
+<div class="workflow-card">
+  <h4>RANKING</h4>
+  <ul>
+    <li>☐ Outline pasted in full, not summarized</li>
+    <li>☐ All bracketed fields filled</li>
+    <li>☐ A tier scope-checked</li>
+    <li>☐ Assumptions flagged</li>
+    <li>☐ Missing input named</li>
+    <li>☐ A tier not padded</li>
+  </ul>
+</div>
+<div class="workflow-card">
+  <h4>LISTING</h4>
+  <ul>
+    <li>☐ Published and clicked by you on a phone</li>
+    <li>☐ Comp link works</li>
+    <li>☐ Photos loaded</li>
+  </ul>
+</div>
+<div class="workflow-card">
+  <h4>CRM</h4>
+  <ul>
+    <li>☐ All twelve custom fields exist</li>
+    <li>☐ Preview confirms every mapping</li>
+    <li>☐ Opportunity Value populated</li>
+    <li>☐ Board sorts highest first</li>
+    <li>☐ Inbound owner named in writing, phone set to receive</li>
+  </ul>
+</div>
+
+<h2>Reference</h2>
+<h3>Failure modes, by step</h3>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Step</th><th>What goes wrong</th><th>What it costs</th><th>Fix</th></tr>
+  <tr><td>1</td><td>Proceeding with fields blank because "the buyer will ask"</td><td>They ask at hour four, live, while deciding whether you're organized enough to close</td><td>Fill it once, 45 minutes</td></tr>
+  <tr><td>1</td><td>Trusting public-record square footage</td><td>Corrupts the ranking and the listing. The most expensive error in the system</td><td>Verify against a second source</td></tr>
+  <tr><td>2</td><td>Stopping at exactly 100</td><td>The gates don't care how close you were to the floor. A thin A tier follows</td><td>Widen one more increment</td></tr>
+  <tr><td>2</td><td>Widening the radius, then working the list in export order</td><td>The radius creates the pool; the ranking creates the order</td><td>Never confuse the two</td></tr>
+  <tr><td>3</td><td>Exporting a "contacts" view instead of a "transactions" view</td><td>Looks like a buyer list. Cannot be ranked. Most platforms default to it</td><td>Re-export with history</td></tr>
+  <tr><td>4</td><td>Accepting the first output because it looks organized</td><td>A ranked list is persuasive by construction. This is where you catch a distance sort</td><td>20 minutes of review, every time</td></tr>
+  <tr><td>5</td><td>Texting before the listing is live</td><td>Your best buyer clicks in the first ninety seconds. That's what makes them your best buyer</td><td>Publish first, always</td></tr>
+  <tr><td>6</td><td>Importing before the custom fields exist</td><td>CRM drops them silently. You find out at hour one with 140 empty records</td><td>Build fields once, confirm preview every time</td></tr>
+  <tr><td>7</td><td>Merging a name into one generic text</td><td>"Hey [name]" is not personalization. The prior-purchase reference is the entire mechanism</td><td>Use the <code>why_this_fits</code> field</td></tr>
+  <tr><td>8</td><td>Building it in the email designer because it's faster</td><td>Tracking pixel, footer, wrapper table → Promotions tab → the exact blast this replaces</td><td>Plain text</td></tr>
+  <tr><td>9</td><td>Compressing the schedule and calling at hour two</td><td>The voicemail can't reference an email that hasn't been sent. You lose the stacking effect</td><td>Hold the four-hour gap</td></tr>
+  <tr><td>Day 2+</td><td>Re-blasting the A tier because the deal hasn't sold</td><td>They heard you five times. A sixth subtracts credibility for the next deal</td><td>Go to the stop rule</td></tr>
+  <tr><td>Post-close</td><td>Archiving the pipeline without harvesting it</td><td>Campaign data has no owner and no deadline, so it disappears</td><td>Calendar the 45 minutes the day it closes</td></tr>
+</table>
+</div>
+
+<h3>Why 100 buyers is the floor</h3>
+<p>After the gates, a typical export loses most of its rows — no purchase in the window, wrong product class, outside every price band. A 60-buyer export routinely produces an A tier of two or three names. Two or three names isn't a channel, it's a coincidence, and a same-day three-touch sequence has nothing to run on. At 100+, the A tier is thick enough to work.</p>
+<p>If the A tier still comes back thin, <strong>that's information, not a problem to solve by loosening the gates.</strong> It means the radius was too tight, the scope class is unusual for this submarket, or your price band doesn't overlap what people here actually buy. All three are worth knowing on day one instead of day four.</p>
+
+<h3>Cadence — day 2 to the deadline</h3>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>When</th><th>Who</th><th>Action</th></tr>
+  <tr><td>Day 2 AM</td><td>Tier A, no reply</td><td>One SMS. Pattern interrupt, one line — what held them back, or is it outside their box. Not a re-pitch</td></tr>
+  <tr><td>Day 2 midday</td><td>Tier B</td><td>Full three-touch sequence compressed into one day; calls to the top half of B</td></tr>
+  <tr><td>Day 2 PM</td><td>Tier A, no reply</td><td>Second dial, different time of day. No voicemail — a second one in 30 hours reads as pressure</td></tr>
+  <tr><td>Day 3</td><td>Tier A at 5 touches, zero response</td><td>Move to nurture. Drop <code>tier-a</code>, keep the durable tags, stop dialing</td></tr>
+  <tr><td>Day 3</td><td>Tier C</td><td>Standard blast. One SMS, one email, no calls</td></tr>
+  <tr><td>Day 3 → deadline</td><td>Everyone engaged</td><td>Conversations only. No new cold outreach into the same list</td></tr>
+  <tr><td>−24 hours</td><td>Engaged, no offer</td><td>The deadline stated as a fact, not a threat: date, time, and that you're signing the best terms on the table</td></tr>
+</table>
+</div>
+<p>The move-to-nurture rule is <strong>deliberately mechanical</strong> — five touches, zero response, 48 hours. The judgment version ("keep going if it feels promising") is how a day gets spent calling eight people who already decided. Nurture isn't a graveyard: they keep their durable tags and come back into Tier A automatically the next time a deal matches their pattern.</p>
+
+<h3>Stop rule</h3>
+<p>Exhausted when two are true: ① A tier through five touches with a response rate under your baseline — until you have one, use zero replies ② three or more buyers independently naming the same objection ③ you're dialing below the top 40% ④ two walkthroughs, no offers.</p>
+<p>Then act on what the signal points at, not on effort:</p>
+<ul>
+  <li><strong>Objection is price</strong> → cut to the number they named, and re-run touch 1 to Tier A with the new price as the reason for the message. A price cut is the only legitimate reason to re-contact someone who ignored you.</li>
+  <li><strong>Objection is scope or product</strong> → the ranking was scored against the wrong scope class. Fix the outline, re-run the prompt. Data problem upstream, not a demand problem.</li>
+  <li><strong>No objections, no replies, thin A tier</strong> → widen the radius and re-run. The pool was too small from the start.</li>
+  <li><strong>Objections are structural</strong> — private road, failed septic, no legal access → reprice against what it actually is, or go back to the seller.</li>
+</ul>
+<div class="callout blue">
+  <div class="callout-icon">📊</div>
+  <div class="callout-body"><strong>Three buyers naming the same objection is not three rejections.</strong> It's one piece of market information delivered three times, and it's the highest-value signal in the system. It's also the one most often thrown away as "buyers being buyers."</div>
+</div>
+
+<h3>After the close — 45 minutes, on the calendar</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Promote the durable tags.</strong> <code>dispo-412-oak-st</code>, <code>tier-a</code> and <code>radius-4mi</code> die with the deal. <code>scope-gut</code>, <code>fin-cash</code>, <code>buys-dundalk</code> and the price band are true about the buyer until their behavior changes — keep those forever. After five deals your database self-segments before you export anything.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Record what the campaign taught you that the data couldn't.</strong> Per contact: responded y/n and to which touch, walked y/n, offered y/n and at what number, and their objection in their words. A buyer who replies to SMS and never opens email is a fact you now own. A buyer who walked and objected on scope has told you their real box.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Note the winner</strong> — what they paid, what they said, how fast they moved, what they wanted in terms. Their next purchase is what you should be sourcing.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Append to one master buyer file</strong> outside the CRM, deduplicated on entity: entity, contact, phone, email, scope class, price band, submarket, financing, deals seen, responded to, walked, bought. After a handful of deals this beats a fresh export in any submarket you've worked, because it holds response behavior and an export never will.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Next deal in the corridor:</strong> run the prompt against the master file and a fresh export together. The master supplies behavior, the export supplies new entrants. Neither alone is as good as both.</div></li>
+</ol>
+
+<h2>Video Walkthrough Outline</h2>
+<p>5–15 minutes. The goal is the transformation, not the software. Nobody buys this to learn where the export button is.</p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Beat</th><th>On screen</th><th>Say</th><th>Cut on</th></tr>
+  <tr><td><strong>1. The problem</strong><br>0:00–1:15</td><td>Talking head, then a raw export scrolling — 140 unsorted rows</td><td>"This is 140 cash buyers. Three of them will buy this deal. Here's how most people find out which three — they text all 140 and wait." Then the cost: low replies, a list trained to ignore you, three real buyers buried</td><td>The scroll bar showing how far the list runs. Let it sit two seconds</td></tr>
+  <tr><td><strong>2. The stack</strong><br>1:15–2:00</td><td>Four title cards</td><td>One sentence each. Say explicitly that the data source must carry transaction history, not just contacts — the most common setup mistake</td><td>The last card</td></tr>
+  <tr><td><strong>3. The outline</strong><br>2:00–3:30</td><td>Fields being filled, then hard cut to two tabs showing conflicting square footage</td><td>Walk the fields at pace. Slow down on SF and show the discrepancy live: "Public record says 1,412. The 2019 listing says 1,806. If I rank on 1,412, I'm scoring buyers against a house that doesn't exist"</td><td>The corrected field</td></tr>
+  <tr><td><strong>4. Search and export</strong><br>3:30–4:30</td><td>Screen recording, radius widening, counter visible — 41, 68, 112</td><td>Why 100 is the floor. Why a wider radius is fine because the ranking re-sorts for it</td><td>The counter passing 100</td></tr>
+  <tr><td><strong>5. The ranking</strong><br>4:30–7:30 — the centerpiece</td><td>Prompt pasted, CSV attached, jump cut past the wait. Then split screen: raw export left, ranked output right. Same 140 people, different order</td><td>Narrate one buyer: "Row 96 in the raw export. Rank 3 ranked. Two guts within four miles in the last eight months, cash, same vintage." Then the reverse: "Row 4 raw, because they're closest. Tier C, because everything they've ever bought is turnkey rentals." Then say the rule out loud: scope beats proximity</td><td>The split screen, held. Let the reorder land</td></tr>
+  <tr><td><strong>6. CRM and the sequence</strong><br>7:30–9:30</td><td>Board sorted by fit score, then the three touches</td><td>Show that the board is the call list because Opportunity Value is the fit score. Show a real per-buyer SMS beside a generic blast, and the plain-text email beside a designer-built one. Don't explain the difference — the comparison does it</td><td>The dialer opening the first card</td></tr>
+  <tr><td><strong>7. The result</strong><br>9:30–10:30</td><td>Pipeline at end of day one, then one A-tier profile scrolling</td><td>What you hold at 5pm. <span class="fill">[YOUR OWN DAY-ONE OUTCOME, OR CUT TO A DESCRIPTION OF THE DELIVERABLES]</span> — don't narrate a result you didn't get</td><td>—</td></tr>
+  <tr><td><strong>8. Lessons</strong><br>10:30–12:00</td><td>Talking head only. Screen recording dilutes this beat</td><td>① Public-record SF is the costliest error ② a thin A tier is information, not a problem to fix by loosening gates ③ the model over-indexes on distance unless you stop it ④ three buyers with the same objection is market data, not rejection. Close on the stop rule: "The list is exhausted before you feel like it's exhausted. When it is, the answer is a price change or a wider radius — not more dials"</td><td>Black. No outro card, no music sting</td></tr>
+</table>
+</div>
+<p><strong>Record on a real deal, not a demo.</strong> Blur seller info and buyer contact columns; leave transaction data visible — that's the proof. The split screen in Beat 5 is your thumbnail and your first five seconds; lead the video with it as a cold open where the platform rewards it.</p>
+`},
+      { id: 'dispo-launch-checklist', title: 'Dispo Launch Checklist', dept: 'Dispositions', owner: 'Joshua Hines',
+        content: `
+<h2>Dispo Launch Checklist</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Joshua Hines</span><span><strong>Run:</strong> one per property</span></div>
+
+<p>The per-property run sheet. Nine phases from executed contract to close-out. Every box belongs to the dispo assistant unless the roles table says otherwise.</p>
+
+<div class="docs">
+  <a class="doc" href="/IHT-Dispo-Launch-Checklist.pdf" target="_blank" rel="noopener">
+    <div class="dt">IHT Dispo Launch Checklist — printable PDF</div>
+    <div class="dd">The full 17-page SOP with fill-in fields, formatted to print and run one per property. Everything in it is reproduced on this page.</div>
+    <span class="du">IHT-Dispo-Launch-Checklist.pdf</span>
+  </a>
+</div>
+
+<p>Property: <span class="fill">____________________</span> · Assistant: <span class="fill">____________</span> · Launch date: <span class="fill">__________</span> · Offer deadline: <span class="fill">__________</span></p>
+
+<div class="callout crimson">
+  <div class="callout-icon">🔀</div>
+  <div class="callout-body"><strong>Pick the branch first.</strong>
+  <strong style="display:inline;">☐ BALTIMORE COUNTY / OTHER</strong> → Phases 1–4 on Day 1, VIP window expires Day 3, blitz Day 3.<br>
+  <strong style="display:inline;">☐ BALTIMORE CITY</strong> → no VIP window. Phases 4 and 5 fire together on Day 1. No neighborhood names anywhere in the copy — street address or landmark only.</div>
+</div>
+
+<h2>The Nine Phases</h2>
+
+<div class="workflow-card">
+  <h4>1 — DRAFT THE LISTING · Nothing else starts until Joshua has the draft</h4>
+  <ul>
+    <li>☐ <strong>1.1</strong> Confirm contract executed, deposit receipted, title order open</li>
+    <li>☐ <strong>1.2</strong> Gather: call transcript, tax record, acquisition notes, photos, scope</li>
+    <li>☐ <strong>1.3</strong> Verify square footage against a second source — tax record alone is not enough</li>
+    <li>☐ <strong>1.4</strong> Load all sources into the off-market listing template</li>
+    <li>☐ <strong>1.5</strong> Draft the initial listing</li>
+    <li>☐ <strong>1.6</strong> Proofread vs. the Fairfax Rd benchmark — no "cosmetic," no "full rehab," no rehab estimates, comp link in</li>
+    <li>☐ <strong>1.7</strong> Correct every error found, then read it once more cold</li>
+    <li>☐ <strong>1.8</strong> Tell Joshua the draft is ready. Do not move to 3 without his response</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>2 — TARGETED BUYERS AND REALTORS · The people already doing business in this pocket</h4>
+  <ul>
+    <li>☐ <strong>2.1</strong> InvestorBase: subject as center, 24-month window. Widen until 100+ buyers. Radius used: <span class="fill">______</span></li>
+    <li>☐ <strong>2.2</strong> Export CSV — confirm purchase addresses, dates and prices survived. Contacts-only export cannot be ranked</li>
+    <li>☐ <strong>2.3</strong> MLS pull: closed, 12 months, ceiling ~2× ARV, radius by drive time. 100+ realtors, both agents per sale</li>
+    <li>☐ <strong>2.4</strong> Rank both lists. If the A tier is sorted by distance, re-run</li>
+    <li>☐ <strong>2.5</strong> Import both to GHL, tagged. Opportunity Value = fit score</li>
+    <li>☐ <strong>2.6</strong> Counts logged: <span class="fill">____</span> pool · <span class="fill">____</span> Tier A · <span class="fill">____</span> agents ranked · <span class="fill">____</span> Tier A agents</li>
+    <li>☐ <strong>2.7</strong> <strong>Hour 1</strong> — SMS to buyer Tier A and realtor Tier A, each naming their own prior deal. Needs the live URL (3.7)</li>
+    <li>☐ <strong>2.8</strong> <strong>Hour 2</strong> — emails, one per buyer, plain text, references the text</li>
+    <li>☐ <strong>2.9</strong> <strong>Hour 4</strong> — call buyer top 20% and realtor top 40%. Commission stated in the first minute of every agent call</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>3 — FINALIZE AND PUBLISH · Must be live before anything sends</h4>
+  <ul>
+    <li>☐ <strong>3.1</strong> Gather: call transcript, tax record, acquisition notes, and the 1.5 draft</li>
+    <li>☐ <strong>3.2</strong> Rewrite in Claude — find the sales angle and pitch for this property</li>
+    <li>☐ <strong>3.3</strong> Rewrite the same inputs in ChatGPT</li>
+    <li>☐ <strong>3.4</strong> Synthesize both into one final version — take the strongest angle from each, don't average them</li>
+    <li>☐ <strong>3.5</strong> Upload to the site and publish</li>
+    <li>☐ <strong>3.6</strong> Send the published URL back to Claude for a final edit pass</li>
+    <li>☐ <strong>3.7</strong> Upload the newest version. Check against the prior version — nothing repetitive</li>
+    <li>☐ <strong>3.8</strong> Click the live URL on your own phone: photos load, comp link works</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>4 — VIP BLAST · Day 1, Hour 3 · County only — City folds VIP into 5</h4>
+  <ul>
+    <li>☐ <strong>4.1</strong> Segment pulled and counted: <span class="fill">______</span> VIPs</li>
+    <li>☐ <strong>4.2</strong> First-look SMS sent, staggered 15–20 min</li>
+    <li>☐ <strong>4.3</strong> Lockbox live and code in the text</li>
+    <li>☐ <strong>4.4</strong> 48-hour window stated with the exact expiry</li>
+    <li>☐ <strong>4.5</strong> Top 10 VIPs called same day</li>
+    <li>☐ <strong>4.6</strong> Every reply logged on the card, not in your head</li>
+    <li>☐ <strong>4.7</strong> At expiry: sold → stop. Not sold → go to 5</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>5 — FULL BLITZ · Day 3 County · Day 1 City</h4>
+  <ul>
+    <li>☐ <strong>5.1</strong> Priority buyers — SMS, then call the top 20</li>
+    <li>☐ <strong>5.2</strong> Regular buyers — SMS, then Sly RVM</li>
+    <li>☐ <strong>5.3</strong> Full email list — one broadcast, comp link in it</li>
+    <li>☐ <strong>5.4</strong> Round 2 — targeted buyers from Phase 2, one pattern-interrupt SMS</li>
+    <li>☐ <strong>5.5</strong> Round 2 — realtors from Phase 2, second call not a second voicemail</li>
+    <li>☐ <strong>5.6</strong> Every segment tagged <code>dispo-[address]</code> before sending</li>
+    <li>☐ <strong>5.7</strong> Send log complete: channel, count, time</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>6 — INBOUND · One named person owns the line all day</h4>
+  <ul>
+    <li>☐ <strong>6.1</strong> Inbound owner named in writing before 2.7 goes out</li>
+    <li>☐ <strong>6.2</strong> Qualified in order: seen it → closed anything like it → how funded → when can you walk it → price last</li>
+    <li>☐ <strong>6.3</strong> Answers logged during the call</li>
+    <li>☐ <strong>6.4</strong> Showing booked or a stated position captured</li>
+    <li>☐ <strong>6.5</strong> Nothing sits in voicemail past 30 minutes</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>7 — SHOWINGS</h4>
+  <ul>
+    <li>☐ <strong>7.1</strong> Access tested by us before the first walk</li>
+    <li>☐ <strong>7.2</strong> Every walker logged with date and time</li>
+    <li>☐ <strong>7.3</strong> Post-walk follow-up same day, every time</li>
+    <li>☐ <strong>7.4</strong> Objections captured in their words</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>8 — OFFERS</h4>
+  <ul>
+    <li>☐ <strong>8.1</strong> Offer comparison sheet filled, one row per offer</li>
+    <li>☐ <strong>8.2</strong> Proof of funds received and dated for each</li>
+    <li>☐ <strong>8.3</strong> Recommendation to Joshua: price, deposit, close date, close probability</li>
+    <li>☐ <strong>8.4</strong> Winner notified, contract out same day</li>
+    <li>☐ <strong>8.5</strong> Losing buyers told same day, and told what won</li>
+  </ul>
+</div>
+
+<div class="workflow-card">
+  <h4>9 — HANDOFF AND CLOSE OUT</h4>
+  <ul>
+    <li>☐ <strong>9.1</strong> Executed assignment and buyer info to the TC</li>
+    <li>☐ <strong>9.2</strong> Title introduced to buyer, deposit instructions sent</li>
+    <li>☐ <strong>9.3</strong> All channels stood down — no live campaign on a sold deal</li>
+    <li>☐ <strong>9.4</strong> Durable tags promoted, campaign data recorded</li>
+    <li>☐ <strong>9.5</strong> Master buyer and agent files updated</li>
+  </ul>
+</div>
+
+<h2>Order of Operations</h2>
+<table class="data-table">
+  <tr><th>When</th><th>What</th></tr>
+  <tr><td><strong>Day 0</strong></td><td>Phase 1, draft to Joshua</td></tr>
+  <tr><td><strong>Day 1 AM</strong></td><td>Phase 2.1–2.6, pull and rank both lists</td></tr>
+  <tr><td><strong>Day 1 midday</strong></td><td>Phase 3, listing live</td></tr>
+  <tr><td><strong>Then Hour 1</strong></td><td>2.7 targeted + realtor SMS</td></tr>
+  <tr><td><strong>Hour 2</strong></td><td>2.8 targeted emails</td></tr>
+  <tr><td><strong>Hour 3</strong></td><td>Phase 4, VIP, lockbox live</td></tr>
+  <tr><td><strong>Hour 4</strong></td><td>2.9 calls, plus top 10 VIPs</td></tr>
+  <tr><td><strong>Day 3</strong></td><td>Phase 5, blitz and round 2</td></tr>
+</table>
+
+<div class="callout crimson">
+  <div class="callout-icon">🛑</div>
+  <div class="callout-body"><strong>Stop and escalate to Joshua — do not improvise.</strong> Any price change · any terms change · a buyer asking for an inspection contingency · title defect or access issue · any seller communication · an agent asking for something outside the standard commission · three or more buyers naming the same objection — that is market data, not rejection, and it usually means reprice.</div>
+</div>
+
+<h2>Roles and Segments</h2>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Role</th><th>Owns</th><th>Name</th></tr>
+  <tr><td>Dispo assistant</td><td>This checklist, start to finish. Every box is yours unless listed below</td><td><span class="fill">____________</span></td></tr>
+  <tr><td>Dispo agent</td><td>Showings, offer negotiation, agent-channel calls</td><td><span class="fill">____________</span></td></tr>
+  <tr><td>Joshua</td><td>The 1.8 draft approval, price, terms, any deviation from this SOP</td><td>Joshua</td></tr>
+  <tr><td>Transaction coordinator</td><td>Everything from 9.1 forward</td><td><span class="fill">____________</span></td></tr>
+  <tr><td>Inbound owner (launch day)</td><td>The phone, all day. Can be the assistant, but must be named in writing before 2.7</td><td><span class="fill">____________</span></td></tr>
+</table>
+</div>
+
+<div class="callout amber">
+  <div class="callout-icon">❓</div>
+  <div class="callout-body"><strong>Segment definitions — confirm with Joshua before first use.</strong> These are proposed definitions, not existing ones. Once confirmed they become the standing rule and the tags get built to match.</div>
+</div>
+
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Segment</th><th>Definition</th><th>Tag</th></tr>
+  <tr><td>Targeted buyer</td><td>Pulled fresh from InvestorBase for this deal. Has bought this product in this pocket. Not a list member yet — they earn a segment by responding</td><td><code>buyer-targeted</code></td></tr>
+  <tr><td>Targeted realtor</td><td>Licensed agent ranked off closed MLS sales in this submarket</td><td><code>agent-[submarket]</code></td></tr>
+  <tr><td>VIP</td><td>Has closed at least one deal with IHT, or sits on the committed VIP list. Gets the 48-hour window on County deals</td><td><code>buyer-vip</code></td></tr>
+  <tr><td>Priority</td><td>Walked a property or submitted an offer with IHT in the trailing 12 months, no close yet. Engaged, unproven</td><td><code>buyer-priority</code></td></tr>
+  <tr><td>Regular</td><td>Everyone else on the buyer list with a valid phone or email</td><td><code>buyer-regular</code></td></tr>
+</table>
+</div>
+<p><strong>Segment hygiene runs monthly, not per deal.</strong> A buyer who closes moves to VIP. A targeted buyer who responds moves to Priority. A buyer who has ignored twelve consecutive campaigns moves to dormant and drops out of the regular blast. Nobody is promoted or demoted mid-launch.</p>
+
+<h3>Two sequencing rules that hold the whole SOP together</h3>
+<p><strong>Nothing sends before the listing is live.</strong> Phase 2 pulls and ranks in the morning because that work depends only on the property facts, not on the copy. But 2.7, 2.8 and 2.9 all point at a URL, so they fire after 3.7. If the listing slips a day, the sends slip with it — do not send targeted SMS to a dead link. The best buyer on the ranked list clicks in the first ninety seconds. That is what makes them the best buyer.</p>
+<p><strong>Targeted runs before VIP, and that's deliberate.</strong> The Phase 2 lists are people who have already put money into this specific pocket, verified by their own closed transactions. They are the highest-probability buyers on any deal and they aren't on our list yet. The VIP text still says the deal comes to them before it goes out to the list, and that stays true — Phase 5 <em>is</em> the list. Do not upgrade it to "nobody else has seen this." If a VIP asks directly, the honest answer is that we work a ranked list of local buyers and agents in parallel and they get the window and the lockbox. That answer costs nothing. Being caught in the other one costs the relationship.</p>
+
+<h2>Phase 1 Detail — Draft the Listing</h2>
+<p>Day 0. The draft is the source document for everything downstream — the ranking prompt, the final listing, every script. An error here propagates into all of them.</p>
+
+<h3>1.1 — Confirm before drafting</h3>
+<p>Contract fully executed with all signatures · deposit wired and receipted by title · title order open with a file number. If any of the three is missing, drafting is fine but <strong>nothing publishes and nothing sends</strong>.</p>
+
+<h3>1.2 — Sources, in this order</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Initial call transcript.</strong> The seller's own words about condition, timeline, what's been done and what hasn't. This is where the sales angle usually comes from, and it is the source most often skipped.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Tax record.</strong> Legal description, lot, year built, assessment, prior sale, and the starting point for square footage — not the answer.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Acquisition notes.</strong> What the agent saw, what the seller wanted, why they're selling, what the walkthrough turned up.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Photos and video.</strong></div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Contractor scope sheet</strong> if we have one.</div></li>
+</ol>
+
+<h3>1.3 — Square footage</h3>
+<p>Tax record alone is not verification. Public record is wrong often, and when it's wrong it's usually off by hundreds of feet: missed additions, finished basements counted above grade, decades-old data, some jurisdictions never measured at all. Two failure paths:</p>
+<ul>
+  <li><strong>In the ranking (Phase 2).</strong> Square footage feeds product-type and price-band scoring. A 1,900 SF house entered as 1,400 gets ranked against the wrong buyer cohort and nobody can see the error.</li>
+  <li><strong>In the listing.</strong> A buyer who walks a house 400 feet smaller than advertised does not renegotiate. They leave, and they discount everything else we told them.</li>
+</ul>
+<p>Verify against the tax record <em>and</em> one of: an appraisal, a prior MLS listing with measured SF, or a physical measurement. If sources disagree, put both in the draft with the source named — "1,412 per SDAT; 1,806 per 2019 MLS" — and <strong>never average them</strong>.</p>
+
+<h3>1.4 — Required fields in the template, no blanks</h3>
+<p>Address · buy-it-now price · ARV · % of ARV · above-grade SF (verified) · basement SF, finished and unfinished separately · total under roof · beds · baths, full and half separately · lot size · year built · water source (well: depth, last test) · sewer (septic: tank age, last pump, inspection status) · outbuildings with condition · road surface, public or private, frontage, who maintains · scope completed · scope remaining · terms (assignment or double close, deposit, inspection period, close-by date) · title company and file number · showing plan · offer deadline to the minute · comp link</p>
+<p>A blank becomes a question asked live at hour four by a buyer deciding whether we're organized enough to close. It also becomes a guess the model makes on our behalf in Phase 2.</p>
+
+<h3>1.6 — Proofread against the benchmark</h3>
+<p>The standard is the <strong>4305 Fairfax Rd listing</strong> (final version): conversational honest opener, no hype, no condition ratings, no rehab estimates, comp link included.</p>
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>The rules, every time.</strong>
+  Never "cosmetic" unless Joshua has said it is. Never "full rehab" or "full renovation" — describe the actual remaining work and let the buyer scope it at walkthrough. No rehab cost estimates, no all-in numbers, no yield math. ARV, price and rent projections only. No taglines, no slogans, no clever phrasing. Comp link in — always; never "contact for comps" when a Bright MLS link exists. <strong style="display:inline;">Baltimore City: no neighborhood name anywhere.</strong> Street address or a nearby landmark only, on every channel, not just the listing.</div>
+</div>
+
+<h3>1.7 — Correct, then read it cold</h3>
+<p>Fix everything the proofread turned up, then step away and read it once more from the top as if you'd never seen it. Most errors that survive a first pass are numbers that contradict each other — SF that doesn't add up, a % of ARV that doesn't match the price and ARV, a deadline that falls before the showing window.</p>
+
+<h3>1.8 — Hand it to Joshua</h3>
+<p>Tell him the draft is ready. <strong>Phase 3 does not start without his response.</strong> Phase 2 can and should start in the meantime — the pull and the ranking depend on property facts, not on the copy.</p>
+
+<h2>Phase 2 Detail — Targeted Buyers and Realtors</h2>
+<p>Day 1. Two lists, both ranked against this specific deal. This is the highest-yield phase in the SOP and the one most likely to get shortened when the day gets busy. <strong>Don't shorten it.</strong></p>
+
+<h3>2.1–2.2 — The buyer pull</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">InvestorBase, subject property as center, 24-month transaction window.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Start tight — 2 miles urban, 5 suburban, 10 rural — and widen in increments until the result set clears 100+ buyers. Record the radius; the ranking prompt needs it.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Export to CSV. Open the file before you close the tab and confirm these survived: buyer entity, contact name, phone, email, mailing address, purchase addresses, purchase dates, purchase prices, property characteristics, distance from subject, financing type where available.</div></li>
+</ol>
+<p>If purchase addresses, dates or prices didn't survive, <strong>the ranking cannot run</strong>. Re-export with a transactions view, not a contacts view. Most platforms default to contacts, which looks like a buyer list and cannot be ranked.</p>
+<p><strong>Why 100 is the floor:</strong> after the ranking gates are applied, most rows drop out — no purchase in the window, wrong product class, outside every price band. A 60-buyer export routinely yields an A tier of two or three names, which is a coincidence, not a channel. Below 100, widen.</p>
+<p><strong>On widening:</strong> every mile adds volume and dilutes relevance. That's fine — the ranking re-sorts for relevance, and a distant buyer with a perfect scope and price match correctly outranks a close buyer with neither. What's not fine is widening the radius and then working the list in export order. <strong>The radius creates the pool; the ranking creates the order.</strong></p>
+
+<h3>2.3 — The realtor pull</h3>
+<p>An MLS export is not a buyer list. It is a transaction list. It contains no buyer identities at all — the "Selling Agent" field is MLS terminology for the buyer's agent, not the buyer. What it gives us is <em>people</em>. Every closed sale has a list agent, who holds the underbidder list from that sale, and a buyer's agent, who has a live rehab client. Both are worth a text, and the value of this phase is converting transactions into ranked people.</p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Parameter</th><th>Setting</th><th>Why</th></tr>
+  <tr><td>Status</td><td>Closed</td><td></td></tr>
+  <tr><td>Window</td><td>Trailing 12 months</td><td></td></tr>
+  <tr><td>Price ceiling</td><td>~2× ARV</td><td>Luxury closings add noise and drag the ranking</td></tr>
+  <tr><td>Radius</td><td>By drive time, not county line</td><td>Submarkets don't follow jurisdiction</td></tr>
+  <tr><td>Target</td><td>100+ agents after dedupe</td><td>Same floor logic as the buyer pull</td></tr>
+</table>
+</div>
+<p><strong>Columns that must survive:</strong> both agents' name, cell, email, office and office phone · close price · list price · close date · DOM · year built · finished SF · lot size · water source · sewer/septic · garage · public and private remarks · financing type if Bright will give it. Financing type, where available, replaces keyword inference and materially tightens the top tier.</p>
+<p>No MLS access on a given deal? The fallback is a partner agent pulling the export for us. Log it as a dependency in the send log — <strong>never skip the channel silently</strong>.</p>
+
+<h3>2.4 — Rank both lists</h3>
+<p>Run the ranking prompt separately against each list, with the 1.5 draft pasted in full as the deal outline. Full prompt and mechanics: <strong>The 24-Hour Dispo System</strong> workflow.</p>
+<p><strong>Buyers score on:</strong> scope/product-type match (30) · price band against both the buy number and ARV (20) · proximity (15) · purchase count and recency (15) · financing (10) · systems, well and septic (5) · vintage (5).</p>
+<p><strong>Agents score on:</strong> whether their closings match this deal's product and scope class, price band, systems and vintage, plus closing volume in this submarket and recency.</p>
+<div class="callout crimson">
+  <div class="callout-icon">🎯</div>
+  <div class="callout-body"><strong>The check that matters, on both lists.</strong> If the A tier is essentially ordered by distance, the ranking failed. Distance is the cleanest and most sortable field in either file and a model will let it dominate unless stopped. A gut buyer forty minutes away beats a light-rehab buyer four minutes away. Re-run rather than importing a distance sort.</div>
+</div>
+<p><strong>Do not pad the A tier.</strong> If six buyers pass the gates, the A tier has six buyers. A thin A tier is information — the radius was too tight, the scope class is unusual here, or our price band doesn't overlap what this pocket actually buys. Worth knowing on Day 1 instead of Day 4.</p>
+
+<h3>2.5–2.6 — Import and log</h3>
+<p>Both lists into GHL under the deal pipeline, tagged <code>dispo-[address-slug]</code> plus their segment tag. Opportunity Value = fit score (0–100) — not a dollar figure, a sort key. The board sorts by value, so the pipeline is the call list and anyone who opens it works top-down.</p>
+<p>Buyers in pool <span class="fill">____</span> · radius used <span class="fill">____</span> · buyer Tier A <span class="fill">____</span> · MLS rows <span class="fill">____</span> · agents ranked <span class="fill">____</span> · agent Tier A <span class="fill">____</span></p>
+<p>These numbers are how we tell, deal over deal, whether a submarket is thin or our gates are wrong.</p>
+
+<h3>2.7–2.9 — The three touches</h3>
+<div class="callout amber">
+  <div class="callout-icon">🔒</div>
+  <div class="callout-body"><strong>Gate: the listing must be live (3.7) before 2.7 fires.</strong> Everything below points at that URL.</div>
+</div>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Hour</th><th>Buyers</th><th>Realtors</th></tr>
+  <tr><td><strong>1</strong></td><td>SMS to Tier A, staggered 15–20 min. Opens with their prior purchase, asks for two minutes</td><td>SMS to Tier A, each naming that agent's own closing and asking whether they still have that buyer</td></tr>
+  <tr><td><strong>2</strong></td><td>Email, one per buyer, plain text, references the text sent an hour earlier</td><td>—</td></tr>
+  <tr><td><strong>4</strong></td><td>Call the top 20% of the ranked list, in order</td><td>Call the top 40% — a higher share, because agents are a smaller and more responsive population and the conversation is peer-to-peer</td></tr>
+</table>
+</div>
+<p><strong>Two rules specific to the agent calls:</strong></p>
+<ul>
+  <li>State the buyer-agent commission <strong>in the first minute, unprompted</strong>. It is the first thing an agent wants to know and vagueness is the fastest way to lose one.</li>
+  <li>Ask them to <strong>name the client</strong>, not to confirm they have one. "Do you have a buyer for this?" gets a polite yes from everyone. "Who's the client — the one who bought the Wilmot property?" separates a real lead from a courtesy.</li>
+</ul>
+<p><strong>Hold the four-hour gap before calling.</strong> The voicemail references both the text and the email by name, and that stacking is what makes the third touch the one that gets returned. Call at hour two and the voicemail can't reference an email that hasn't been sent.</p>
+
+<h2>Phase 3 Detail — Finalize and Publish</h2>
+<p>Day 1, midday, after Joshua responds to the 1.8 draft. This is where the listing stops being a spec sheet and becomes a piece of selling.</p>
+<ol class="step-list">
+  <li><div class="step-num">3.1</div><div class="step-content"><strong>Reassemble the sources.</strong> Call transcript, tax record, acquisition notes, and the 1.5 draft. All four. The draft alone is not enough input for the rewrite — the whole point of this phase is that the model sees the raw material again and finds the angle the draft missed.</div></li>
+  <li><div class="step-num">3.2</div><div class="step-content"><strong>Rewrite in both, separately.</strong> Run the same inputs through Claude and through ChatGPT, in separate sessions, with the same prompt. Do not show either one the other's output — two independent passes produce two different angles; showing one the other collapses them into a single voice and defeats the exercise. What you're asking for is a <em>sales angle</em>, not a summary. Every property has one thing that makes it worth buying — the systems already done, the lot, the rent relative to the number, the road, the fact that nobody else can get to it off-market. The draft states facts. The rewrite has to find which fact is the reason.</div></li>
+  <li><div class="step-num">3.4</div><div class="step-content"><strong>Synthesize.</strong> Take the strongest angle from each and build one final version. <strong>Do not average them</strong> — averaging two good openings produces one mediocre opening. Pick the better lead, then borrow the better section from the other; usually the scope framing from one and the "you should know" section from the other. Then check the synthesis against the 1.6 rules again. Both models will drift toward hype if you let them: superlatives, "incredible opportunity," condition ratings, invented rehab numbers. Every one of those gets cut before publish.</div></li>
+  <li><div class="step-num">3.6</div><div class="step-content"><strong>Send the published URL back to Claude.</strong> Final edit pass against the live page. This catches what a draft review can't: how it actually reads on the page, formatting that broke on upload, sections that run long, a photo caption contradicting the copy, and repetition that only becomes visible once the whole thing is laid out.</div></li>
+  <li><div class="step-num">3.7</div><div class="step-content"><strong>Upload the newest version.</strong> Check it against the version you just replaced. The failure mode here is specific and it happens every time nobody looks: the edit pass adds a paragraph that says the same thing as one already three sections up, and now the listing repeats itself. Read the new version end to end before it goes live. If two sections make the same point, cut the weaker one.</div></li>
+  <li><div class="step-num">3.8</div><div class="step-content"><strong>Click it on your own phone.</strong> Photos load, comp link works, the page renders, nothing is cut off. Most buyers open it on a phone; check it the way they'll see it. <strong>Only now does 2.7 fire.</strong></div></li>
+</ol>
+
+<h2>Phase 4 Detail — VIP Blast</h2>
+<p>Day 1, Hour 3. County and everywhere else. <strong>Baltimore City skips the window entirely</strong> — VIPs still get texted, but in Phase 5, alongside everyone else.</p>
+<p>The model: first look by text → lockbox access → 48-hour window → full list if not sold.</p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Step</th><th>Detail</th></tr>
+  <tr><td><strong>4.1</strong></td><td>Pull <code>buyer-vip</code>, count it, write the count in the send log. A VIP segment shrinking deal over deal is a hygiene problem — flag it, don't fix it mid-launch</td></tr>
+  <tr><td><strong>4.2</strong></td><td>Send the first-look SMS. Stagger over 15–20 minutes. A simultaneous send is detectable as a blast by carriers and by people</td></tr>
+  <tr><td><strong>4.3</strong></td><td>Lockbox live before the text goes out, with the code in the message. A VIP who drives out and can't get in is a VIP we've spent</td></tr>
+  <tr><td><strong>4.4</strong></td><td>State the exact expiry — day, date and time. "48 hours" without a timestamp is a suggestion</td></tr>
+  <tr><td><strong>4.5</strong></td><td>Call the top 10 VIPs the same day, in the Hour 4 block. Not a pitch — a heads-up that it goes wide in two days</td></tr>
+  <tr><td><strong>4.6</strong></td><td>Log every reply on the card as it comes in</td></tr>
+  <tr><td><strong>4.7</strong></td><td>At expiry: under contract → stop, go to Offers. Not under contract → Phase 5 fires</td></tr>
+</table>
+</div>
+<div class="callout crimson">
+  <div class="callout-icon">⏳</div>
+  <div class="callout-body"><strong>Do not extend the window.</strong> If it moves once it isn't a window, and the VIP list learns the deadline is soft — which costs us urgency on every future deal. If Joshua extends it, that's his call, and it gets stated to the list as a deliberate extension with a reason.</div>
+</div>
+
+<h2>Phase 5 Detail — Full Blitz</h2>
+<p>Day 3 on County deals, after the VIP window expires. Day 1 on Baltimore City deals, where VIPs are folded into 5.1 and get the priority-buyer treatment with no exclusive window.</p>
+<ul>
+  <li><strong>5.1 Priority buyers.</strong> SMS to <code>buyer-priority</code>, staggered. Then call the top 20, ranked by most recent engagement — whoever walked or offered most recently gets dialed first. These people have already spent time with us and didn't buy; the call is short and asks what would make this one different.</li>
+  <li><strong>5.2 Regular buyers.</strong> SMS to <code>buyer-regular</code>, staggered, followed by Sly RVM two hours later. No individual calls — this segment is volume, and the ranked lists from Phase 2 are a better use of dial time.</li>
+  <li><strong>5.3 Full email list.</strong> One broadcast to the entire email list. Subject line is the address plus one factual qualifier — never a headline, never a percentage, never "New Investment Opportunity." Comp link is in the email, always. No rehab estimates, no all-in numbers, no yield math. <strong>One send</strong> — not a three-email sequence; the email list is reach, not a nurture channel, and this deal has a deadline.</li>
+  <li><strong>5.4 Round 2, targeted buyers.</strong> Tier A buyers from Phase 2 who took three touches and said nothing get one pattern-interrupt SMS. One line: what held them back, or is it outside their box. Not a re-pitch, no new pricing, no urgency language. Then they move to nurture — five touches, zero response, and they stop being worked on this deal. They keep their durable tags and come back into the A tier automatically on the next deal that matches their pattern.</li>
+  <li><strong>5.5 Round 2, realtors.</strong> Agents get a second <em>call</em>, not a second voicemail. Different time of day than the Phase 2 call. Agents return calls at a much higher rate than buyers do, and a second voicemail inside 72 hours reads as pressure to a peer. What changes on the second call: lead with the commission again — they may not have listened to the first voicemail — and ask a narrower question. Not "do you have a buyer," but "who in your book buys this kind of scope?" An agent who can't name anyone on the second ask doesn't have one.</li>
+  <li><strong>5.6–5.7 Tagging and the log.</strong> Every contact touched carries <code>dispo-[address-slug]</code> plus their segment tag. Complete the send log before end of day. <strong>A channel with no log entry is treated as not sent.</strong></li>
+</ul>
+
+<h2>Phase 6 Detail — Inbound</h2>
+<p>One named person owns the line for the entire launch day. Not "whoever is free." <strong>Named, in writing, before 2.7 goes out.</strong> If we're running solo, dialing stops when inbound starts — an inbound caller is pre-qualified by their own reply and is worth more than the next cold dial.</p>
+<p>Route all inbound on the deal number to the inbound owner, with a fallback that rings a second person before voicemail. Nothing sits in voicemail past 30 minutes.</p>
+<h3>The qualifying spine — this order, every time</h3>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>"Have you had a chance to look at the listing yet, or do you want me to walk you through it?"</strong>Tells you whether you're answering or presenting.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>"What have you closed recently that's similar to this one?"</strong>Confirms or corrects what the ranking thinks about them. If it contradicts, fix the record while they're talking.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>"How are you funding this one — cash, hard money, or a lender?"</strong>A close-date question, not a credit question. Ask it that way.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>"When can you walk it?"</strong>The showing commitment is the actual qualification. Everything before this is conversation.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>"What number gets this done for you today?"</strong>Last. A caller asked for price in the first thirty seconds invents a low anchor to protect themselves, and now we're negotiating against a number they made up before they understood the deal.</div></li>
+</ol>
+<div class="script-you"><strong>CLOSE</strong>Offers are due [deadline]. If you want it, get me a signed contract and your deposit to [title company] and it's yours — we're signing the best terms on the table, not the highest number.</div>
+<p><strong>For agent callers, commission comes first</strong>, before the spine. Then ask them to name the client. Log every answer during the call.</p>
+
+<h2>Phases 7 and 8 Detail — Showings and Offers</h2>
+<p>Access gets tested before the first walk, <strong>by us</strong>, not by a buyer standing in the driveway. Lockbox codes fail more often than anyone expects.</p>
+<p>Log every walker. <strong>A showing with no offer is a stronger negative signal than fifty ignored texts</strong> — someone spent an hour on the property and chose not to bid. Two of those and the stop rule is halfway fired.</p>
+<p>Capture objections <em>in their words</em>, not summarized. "Too much work for the number" and "the septic scares me" are different pieces of information leading to different decisions.</p>
+
+<h3>Offer comparison sheet</h3>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Line</th><th>A</th><th>B</th><th>C</th></tr>
+  <tr><td>Buyer entity</td><td></td><td></td><td></td></tr>
+  <tr><td>Segment (targeted / VIP / priority / regular / agent)</td><td></td><td></td><td></td></tr>
+  <tr><td>Price</td><td></td><td></td><td></td></tr>
+  <tr><td>Deposit — amount, hard when?</td><td></td><td></td><td></td></tr>
+  <tr><td>Funding: cash / hard money / conventional</td><td></td><td></td><td></td></tr>
+  <tr><td>Proof of funds received and dated</td><td></td><td></td><td></td></tr>
+  <tr><td>Inspection period (days)</td><td></td><td></td><td></td></tr>
+  <tr><td>Close-by date</td><td></td><td></td><td></td></tr>
+  <tr><td>Have they walked it?</td><td></td><td></td><td></td></tr>
+  <tr><td>Contingencies beyond inspection</td><td></td><td></td><td></td></tr>
+  <tr><td>Prior closes with IHT</td><td></td><td></td><td></td></tr>
+  <tr><td>Buyer-agent commission owed</td><td></td><td></td><td></td></tr>
+  <tr><td>Assignment or double close</td><td></td><td></td><td></td></tr>
+  <tr><td>Contract changes requested</td><td></td><td></td><td></td></tr>
+  <tr><td>Net to us</td><td></td><td></td><td></td></tr>
+  <tr><td><strong>Close probability — high / med / low</strong></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<p><strong>The bottom two rows are the decision; price is an input to it.</strong> A hard deposit and a short inspection from a buyer who has closed with us beats a bigger number from a first-timer with a 14-day inspection and no proof of funds. On agent-sourced offers, net-to-us is <em>after</em> commission — compare the nets, not the contract prices.</p>
+<p><strong>8.5</strong> — tell the losing buyers the same day, and tell them what won. One sentence. Cheapest relationship investment we make, and it's why they answer on the next deal.</p>
+
+<h2>Copy Library</h2>
+<p>Proof everything against the 4305 Fairfax Rd benchmark before send. <strong>Baltimore City: street address or landmark, never a neighborhood name.</strong></p>
+
+<h3>9.1 — Targeted buyer SMS (Phase 2, Hour 1)</h3>
+<div class="codeblock light">{{first_name}} — {{sender}} here. Saw you picked up
+{{nearest_prior_address}} back in {{nearest_prior_date}}.
+
+Got one about {{distance}} miles from it, {{address}}, off market.
+
+Worth 2 minutes on the phone? {{listing_url}}</div>
+<p style="font-size:13px;color:var(--graphite);"><strong>Distant buyer, strong scope match</strong> — the one people skip. Don't:</p>
+<div class="codeblock light">{{first_name}} — {{sender}}. You did {{nearest_prior_address}}, which is
+the same scope as one I just picked up at {{address}}.
+
+Not your usual pocket but it's your usual project.
+
+Worth a look? {{listing_url}}</div>
+<p>Under 300 characters. <strong>Never open with the deal — open with their purchase.</strong></p>
+
+<h3>9.2 — Targeted buyer email (Phase 2, Hour 2)</h3>
+<p>Subject: the address. Nothing else.</p>
+<div class="codeblock light">{{first_name}} —
+
+Sent you a text earlier, following up here.
+
+You bought {{nearest_prior_address}} in {{nearest_prior_date}}.
+{{why_this_fits}}
+
+{{address}}. {{beds}}/{{baths}}, {{sqft}} sf, {{price}}. ARV {{arv}}.
+{{scope_remaining}}.
+
+Full details and photos: {{listing_url}}
+Comps: {{comp_link}}
+
+Showings this week, offers due {{deadline}}.
+
+Call or text me at {{my_cell}} — I have you at {{their_cell}}.
+
+{{sender}}</div>
+<p>Plain-text send, individually. No email builder, no header image, no logo, no signature block with icons, no unsubscribe footer, no bold or bullets. <strong>The test:</strong> hold it next to an email you actually typed on your phone to a buyer you know.</p>
+
+<h3>9.3 — Targeted buyer call opener (Phase 2, Hour 4)</h3>
+<div class="script-you"><strong>YOU</strong>{{first_name}}? {{full_name}}, Impact Home Team — you got a minute?<br><br>
+Reason I'm calling: you bought {{nearest_prior_address}} back in {{nearest_prior_date}}. I've got one about {{distance}} miles from that, off market, {{address}}.<br><br>
+{{why_this_fits}}<br><br>
+Sent you a text this morning and an email an hour ago — didn't want to just leave it in your inbox.<br><br>
+You still buying in that pocket?</div>
+<p><strong>Then stop talking.</strong> If they say "send me the info," it's already in their inbox — say so, and ask what would make it a fit.</p>
+
+<h3>9.4 — Voicemail</h3>
+<div class="script-you"><strong>YOU</strong>{{first_name}}, {{full_name}} with Impact Home Team, {{phone}}.<br><br>
+Calling about an off-market property at {{address}} — about {{distance}} miles from {{nearest_prior_address}}, which I know you bought in {{nearest_prior_date}}.<br><br>
+{{beds}}/{{baths}}, {{sqft}} square feet, asking {{price}}, ARV around {{arv}}.<br><br>
+I texted you this morning and sent an email about an hour ago, so it's all in there — photos, comps, scope.<br><br>
+Offers are due {{deadline}}. {{phone}}. Thanks {{first_name}}.</div>
+<p>Under 30 seconds. Number at the front and the end. Name both prior touches. <strong>No second voicemail inside 48 hours.</strong></p>
+
+<h3>9.5 — VIP first look SMS (Phase 4)</h3>
+<div class="codeblock light">{{first_name}} — {{sender}} with Impact Home Team.
+
+New one before it goes out to the list: {{address}}.
+{{beds}}/{{baths}}, {{sqft}} sf, {{price}}. ARV {{arv}}.
+
+Lockbox {{code}}, go look any time.
+
+VIP window closes {{expiry_day}} at {{expiry_time}} — after that it goes
+to everybody. {{listing_url}}</div>
+
+<h3>9.6 — Priority and regular SMS (Phase 5)</h3>
+<p style="font-size:13px;color:var(--graphite);"><strong>Priority:</strong></p>
+<div class="codeblock light">{{first_name}} — {{sender}}, Impact Home Team.
+
+{{address}} just came available. {{beds}}/{{baths}}, {{sqft}} sf,
+{{price}}, ARV {{arv}}.
+
+Full details and comps: {{listing_url}}
+
+Offers due {{deadline}}. Worth a look?</div>
+<p style="font-size:13px;color:var(--graphite);"><strong>Regular:</strong></p>
+<div class="codeblock light">{{first_name}} — off-market at {{address}}.
+
+{{beds}}/{{baths}}, {{sqft}} sf, {{price}}. ARV {{arv}}.
+
+Photos, scope and comps here: {{listing_url}}
+
+Offers due {{deadline}}. — {{sender}}, Impact Home Team</div>
+<p style="font-size:13px;color:var(--graphite);"><strong>Round 2 pattern interrupt (5.4):</strong></p>
+<div class="codeblock light">{{first_name}} — {{sender}}. No pitch, just asking: was {{address}}
+outside your box, or was it the number?
+
+Helps me know what to send you next time.</div>
+
+<h3>9.7 — Realtor SMS (Phase 2, Hour 1)</h3>
+<div class="codeblock light">{{agent_first}} — {{sender}} with Impact Home Team.
+
+Saw you closed {{their_property}} in {{close_month}}. I've got an
+off-market one about {{distance}} from it, {{address}}, similar product.
+
+Do you still have that buyer? Happy to pay a buyer-agent commission.
+
+{{listing_url}} — {{phone}}</div>
+
+<h3>9.8 — Realtor call: commission in the first minute</h3>
+<p>Say it before they ask. Worked example:</p>
+<div class="script-you"><strong>YOU</strong>...and before anything else — this is an assignment, and we're paying a buyer-agent commission of {{commission}} at closing, paid through the title company. That's separate from our assignment fee and it doesn't come out of your client's number.<br><br>
+So — is that Wilmot buyer still looking?</div>
+<div class="callout crimson">
+  <div class="callout-icon">💵</div>
+  <div class="callout-body"><strong>Never be vague about commission.</strong> "We'll take care of you" costs us the agent.</div>
+</div>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>They say</th><th>Answer with</th></tr>
+  <tr><td>"How does commission work on an assignment?"</td><td>The number, the timing, and that it's paid through title. Nothing softer</td></tr>
+  <tr><td>"I've never done an assignment."</td><td>It closes at a title company like anything else; their client signs an assignment of contract instead of a purchase agreement. Offer to have our title company walk them through it</td></tr>
+  <tr><td>"My client won't touch that much work."</td><td>Then they're the wrong client — ask who else in their book buys this scope</td></tr>
+  <tr><td>"The deadline is too tight."</td><td>The deadline is real. State what happens after it. Don't hint that it's flexible</td></tr>
+  <tr><td>"What's the deal with the septic / the road / the access?"</td><td>The honest answer from the listing. Every property-specific liability is already written down — read it, don't improvise</td></tr>
+</table>
+</div>
+
+<h3>9.9 — Sly RVM script (Phase 5)</h3>
+<div class="script-you"><strong>RVM</strong>Hey, {{sender}} with Impact Home Team.<br><br>
+Got an off-market property at {{address}} — {{beds}} bed, {{baths}} bath, {{sqft}} square feet, asking {{price}}, ARV around {{arv}}.<br><br>
+Everything's on the listing — photos, scope, comps.<br><br>
+Offers are due {{deadline}}. Call or text me back at {{phone}}. {{phone}}. Thanks.</div>
+<p>Under 25 seconds. Number twice. <strong>Never a second RVM on the same deal.</strong></p>
+
+<h3>9.10 — Full-list email (Phase 5)</h3>
+<p>Subject: the address plus one factual qualifier. <em>4305 Fairfax Rd — 3/2, offers due Thursday</em></p>
+<div class="codeblock light">[Two to four short lines: what kind of deal it is in plain English, the
+scope stated honestly, and the sales angle from 3.4.]
+
+WHY THIS DEAL MAKES SENSE
+[Four bullets, one short sentence each. Risk reduction, scope, exit or
+demand, execution speed.]
+
+YOU SHOULD KNOW
+[Short lines framing the real opportunity and anything a buyer will find
+at walkthrough. Say it here, not on the phone after they've driven out.]
+
+PROPERTY HIGHLIGHTS
+[Short factual bullets. Systems, lot, outbuildings, road, water/sewer.]
+
+THE NUMBERS
+Price: {{price}}
+ARV: {{arv}}
+[Rent range if it's a rental play. No rehab estimates, no all-in
+numbers, no yield math.]
+
+Comps: {{comp_link}}
+Full listing: {{listing_url}}
+
+Showings {{showing_plan}}. Offers due {{deadline}}.
+{{sender}} · {{phone}}</div>
+
+<h3>9.11 — Listing rewrite prompt (3.2 and 3.3)</h3>
+<p>Run this separately in Claude and in ChatGPT. Same inputs, same prompt, no cross-contamination.</p>
+<div class="codeblock">You are rewriting an off-market wholesale listing for an investor
+audience. I have closed 600+ wholesale deals; write for buyers who have
+too, not for beginners.
+
+I'm giving you four inputs:
+1. The initial seller call transcript
+2. The tax record
+3. My acquisition agent's notes
+4. My first draft of the listing
+
+[PASTE ALL FOUR]
+
+YOUR JOB:
+Find the sales angle. Every property has one thing that is the actual
+reason to buy it — systems already done, the lot, rent relative to the
+number, the road, access nobody else has, a scope that's smaller than it
+looks. The draft states facts. You have to find which fact is the reason,
+say it in the opening, and let everything else support it.
+
+Read the transcript closely. The angle is usually in something the seller
+said in passing that never made it into the draft.
+
+RULES — non-negotiable:
+- My draft is authoritative for property facts. Never substitute public
+  record or your own knowledge. If the tax record contradicts my draft,
+  flag the conflict, do not resolve it.
+- No rehab cost estimates, no all-in numbers, no yield math. ARV, price
+  and rent projections only.
+- Never "cosmetic" unless my draft says it is. Never "full rehab" or
+  "full renovation" — describe the actual remaining work.
+- No taglines, no slogans, no superlatives, no condition ratings.
+- Honest scope. If it needs work, say what work.
+- Include the comp link.
+- [BALTIMORE CITY ONLY: do not name the neighborhood anywhere. Street
+  address or a nearby landmark only.]
+
+STRUCTURE:
+Opening (2-4 short lines, leads with the angle) · Why this deal makes
+sense (4 bullets) · You should know (the honest caveats, stated up front)
+· Property highlights · The numbers · Comps and listing link · Showings
+and offer deadline.
+
+Flag every assumption you made inline. At the end, tell me the one piece
+of information I did not give you that would most improve this listing.</div>
+
+<h3>9.12 — Final edit pass prompt (3.6)</h3>
+<div class="codeblock">Here is the published listing: [PASTE URL]
+
+Read the live page and give me a final edit pass. I'm looking for:
+
+1. REPETITION. Any point made twice in different sections. Name both
+   locations and tell me which one to cut.
+2. Contradictions between sections, or between the copy and the photo
+   captions.
+3. Numbers that don't reconcile — square footage that doesn't add up,
+   % of ARV that doesn't match price and ARV, a deadline before the
+   showing window.
+4. Anything that reads as hype: superlatives, condition ratings,
+   invented rehab figures, taglines.
+5. Sections that run long. Investors read on a phone.
+
+Give me specific line edits, not a rewrite. If the listing is fine as
+published, say so — don't invent changes to look useful.</div>
+
+<h2>Send Log</h2>
+<p>Complete before end of each launch day. <strong>A channel with no entry is treated as not sent.</strong></p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Phase</th><th>Channel</th><th>Segment</th><th>Count</th><th>Time sent</th><th>Sent by</th><th>Replies EOD</th></tr>
+  <tr><td>2</td><td>Targeted buyer SMS (Tier A)</td><td><code>buyer-targeted</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>2</td><td>Targeted buyer emails</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>2</td><td>Targeted buyer calls (top 20%)</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>2</td><td>Realtor SMS (Tier A)</td><td><code>agent-[submarket]</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>2</td><td>Realtor calls (top 40%)</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>4</td><td>VIP SMS</td><td><code>buyer-vip</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>4</td><td>VIP calls (top 10)</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Priority SMS</td><td><code>buyer-priority</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Priority calls (top 20)</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Regular SMS</td><td><code>buyer-regular</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Regular RVM</td><td><code>buyer-regular</code></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Email broadcast</td><td>Full list</td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Round 2 — targeted buyers</td><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td>5</td><td>Round 2 — realtor calls</td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+</div>
+<p><strong>Phase 2 numbers:</strong> InvestorBase radius <span class="fill">______</span> · buyers in pool <span class="fill">______</span> · buyer Tier A <span class="fill">______</span> · MLS export rows <span class="fill">______</span> · agents ranked <span class="fill">______</span> · agent Tier A <span class="fill">______</span></p>
+<p><strong>Listing:</strong> draft to Joshua <span class="fill">______</span> · approved <span class="fill">______</span> · published <span class="fill">______</span> · final version live <span class="fill">______</span></p>
+<p><strong>Dependencies:</strong> MLS access obtained by <span class="fill">____________</span> · lockbox live at <span class="fill">______</span> · inbound owner <span class="fill">____________</span></p>
+
+<h2>Close Out, Stop Rule, Escalation</h2>
+<h3>Stop rule — when the campaign is exhausted</h3>
+<p>The list is exhausted when two of these are true:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Every segment has been through its full sequence with no replies</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Three or more buyers independently naming the same objection — one piece of market information delivered three times, not three rejections. It is the highest-value signal we get and it is routinely thrown away as "buyers being buyers"</div></li>
+  <li><div class="step-num">3</div><div class="step-content">We're dialing below the top 40% of either ranked list</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Two or more walkthroughs with no offer</div></li>
+</ol>
+<p>Then act on the signal, not on effort. <strong>Objection is price</strong> → escalate to Joshua for a reduction, then re-text the top segments with the new number as the reason for the message; a price cut is the only legitimate reason to re-contact someone who ignored us. <strong>Objection is scope</strong> → the listing is wrong somewhere; fix it and re-run the ranking, because a wrong scope class in Phase 2 puts the wrong people at the top. <strong>No objections, no replies, thin A tier</strong> → widen the InvestorBase radius and re-pull. <strong>Structural</strong> — private road, failed septic, no legal access → back to Joshua, and probably back to the seller.</p>
+<div class="callout crimson">
+  <div class="callout-icon">📵</div>
+  <div class="callout-body"><strong>More dials is the wrong answer to all four.</strong> And re-run the ranking any time the price changes — the price gate is defined off the buy number, so a cut moves the band and moves who qualifies. Working the old ranking after a price change is working a list built for a different deal.</div>
+</div>
+
+<h3>9.3 — Stand down</h3>
+<p>The hour we're under contract: pause every scheduled send, stop the dialer, update the listing, and tell any agent with a live client. <strong>A campaign still running on a sold deal generates calls we have to apologize for.</strong></p>
+
+<h3>9.4 and 9.5 — Keep what the campaign taught us</h3>
+<p>Within a week of closing:</p>
+<ul>
+  <li><strong>Promote the durable tags.</strong> <code>dispo-[address]</code> and <code>tier-a</code> die with the deal. <code>scope-gut</code>, <code>fin-cash</code>, <code>buys-[submarket]</code> and the price band are true about the buyer until their behavior changes — those stay forever. After a handful of deals the database self-segments before we export anything.</li>
+  <li><strong>Record behavior the data can't give us:</strong> responded y/n and to which channel, walked y/n, offered y/n and at what number, and their objection in their words. A buyer who replies to SMS and never opens email is a fact we now own.</li>
+  <li><strong>Note the winner</strong> — what they paid, how fast they moved, what they wanted in terms. Their next purchase is what we should be sourcing.</li>
+  <li><strong>Append both Phase 2 lists to the master files</strong>, deduplicated on entity for buyers and on agent for realtors. After enough deals the master beats a fresh export in any submarket we've worked, because it holds response behavior and an export never will. The ranked agent list is the more durable of the two — agents stay in a corridor for years, and the same names carry the next deal on that road.</li>
+  <li><strong>Save the final listing copy with the deal.</strong> The angle that sold a 1950s Dundalk rancher on a private road will sell the next one, and rewriting from scratch every time is how the good openings get lost.</li>
+  <li><strong>Move the winner to VIP</strong>, and any targeted buyer who responded to Priority, at the next monthly hygiene pass.</li>
+</ul>
+
+<div class="callout crimson">
+  <div class="callout-icon">🛑</div>
+  <div class="callout-body"><strong>Escalate to Joshua, don't improvise.</strong> Any price change · any terms change · an inspection contingency request · a title defect or access issue · any seller communication · three or more buyers naming the same objection · an agent asking for something outside the standard commission structure · a buyer we've never worked with asking to close outside our title company.</div>
+</div>
 `}
     ]
   },
   {
     id: 'tc', label: 'Transaction Coordination', color: '#7C3AED',
     pages: [
-      { id: 'tc-overview', title: 'Department Overview', dept: 'Transaction Coordination', owner: 'Mike',
+      { id: 'tc-overview', title: 'Department Overview', dept: 'Transaction Coordination', owner: 'Robin',
         content: `
 <h2>Department Purpose</h2>
 <p>Transaction Coordination takes over once a seller has signed the purchase agreement. TC is responsible for managing the deal from contract to close — coordinating with title, tracking deadlines, ensuring all documents are in order, and keeping every stakeholder updated.</p>
@@ -4713,7 +5960,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <tr><th>Channel</th><th>Use It For</th></tr>
   <tr><td><strong>#[property-address]</strong></td><td>All updates, questions, and documents for that specific deal. One channel per property — this is your primary channel for everything deal-related.</td></tr>
   <tr><td><strong>#transaction-coordination</strong></td><td>General TC updates, process questions, and cross-deal coordination that doesn't belong in a single property channel.</td></tr>
-  <tr><td><strong>#mike-maryland-deals-updates</strong></td><td>Mike-specific deal updates, acquisition wins, and anything requiring Mike's attention outside of a specific property channel.</td></tr>
+  <tr><td><strong>#robin-appointments-discussion</strong></td><td>Discussion around Robin's appointments — prep, seller context, outcomes, and anything requiring Robin's attention outside of a specific property channel. <strong>#appointments</strong> is the automated feed; this is where the conversation happens.</td></tr>
   <tr><td><strong>#appointments</strong></td><td>Appointment activity — auto-posted by GHL when booked, rescheduled, or cancelled. Do not post manually.</td></tr>
   <tr><td><strong>#impact-dispositions</strong></td><td>Dispo-related communication — buyer activity, listing updates, offers received, assignment status.</td></tr>
 </table>
@@ -4760,7 +6007,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <tr><th>Channel</th><th>Use It For</th></tr>
   <tr><td><strong>#[property-address]</strong></td><td>Everything for that specific deal — new contract, title updates, EMD status, closing confirmation, issues. This is your primary channel for all deal-specific communication.</td></tr>
   <tr><td><strong>#transaction-coordination</strong></td><td>General TC process updates and cross-deal coordination.</td></tr>
-  <tr><td><strong>#mike-maryland-deals-updates</strong></td><td>Mike-specific deal updates and anything needing Mike's attention.</td></tr>
+  <tr><td><strong>#robin-appointments-discussion</strong></td><td>Robin's appointment discussion and anything needing Robin's attention.</td></tr>
   <tr><td><strong>#appointments</strong></td><td>Appointment activity — auto-posted by GHL. Do not post manually.</td></tr>
   <tr><td><strong>#impact-dispositions</strong></td><td>Dispo activity — buyer updates, listing status, offers, assignment closings.</td></tr>
 </table>
@@ -5548,22 +6795,6 @@ const PC_DATA = {
     means:['Purchase agreement signed by seller','Google Drive property folder must be created NOW','Drive link must be in GHL record before leaving the property'],
     unlocks:['TC pipeline: New Deal! stage triggered','Dispositions begins listing prep from Drive folder','Deal is officially in the pipeline — clock starts on all deadlines'],
     skip:'MOST EXPENSIVE SKIP. TC does not know a contract exists. No title ordered. No listing built. Contract expires. Deal lost.' },
-  'mike-aptsched': { name:'Appointment Scheduled', pipe:'2) Mike the Closer',
-    means:['Appointment confirmed — Mike has date, time, address','Pre-appointment research should begin immediately','Lead Management has handed off — no more LM outreach to this seller'],
-    unlocks:['Mike runs preliminary comps and SDAT lookup','Credibility packet prepared and brought to appointment','Calendar entry visible to team'],
-    skip:'Mike shows up unprepared. No ARV, no ownership research. Seller senses it. Offer credibility suffers.' },
-  'mike-offermade': { name:'Offer Made/Followup', pipe:'2) Mike the Closer',
-    means:['Offer presented to seller — awaiting decision','May have gotten a soft yes or objection that needs addressing','Follow-up cadence should begin within 24 hours'],
-    unlocks:['Follow-up call task set in GHL','Objection scripts referenced','Deal still alive — just needs nurturing'],
-    skip:'No follow-up happens. Seller assumes Mike moved on. Signs with someone who called back.' },
-  'mike-1ydline': { name:'1 YD LINE', pipe:'2) Mike the Closer',
-    means:['Seller is on the verge of signing','Mike needs to call today — not tomorrow','Could close same day with right follow-up'],
-    unlocks:['Immediate personal call from Mike','Possible same-day or next-day appointment to execute contract','Ashley notified so she can support if needed'],
-    skip:'Hot deal goes cold in 24 hours. Seller was ready — IHT was not there at the right moment.' },
-  'mike-lostoffer': { name:'Lost Offer', pipe:'2) Mike the Closer',
-    means:['Seller declined, went with someone else, or property situation changed','Deal is over for now','Reason should be tagged: price, competition, seller changed mind, etc.'],
-    unlocks:['Accurate close-rate reporting from appointment to contract','Reason data informs future training and offer strategy','Warm sellers can be moved to Josh LTFU for future opportunity'],
-    skip:'No reason tagged. Team never learns why offers are not converting. Same mistakes repeat indefinitely.' },
   'robin-aptsched': { name:'Appointment Scheduled', pipe:'Robin the Closer',
     means:['Nicole booked and confirmed the appointment — it is on Robin\'s calendar','The lead is now Robin\'s responsibility; Lead Management outreach stops','Prep begins immediately: contact card, conversation history, and the 4 Pillars fields'],
     unlocks:['Robin reviews notes and runs pre-appointment research','Property address shows in the calendar title','Team can see the appointment is owned and covered'],
