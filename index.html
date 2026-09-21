@@ -3836,7 +3836,7 @@ const SECTIONS = [
 </div>
 
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Confirm where the lead came from</strong> — Not a tag. For an inbound call, check the line they dialed — each channel has its own tracking number. For a web lead, check the source on the lead notification. Then tailor your opening to that channel (direct mail vs. Google Ad vs. referral).</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Confirm where the lead came from</strong> — Not a tag. For an inbound call, check the line they dialed; for a web lead, check the source on the lead notification. The number-to-channel lookup table is in the <a class="ic-lnk" style="color:var(--amber-dark);cursor:pointer;" onclick="showPage('lead-mgmt','lm-intake-checklist')">GHL Lead Intake Checklist</a>. Then tailor your opening to that channel (direct mail vs. Google Ad vs. referral).</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Redzones</span> or <span class="ghl-field">Follow Up</span> and add to the automated follow-up sequence.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
@@ -3889,7 +3889,27 @@ const SECTIONS = [
         <li><strong>Inbound call</strong> — check the line they dialed. Each channel has its own tracking number, and the dialed number is what identifies the channel.</li>
         <li><strong>Web lead</strong> — check the source on the lead notification. It names which form and which channel the lead came in on.</li>
       </ul>
-      Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal.</div>
+      Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal.
+      <div style="overflow-x:auto;margin-top:10px;">
+      <table class="data-table" style="margin:0;">
+        <tr><th>They dialed</th><th>Channel</th><th>GHL number label</th></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-264-1642</td><td><strong style="color:#2563EB;">Google Ads</strong></td><td style="font-size:13px;color:var(--graphite);">Google Ads</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-3985</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - Zone C</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-4286</td><td><strong style="color:#7C3AED;">TV</strong></td><td style="font-size:13px;color:var(--graphite);">TV Website Leads</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-0886</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS Drop 2 March</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-2165</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - YL April</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-438-8938</td><td><strong style="color:#7C3AED;">TV</strong></td><td style="font-size:13px;color:var(--graphite);">TV AD (Forwarded from TVMasters)</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-498-5990</td><td><strong style="color:#2563EB;">Google Ads</strong></td><td style="font-size:13px;color:var(--graphite);">Google Ads 2</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-541-4700</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS April Drop 1</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-604-8939</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - YL Feb 2025</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-670-7934</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS April Drop 2</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-680-3879</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">DM YL March 2025</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-824-1687</td><td><strong style="color:#16A34A;">Web / SEO</strong></td><td style="font-size:13px;color:var(--graphite);">Web Leads (SEO)</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-941-3480</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail 1: Zone A (Prev mix motivations)</td></tr>
+        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">443-222-1781</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">2026 Direct Mail</td></tr>
+      </table>
+      </div>
+      <div style="font-size:12px;color:var(--steel);margin-top:6px;">Labels are written exactly as they appear in GHL so you can match them on sight. If a line rings that is not on this list, log the number on the contact and flag it to Ashley — an unlisted line means a channel we are not attributing.</div></div>
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">2</span><div>
