@@ -2236,11 +2236,9 @@ const SECTIONS = [
 <table class="data-table">
   <tr><th colspan="2">Required Before Handoff</th></tr>
   <tr><td>☐</td><td>4 Pillars fields filled in GHL</td></tr>
-  <tr><td>☐</td><td>Lead source tag applied</td></tr>
+  <tr><td>☐</td><td>Lead source confirmed on the record</td></tr>
   <tr><td>☐</td><td>Property address verified in GHL</td></tr>
   <tr><td>☐</td><td>Appointment logged in GHL calendar with property address in the title</td></tr>
-  <tr><td>☐</td><td>Google Drive property folder created with the Property Info Sheet</td></tr>
-  <tr><td>☐</td><td>Drive folder link added to the appointment section in GHL</td></tr>
   <tr><td>☐</td><td>Closer notified — warm transfer or Slack</td></tr>
 </table>
 <p><strong>Pipeline movement:</strong> The Lead Manager moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
@@ -2959,7 +2957,7 @@ const SECTIONS = [
 </div>
 
 <h2>After Every Appointment — Logging Notes on the Contact Record</h2>
-<p>No matter the outcome, your <strong>first action</strong> after every appointment is to open the contact record in GHL and log detailed notes. If it is not in the contact record, it did not happen. Then open the property Drive folder from the appointment section, update the Property Info Sheet, and upload your photos — if there's no folder or no link, create it and add the link to the appointment section in GHL.</p>
+<p>No matter the outcome, your <strong>first action</strong> after every appointment is to open the contact record in GHL and log detailed notes. If it is not in the contact record, it did not happen. If the seller signed, create the property Drive folder within the hour, load it with the contract, comps, photos and Property Info Sheet, and paste the link into the appointment section in GHL. If they did not sign, the contact record is the whole record — there is no folder.</p>
 <div class="callout amber">
   <div class="callout-icon">📝</div>
   <div class="callout-body">
@@ -3169,7 +3167,7 @@ const SECTIONS = [
   <li><div class="step-num">4</div><div class="step-content"><strong>Conversations</strong> — no SMS or callbacks left unanswered, including seller SMS on a teammate's leads (answer and let them know).</div></li>
   <li><div class="step-num">5</div><div class="step-content"><strong>Missed calls</strong> — review today's leads and return every missed call not yet connected.</div></li>
   <li><div class="step-num">6</div><div class="step-content"><strong>Tier every new lead</strong> — every lead that came in today is in the right stage with a Next Contact Date.</div></li>
-  <li><div class="step-num">7</div><div class="step-content"><strong>Appointments</strong> — confirm every appointment you booked today posted to <strong>#appointments</strong> in Slack (GHL posts automatically). If one is missing, flag Ashley — the automation broke. Each booked appointment also has its Drive folder and link (<a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;">Intake Checklist</a>, Part 3).</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Appointments</strong> — confirm every appointment you booked today posted to <strong>#appointments</strong> in Slack (GHL posts automatically). If one is missing, flag Ashley — the automation broke.</div></li>
   <li><div class="step-num">8</div><div class="step-content"><strong>Clear out leads that are not true leads</strong> — not the owner, duplicate, wrong number, outside Maryland, or spam. Tag them per <a onclick="showPage('lead-mgmt','lm-dead-leads')" style="cursor:pointer;font-weight:600;">Dead Lead Management</a> — never delete.</div></li>
   <li><div class="step-num">9</div><div class="step-content"><strong>Manual Actions at zero</strong> — anything left becomes OVERDUE tomorrow. Can't finish? Flag Ashley before you sign off.</div></li>
   <li><div class="step-num">10</div><div class="step-content"><strong>Prep your issues list</strong> for the morning huddle.</div></li>
@@ -3625,40 +3623,24 @@ const SECTIONS = [
     <div class="ic-d">If the closer is available and the seller is on the line, warm transfer. If not, message the closer directly — Robin in <strong>#robin-appointments-discussion</strong>, Joshua by Slack DM — with the seller's name, address, and the one thing they need to know going in. The GHL auto-post to <strong>#appointments</strong> is not a notification to the closer.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">12</span><div>
-    <div class="ic-t">Create the Google Drive property folder</div>
-    <div class="ic-d">
-      <ul>
-        <li>In the <strong>IHT Deals</strong> folder, create a subfolder named <code>[Street Address] — [Seller Last Name]</code> (e.g., <code>1234 Oak St — Johnson</code>).</li>
-        <li>Add the <strong>Property Info Sheet</strong> and fill in everything you have from the call: seller name and contact, property address, beds/baths/sq ft/year built from the tax record, asking price, 4 Pillars notes, and access instructions.</li>
-        <li>Set sharing to <strong>Anyone with the link can view</strong>.</li>
-      </ul>
-      Acquisitions adds photos, comps, ARV, and the contract to this same folder after the appointment — it becomes the deal file for TC and Dispo.
-    </div>
-  </div></label></li>
-
-  <li><label><input type="checkbox"><span class="ic-n">13</span><div>
-    <div class="ic-t">Add the Drive link to the appointment in GHL</div>
-    <div class="ic-d">Open the appointment on the contact record and paste the folder link into the appointment notes, labeled <code>Property Drive Folder: [link]</code>. The closer preps from this link, and Dispo builds the listing from it later.</div>
-  </div></label></li>
-</ol>
+  </ol>
 
 <div class="ic-branch" style="border-left-color:#dc2626;"><h2 style="margin:0;">Part 4 — Dead Lead</h2></div>
 <ol class="ic-list">
-  <li><label><input type="checkbox"><span class="ic-n">14</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">12</span><div>
     <div class="ic-t">Apply the standardized dead reason tag</div>
     <div class="ic-d">Use the exact <span class="ghl-field">Dead - [Reason]</span> tag from <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-dead-leads')">Dead Lead Management</a>. No custom tags. Add a one-sentence note on why.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">15</span><div>
-    <div class="ic-t">Preserve the source tag</div>
-    <div class="ic-d">Do <strong>not</strong> remove the marketing/source tag. Dead leads still count in cost-per-lead by source. Never delete the contact.</div>
+  <li><label><input type="checkbox"><span class="ic-n">13</span><div>
+    <div class="ic-t">Preserve the source</div>
+    <div class="ic-d">Do <strong>not</strong> clear or overwrite the source on the contact. Dead leads still count in cost-per-lead by source. Never delete the contact.</div>
   </div></label></li>
 </ol>
 
 <div class="callout green">
   <div class="callout-icon">✓</div>
-  <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · stage set · required fields filled · and either a Next Contact Date, a booked appointment with a Drive link, or a Dead tag.</div>
+  <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · stage set · required fields filled · and either a Next Contact Date, a booked appointment, or a Dead tag.</div>
 </div>
 `},
       { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
@@ -4169,12 +4151,6 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
       <strong>Confirm.</strong> Once booked, GHL automatically sends the seller a confirmation text and email, and posts to <strong>#appointments</strong> in Slack. Move the lead to the closer's pipeline stage immediately.
     </div>
   </li>
-  <li>
-    <div class="step-num">7</div>
-    <div class="step-content">
-      <strong>Create the Google Drive property folder and link it.</strong> In the <strong>IHT Deals</strong> folder, create <code>[Street Address] — [Seller Last Name]</code>, add the Property Info Sheet with everything from the call, then paste the folder link into the appointment notes in GHL as <code>Property Drive Folder: [link]</code>. Full steps: <a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;">GHL Lead Intake Checklist</a>, Part 3.
-    </div>
-  </li>
 </ol>
 
 <h2>Rescheduling</h2>
@@ -4340,13 +4316,12 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 <h2>The Acquisitions Workflow</h2>
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, open the property Drive folder from the link in the appointment section, review the Property Info Sheet and lead notes, research the address on SDAT, check any prior contact history.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, review the lead notes and the 4 Pillars answers Lead Management captured, research the address on SDAT, check any prior contact history. There is no property folder yet — you create it if you sign.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Run preliminary comps</strong> — Before the appointment, know your ballpark ARV. Don't go in blind.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>Conduct the appointment</strong> — Walk the property, build rapport, screen motivation, present your offer.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>Get the contract signed</strong> — If offer is accepted, execute the purchase agreement on-site when possible.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Update the property folder after every appointment</strong> — Signed or not. If Lead Management didn't create it at booking, create it now with the Property Info Sheet. Add your photos and walkthrough notes, and confirm the Drive link is in the appointment section in GHL (see <a onclick="showPage('acq','acq-appointment')" style="cursor:pointer;font-weight:600;">Appointment &amp; Post-Appointment Process</a>).</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Complete the folder on a signed contract</strong> — Add the executed contract, comps, and the final Property Info Sheet within 1 hour of signing.</div></li>
-  <li><div class="step-num">7</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in the GHL appointment section, TC and Dispo can pick up the file without any additional communication required.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Create the property Drive folder — signed contracts only</strong> — Within 1 hour of signing, create the folder and add the executed contract, comps and ARV, your photos and walkthrough notes, and the Property Info Sheet. Paste the link into the appointment section in GHL. No contract means no folder (see <a onclick="showPage('acq','acq-appointment')" style="cursor:pointer;font-weight:600;">Appointment &amp; Post-Appointment Process</a>). Log your notes on the contact record either way.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in the GHL appointment section, TC and Dispo can pick up the file without any additional communication required.</div></li>
 </ol>
 
 <h2>Your Pipelines in GHL</h2>
@@ -4370,7 +4345,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <tr><td><span class="ghl-field">Offer Made</span></td><td>Formal offer presented to seller. Awaiting response.</td></tr>
   <tr><td><span class="ghl-field">Negotiating</span></td><td>Seller engaged but countering. Active back-and-forth in progress.</td></tr>
   <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Seller is very close — needs one final push or minor concession to sign.</td></tr>
-  <tr><td><span class="ghl-field">Contract Signed</span></td><td>A-B executed. Mark opportunity as <strong>Won</strong> in GHL, complete the property Drive folder, and move to TC pipeline immediately.</td></tr>
+  <tr><td><span class="ghl-field">Contract Signed</span></td><td>A-B executed. Mark opportunity as <strong>Won</strong> in GHL, create the property Drive folder within 1 hour, and move to TC pipeline immediately.</td></tr>
   <tr><td><span class="ghl-field">Follow Up</span></td><td>Seller not ready now but still a real opportunity. Scheduled follow-up in place.</td></tr>
   <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Lost Offer</span></td><td>Seller declined or deal fell through. Log reason in notes.</td></tr>
 </table>
@@ -4383,7 +4358,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
         content: `
 <h2>Before the Appointment</h2>
 <ul>
-  <li><strong>Open the property Drive folder</strong> — the link is in the appointment section in GHL. Review the Property Info Sheet Lead Management started. No link? Flag it to the Lead Manager and create the folder yourself (steps below) before you go.</li>
+  <li><strong>Review the lead in GHL</strong> — notes, 4 Pillars answers, and the source. There is no property Drive folder at this stage; you create it only if the contract is signed (steps below).</li>
   <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
   <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
   <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
@@ -4403,18 +4378,18 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 <div class="callout amber">
   <div class="callout-icon">📁</div>
   <div class="callout-body">
-    <strong>Every appointment gets a property folder — signed or not.</strong>
-    Lead Management creates the folder with the Property Info Sheet when the appointment is booked. Within 1 hour after the appointment, open it, update it, and confirm the Drive link is in the appointment section in GHL. If no folder exists, create it now using the steps below. This is how TC and Dispo access everything they need without asking you.
+    <strong>The property folder is created on a signed contract — by you, not by Lead Management.</strong>
+    No contract, no folder. Within 1 hour of signing, create the folder, load it, and paste the Drive link into the appointment section in GHL. This is how TC and Dispo access everything they need without asking you. If the seller did not sign, your notes still go on the contact record in GHL.
   </div>
 </div>
 
 <div class="workflow-card">
-  <h4>Property Folder — Create or Update</h4>
+  <h4>Property Folder — Create It Within 1 Hour of Signing</h4>
   <ol class="step-list" style="margin:0">
-    <li><div class="step-num">1</div><div class="step-content"><strong>Open the folder from the Drive link in the GHL appointment section</strong> — or, if there isn't one, go to the <strong>IHT Deals</strong> folder in Google Drive, the master folder all deals live in.</div></li>
-    <li><div class="step-num">2</div><div class="step-content"><strong>Create the subfolder only if it doesn't exist</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
-    <li><div class="step-num">3</div><div class="step-content"><strong>Update the Property Info Sheet</strong> with what you saw at the walkthrough — condition, your ARV, repair estimate, MAO, offer presented, and seller reaction. Upload your property photos.</div></li>
-    <li><div class="step-num">4</div><div class="step-content"><strong>On a signed contract, also add:</strong>
+    <li><div class="step-num">1</div><div class="step-content">Go to the <strong>IHT Deals</strong> folder in Google Drive, the master folder all deals live in.</div></li>
+    <li><div class="step-num">2</div><div class="step-content"><strong>Create the subfolder</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
+    <li><div class="step-num">3</div><div class="step-content"><strong>Fill in the Property Info Sheet</strong> from the walkthrough — condition, your ARV, repair estimate, MAO, offer presented, and seller reaction. Upload your property photos.</div></li>
+    <li><div class="step-num">4</div><div class="step-content"><strong>Add the deal documents:</strong>
       <ul style="margin-top:6px">
         <li>Signed Purchase Agreement (PDF)</li>
         <li>Property Info Sheet (ARV, repairs estimate, MAO, seller motivation notes)</li>
@@ -4498,7 +4473,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <div class="callout-icon">📁</div>
   <div class="callout-body">
     <strong>Step Zero: Pull the Google Drive Link from GHL</strong>
-    Before building any listing or making any calls, open the contact in GHL → Appointments and copy the <code>Property Drive Folder</code> link from the appointment notes. Lead Management created the folder when the appointment was booked and Acquisitions completed it after signing. Everything you need — Property Info Sheet, comps, photos, signed contract — is in that folder. Never start dispo without it. No link, or the folder is incomplete? Send it back to the closer.
+    Before building any listing or making any calls, open the contact in GHL → Appointments and copy the <code>Property Drive Folder</code> link from the appointment notes. Acquisitions creates the folder when the contract is signed and loads it within the hour. Everything you need — Property Info Sheet, comps, photos, signed contract — is in that folder. Never start dispo without it. No link, or the folder is incomplete? Send it back to the closer.
   </div>
 </div>
 
