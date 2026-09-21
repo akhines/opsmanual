@@ -1195,14 +1195,14 @@ const SECTIONS = [
   <tr><td>Tech / Access</td><td>Ashley</td></tr>
   <tr><td>Payroll, HR, Compliance, General questions</td><td>Ashley</td></tr>
   <tr><td>Day-to-day questions</td><td>Josh</td></tr>
-  <tr><td>Lead discussion</td><td>Nicole · <span class="ghl-field">#impact-lead-management</span></td></tr>
+  <tr><td>Lead discussion</td><td>Lead Managers · <span class="ghl-field">#impact-lead-management</span></td></tr>
 </table>
 
 <h2>Slack Channels</h2>
 <p>All team communication happens in Slack. Keep it organized — wrong channels slow everyone down.</p>
 <table class="data-table">
   <tr><th>Channel</th><th>Who Uses It</th><th>What Goes There</th></tr>
-  <tr><td><span class="ghl-field">#impact-lead-management</span></td><td>Lead Management</td><td>Lead activity and pipeline updates from Nicole; general lead questions</td></tr>
+  <tr><td><span class="ghl-field">#impact-lead-management</span></td><td>Lead Management</td><td>Lead activity and pipeline updates from the Lead Managers; general lead questions</td></tr>
   <tr><td><span class="ghl-field">#appointments</span></td><td>Everyone</td><td>Auto-posted by GHL when appointments are booked, rescheduled, or cancelled; confirmation questions</td></tr>
   <tr><td><span class="ghl-field">#acquisitions</span></td><td>Acq team</td><td>All deal-related activity — appointment notes, comp questions, offer updates</td></tr>
   <tr><td><span class="ghl-field">#transactions</span></td><td>TC + all</td><td>Deal updates, TC handoffs, closing progress</td></tr>
@@ -1550,7 +1550,7 @@ const SECTIONS = [
 
 <table class="data-table">
   <tr><th>Team Member</th><th>Required Quizzes</th><th>Pass Threshold</th></tr>
-  <tr><td>Nicole</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
+  <tr><td>Lead Managers</td><td>Lead Manager Entry + Lead Management Deep Dive</td><td>80% on each</td></tr>
   <tr><td>Joshua</td><td>Acquisitions Entry + Acquisitions Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
   <tr><td>Robin</td><td>TC Entry + TC Deep Dive + Deal Lifecycle</td><td>80% on each</td></tr>
   <tr><td>Ted</td><td>All role entry quizzes + Tools & Systems</td><td>80% on each</td></tr>
@@ -1634,7 +1634,7 @@ const SECTIONS = [
 </div>
 
 <h2>Pipeline 1: Leads — 5 Stages</h2>
-<p>Every new lead starts here. <strong>Nicole owns this pipeline.</strong></p>
+<p>Every new lead starts here. <strong>The Lead Manager owns this pipeline.</strong></p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field">Prospects</span></td><td>New leads that have entered the system but have not been contacted yet.</td></tr>
@@ -1645,7 +1645,7 @@ const SECTIONS = [
 </table>
 
 <h2>Pipeline: Robin the Closer — 4 Stages</h2>
-<p>Robin's acquisitions pipeline. When Nicole books an appointment for Robin, the lead moves HERE.</p>
+<p>Robin's acquisitions pipeline. When the Lead Manager books an appointment for Robin, the lead moves HERE.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Robin reviews the lead card, conversation history, and 4 Pillars fields before the meeting.</td></tr>
@@ -1655,7 +1655,7 @@ const SECTIONS = [
 </table>
 
 <h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
-<p>Joshua's acquisitions pipeline. Same concept as Robin's but with more granular stages for Joshua's workflow. When Nicole books for Joshua, the lead moves here.</p>
+<p>Joshua's acquisitions pipeline. Same concept as Robin's but with more granular stages for Joshua's workflow. When the Lead Manager books for Joshua, the lead moves here.</p>
 
 <h2>Pipeline 4: Offer Followup — 4 Stages</h2>
 <p>Deals where an offer has been made but no contract is signed. Used for systematic follow-up on pending offers across both closers.</p>
@@ -1693,7 +1693,7 @@ const SECTIONS = [
 <div class="callout crimson">
   <div class="callout-icon">⚠️</div>
   <div class="callout-body">
-    <strong>When Nicole books an appointment, she must move the lead to the correct closer's pipeline immediately.</strong>
+    <strong>When the Lead Manager books an appointment, they must move the lead to the correct closer's pipeline immediately.</strong>
     <ul style="margin:8px 0 0;padding-left:18px;">
       <li>Assigned to Joshua → move to <span class="ghl-field">3) Josh The Closer</span> pipeline, equivalent appointment stage</li>
       <li>Assigned to Robin → move to <span class="ghl-field">Robin the Closer</span> pipeline, <span class="ghl-field">Appointment Scheduled</span> stage</li>
@@ -1852,7 +1852,7 @@ const SECTIONS = [
 <div class="pc-why-grid">
   <div class="pc-why-card">
     <h4>🚫 Prevents Duplicate Outreach</h4>
-    <p>If a lead stays in "Prospects" after an appointment is set, Nicole may call someone Joshua is already meeting with. Stage = ownership transfer.</p>
+    <p>If a lead stays in "Prospects" after an appointment is set, the Lead Manager may call someone Joshua is already meeting with. Stage = ownership transfer.</p>
   </div>
   <div class="pc-why-card">
     <h4>🔁 Triggers the Next Department</h4>
@@ -1883,7 +1883,7 @@ const SECTIONS = [
   <div class="pc-col">
     <div class="pc-col-head" style="background:#EFF6FF;color:#1D4ED8;">
       <div class="pl-name">1) Leads Pipeline</div>
-      <div class="pl-owner">Owner: Nicole</div>
+      <div class="pl-owner">Owner: Lead Managers</div>
     </div>
     <div class="pc-stage" onclick="pcDetail('leads-prospects')">
       <div class="pc-stage-name">Prospects</div>
@@ -2243,7 +2243,7 @@ const SECTIONS = [
   <tr><td>☐</td><td>Drive folder link added to the appointment section in GHL</td></tr>
   <tr><td>☐</td><td>Closer notified — warm transfer or Slack</td></tr>
 </table>
-<p><strong>Pipeline movement:</strong> Nicole moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
+<p><strong>Pipeline movement:</strong> The Lead Manager moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
 <ul>
   <li>Assigned to Robin → <span class="ghl-field">Robin the Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
   <li>Assigned to Joshua → <span class="ghl-field">3) Josh The Closer</span> → appointment stage</li>
@@ -2343,8 +2343,8 @@ const SECTIONS = [
   <li><div class="step-num">1</div><div class="step-content"><strong>Set Next Contact Date</strong> after every interaction. Pick the date the lead should be called next.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>At 8:00 AM daily,</strong> GHL finds all leads with Next Contact Date = today, applies the <span class="ghl-field">powerdialer</span> tag, and creates a call task automatically.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>At 8:05 AM,</strong> the Overdue Rescue workflow catches any lead whose Next Contact Date passed without a call — resurfaces it with an ⚠️ prefix and increments the missed call counter.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Nicole opens GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to her, select all, then apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions as her calling list.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>After each call, Nicole sets Last Contact Outcome.</strong> The outcome workflow routes the lead, resets the tag, and queues the next task automatically.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>The Lead Manager opens GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to her, select all, then apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions as her calling list.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>After each call, the Lead Manager sets Last Contact Outcome.</strong> The outcome workflow routes the lead, resets the tag, and queues the next task automatically.</div></li>
 </ol>
 
 <h2>Active Stages</h2>
@@ -2437,9 +2437,9 @@ const SECTIONS = [
 <p>Go to <strong>Settings → Tags → Add Tag</strong>. Copy each tag name exactly — spelling and capitalization must match what is used in the workflows below.</p>
 <table class="data-table">
   <tr><th>Tag Name (copy exactly)</th><th>Purpose</th></tr>
-  <tr><td><span class="ghl-field">powerdialer</span></td><td>Applied to every lead with a call due today. Nicole filters by this tag to get her daily list.</td></tr>
+  <tr><td><span class="ghl-field">powerdialer</span></td><td>Applied to every lead with a call due today. The Lead Manager filters by this tag to get their daily list.</td></tr>
   <tr><td><span class="ghl-field">vm-sent</span></td><td>Applied after a voicemail is left. Prevents duplicate VMs on the same attempt cycle.</td></tr>
-  <tr><td><span class="ghl-field">same-day-callback</span></td><td>Applied manually by Nicole when a lead needs a same-day callback outside of the morning queue.</td></tr>
+  <tr><td><span class="ghl-field">same-day-callback</span></td><td>Applied manually by the Lead Manager when a lead needs a same-day callback outside of the morning queue.</td></tr>
   <tr><td><span class="ghl-field">re-engaged</span></td><td>Applied when a long-term nurture lead replies to a message. Triggers re-entry into the active calling system.</td></tr>
   <tr><td><span class="ghl-field">FU-LongTerm</span></td><td>Applied when a lead has exhausted the active calling cycle and moves to the long-term drip sequence.</td></tr>
 </table>
@@ -2551,7 +2551,7 @@ const SECTIONS = [
     <div class="cb" style="margin-bottom:8px;"><span class="lbl">Condition 1</span><span class="cv">Missed Call Count is greater than or equal to: 3</span><br><span class="lbl">Condition 2</span><span class="cv">Pipeline Stage is: Redzones</span></div>
     <ul>
       <li><strong>Do NOT change stage</strong> — human decision required</li>
-      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span> (tag Ashley AND Nicole)<br>Message: <span class="cv">⚠️ REDZONE ALERT: {{contact.first_name}} {{contact.last_name}} has {{contact.missed_call_count}} missed calls. Manual review needed. Phone: {{contact.phone}}</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#impact-lead-management</span> (tag Ashley AND the Lead Manager)<br>Message: <span class="cv">⚠️ REDZONE ALERT: {{contact.first_name}} {{contact.last_name}} has {{contact.missed_call_count}} missed calls. Manual review needed. Phone: {{contact.phone}}</span></li>
     </ul>
   </div>
 
@@ -2583,7 +2583,7 @@ const SECTIONS = [
 <div class="wf-body">
   <div class="wf-label">Trigger</div>
   <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Task Status Changed</span><br><span class="lbl">Condition</span><span class="cv">Task status changed to: Completed</span><br><span class="lbl">Filter</span><span class="cv">Task title contains: Call —</span><br><span class="lbl">Filter (OR)</span><span class="cv">Task title contains: OVERDUE</span><br><span class="lbl">Filter (OR)</span><span class="cv">Task title contains: Re-dial</span></div>
-  <div class="wf-note">Nicole must select Last Contact Outcome from the dropdown before or immediately after marking the task complete. That field drives the branch below.</div>
+  <div class="wf-note">The Lead Manager must select Last Contact Outcome from the dropdown before or immediately after marking the task complete. That field drives the branch below.</div>
   <div class="wf-label">Branches — on Last Contact Outcome</div>
 
   <div class="branch">
@@ -2657,9 +2657,9 @@ const SECTIONS = [
       <li>Remove Tags: <span class="cv">powerdialer</span>, <span class="cv">vm-sent</span></li>
       <li>Update Field: Missed Call Count → <span class="cv">0</span></li>
       <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
-      <li><strong>Next Contact Date: set manually by Nicole</strong> based on what the seller requested before closing the record</li>
+      <li><strong>Next Contact Date: set manually by the Lead Manager</strong> based on what the seller requested before closing the record</li>
     </ul>
-    <div class="wf-note">No auto-date on this branch. The seller gave a specific time. Nicole sets it before closing. The morning workflow re-tags powerdialer on that date automatically.</div>
+    <div class="wf-note">No auto-date on this branch. The seller gave a specific time. The Lead Manager sets it before closing. The morning workflow re-tags powerdialer on that date automatically.</div>
   </div>
 
   <div class="branch">
@@ -2671,7 +2671,7 @@ const SECTIONS = [
       <li>Update Field: Next Contact Date → <span class="cv">clear / blank</span></li>
       <li>Update Field: Last Contact Date → <span class="cv">today</span></li>
       <li>Change Pipeline Stage → if Robin: <span class="sp">Robin the Closer — Appointment Scheduled</span> / if Joshua: <span class="sp">3) Josh The Closer — Appointment Scheduled</span></li>
-      <li>Send Internal Notification → Channel: <span class="cv">#appointments</span><br>Message: <span class="cv">🗓️ APPOINTMENT BOOKED: {{contact.first_name}} {{contact.last_name}} — {{contact.address}} — booked by Nicole</span></li>
+      <li>Send Internal Notification → Channel: <span class="cv">#appointments</span><br>Message: <span class="cv">🗓️ APPOINTMENT BOOKED: {{contact.first_name}} {{contact.last_name}} — {{contact.address}} — booked by the Lead Manager</span></li>
     </ul>
   </div>
 
@@ -2692,7 +2692,7 @@ const SECTIONS = [
 
 <!-- WF 5 -->
 <div class="wf-block">
-<div class="wf-head"><div class="wf-num">5</div><div><div class="wf-title">IHT — Same Day Callback</div><div class="wf-sub">Fires immediately when Nicole applies the same-day-callback tag</div></div></div>
+<div class="wf-head"><div class="wf-num">5</div><div><div class="wf-title">IHT — Same Day Callback</div><div class="wf-sub">Fires immediately when the Lead Manager applies the same-day-callback tag</div></div></div>
 <div class="wf-body">
   <div class="wf-label">Trigger</div>
   <div class="cb"><span class="lbl">Trigger Type</span><span class="cv">Tag Added</span><br><span class="lbl">Tag</span><span class="cv">same-day-callback</span></div>
@@ -2752,7 +2752,7 @@ const SECTIONS = [
   <tr><td>☐</td><td>Next Contact Date set to today</td><td>WF2 fires 8:00 AM → task + powerdialer tag</td></tr>
   <tr><td>☐</td><td>Next Contact Date set to yesterday</td><td>WF3 fires 8:05 AM → ⚠️ OVERDUE task, count incremented</td></tr>
   <tr><td>☐</td><td>Missed Call Count = 3, stage = Prospects</td><td>Auto-moves to Follow Up, count resets, Slack alert</td></tr>
-  <tr><td>☐</td><td>Missed Call Count = 3, stage = Redzones</td><td>Slack alert to Ashley + Nicole, NO stage change</td></tr>
+  <tr><td>☐</td><td>Missed Call Count = 3, stage = Redzones</td><td>Slack alert to Ashley + the Lead Manager, NO stage change</td></tr>
   <tr><td>☐</td><td>Missed Call Count = 3, stage = Priority</td><td>Moves to Redzones, count resets, Slack alert</td></tr>
   <tr><td>☐</td><td>Missed Call Count = 5, stage = Follow Up</td><td>FU-LongTerm tag, nurture enrolled, powerdialer removed</td></tr>
   <tr><td>☐</td><td>Task complete + outcome = No Answer + Redzones</td><td>Re-dial task fires same day, SMS sends</td></tr>
@@ -2881,7 +2881,7 @@ const SECTIONS = [
 </div>
 `}
     ,
-      { id: 'fu-lead-scoring', title: 'Lead Scoring Values', dept: 'Go High Level Overview', owner: 'Nicole',
+      { id: 'fu-lead-scoring', title: 'Lead Scoring Values', dept: 'Go High Level Overview', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Each key adds a point value to the contact's lead score when the matching GHL event fires (appt stage change, email open, call outcome, DNC, etc.).<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Point value for each of the 35 keys</li><li>Whether scoring feeds a Workflow Action or only analytics</li><li>Threshold that flips a contact to "hot"</li></ul></div></div>
@@ -2902,7 +2902,7 @@ const SECTIONS = [
     <ol style="margin:8px 0 0;padding-left:18px;font-size:13px;line-height:2.2;">
       <li><strong>GHL Login:</strong> Accept the email invite (check spam). Log in and verify your profile — name, email, phone, photo.</li>
       <li><strong>Notifications:</strong> Turn on desktop + mobile push notifications for tasks, conversation replies, and calendar reminders.</li>
-      <li><strong>Calendar:</strong> Go to Settings → Calendars. Sync your calendar. Set your availability hours so Nicole can book appointments during the right windows.</li>
+      <li><strong>Calendar:</strong> Go to Settings → Calendars. Sync your calendar. Set your availability hours so the Lead Manager can book appointments during the right windows.</li>
       <li><strong>Phone Number:</strong> Ashley assigns a GHL number. All outbound seller communication goes through GHL.</li>
       <li><strong>Mobile App:</strong> Install the GHL mobile app. Enable push notifications.</li>
       <li><strong>Slack:</strong> Confirm you are in: #appointments, #transactions, #impact-lead-management, #objectionproof-call-grading.</li>
@@ -2917,7 +2917,7 @@ const SECTIONS = [
   <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
   <tr>
     <td><span class="ghl-field">Appointment Scheduled</span></td>
-    <td>Nicole booked and confirmed the appointment. The lead is now your responsibility. Review the contact card, conversation history, and 4 Pillars fields before the meeting.</td>
+    <td>The Lead Manager booked and confirmed the appointment. The lead is now your responsibility. Review the contact card, conversation history, and 4 Pillars fields before the meeting.</td>
     <td>Prep for appointment. Review all notes, comps, and seller motivation. Show up ready.</td>
   </tr>
   <tr>
@@ -2952,10 +2952,10 @@ const SECTIONS = [
 </div>
 
 <h2>How Leads Get to You</h2>
-<p>Nicole qualifies leads using MIST screening (Motivation, Information, Situation, Timeline) in the Leads pipeline. When a lead is ready, she books an appointment on your calendar and moves the opportunity into your closer pipeline → <span class="ghl-field">Appointment Scheduled</span>. GHL auto-posts the appointment to #appointments in Slack.</p>
+<p>The Lead Manager qualifies leads using MIST screening (Motivation, Information, Situation, Timeline) in the Leads pipeline. When a lead is ready, she books an appointment on your calendar and moves the opportunity into your closer pipeline → <span class="ghl-field">Appointment Scheduled</span>. GHL auto-posts the appointment to #appointments in Slack.</p>
 <div class="callout red">
   <div class="callout-icon">🚨</div>
-  <div class="callout-body"><strong>You prep from your own pipeline.</strong> If a lead is still sitting in the Leads pipeline after booking, something went wrong with the handoff — flag it to Nicole immediately.</div>
+  <div class="callout-body"><strong>You prep from your own pipeline.</strong> If a lead is still sitting in the Leads pipeline after booking, something went wrong with the handoff — flag it to the Lead Manager immediately.</div>
 </div>
 
 <h2>After Every Appointment — Logging Notes on the Contact Record</h2>
@@ -3035,10 +3035,10 @@ const SECTIONS = [
 {
     id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
     pages: [
-      { id: 'own-the-day', title: 'Own the Day — Daily Routine', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'own-the-day', title: 'Own the Day — Daily Routine', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>Own Every Call &amp; Win Every Day</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>For:</strong> every Lead Manager, every shift</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Lead Managers</span><span><strong>For:</strong> every Lead Manager, every shift</span></div>
 
 <p>As a Lead Manager, you are the first point of contact anyone will have with Impact Home Team. You have the privilege of helping sellers who need it — and of setting up the whole team for success. This page is your cheat sheet. Own every call with the steps below and the goals are yours to hit.</p>
 
@@ -3095,7 +3095,25 @@ const SECTIONS = [
   <li><strong>GHL Calendar / Google Calendar</strong> — today's appointments</li>
   <li><strong>Gmail</strong> — your @theimpacthometeam.com address</li>
 </ul>
-<p>Call notes go on the contact record in GHL as a dated note — no separate notes file. Dialer setup: <a onclick="showPage('lead-mgmt','dialer-and-calendar')" style="cursor:pointer;font-weight:600;">The Dialer &amp; The Calendar</a>.</p>
+<p>Call notes go on the contact record in GHL as a dated note — no separate notes file.</p>
+
+<h3>Opportunity Card Setup — do this once</h3>
+<p>Set your cards up so the board is readable without opening anything. In <strong>Opportunities</strong>, open <strong>Customize card</strong> and match this:</p>
+<ul>
+  <li><strong>Card layout:</strong> Default — not Compact, not Unlabeled. You want the field labels visible.</li>
+</ul>
+<p><strong>Fields — turn on these 5:</strong></p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>Field</th><th>Why it is on the card</th></tr>
+  <tr><td><strong>Opportunity name</strong></td><td>Always on — cannot be turned off.</td></tr>
+  <tr><td><strong>Created on (EDT)</strong></td><td>How old the lead is at a glance. Age drives urgency and it feeds the lead score.</td></tr>
+  <tr><td><strong>Source</strong></td><td>The channel the lead came from — TV AD, TV Website, PPC: Google Ads, Direct Mail, Referral, and so on. This is the field that tells you how to open the call, so you never work a card blind.</td></tr>
+  <tr><td><strong>Property Address</strong></td><td>Lets you see the property without opening the record — and catch a duplicate before you dial it twice.</td></tr>
+  <tr><td><strong>Value</strong></td><td>The lead score. Sorting by it puts the best leads at the top of the column. See <a class="ic-lnk" style="color:var(--amber-dark);cursor:pointer;" onclick="showPage('pipeline-ref','fu-lead-scoring')">Lead Scoring Values</a>.</td></tr>
+</table>
+</div>
+<p style="font-size:12px;color:var(--steel);">Five of the eight available fields. Leave the rest off — more fields make the card taller and the column harder to scan.</p>
 
 <h2>Morning — Check Every Channel First</h2>
 <ol class="step-list">
@@ -3104,7 +3122,7 @@ const SECTIONS = [
   <li><div class="step-num">3</div><div class="step-content"><strong>Tasks</strong> — review your task list and respond to every outstanding item. ⚠️ OVERDUE first.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>Conversations — overnight inbound</strong> — confirm no SMS or callbacks are outstanding from after your last shift. Answer seller SMS <em>regardless of who the lead manager is</em>. If an outstanding text belongs to a teammate, respond on their behalf and let them know.</div></li>
   <li><div class="step-num">5</div><div class="step-content"><strong>Calendar</strong> — confirm every appointment on today's schedule.</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Build today's call list</strong> — follow the morning start-up in <a onclick="showPage('lead-mgmt','calling-routine')" style="cursor:pointer;font-weight:600;">Nicole's Daily Calling Routine</a>.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Build today's call list</strong> — follow the morning start-up in <a onclick="showPage('lead-mgmt','calling-routine')" style="cursor:pointer;font-weight:600;">Lead Manager Daily Calling Routine</a>.</div></li>
 </ol>
 
 <h2>Call Lists — Who Works What</h2>
@@ -3159,11 +3177,11 @@ const SECTIONS = [
   <li><div class="step-num">12</div><div class="step-content"><strong>Submit your EOD report.</strong></div></li>
 </ol>
 `},
-      { id: 'calling-routine', title: "Nicole's Daily Calling Routine", dept: 'Lead Management', owner: 'Nicole',
+      { id: 'calling-routine', title: 'Lead Manager Daily Calling Routine', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
-<h2>Nicole's Daily Calling Routine</h2>
+<h2>Lead Manager Daily Calling Routine</h2>
 <p style="font-size:13px;color:var(--steel);">The calling mechanics for your day. The full daily routine — goals, schedule, and end-of-day cleanup — is on <a onclick="showPage('lead-mgmt','own-the-day')" style="cursor:pointer;font-weight:600;">Own the Day</a>.</p>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
 
 <div class="callout amber">
   <div class="callout-icon">📋</div>
@@ -3205,7 +3223,7 @@ const SECTIONS = [
 </table>
 <div class="callout amber" style="margin:12px 0;">
   <div class="callout-icon">⚡</div>
-  <div class="callout-body"><strong>The two fields are independent.</strong> Next Contact Date queues the manual call for Nicole; Next Follow Up Date For SMS Campaign fires the SMS Josh automation. You can use either, both, or neither depending on what you want to happen.</div>
+  <div class="callout-body"><strong>The two fields are independent.</strong> Next Contact Date queues the manual call for the Lead Manager; Next Follow Up Date For SMS Campaign fires the SMS Josh automation. You can use either, both, or neither depending on what you want to happen.</div>
 </div>
 
 <h2>End of Day Check</h2>
@@ -3220,10 +3238,10 @@ const SECTIONS = [
   <div class="callout-body"><strong>Never close a contact record without setting Next Contact Date.</strong> No date = no task tomorrow = dropped lead.</div>
 </div>
 ` },
-      { id: 'call-outcome-next-steps', title: 'Call Outcome Next Steps', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'call-outcome-next-steps', title: 'Call Outcome Next Steps', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>Appointment Setter — Next Step Rules</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
 
 <p>After every call attempt, select a disposition, log a short call note, and set the next task or contact date before closing the record. No active lead ends the day without a next contact task.</p>
 
@@ -3388,392 +3406,10 @@ const SECTIONS = [
 </div>
 `},
 
-      { id: 'dialer-and-calendar', title: 'The Dialer & The Calendar (New Hire Guide)', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<h2>The Dialer &amp; The Calendar</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Aug 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Audience:</strong> New hire</span></div>
-<p>Everything you need to run a calling block and book the right kind of appointment. Read it once before your first session, then keep it open on a second monitor.</p>
-
-<div class="callout amber">
-  <div class="callout-icon">✏️</div>
-  <div class="callout-body"><strong>Highlighted fields still need filling.</strong> Anything shown like <span class="fill">[LIST NAMES]</span> is a placeholder. Fill every one of them in before this page goes to a new hire.</div>
-</div>
-
-<h2>Part One — Kixie PowerDialer</h2>
-<p>Kixie is how we make outbound calls. Rather than dialing one number at a time, the PowerDialer works through a loaded list of sellers in the background and hands you the call once someone picks up.</p>
-<p>We run it with <strong>AI Human Detect</strong> switched on. The system dials several numbers at once, listens to each answer, and throws away anything that turns out to be a voicemail greeting or an automated menu. You only ever get handed a live human.</p>
-<p>What that means for your day: you will spend close to zero time listening to ringing or voicemail beeps. Your job is to be ready to talk the second a call lands.</p>
-
-<h3>Before your first dial</h3>
-<p>Work through this with your manager on day one. Do not start a session with anything unchecked.</p>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Kixie login created at <strong>app.kixie.com</strong>, password set.</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Chrome installed, plus the <strong>Kixie PowerCall</strong> Chrome extension, signed in.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Wired</strong> USB headset tested — mic and speaker both.</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Assigned to the right PowerLists: <span class="fill">[LIST NAMES]</span></div></li>
-  <li><div class="step-num">5</div><div class="step-content">AI Human Detect enabled on your agent profile by an admin.</div></li>
-  <li><div class="step-num">6</div><div class="step-content">Outbound caller ID confirmed: <span class="fill">[NUMBER]</span></div></li>
-  <li><div class="step-num">7</div><div class="step-content">Test call logs correctly into GHL.</div></li>
-  <li><div class="step-num">8</div><div class="step-content">Call script and 4 Pillars questions reviewed: <span class="fill">[SCRIPT LINK]</span></div></li>
-  <li><div class="step-num">9</div><div class="step-content">Compliance rules reviewed and signed: <span class="fill">[POLICY LINK]</span></div></li>
-</ol>
-
-<div class="callout crimson">
-  <div class="callout-icon">⚠️</div>
-  <div class="callout-body"><strong>Not a preference — the headset must be wired.</strong> Bluetooth adds a delay that eats the first second or two of every conversation, and on a multiline dialer the seller has already said hello before you are connected. You cannot afford to lose that second.</div>
-</div>
-
-<h3>The PowerDialer window</h3>
-<p>You will live in one window with three tabs for your entire calling block. Kixie's own walkthrough of this screen runs about five minutes and is worth watching once before your first session.</p>
-
-<div class="video">
-  <iframe src="https://www.youtube-nocookie.com/embed/2ACCnpTRZvk" title="How to 10x your outbound calls with the Kixie PowerDialer" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<p class="vid-cap">Source: Kixie Help Center — Introduction to the PowerDialer Window</p>
-
-<h4>Overview — your scoreboard</h4>
-<table class="data-table">
-  <tr><th>Reads</th><th>Means</th></tr>
-  <tr><td><strong>Queued</strong></td><td>Numbers you are allowed to call right now.</td></tr>
-  <tr><td><strong>Deferred</strong></td><td>Numbers temporarily off limits because of the list's daily attempt cap or its minimum gap between retries.</td></tr>
-  <tr><td><strong>Dialed</strong></td><td>Total dials this session.</td></tr>
-  <tr><td><strong>Answered</strong></td><td>How many of those were picked up.</td></tr>
-  <tr><td><strong>Connected</strong></td><td>Answered calls that lasted long enough to count as a real conversation.</td></tr>
-  <tr><td><strong>Talk Time</strong></td><td>Total time on live calls this session.</td></tr>
-  <tr><td><strong>Machines Detected</strong></td><td>Voicemails and phone menus Human Detect skipped so you did not have to.</td></tr>
-</table>
-<p>Everything except Queued and Deferred resets to zero the moment you hit Start Dialing. Write your numbers down before you start a fresh session.</p>
-
-<h4>Session — start and stop</h4>
-<ul>
-  <li>Your assigned PowerLists appear here with checkboxes. Tick the one you are working and click <strong>Start Dialing</strong>.</li>
-  <li>Tick more than one and the dialer rotates evenly between them.</li>
-  <li><strong>Pause / Resume</strong> and <strong>End Session</strong> live here.</li>
-  <li><strong>Reserved Contacts</strong> shows what is queued up next.</li>
-  <li>A <strong>Need Outcome</strong> flag means the dialer is stopped, waiting on you to disposition the last call. Nothing moves until you do.</li>
-</ul>
-
-<h4>Outcome — where the work happens</h4>
-<table class="data-table">
-  <tr><th>Field</th><th>What it does</th></tr>
-  <tr><td><strong>Contact</strong></td><td>Name, title, company, email, pulled from the uploaded list.</td></tr>
-  <tr><td><strong>PowerList Notes</strong></td><td>Notes that stick to this phone number and reappear on every future call to it. Use it for what the next caller needs: <em>asked for a callback after 5</em>, <em>co-owns with brother</em>.</td></tr>
-  <tr><td><strong>CRM Notes</strong></td><td>Pushes a note into the matching record in GHL along with your disposition. This is what the rest of the team sees.</td></tr>
-  <tr><td><strong>Do Not Call Sooner Than</strong></td><td>Set a date and time; the number stays deferred until then. This is your callback tool.</td></tr>
-  <tr><td><strong>Call Outcome</strong></td><td>The disposition dropdown. Choosing one releases the dialer to place the next calls.</td></tr>
-  <tr><td><strong>SMS Template</strong></td><td>Sends a pre-approved text to the number you just spoke with.</td></tr>
-</table>
-
-<h3>Running a session</h3>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Open the PowerDialer window and keep it visible.</strong> Do not minimize it or bury it behind tabs. There is no ring — the seller is just suddenly there.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Check the AI Human Detect toggle is on.</strong> It sits to the right of Start Dialing.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Select your PowerList</strong> on the Session tab.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Click Start Dialing.</strong></div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Wait through the green screen.</strong> A green panel covers the Session tab while the system works numbers in the background. Do nothing. Do not click away.</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Green panel disappears — you are live.</strong></div></li>
-  <li><div class="step-num">7</div><div class="step-content"><strong>Work the call,</strong> taking notes in the Outcome tab as you go.</div></li>
-  <li><div class="step-num">8</div><div class="step-content"><strong>Disposition it.</strong> The dialer will not advance until you do.</div></li>
-  <li><div class="step-num">9</div><div class="step-content">Repeat. End Session when your block is over.</div></li>
-</ol>
-
-<div class="callout crimson">
-  <div class="callout-icon">🔴</div>
-  <div class="callout-body"><strong>The one habit that matters most.</strong> When the green panel drops, <strong>they have already said hello.</strong> The seller answered a few seconds ago and has been talking into silence. Open as if you heard them: <em>"Hey — is this <span class="fill">[NAME]</span>?"</em> Never open with "Hello? Hello?" and never pause to gather yourself. That dead air is where hangups come from. Have your first line ready before you hit Start Dialing, not after.</div>
-</div>
-
-<h4>Turning Human Detect off</h4>
-<p>The toggle only moves when no session is running, so end your session first. Switched off, the dialer reverts to a fixed number of lines per the PowerList settings and connects you to the first answer — machine or not. Leave it on unless <span class="fill">[MANAGER]</span> tells you otherwise.</p>
-
-<h3>Dispositions</h3>
-<p>Every call gets one. This is not optional — it is how the dialer knows to move on, and how we find out whether a list is worth calling at all.</p>
-<table class="data-table">
-  <tr><th>Outcome</th><th>Use it when</th><th>Then</th></tr>
-  <tr><td><span class="fill">[OUTCOME 1]</span></td><td><span class="fill">[DEFINITION]</span></td><td><span class="fill">[NEXT ACTION]</span></td></tr>
-  <tr><td><span class="fill">[OUTCOME 2]</span></td><td><span class="fill">[DEFINITION]</span></td><td><span class="fill">[NEXT ACTION]</span></td></tr>
-  <tr><td><strong>Callback requested</strong></td><td>Seller wants to talk, not now</td><td>Set <strong>Do Not Call Sooner Than</strong></td></tr>
-  <tr><td><strong>Wrong number</strong></td><td>Not the owner, never was</td><td><span class="fill">[NEXT ACTION]</span></td></tr>
-  <tr><td><strong>Do not call</strong></td><td>Seller asks to be removed, in any wording</td><td>Stop. See compliance.</td></tr>
-  <tr><td><strong>No answer / machine</strong></td><td>No live human reached</td><td>Stays in rotation</td></tr>
-</table>
-<div class="callout amber">
-  <div class="callout-icon">📝</div>
-  <div class="callout-body"><strong>Replace this table.</strong> Pull the real disposition list out of Kixie and write real definitions for each one. Two people using "not interested" differently makes every report downstream meaningless.</div>
-</div>
-<p><strong>Notes standard:</strong> every conversation gets a CRM note. One line minimum — who you spoke to, what they said about the property, what happens next.</p>
-
-<h3>When it breaks</h3>
-<table class="data-table">
-  <tr><th>Symptom</th><th>Do this</th></tr>
-  <tr><td><strong>I got connected to a voicemail anyway</strong></td><td>Detection is not perfect and depends on an account-level timeout setting. Kixie's own testing puts the sweet spot at 3 seconds. If it keeps happening, tell <span class="fill">[MANAGER]</span> — it is an admin setting, not yours.</td></tr>
-  <tr><td><strong>The dialer stopped and will not move</strong></td><td>Check the Session tab for a <strong>Need Outcome</strong> flag. You have an undispositioned call.</td></tr>
-  <tr><td><strong>Nothing is queued</strong></td><td>Everything eligible probably slid into <strong>Deferred</strong> under the daily cap or retry spacing. Check Overview, then switch lists or tell <span class="fill">[MANAGER]</span> the list is done for today.</td></tr>
-  <tr><td><strong>Audio is choppy, or they cannot hear me</strong></td><td>Wired headset plugged straight in, close other tabs and video calls, hardwire to ethernet if you can. Still bad — run a speed test and send it over.</td></tr>
-  <tr><td><strong>Calls are not showing in GHL</strong></td><td>Stop dialing and report it immediately. Untracked calls are lost work.</td></tr>
-</table>
-<p>Escalate to <span class="fill">[MANAGER / SLACK CHANNEL]</span>. Platform-level problems go to Kixie at <a href="https://support.kixie.com" target="_blank" rel="noopener">support.kixie.com</a>.</p>
-
-<div class="callout crimson">
-  <div class="callout-icon">⚖️</div>
-  <div class="callout-body"><strong>Compliance — read twice.</strong> We call into Maryland, and Maryland is stricter than the federal baseline in several places. Calling hours, do-not-call handling, how you identify yourself, call recording disclosure, texting consent, and what you may and may not say about licensing all have rules. They live here: <span class="fill">[COMPLIANCE POLICY LINK]</span>. If someone asks to be removed, in any wording, the conversation is over. Thank them, disposition it, move on. No rebuttal. If you are ever unsure whether you can say something, do not say it — ask after the call.</div>
-</div>
-
-<h2>Part Two — Which Calendar</h2>
-<p>Once the 4 Pillars tell you a seller is worth an appointment, the next call is <strong>which kind</strong>. We run two calendars and they are not interchangeable. Pick wrong and you either burn half a day of someone's field time or let a hot seller go cold.</p>
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0;">
-  <div class="workflow-card" style="margin:0;">
-    <h4 style="color:var(--amber-dark);">DEFAULT — Virtual</h4>
-    <p style="font-size:13px;color:var(--steel);margin-bottom:10px;">Phone or video with <span class="fill">[ACQ REP]</span></p>
-    <ul style="font-size:14px;">
-      <li>Motivation is medium — or you honestly are not sure</li>
-      <li>Timeline is 30 to 90 days</li>
-      <li>There is a reason to sell but it is soft</li>
-      <li>Price expectation is high but not immovable</li>
-      <li>Outside the drive radius, or out of state</li>
-      <li>Tenant-occupied with no access</li>
-      <li>The seller asked for virtual</li>
-    </ul>
-    <p style="font-size:12px;margin-bottom:0;"><strong>Book here:</strong><br><a href="https://link.patriotbusinesssystems.com/widget/bookings/ihtvirtualappt" target="_blank" rel="noopener" style="word-break:break-all;">link.patriotbusinesssystems.com/widget/bookings/ihtvirtualappt</a></p>
-  </div>
-  <div class="workflow-card" style="margin:0;">
-    <h4 style="color:#16A34A;">EARNED — In person</h4>
-    <p style="font-size:13px;color:var(--steel);margin-bottom:10px;">At the property</p>
-    <ul style="font-size:14px;">
-      <li>Smoking hot only</li>
-      <li>All four pillars green</li>
-      <li>The seller stated a clear <em>why</em></li>
-      <li>They want out as soon as possible</li>
-      <li>Inside the drive radius</li>
-      <li>Access to the property is confirmed</li>
-      <li>Every owner on title is on board</li>
-    </ul>
-    <p style="font-size:12px;margin-bottom:0;"><strong>Book here:</strong><br><a href="https://link.patriotbusinesssystems.com/widget/bookings/ihtinpersonappts1mbmna" target="_blank" rel="noopener" style="word-break:break-all;">link.patriotbusinesssystems.com/widget/bookings/ihtinpersonappts1mbmna</a></p>
-  </div>
-</div>
-
-<div class="callout dark">
-  <div class="callout-icon">🚗</div>
-  <div class="callout-body"><strong>Virtual is the default. In person is earned.</strong> A virtual appointment can always be upgraded once we hear the seller out. A wasted drive cannot be recovered — that is fuel, hours, and a slot another seller could have had. If you have to talk yourself into it, it is not one.</div>
-</div>
-
-<h3>The in-person bar</h3>
-<p>Book in person only when <strong>every</strong> line below is true. Miss one and it is virtual.</p>
-<table class="data-table">
-  <tr><th>Pillar</th><th>Must hear</th><th>Sounds like</th></tr>
-  <tr><td><strong>Timeline</strong></td><td>As soon as possible, or inside 30 days</td><td><em>"Yesterday." "Soon as you can."</em></td></tr>
-  <tr><td><strong>Motivation</strong></td><td>A clear, stated why — inheritance, divorce, relocation, financial pressure, tired landlord, tax issue</td><td><em>"My mom passed and I live out of state."</em></td></tr>
-  <tr><td><strong>Condition</strong></td><td>Needs work, or the seller admits it is not retail ready</td><td><em>"It needs a roof and the kitchen is original."</em></td></tr>
-  <tr><td><strong>Price</strong></td><td>At or under roughly 80% of estimated ARV, or flexible with no number set</td><td><em>"I don't know — what do you think it's worth?"</em></td></tr>
-  <tr><td><strong>Access</strong></td><td>The decision maker will be on site and can let us in</td><td><em>"I'll meet you there, I've got the keys."</em></td></tr>
-  <tr><td><strong>Geography</strong></td><td>Property is within <span class="fill">[DRIVE RADIUS]</span> of <span class="fill">[MARKET]</span></td><td>—</td></tr>
-</table>
-
-<div class="callout amber">
-  <div class="callout-icon">👥</div>
-  <div class="callout-body"><strong>Everyone on title, on the appointment.</strong> If there is a sibling, an ex-spouse, or a co-heir who has not agreed to sell, that stays a virtual conversation until they are aligned. We do not drive out to a house where half the decision makers are missing.</div>
-</div>
-
-<h4>When you are not sure</h4>
-<p>You will get calls where the seller sounds interested but you cannot pin down the why, or they dodge the price question, or the timeline keeps sliding. That is not a failed call. That is a virtual appointment.</p>
-<ul>
-  <li>Do not stretch a soft lead into an in-person slot because the day looks empty.</li>
-  <li>Do not book in person because the seller asked for it. If they clear the bar, great. If not, virtual.</li>
-  <li>Do not book in person to make sure we do not lose them. Speed keeps a lead. Format does not.</li>
-  <li>If the virtual call reveals a hot seller, the acquisitions rep converts it from there. That path is open. The reverse is not.</li>
-</ul>
-
-<h3>Booking it on the call</h3>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Decide the calendar before you offer a time.</strong> Never say "let me get someone out to you" until you know it is in person. Walking that back is the fastest way to lose a seller's trust.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Open the right link</strong> while they are still on the phone.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Offer two specific times, not an open question.</strong> "I've got Tuesday at 10 or Wednesday at 2 — which is better?" beats "when are you free?" every single time.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Confirm details out loud</strong> — full property address, best callback number, email, and who else will be there.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Book it while they are on the line.</strong> Never hang up planning to send a link. Booked-on-the-call holds. Sent-a-link does not.</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Read it back.</strong> Day, date, time, time zone, and format — phone or video versus at the property.</div></li>
-  <li><div class="step-num">7</div><div class="step-content"><strong>Set expectations.</strong> In person: how long it takes, that we walk the property, that we can make an offer on the spot. Virtual: it is a conversation, no obligation, nobody is coming to the house yet.</div></li>
-</ol>
-
-<h3>The minute you hang up</h3>
-<table class="data-table">
-  <tr><th>Step</th><th>What to do</th></tr>
-  <tr><td><strong>Move the opportunity</strong></td><td>Drag the card to <span class="fill">[APPOINTMENT STAGE]</span>. An appointment that is not reflected in the stage does not exist to anyone else.</td></tr>
-  <tr><td><strong>Log the note</strong></td><td>All four pillar answers in the seller's own words, the stated why, their number if they gave one, condition highlights, and anything the rep needs before walking in.</td></tr>
-  <tr><td><strong>Tag the format</strong></td><td>Apply <span class="fill">[VIRTUAL TAG]</span> or <span class="fill">[IN-PERSON TAG]</span> so we can see which format actually converts.</td></tr>
-  <tr><td><strong>Set Next Contact Date</strong></td><td>The day before, for the confirmation call. This drives your task list — leave it blank and the confirmation never happens.</td></tr>
-  <tr><td><strong>Confirm within 24 hours</strong></td><td>Call, do not just text. Use the confirmation script. An unconfirmed in-person appointment is a coin flip.</td></tr>
-</table>
-
-<div class="callout green">
-  <div class="callout-icon">✅</div>
-  <div class="callout-body"><strong>The note is the handoff.</strong> The acquisitions rep is walking into a stranger's kitchen based on what you typed. Four pillar answers, in the seller's words, every time. If it is not in GHL, it did not happen.</div>
-</div>
-
-<h3>Quick card — print and tape to your monitor</h3>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0;">
-  <div class="workflow-card" style="margin:0;">
-    <h4>BEFORE YOU START</h4>
-    <ul style="font-size:14px;margin-bottom:0;">
-      <li>Wired headset in</li>
-      <li>PowerDialer window open and visible</li>
-      <li>Human Detect toggle on</li>
-      <li>Right PowerList ticked</li>
-      <li>Opening line ready</li>
-    </ul>
-  </div>
-  <div class="workflow-card" style="margin:0;">
-    <h4>GREEN SCREEN DROPS</h4>
-    <p style="font-weight:700;font-size:15px;">They already said hello. Talk now.</p>
-    <ul style="font-size:14px;margin-bottom:0;"><li><em>"Hey — is this [Name]?"</em></li></ul>
-  </div>
-  <div class="workflow-card" style="margin:0;">
-    <h4>AFTER EVERY CALL</h4>
-    <ul style="font-size:14px;margin-bottom:0;">
-      <li>Disposition it — dialer will not move otherwise</li>
-      <li>CRM note: who, what about the property, what is next</li>
-      <li>Callback? Set Do Not Call Sooner Than</li>
-    </ul>
-  </div>
-  <div class="workflow-card" style="margin:0;">
-    <h4>WHICH CALENDAR</h4>
-    <p style="font-weight:700;font-size:15px;">Not sure? Virtual.</p>
-    <ul style="font-size:14px;margin-bottom:0;">
-      <li>All four pillars + access + radius = in person</li>
-      <li>Anything less = virtual</li>
-      <li>Asked to be removed? Stop. Thank them. Done.</li>
-    </ul>
-  </div>
-</div>
-
-<h2>Appendix — Admin Setup</h2>
-<div class="admin-flag">
-  <strong>Managers only</strong>
-  If you are new here, skip this. Nothing below is something a caller changes — these are account-level settings, and changing them affects everyone on the floor.
-</div>
-
-<h3>Turning on AI Human Detect for an agent</h3>
-<p>Every new caller needs this switched on before their first session, or they will get the standard fixed-line dialer and no machine skipping.</p>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Sign in at <strong>app.kixie.com</strong>.</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Sidebar, click <strong>Manage</strong>.</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Under Manage, click <strong>Agents</strong>.</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Find the agent and click them. The search bar is faster than scrolling.</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Click <strong>Edit Agent</strong> near the top of the page.</div></li>
-  <li><div class="step-num">6</div><div class="step-content">Open the <strong>Manage</strong> tab.</div></li>
-  <li><div class="step-num">7</div><div class="step-content">Under <strong>User Products</strong>, expand the <strong>PowerDialer Product</strong> dropdown.</div></li>
-  <li><div class="step-num">8</div><div class="step-content">Choose <strong>PowerDialer AI Human Detect</strong>.</div></li>
-  <li><div class="step-num">9</div><div class="step-content">Click <strong>Save</strong>. A confirmation window lists every product applied to that agent — changed and unchanged. Click <strong>Save</strong> at the bottom to commit.</div></li>
-</ol>
-
-<div class="callout green">
-  <div class="callout-icon">👥</div>
-  <div class="callout-body"><strong>Onboarding several people at once.</strong> The confirmation window has a <strong>Save and apply to more agents</strong> button in the lower left. Use it when you are setting up a whole new calling pod rather than walking the flow nine times.</div>
-</div>
-
-<h3>Timeout duration</h3>
-<p>This is the single setting that decides how often voicemails leak through to your callers. It controls how long the system listens before committing to a verdict on whether an answer is a human or a machine.</p>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Sign in at <strong>app.kixie.com</strong>.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Manage</strong>, then <strong>Account Settings</strong>.</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Click <strong>Edit All</strong> at the top right.</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Open the <strong>Options</strong> tab.</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Under <strong>PowerDialer AI Human Detect</strong>, open <strong>Timeout Duration (seconds)</strong>.</div></li>
-  <li><div class="step-num">6</div><div class="step-content">Pick a value from 2 to 5 seconds, in half-second steps.</div></li>
-</ol>
-<table class="data-table">
-  <tr><th>Setting</th><th>Trade</th></tr>
-  <tr><td><strong>Longer (4–5s)</strong></td><td>More accurate machine detection. The human who picked up waits longer in silence before a caller is connected, so more of them hang up first.</td></tr>
-  <tr><td><strong>Shorter (2–2.5s)</strong></td><td>Faster connection for the seller. Detection has less to work with, so more voicemails reach your callers.</td></tr>
-  <tr><td><strong>3 seconds</strong></td><td>Where Kixie's own testing lands — accuracy climbs sharply at this point with only a slight delay. Start here and only move it if the floor reports a pattern.</td></tr>
-</table>
-<p>Two other things worth knowing at the admin layer. With Human Detect on, the system decides for itself how many lines to dial at once, adjusting from session data, rather than using the fixed per-line count set on each PowerList. And any conditional rules you have built into a PowerList — CRM record ownership and the like — still apply while it is running.</p>
-
-<h2>Kixie's Own Documentation</h2>
-<p>Three articles cover everything on this page from the vendor's side. When something in the interface does not match what you read here, theirs is current and ours may have drifted — tell <span class="fill">[MANAGER]</span> so this page gets fixed.</p>
-<div class="docs">
-  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/4582890954907-Introduction-to-the-PowerDialer-Window" target="_blank" rel="noopener">
-    <div class="dt">Introduction to the PowerDialer Window</div>
-    <div class="dd">The three tabs, every metric on the Overview scoreboard, how reserved contacts and the Need Outcome flag behave, and what each field on the Outcome tab writes to. Includes the video walkthrough embedded above. Start here.</div>
-    <span class="du">support.kixie.com/hc/en-us/articles/4582890954907</span>
-  </a>
-  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/22656918351259-PowerDialer-with-AI-Human-Detect" target="_blank" rel="noopener">
-    <div class="dt">PowerDialer with AI Human Detect</div>
-    <div class="dd">The setup article. Enabling the product per agent, where the toggle lives in the dialer window, and how to reach the timeout duration setting. This is the source for the admin appendix above, with screenshots of each screen.</div>
-    <span class="du">support.kixie.com/hc/en-us/articles/22656918351259</span>
-  </a>
-  <a class="doc" href="https://support.kixie.com/hc/en-us/articles/24665570825755-PowerDialer-with-AI-Human-Detect-FAQs" target="_blank" rel="noopener">
-    <div class="dt">AI Human Detect — FAQs</div>
-    <div class="dd">Why voicemails still get through sometimes, how the dynamic line count works, what happens to conditional PowerList rules, and why the green dialing panel behaves the way it does. Read this one if the tool is doing something you did not expect.</div>
-    <span class="du">support.kixie.com/hc/en-us/articles/24665570825755</span>
-  </a>
-</div>
-<p class="vid-cap">Kixie support, general: support.kixie.com</p>
-`},
-
-      { id: 'cold-call-script', title: 'Cold Call Script — Outbound Seller', dept: 'Lead Management', owner: 'Nicole',
-        content: `
-<h2>Cold Call Script — Outbound Seller</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Aug 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Use with:</strong> The Dialer &amp; The Calendar</span></div>
-<p>This is the outbound cold call. Learn the shape of it, not the words — the goal is a natural conversation that gets you the four pillars and a reason to call back with numbers.</p>
-
-<div class="callout amber">
-  <div class="callout-icon">📍</div>
-  <div class="callout-body"><strong>Do not say the street number.</strong> Open with the street name only. The full address comes later, once they have engaged.</div>
-</div>
-
-<h3>The call</h3>
-
-<div class="script-you"><strong>YOU:</strong> Hello Jane?</div>
-<div class="script-seller"><strong>SELLER:</strong> Yes, this is she... how can I help you?</div>
-
-<div class="script-you"><strong>YOU:</strong> Yes, my name is <span class="fill">[YOUR NAME]</span> and I'm calling in regards to your property on Constitution Ave NE.<br><em style="color:var(--crimson);">(Street name only — do not say the street number yet.)</em></div>
-<div class="script-seller"><strong>SELLER:</strong> Okay, what about it?<br><em>(If they ask "How did you get my number?" — see Rebuttals / Extras.)</em></div>
-
-<div class="script-you"><strong>YOU:</strong> The reason I'm calling is because our company just bought a home right by yours and wanted to reach out to you to make you a fair cash offer on your home, if you are interested in selling.</div>
-<div class="script-seller"><strong>SELLER:</strong> Yes, what's your offer? — or — I'm open to hearing an offer…</div>
-
-<div class="script-you"><strong>YOU:</strong> Great! Well, we don't formulate an offer until we get an OK from the homeowner, but the process is very simple. I just need to ask you a few questions about the condition of the home — is that OK?</div>
-<div class="script-seller"><strong>SELLER:</strong> Yes.</div>
-
-<h3>The questions</h3>
-
-<div class="script-you"><strong>YOU:</strong> Great, can you tell me a little bit about the property? Just some basics — number of beds and baths, square footage, any updates or improvements, the HVAC, things like that.</div>
-<div class="script-seller"><strong>SELLER:</strong> [Gives property info]</div>
-
-<div class="script-you"><strong>YOU:</strong> Wow, seems like a great property. Why are you looking to sell, or at least get an offer?</div>
-<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
-
-<div class="script-you"><strong>YOU:</strong> I see. How long have you thought about selling?<br><em>(Use this when the seller is not seriously interested and just wants to hear an offer.)</em></div>
-
-<div class="script-you"><strong>YOU:</strong> Is the property vacant? Are there tenants, or are you living in the property?</div>
-<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
-
-<div class="script-you"><strong>YOU:</strong> Okay, great. Considering everything we just discussed, did you have any ideas about what you think the property might be worth?</div>
-<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
-
-<div class="script-you"><strong>YOU:</strong> Okay, sounds good. Well, if we presented you an all-cash offer that you liked, when would you be ready to sell — 7 days, 30 days, or 60 days?</div>
-<div class="script-seller"><strong>SELLER:</strong> [Gives response]</div>
-
-<h3>The close</h3>
-
-<div class="script-you"><strong>YOU:</strong> Okay. Thank you for this information! What I'll do now is have my manager run the numbers on our end, and we'll call you back with an offer ready to go. Sound good?</div>
-<div class="script-seller"><strong>SELLER:</strong> Yes, thank you.</div>
-
-<div class="script-you"><strong>YOU:</strong> Perfect. Have a great day!</div>
-
-<div class="callout green">
-  <div class="callout-icon">✅</div>
-  <div class="callout-body"><strong>What this call is actually collecting.</strong> Condition, motivation (the why), occupancy, price expectation, and timeline — that is the four pillars plus occupancy. Get those in the seller's own words into the CRM note before you dial the next number.</div>
-</div>
-
-<div class="callout amber">
-  <div class="callout-icon">🔗</div>
-  <div class="callout-body"><strong>Rebuttals / Extras:</strong> <span class="fill">[LINK TO REBUTTALS PAGE]</span> — including the answer to "How did you get my number?"</div>
-</div>
-`},
 
 
-      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Nicole',
+
+      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>Department Purpose</h2>
 <p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
@@ -3794,16 +3430,16 @@ const SECTIONS = [
 </ul>
 
 <h2>GHL Pipeline Stages — Lead Management</h2>
-<p style="font-size:13px;color:var(--steel);margin-bottom:16px;">Lead Management owns the <strong>1) Leads Pipeline</strong>. All inbound leads enter here and are worked by Nicole until they either convert to an appointment (handoff to Closer Pipeline) or are dispositioned out.</p>
+<p style="font-size:13px;color:var(--steel);margin-bottom:16px;">Lead Management owns the <strong>1) Leads Pipeline</strong>. All inbound leads enter here and are worked by the Lead Manager until they either convert to an appointment (handoff to Closer Pipeline) or are dispositioned out.</p>
 
 <table class="data-table">
-  <tr><th colspan="3" style="background:#1a1a2e;letter-spacing:.05em;">1) Leads Pipeline &nbsp;·&nbsp; Owner: Nicole</th></tr>
+  <tr><th colspan="3" style="background:#1a1a2e;letter-spacing:.05em;">1) Leads Pipeline &nbsp;·&nbsp; Owner: Lead Managers</th></tr>
   <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
-  <tr><td><span class="ghl-field">Prospects</span></td><td>New inbound lead — initial qualification not yet done. Nicole owns this lead until it moves forward.</td><td>Call within 15 min. Run MIST screening. Move to Priority Top 20% or Redzones if qualified.</td></tr>
+  <tr><td><span class="ghl-field">Prospects</span></td><td>New inbound lead — initial qualification not yet done. The Lead Manager owns this lead until it moves forward.</td><td>Call within 15 min. Run MIST screening. Move to Priority Top 20% or Redzones if qualified.</td></tr>
   <tr><td><span class="ghl-field">Redzones</span></td><td>Qualified lead with motivation but not yet top priority — needs nurturing or has a minor obstacle.</td><td>Add to follow-up sequence. Re-evaluate at 30-day check-in.</td></tr>
-  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>High-motivation seller — ready to move, strong fit. Top of Nicole's daily work list.</td><td>Book appointment. Assign to closer calendar. Prepare handoff notes.</td></tr>
+  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>High-motivation seller — ready to move, strong fit. Top of the Lead Manager's daily work list.</td><td>Book appointment. Assign to closer calendar. Prepare handoff notes.</td></tr>
   <tr><td><span class="ghl-field">Follow Up</span></td><td>Not ready now but worth keeping warm — 30/60/90-day drip territory.</td><td>Enroll in GHL drip sequence. Set a task reminder. Return to Priority if seller re-engages.</td></tr>
-  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. Nicole stops all outreach immediately.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. The Lead Manager stops all outreach immediately.</td></tr>
   <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Property is outside Maryland or otherwise outside our buy criteria.</td><td>Tag reason and archive. Refer to a partner if applicable. Frees pipeline of unworkable leads.</td></tr>
   <tr><td><span class="ghl-field">Out of Market</span></td><td>Lead is geographically outside our current operating area.</td><td>Tag and archive. Do not leave in active pipeline — pollutes conversion metrics.</td></tr>
 
@@ -3814,7 +3450,7 @@ const SECTIONS = [
   <div class="callout-body"><strong>Never leave a lead stale in Prospects.</strong> An uncalled Prospect sitting overnight is a missed opportunity. Two team members may dial simultaneously, or the lead goes cold within hours. Every lead in Prospects needs a same-day first contact attempt.</div>
 </div>
 `},
-      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <div class="callout blue">
   <div class="callout-icon">✅</div>
@@ -3853,7 +3489,7 @@ const SECTIONS = [
   <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
 </ol>
 `},
-      { id: 'lm-intake-checklist', title: 'GHL Lead Intake Checklist', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'lm-intake-checklist', title: 'GHL Lead Intake Checklist', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <style>
 .ic-list { list-style:none; margin:12px 0 20px; padding:0; }
@@ -3871,7 +3507,7 @@ const SECTIONS = [
 </style>
 
 <h2>GHL Lead Intake Checklist</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Run:</strong> every new lead, every time</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Lead Managers</span><span><strong>Run:</strong> every new lead, every time</span></div>
 
 <p>Work this list top to bottom on every new lead before you close the record. It is the short version — each step links to the full SOP if you need the detail. Boxes are for your own tracking on screen and reset when you leave the page.</p>
 
@@ -4025,30 +3661,30 @@ const SECTIONS = [
   <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · stage set · required fields filled · and either a Next Contact Date, a booked appointment with a Drive link, or a Dead tag.</div>
 </div>
 `},
-      { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 24px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Index page — no single trigger.</strong> Each campaign page below has its own Trigger / Enrollment section. All workflow enrollment details (tags, pipeline filters, exit conditions) need to be filled in from the GHL workflow builder — the screenshots of the Custom Values page show message copy only, not how contacts enter each workflow.</div></div>
 <h2>What This Section Covers</h2><p>Every follow-up campaign message copy, custom value key, and lead scoring trigger used in GHL — in one place. Use this when editing workflows, training team members, or auditing the follow-up system.</p><div class="callout amber"><div class="callout-icon">&#128204;</div><div class="callout-body"><strong>GHL Location</strong>All custom values live at <em>Settings &rarr; Custom Values</em> in the GHL sub-account. Location ID: <code>Js1OZngrzWeqSwiHjbRx</code></div></div><h2>Follow-Up Campaign Library</h2><p>The follow-up system is built around <strong>4 message categories</strong> plus supporting infrastructure. Every campaign is a sequence of these custom values injected into GHL workflows.</p><div class="stat-row"><div class="stat-box"><div class="num">7</div><div class="label">After Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">After Apt Short msgs</div></div><div class="stat-box"><div class="num">9</div><div class="label">No Apt Long msgs</div></div><div class="stat-box"><div class="num">6</div><div class="label">No Apt Short msgs</div></div><div class="stat-box"><div class="num">12</div><div class="label">SMS - Josh</div></div><div class="stat-box"><div class="num">6</div><div class="label">Email follow-up</div></div></div><h2>Active Campaigns</h2><p>Only two follow-up campaigns are active right now. Everything else is built but turned off until activated.</p><div class="callout amber" style="margin:12px 0;"><div class="callout-icon">✅</div><div class="callout-body"><strong>Active:</strong> (1) Campaign #1 — Not Ready to Make a Decision (Short Term, No Appointment) &middot; (2) SMS - Josh.<br><strong>Inactive (hidden from nav):</strong> After Apt Long/Short, No Apt Long/Short, Email Drip.</div></div><table class="data-table"><tr><th>Folder</th><th>Status</th><th>Triggered When</th></tr><tr><td><strong>After Apt Long</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Appointment happened + no deal + long-cycle seller</td></tr><tr><td><strong>After Apt Short</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Appointment happened + no deal + short-cycle seller</td></tr><tr><td><strong>No Apt Long</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Lead came in, never booked appt, long-cycle nurture</td></tr><tr><td><strong>Not Ready ST — No Apt (Campaign #1)</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>Follow Up Automation Off→On · Next Contact Date reached · Tag "fu - st not ready - begin"</td></tr><tr><td><strong>SMS - Josh</strong></td><td><span style="color:#065F46;font-weight:700;">Active</span></td><td>Follow Up Automation = On AND Follow Up Strategy = "SMS Josh"</td></tr><tr><td><strong>Email Follow Up</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>Drip email campaigns</td></tr><tr><td><strong>Direct Mail (YLHQ)</strong></td><td><span style="color:#92400E;font-weight:700;">Inactive</span></td><td>YLHQ direct mail pulls</td></tr></table><h2>How to Edit a Message</h2><ol class="step-list"><li><div class="step-num">1</div><div class="step-content"><strong>Find the key</strong> in the page below (e.g. <code>{{custom_values.no_apt_short__1}}</code>)</div></li><li><div class="step-num">2</div><div class="step-content">Open GHL &rarr; Settings &rarr; Custom Values</div></li><li><div class="step-num">3</div><div class="step-content">Search the key. Click to edit the value.</div></li><li><div class="step-num">4</div><div class="step-content">Save. Changes apply to every workflow using that value immediately.</div></li></ol><div class="callout crimson"><div class="callout-icon">&#9888;</div><div class="callout-body"><strong>Editing in place is a global change.</strong>A single custom value may be used by 5+ workflows. Before editing, search workflows for the key to understand the blast radius.</div></div>
 `},
-{ id: 'fu-after-apt', hidden: true, title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-after-apt', hidden: true, title: 'After Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Re-engages sellers whose appointment did not convert. Long = long-cycle nurture (7 touches); Short = compressed close attempt (6 touches).<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Enrollment tag(s) added when appointment outcome = "not signed"</li><li>Pipeline stage filter</li><li>Long-vs-Short routing condition</li><li>Exit tag on deal/dead</li></ul></div></div>
 <h2>After Appointment Follow-Up</h2><p>These sequences run after a seller appointment where no contract was signed. The <strong>Long</strong> track is a 7-touch sequence for deals that may mature over time; the <strong>Short</strong> track is a compressed 6-touch version for sellers less likely to re-engage.</p><div class="callout blue"><div class="callout-icon">&#128172;</div><div class="callout-body"><strong>Voice & Tone</strong>Short, casual, curious — never pushy. Each message is designed to re-open the door without sounding like a sales pitch.</div></div><h3>After Apt Long (7 messages)</h3><p>Used when the seller is a long-cycle prospect — likely to come back in 3+ months.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>After Apt Long - 1</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__1}}</code></td><td>Quick thanks for chatting. Wish you the best with your property. Sorry we couldn't make it work.</td></tr><tr><td><strong>After Apt Long - 2</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__2}}</code></td><td>Quick question thats 100% up to you... but if you ever did decide to sell the property to an investor like me, why would you?</td></tr><tr><td><strong>After Apt Long - 3</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__3}}</code></td><td>Were you wanting to chat again about your property? I'd love to buy it.</td></tr><tr><td><strong>After Apt Long - 4</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__4}}</code></td><td>Do you happen to know of anyone looking to sell their house? Totally ok if it needs work. Happy to pay a finder's fee</td></tr><tr><td><strong>After Apt Long - 5</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__5}}</code></td><td>If you decide to sell your house for cash, would you like to within 30 days, 60, 90 or further out?</td></tr><tr><td><strong>After Apt Long - 6</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__6}}</code></td><td>I'd love to look at our cash offer again, but I'm guessing you've sold your house by now.</td></tr><tr><td><strong>After Apt Long - 7</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_long__7}}</code></td><td>Please keep our info in case you ever have a property you'd like to sell for cash... Take care!</td></tr></table><h3>After Apt Short (6 messages)</h3><p>Compressed version for sellers where a fast decision is more likely.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>After Apt Short - 1</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__1}}</code></td><td>Quick thanks for chatting. Wish you the best with your property. Sorry we couldn't make it work.</td></tr><tr><td><strong>After Apt Short - 2</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__2}}</code></td><td>Quick question thats 100% up to you... but if you ever did decide to sell the property to an investor like me, why would you?</td></tr><tr><td><strong>After Apt Short - 3</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__3}}</code></td><td>Were you wanting to chat again about your property? I'd love to buy it.</td></tr><tr><td><strong>After Apt Short - 4</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__4}}</code></td><td>Do you happen to know of anyone looking to sell their house? Totally ok if it needs work. Happy to pay a finder's fee</td></tr><tr><td><strong>After Apt Short - 5</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__5}}</code></td><td>If you decide to sell your house for cash, would you like to within 30 days, 60, 90 or further out?</td></tr><tr><td><strong>After Apt Short - 6</strong></td><td><code style="font-size:11px;">{{custom_values.after_apt_short__6}}</code></td><td>Please keep our info in case you ever have a property you'd like to sell for cash... Take care!</td></tr></table>
 `},
-      { id: 'fu-no-apt', hidden: true, title: 'No Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'fu-no-apt', hidden: true, title: 'No Appointment Sequences', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Re-engages inbound leads who never booked. Long = 9-touch extended nurture; Short = 6-touch fast conversion.<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Enrollment trigger (e.g. "Contact Created" + source filter or tag)</li><li>How Long vs Short is decided</li><li>Exit condition (appointment booked)</li></ul></div></div>
 <h2>No Appointment Sequences</h2><p>These run when a lead came in but <strong>never booked an appointment</strong>. Goal: re-engage and either book an appointment or kill the lead cleanly.</p><div class="callout amber"><div class="callout-icon">&#128161;</div><div class="callout-body"><strong>Hook Style: The "Wrong Number" Opener</strong>Several messages use the "wrong number / how embarrassing" opener (see No Apt Long 1 &amp; 9). This is a pattern-interrupt — sellers reply to correct you, which re-opens the conversation.</div></div><h3>No Apt Long (9 messages)</h3><p>Extended nurture — used for seller leads with longer consideration windows.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>No Apt Long - 1</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__1}}</code></td><td>Hi, Just left a VM but I have the feeling I have the wrong #. How embarrassing. You weren't looking for a cash offer on a property were you?</td></tr><tr><td><strong>No Apt Long - 2</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__2}}</code></td><td>Were we supposed to put together an offer on your house for you? Did I goof up and get the wrong person?</td></tr><tr><td><strong>No Apt Long - 3</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__3}}</code></td><td>We're looking to buy 2 houses in your area. Do you know anyone that's selling?</td></tr><tr><td><strong>No Apt Long - 4</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__4}}</code></td><td>Did you want to chat about possibly selling your house?</td></tr><tr><td><strong>No Apt Long - 5</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__5}}</code></td><td>Hello, we just sold a property and freed up some cash. We're looking to buy in your area. Let me know if you're looking at selling</td></tr><tr><td><strong>No Apt Long - 6</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__6}}</code></td><td>Good day. Did you have a sec to chat? Just wanted to see if you still had interest in selling your house.</td></tr><tr><td><strong>No Apt Long - 7</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__7}}</code></td><td>I get the feeling you might not have a house for sale and don't want to see a cash offer. Am I right?</td></tr><tr><td><strong>No Apt Long - 8</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__8}}</code></td><td>Still interested in buying a house in your area if you happen to know of any. Love to chat if you have 2 minutes. If not, no worries.</td></tr><tr><td><strong>No Apt Long - 9</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_long__9}}</code></td><td>I have a feeling that I have a wrong #. How embarrassing if that's the case. You weren't looking for a cash offer on a property, were you?</td></tr></table><h3>No Apt Short (6 messages)</h3><p>Fast 6-touch version — used when we want to either convert or disqualify quickly.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>No Apt Short - 1</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__1}}</code></td><td>Josh here with Impact Home Team. Still open to a cash offer, or did you decide to hold off?</td></tr><tr><td><strong>No Apt Short - 2</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__2}}</code></td><td>I can usually give a pretty tight range without a walkthrough. Want me to send a quick estimate, or would you rather do a 5-min call?</td></tr><tr><td><strong>No Apt Short - 3</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__3}}</code></td><td>I'm finalizing purchase slots for the next couple weeks. If you still want to explore selling, what timeline fits best? 1) ASAP 2) 30-60 days 3) 60+ days</td></tr><tr><td><strong>No Apt Short - 4</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__4}}</code></td><td>Most sellers we help just want a simple sale (no showings, no repairs). If I could cover closing costs and close on your timeline, would that help? Reply Y/N</td></tr><tr><td><strong>No Apt Short - 5</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__5}}</code></td><td>Totally fine either way — do you want me to put together a quick 'as-is' number for you?</td></tr><tr><td><strong>No Apt Short - 6</strong></td><td><code style="font-size:11px;">{{custom_values.no_apt_short__6}}</code></td><td>Hi it's Josh with Impact. Circling back to you — are you still looking for an offer? Reply: 1) Yes 2) Maybe later 3) Not anymore</td></tr></table>
 `},
-{ id: 'fu-email-dm', hidden: true, title: 'Email & Direct Mail', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-email-dm', hidden: true, title: 'Email & Direct Mail', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Email Drip = inbox-preference nurture parallel to SMS. YLHQ Direct Mail = physical mailers sent on Yellow Letter HQ pull schedule.<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
 <div class="callout crimson" style="margin:0 0 24px 0;"><div class="callout-icon">📋</div><div class="callout-body"><strong>To fill in:</strong><ul style="margin:6px 0 0 18px;padding:0;"><li>Email workflow trigger (tag or filter)</li><li>YLHQ pull cadence (monthly? quarterly?)</li><li>How mailer recipients are selected</li><li>Exit/suppress tag</li></ul></div></div>
 <h2>Email Follow-Up</h2><p>Email drip campaigns that run in parallel with SMS sequences. Emails handle sellers who prefer inbox over text.</p><h3>Email Follow-Up (6 values)</h3><p>Mix of body copy, scheduling links, and variables used across email workflows.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>Checking in</strong></td><td><code style="font-size:11px;">{{custom_values.checking_in}}</code></td><td>Hi there — I'm following up because you reached out a while back about getting a cash offer for your property. If selling is still on your radar, I can put together...</td></tr><tr><td><strong>Email 2</strong></td><td><code style="font-size:11px;">{{custom_values.email_2}}</code></td><td>Subject: Should I keep this open? Hi {FirstName} — quick one. Do you want me to keep your cash-offer request open for {PropertyAddress}, or are you all...</td></tr><tr><td><strong>Email 3</strong></td><td><code style="font-size:11px;">{{custom_values.email_3}}</code></td><td>Subject: One question so I can price it correctly Hi {FirstName} — if you're still open to a cash offer for {PropertyAddress}, what's the #1 priority for you?</td></tr><tr><td><strong>Scheduling link</strong></td><td><code style="font-size:11px;">{{custom_values.scheduling_link}}</code></td><td>(Scheduling link placeholder — fill with your calendar booking URL)</td></tr><tr><td><strong>Service Type</strong></td><td><code style="font-size:11px;">{{custom_values.service_type}}</code></td><td>(Service type placeholder — fill with the service offered)</td></tr><tr><td><strong>Testimonial</strong></td><td><code style="font-size:11px;">{{custom_values.testimonial}}</code></td><td>(Testimonial placeholder — fill with the latest client testimonial for drip emails)</td></tr></table><h2>Direct Mail — Yellow Letter HQ (YLHQ)</h2><p>These custom values are injected into Yellow Letter HQ direct mail pulls. They set the return address and agent info on every mailer so recipients know who is writing.</p><div class="callout amber"><div class="callout-icon">&#128238;</div><div class="callout-body"><strong>Current Return Address</strong>1301 York Road #800, Lutherville, MD 21093 &middot; Agent: Josh Hines &middot; Phone: 410-801-9829</div></div><h3>Direct Mail YLHQ (5 values)</h3><p>Change these when the return address or agent on mailers needs to update — affects every YLHQ mailer going out.</p><table class="data-table"><tr><th style="width:22%">Name</th><th style="width:30%">Key</th><th>Message Copy</th></tr><tr><td><strong>YLHQ - Token</strong></td><td><code style="font-size:11px;">{{custom_values.ylhq__token}}</code></td><td>ca356b798e9e40f623881bf0ede8ef01444887e6</td></tr><tr><td><strong>YLHQ DM - Agent Name</strong></td><td><code style="font-size:11px;">{{custom_values.ylhq_dm__agent_name}}</code></td><td>Josh Hines</td></tr><tr><td><strong>YLHQ DM - Agent Phone</strong></td><td><code style="font-size:11px;">{{custom_values.ylhq_dm__agent_phone}}</code></td><td>410-801-9829</td></tr><tr><td><strong>YLHQ DM - Return Address</strong></td><td><code style="font-size:11px;">{{custom_values.ylhq_dm__return_address}}</code></td><td>1301 York Road # 800</td></tr><tr><td><strong>YLHQ DM - Return City State Zip</strong></td><td><code style="font-size:11px;">{{custom_values.ylhq_dm__return_city_state_zip}}</code></td><td>Lutherville, MD 21093</td></tr></table>
 `},
-{ id: 'fu-active-campaigns', title: 'Active Campaigns', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+{ id: 'fu-active-campaigns', title: 'Active Campaigns', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>How to Enroll a Contact — GHL Field Reference</h2>
 <p>The Contact Details panel in GHL has four follow-up-related fields. Set the correct field for the campaign you want — that field change <em>is</em> the enrollment trigger.</p>
@@ -4352,7 +3988,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 
 `},
-            { id: 'fu-next-contact-date', title: 'Schedule Follow Up Automation for a Specific Date', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
+            { id: 'fu-next-contact-date', title: 'Schedule Follow Up Automation for a Specific Date', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 
 <h2>Schedule Follow Up Automation for a Specific Date</h2>
@@ -4386,10 +4022,10 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 
 `},
-{ id: 'lm-dead-leads', title: 'Dead Lead Management', dept: 'Lead Management', owner: 'Nicole / Joshua',
+{ id: 'lm-dead-leads', title: 'Dead Lead Management', dept: 'Lead Management', owner: 'Lead Managers / Joshua',
         content: `
 <h2>Dead Lead Management</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole / Joshua</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers / Joshua</span></div>
 
 <div class="callout crimson">
   <div class="callout-icon">🚫</div>
@@ -4474,10 +4110,10 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <tr><td><span class="ghl-field">Dead - Not a Seller</span></td><td style="color:#dc2626;font-weight:700;">✗ Never</td><td>Not a decision-maker on the property</td></tr>
 </table>
 `},
-      { id: 'lm-appointments', title: 'Appointment Procedures', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'lm-appointments', title: 'Appointment Procedures', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>Appointment Procedures</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
 
 <div class="callout blue">
   <div class="callout-icon">💬</div>
@@ -4555,10 +4191,10 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <li><div class="step-num">3</div><div class="step-content">If the seller wants to rebook, <strong>create a new appointment</strong> — do not edit the cancelled one.</div></li>
 </ol>
 `},
-      { id: 'lm-appt-criteria', title: 'Appointment Criteria — 4 Pillars', dept: 'Lead Management', owner: 'Nicole',
+      { id: 'lm-appt-criteria', title: 'Appointment Criteria — 4 Pillars', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <h2>Appointment Criteria — 4 Pillars</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
 
 <p>Use the 4 Pillars questions on every qualifying call to determine whether to set a same-day appointment, schedule if they have a set timeline, or not set an appointment at all. Score each answer against the matrix below.</p>
 
@@ -4716,7 +4352,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 <h2>Your Pipelines in GHL</h2>
 
 <h3>Pipeline: Robin the Closer — 4 Stages</h3>
-<p>When Nicole books an appointment for Robin, the lead moves here immediately.</p>
+<p>When the Lead Manager books an appointment for Robin, the lead moves here immediately.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked and confirmed. Review the lead card and prep before arriving.</td></tr>
@@ -4726,7 +4362,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 </table>
 
 <h3>Pipeline 3: Josh The Closer — 8 Stages</h3>
-<p>When Nicole books an appointment for Joshua, the lead moves here immediately.</p>
+<p>When the Lead Manager books an appointment for Joshua, the lead moves here immediately.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field">Appointment Scheduled</span></td><td>Appointment booked. Review lead card, run SDAT, pull comps before showing up.</td></tr>
@@ -4747,7 +4383,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
         content: `
 <h2>Before the Appointment</h2>
 <ul>
-  <li><strong>Open the property Drive folder</strong> — the link is in the appointment section in GHL. Review the Property Info Sheet Lead Management started. No link? Flag it to Nicole and create the folder yourself (steps below) before you go.</li>
+  <li><strong>Open the property Drive folder</strong> — the link is in the appointment section in GHL. Review the Property Info Sheet Lead Management started. No link? Flag it to the Lead Manager and create the folder yourself (steps below) before you go.</li>
   <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
   <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
   <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
@@ -7062,7 +6698,7 @@ function handleSearch(val) {
 // ══════════════════════════════════════════════════════════
 const PC_DATA = {
   'leads-prospects': { name:'Prospects', pipe:'1) Leads Pipeline',
-    means:['New inbound lead — initial qualification not yet done','Campaign source tag should be visible on the record','Nicole owns this lead until it moves forward'],
+    means:['New inbound lead — initial qualification not yet done','Source should be visible on the opportunity card — the dialed line for calls, the notification source for web leads','The Lead Manager owns this lead until it moves forward'],
     unlocks:['Qualification call to screen motivation, timeline, condition','MIST screening begins','If qualified: moves to Priority Top 20% or Redzones'],
     skip:'Lead sits uncalled. No one knows who owns it. Two people may dial simultaneously. Missed response = dead opportunity within hours.' },
   'leads-redzones': { name:'Redzones', pipe:'1) Leads Pipeline',
@@ -7080,7 +6716,7 @@ const PC_DATA = {
   'leads-handoff': { name:'Closer Pipeline Handoff', pipe:'1) Leads Pipeline to Closer',
     means:['Lead has an appointment booked and confirmed','Lead Management job is done — Closer now owns this contact','Stage change signals Acquisitions to prepare'],
     unlocks:['Closer can see the appointment on their calendar','Lead Management stops all outreach — no more double-contact','Pre-appointment research begins: SDAT, preliminary comps'],
-    skip:'CRITICAL HANDOFF FAILURE. Nicole may keep calling someone Joshua has an appointment with. Seller gets confused. Trust breaks down before the appointment even happens.' },
+    skip:'CRITICAL HANDOFF FAILURE. The Lead Manager may keep calling someone Joshua has an appointment with. Seller gets confused. Trust breaks down before the appointment even happens.' },
   'leads-not-md': { name:'Not MD Lead', pipe:'1) Leads Pipeline',
     means:['Property is outside Maryland — outside our buy box','Lead will not convert for IHT','Should be tagged immediately when discovered'],
     unlocks:['Frees pipeline of unworkable leads','Improves conversion rate accuracy','Can be referred out if a partner operates in that market'],
@@ -7115,7 +6751,7 @@ const PC_DATA = {
     unlocks:['TC pipeline: New Deal! stage triggered','Dispositions begins listing prep from Drive folder','Deal is officially in the pipeline — clock starts on all deadlines'],
     skip:'MOST EXPENSIVE SKIP. TC does not know a contract exists. No title ordered. No listing built. Contract expires. Deal lost.' },
   'robin-aptsched': { name:'Appointment Scheduled', pipe:'Robin the Closer',
-    means:['Nicole booked and confirmed the appointment — it is on Robin\'s calendar','The lead is now Robin\'s responsibility; Lead Management outreach stops','Prep begins immediately: contact card, conversation history, and the 4 Pillars fields'],
+    means:['The Lead Manager booked and confirmed the appointment — it is on Robin\'s calendar','The lead is now Robin\'s responsibility; Lead Management outreach stops','Prep begins immediately: contact card, conversation history, and the 4 Pillars fields'],
     unlocks:['Robin reviews notes and runs pre-appointment research','Property address shows in the calendar title','Team can see the appointment is owned and covered'],
     skip:'Robin shows up cold — no context, no comps. The seller senses it and offer credibility suffers.' },
   'robin-offermade': { name:'Offer Made/Followup', pipe:'Robin the Closer',
@@ -7277,7 +6913,7 @@ var QUIZZES = {
   'dept-lead-management': { title: 'Lead Management Deep Dive', questions: [
     { q: 'What automation sequence runs when a lead is moved to Long-Term Follow-Up?', c: ['A one-time text','A 30/60/90-day drip sequence','A weekly email','Manual reminders only'], a: 1, e: 'LTFU triggers a 30/60/90-day automated drip to keep leads warm without manual effort.' },
 
-    { q: 'What is the correct response if a seller has already been contacted and has an appointment scheduled but Nicole receives a new lead for the same number?', c: ['Call the seller again to confirm','Check GHL stage — if appointment is set, do not reach out again','Send a text to introduce yourself','Assign to a second lead manager'], a: 1, e: 'Stage = ownership. If a closer already has the appointment, lead management must stop all outreach.' },
+    { q: 'What is the correct response if a seller has already been contacted and has an appointment scheduled but the Lead Manager receives a new lead for the same number?', c: ['Call the seller again to confirm','Check GHL stage — if appointment is set, do not reach out again','Send a text to introduce yourself','Assign to a second lead manager'], a: 1, e: 'Stage = ownership. If a closer already has the appointment, lead management must stop all outreach.' },
     { q: 'What tag should be applied when a lead is permanently unresponsive after all sequences are exhausted?', c: ['LTFU','Redzone','Dead Lead','Not MD Lead'], a: 2, e: 'Dead Lead ends all outreach and automation. This keeps the pipeline clean and prevents TCPA violations.' },
     { q: 'What is the Redzones stage used for?', c: ['Leads with high ARV properties','Leads with signs of urgency: distress, estate, divorce, vacancy','Out-of-state leads','Leads from paid ads only'], a: 1, e: 'Redzones flags motivated sellers who have a reason to move quickly and need accelerated follow-up.' }
   ]},
