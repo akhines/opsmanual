@@ -3533,7 +3533,7 @@ const SECTIONS = [
 
 <div class="callout crimson">
   <div class="callout-icon">🚨</div>
-  <div class="callout-body"><strong>No lead leaves your hands without one of three outcomes:</strong> a Next Contact Date, an appointment on a closer's calendar, or a Dead tag. Anything else is a lead we paid for and lost.</div>
+  <div class="callout-body"><strong>No lead leaves your hands without the opportunity stage updated — and, if no appointment was set, follow-up automation turned on.</strong> The stage is what moves the lead through the pipeline; the automation is what keeps touching it while you work other leads. No appointment means enrolling them in the <a class="ic-lnk" style="color:#A52325;" onclick="showPage('lead-mgmt','fu-active-campaigns')">SMS Josh check-in automation</a> — 12 touches over 62 days. Anything else is a lead we paid for and lost.</div>
 </div>
 
 <h2>Part 1 — Every New Lead</h2>
@@ -3586,6 +3586,11 @@ const SECTIONS = [
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">5</span><div>
+    <div class="ic-t">Leave the call summary as an internal comment</div>
+    <div class="ic-d"><strong>Internal comment on the conversation — not the reply box.</strong> The two sit next to each other, and the reply box texts the seller. Cover, in order: what happened and who you actually spoke to · what the seller told you in their own words · objections and what you said back · anything you committed to · the next step and the date. Written before you close the record, not at the end of the day. Full guidance and the quality test: <a class="ic-lnk" onclick="showPage('lead-mgmt','own-the-day')">Own the Day</a>.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">6</span><div>
     <div class="ic-t">Move the opportunity to the right stage</div>
     <div class="ic-d">Pick the stage that matches the conversation you just had:
       <div style="overflow-x:auto;margin-top:8px;">
@@ -3606,17 +3611,17 @@ const SECTIONS = [
 
 <div class="ic-branch"><h2 style="margin:0;">Part 2 — No Appointment Set</h2></div>
 <ol class="ic-list">
-  <li><label><input type="checkbox"><span class="ic-n">6</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">7</span><div>
     <div class="ic-t">Turn follow-up automation ON</div>
     <div class="ic-d">Set <span class="ghl-field">Follow Up Strategy</span> to enroll now, or <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> to start on a future date. See <a class="ic-lnk" onclick="showPage('lead-mgmt','fu-active-campaigns')">Active Campaigns</a> and <a class="ic-lnk" onclick="showPage('lead-mgmt','fu-next-contact-date')">Schedule Follow Up Automation for a Specific Date</a>.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">7</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">8</span><div>
     <div class="ic-t">Leave a voicemail</div>
     <div class="ic-d">If you didn't connect, leave the voicemail and log <strong>Left Voicemail</strong> on the call.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">8</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">9</span><div>
     <div class="ic-t">Confirm the Next Contact Date</div>
     <div class="ic-d">Re-check the date against the stage you chose in Step 5. Work your list on the <a class="ic-lnk" onclick="showPage('lead-mgmt','own-the-day')">daily schedule</a>.</div>
   </div></label></li>
@@ -3624,12 +3629,12 @@ const SECTIONS = [
 
 <div class="ic-branch"><h2 style="margin:0;">Part 3 — Appointment Set</h2></div>
 <ol class="ic-list">
-  <li><label><input type="checkbox"><span class="ic-n">9</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">10</span><div>
     <div class="ic-t">Assign the closer — Joshua or Robin</div>
     <div class="ic-d">Book on the closer's calendar per <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-appointments')">Appointment Procedures</a>. In-person → Robin or Joshua by territory; virtual → Joshua unless directed otherwise.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">10</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">11</span><div>
     <div class="ic-t">Move the opportunity to the closer's pipeline</div>
     <div class="ic-d">
       <ul>
@@ -3640,7 +3645,7 @@ const SECTIONS = [
     </div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">11</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">12</span><div>
     <div class="ic-t">Warm transfer or Slack notify the closer</div>
     <div class="ic-d">If the closer is available and the seller is on the line, warm transfer. If not, message the closer directly — Robin in <strong>#robin-appointments-discussion</strong>, Joshua by Slack DM — with the seller's name, address, and the one thing they need to know going in. The GHL auto-post to <strong>#appointments</strong> is not a notification to the closer.</div>
   </div></label></li>
@@ -3649,12 +3654,12 @@ const SECTIONS = [
 
 <div class="ic-branch" style="border-left-color:#dc2626;"><h2 style="margin:0;">Part 4 — Dead Lead</h2></div>
 <ol class="ic-list">
-  <li><label><input type="checkbox"><span class="ic-n">12</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">13</span><div>
     <div class="ic-t">Apply the standardized dead reason tag</div>
     <div class="ic-d">Use the exact <span class="ghl-field">Dead - [Reason]</span> tag from <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-dead-leads')">Dead Lead Management</a>. No custom tags. Add a one-sentence note on why.</div>
   </div></label></li>
 
-  <li><label><input type="checkbox"><span class="ic-n">13</span><div>
+  <li><label><input type="checkbox"><span class="ic-n">14</span><div>
     <div class="ic-t">Preserve the source</div>
     <div class="ic-d">Do <strong>not</strong> clear or overwrite the source on the contact. Dead leads still count in cost-per-lead by source. Never delete the contact.</div>
   </div></label></li>
@@ -3662,7 +3667,7 @@ const SECTIONS = [
 
 <div class="callout green">
   <div class="callout-icon">✓</div>
-  <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · stage set · required fields filled · and either a Next Contact Date, a booked appointment, or a Dead tag.</div>
+  <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · call summary logged as an internal comment · stage set · required fields filled · and either a Next Contact Date, a booked appointment, or a Dead tag.</div>
 </div>
 `},
       { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
