@@ -3516,7 +3516,7 @@ const SECTIONS = [
         <li><strong>Inbound call</strong> — check the line they dialed. Each channel has its own tracking number, and the dialed number is what identifies the channel.</li>
         <li><strong>Web lead</strong> — check the source on the lead notification. It names which form and which channel the lead came in on.</li>
       </ul>
-      Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal.
+      Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal. Record it on the contact in the <span class="ghl-field">Marketing Campaign</span> field — that field is the source of truth, and it is a field, not a tag.
       <div style="overflow-x:auto;margin-top:10px;">
       <table class="data-table" style="margin:0;">
         <tr><th>They dialed</th><th>Channel</th><th>GHL number label</th></tr>
@@ -3552,8 +3552,16 @@ const SECTIONS = [
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">4</span><div>
-    <div class="ic-t">Fill all 15 required fields</div>
-    <div class="ic-d">Every required field on the contact is filled before you close the record — blanks break handoffs and reporting.</div>
+    <div class="ic-t">Fill the required fields</div>
+    <div class="ic-d">Every required field on the contact is filled before you close the record — blanks break handoffs and reporting. The ones that carry the most weight:
+      <ul>
+        <li><strong>Property Address</strong> — the closer preps from it and Dispo builds from it later. Verify it, do not guess at a spelling.</li>
+        <li><strong>Timeline</strong> — when they want to be sold by. This is what separates a Redzone from a Follow Up.</li>
+        <li><strong>Price</strong> — what they are asking, or what they said when you asked. "Doesn't know" is an answer; record it as one.</li>
+        <li><strong>Next Contact Date</strong> — set in Step 2. Confirm it is still right for the stage you land on.</li>
+        <li><strong>Marketing Campaign</strong> — the channel you confirmed in Step 1. This is the field, not a tag.</li>
+      </ul>
+    </div>
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">5</span><div>
