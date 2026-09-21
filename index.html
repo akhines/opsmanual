@@ -3836,7 +3836,7 @@ const SECTIONS = [
 </div>
 
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Check the campaign tag</strong> — What marketing source did this lead respond to? Tailor your opening based on their motivation (direct mail vs. Google Ad vs. referral).</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Confirm where the lead came from</strong> — Not a tag. For an inbound call, check the line they dialed — each channel has its own tracking number. For a web lead, check the source on the lead notification. Then tailor your opening to that channel (direct mail vs. Google Ad vs. referral).</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Redzones</span> or <span class="ghl-field">Follow Up</span> and add to the automated follow-up sequence.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
@@ -3883,8 +3883,13 @@ const SECTIONS = [
 <h2>Part 1 — Every New Lead</h2>
 <ol class="ic-list">
   <li><label><input type="checkbox"><span class="ic-n">1</span><div>
-    <div class="ic-t">Check the marketing campaign tag</div>
-    <div class="ic-d">Confirm the source/campaign tag is on the contact (Google Ads, direct mail, referral, etc.). If it's missing, add it before anything else — it drives reporting and cost-per-deal, and it tells you how to open the call.</div>
+    <div class="ic-t">Confirm where the lead came from</div>
+    <div class="ic-d"><strong>Marketing campaign is not a tag — do not go looking for one.</strong> You establish the source from how the lead reached us:
+      <ul>
+        <li><strong>Inbound call</strong> — check the line they dialed. Each channel has its own tracking number, and the dialed number is what identifies the channel.</li>
+        <li><strong>Web lead</strong> — check the source on the lead notification. It names which form and which channel the lead came in on.</li>
+      </ul>
+      Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal.</div>
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">2</span><div>
@@ -3995,7 +4000,7 @@ const SECTIONS = [
 
 <div class="callout green">
   <div class="callout-icon">✓</div>
-  <div class="callout-body"><strong>Before you close the record:</strong> source tag on · stage set · required fields filled · and either a Next Contact Date, a booked appointment with a Drive link, or a Dead tag.</div>
+  <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · stage set · required fields filled · and either a Next Contact Date, a booked appointment with a Drive link, or a Dead tag.</div>
 </div>
 `},
       { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
