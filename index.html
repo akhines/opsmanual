@@ -1537,7 +1537,7 @@ const SECTIONS = [
 <h2>GHL Documentation Requirements</h2>
 <p>GHL is our single source of truth. The rule is: if it happened, it's in GHL.</p>
 <ul>
-  <li>Every seller call gets a note logged within 30 minutes of the call ending</li>
+  <li>Every seller call gets a summary left as an internal comment within 30 minutes of the call ending — internal comments, not notes on the contact record</li>
   <li>Every stage change must reflect a real-world event — don't move stages speculatively</li>
   <li>Every deal under contract must have the Google Drive folder link in the record</li>
   <li>No deal moves to <span class="ghl-field">Closed</span> without TC confirming the closing</li>
@@ -1569,7 +1569,7 @@ const SECTIONS = [
   <li><div class="step-num">1</div><div class="step-content">Read the Operations Manual front to back (this document)</div></li>
   <li><div class="step-num">2</div><div class="step-content">Shadow their department lead for 5 live interactions</div></li>
   <li><div class="step-num">3</div><div class="step-content">Pass all required quizzes before taking independent calls/appointments</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, note logging, stage updates</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Complete GHL orientation — pipeline navigation, internal comments, stage updates</div></li>
   <li><div class="step-num">5</div><div class="step-content">Added to all relevant Slack channels by Ashley</div></li>
 </ol>
 `}
@@ -2156,7 +2156,7 @@ const SECTIONS = [
   </li>
   <li>
     <div class="step-num">4</div>
-    <div class="step-content"><strong>Log a note</strong> on the contact record summarizing what happened. One sentence is fine: "Called seller, confirmed closing date still on track for [date]."</div>
+    <div class="step-content"><strong>Leave an internal comment</strong> on the conversation summarizing what happened. One sentence is fine: "Called seller, confirmed closing date still on track for [date]."</div>
   </li>
   <li>
     <div class="step-num">5</div>
@@ -2873,7 +2873,7 @@ const SECTIONS = [
       <li><strong>Reply from Conversations, not from your personal phone.</strong> All communication must stay inside GHL so the team has full visibility and the contact record stays complete.</li>
       <li><strong>Always call back or text back from the number the lead used to contact you.</strong> Do not switch channels without a reason.</li>
       <li><strong>Star anything you are actively watching.</strong> If you un-star it, it means you have resolved it or it is no longer active.</li>
-      <li><strong>Log a note after every meaningful conversation.</strong> If it is not in GHL, it did not happen.</li>
+      <li><strong>Leave an internal comment after every meaningful conversation.</strong> Internal comment on the conversation, not a note on the contact record — and never the reply box, which sends to the seller. If it is not in GHL, it did not happen.</li>
     </ul>
   </div>
 </div>
@@ -3024,7 +3024,7 @@ const SECTIONS = [
   <li>Read the Operations Manual — Acquisitions section + Deal Lifecycle / Handoff Triggers.</li>
   <li>Shadow the department lead for 5 live interactions.</li>
   <li>Pass Acquisitions Entry, Acquisitions Deep Dive, and Deal Lifecycle quizzes (80% each).</li>
-  <li>Complete GHL orientation — pipeline navigation, note logging, stage updates.</li>
+  <li>Complete GHL orientation — pipeline navigation, internal comments, stage updates.</li>
   <li>Be added to all relevant Slack channels by Ashley.</li>
 </ol>
 `}
@@ -3196,279 +3196,6 @@ const SECTIONS = [
   <li><div class="step-num">11</div><div class="step-content"><strong>Update your top 5 Redzones</strong> for tomorrow.</div></li>
   <li><div class="step-num">12</div><div class="step-content"><strong>Submit your EOD report.</strong></div></li>
 </ol>
-`},
-      { id: 'calling-routine', title: 'Lead Manager Daily Calling Routine', dept: 'Lead Management', owner: 'Lead Managers',
-        content: `
-<h2>Lead Manager Daily Calling Routine</h2>
-<p style="font-size:13px;color:var(--steel);">The calling mechanics for your day. The full daily routine — goals, schedule, and end-of-day cleanup — is on <a onclick="showPage('lead-mgmt','own-the-day')" style="cursor:pointer;font-weight:600;">Own the Day</a>.</p>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
-
-<div class="callout amber">
-  <div class="callout-icon">📋</div>
-  <div class="callout-body"><strong>The system builds your list. Your job is to work it top to bottom and set Next Contact Date after every single interaction before closing the record.</strong></div>
-</div>
-
-<h2>Morning Start-Up (8:00–8:15 AM)</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Open GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to you, select all, apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions — that is your calling list for the day.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Sort by task title A→Z.</strong> ⚠️ OVERDUE tasks appear first — work these before fresh calls.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Scan for ⚡ CALLBACK TODAY</strong> contacts — these are urgent same-day requests, work after OVERDUE.</div></li>
-</ol>
-
-<h2>Every Call — The Three-Step Close</h2>
-<p>Every single call ends with all three of these completed before you move to the next contact:</p>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Set Last Contact Outcome</strong> from the dropdown on the contact record.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Set Next Contact Date</strong> — every lead, every time, no exceptions. The outcome router will handle the routing. But this field must be set for the next task to generate.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Add a dated note:</strong> <code>[MM/DD/YY] — what happened.</code></div></li>
-</ol>
-
-<h2>What to Set for Next Contact Date</h2>
-<p><strong>Next Contact Date</strong> drives the manual call queue. If you also want an automated follow-up sequence (SMS Josh) to fire on a specific date, set the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field — it is a separate field from Next Contact Date. The table below covers both.</p>
-<table class="data-table">
-  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(manual call queue)</span></th><th>Next Follow Up Date For SMS Campaign<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(fires SMS Josh automation)</span></th></tr>
-  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
-  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
-  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
-  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
-  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
-  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td><td>Leave blank — keep on manual queue</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td><td>Leave blank — keep on manual queue</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td><td>Set to start of the nurture window if handing off to SMS Josh</td></tr>
-  <tr><td>Seller says "check back on [date]"</td><td>Any</td><td>Leave blank or match the date</td><td><strong>Set to the date the seller gave</strong> — SMS Josh starts that day (recommended)</td></tr>
-  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td><td>Leave blank — not needed</td></tr>
-  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td><td>Leave blank</td></tr>
-  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td><td>Clear field — remove from queue</td></tr>
-</table>
-<div class="callout amber" style="margin:12px 0;">
-  <div class="callout-icon">⚡</div>
-  <div class="callout-body"><strong>The two fields are independent.</strong> Next Contact Date queues the manual call for the Lead Manager; Next Follow Up Date For SMS Campaign fires the SMS Josh automation. You can use either, both, or neither depending on what you want to happen.</div>
-</div>
-
-<h2>End of Day Check</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Go to Conversations → Manual Actions.</strong> Goal is zero remaining. If contacts are still in the queue, they were not called today and will become OVERDUE tomorrow.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>If you cannot finish the list,</strong> flag to Ashley before end of day — do not let it roll silently to overdue.</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Check open tasks.</strong> Every open task should have a due date. If any task is open with no date, set the date now.</div></li>
-</ol>
-
-<div class="callout crimson">
-  <div class="callout-icon">🚫</div>
-  <div class="callout-body"><strong>Never close a contact record without setting Next Contact Date.</strong> No date = no task tomorrow = dropped lead.</div>
-</div>
-` },
-      { id: 'call-outcome-next-steps', title: 'Call Outcome Next Steps', dept: 'Lead Management', owner: 'Lead Managers',
-        content: `
-<h2>Appointment Setter — Next Step Rules</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
-
-<p>After every call attempt, select a disposition, log a short call note, and set the next task or contact date before closing the record. No active lead ends the day without a next contact task.</p>
-
-<div class="callout crimson">
-  <div class="callout-icon">🚫</div>
-  <div class="callout-body"><strong>Golden Rule: No active lead should end the day without a next contact task and date. No exceptions.</strong></div>
-</div>
-
-<h2>1. No Answer</h2>
-<p><strong>Log:</strong> <code>No Answer</code></p>
-<p><strong>Set next call task:</strong></p>
-<ul>
-  <li>Redzone: +1 day</li>
-  <li>Priority Top 20%: +2 days</li>
-  <li>Follow Up: +5 days</li>
-</ul>
-
-<h2>2. Left Voicemail</h2>
-<p><strong>Log:</strong> <code>Left Voicemail</code></p>
-<p><strong>Set next call task:</strong></p>
-<ul>
-  <li>Redzone: +1 day</li>
-  <li>Priority Top 20%: +2 days</li>
-  <li>Follow Up: +5 days</li>
-</ul>
-
-<h2>3. Connected — Not Booked</h2>
-<p><strong>Log:</strong> <code>Connected – Follow Up</code></p>
-<p><strong>Must set next task before ending the call:</strong></p>
-<ul>
-  <li>Redzone: +1 to +2 days</li>
-  <li>Priority Top 20%: +2 to +3 days</li>
-  <li>Follow Up: +7 to +14 days</li>
-</ul>
-
-<h2>4. Appointment Booked</h2>
-<p><strong>Log:</strong> <code>Connected – Appointment Set</code></p>
-<ul>
-  <li>Move lead to appointment stage</li>
-  <li>Remove from call-day queue</li>
-  <li>No further call task unless instructed by closer</li>
-</ul>
-
-<div class="callout green">
-  <div class="callout-icon">✓</div>
-  <div class="callout-body"><strong>When an appointment is booked, GHL automatically posts to #appointments in Slack. You do not need to post manually.</strong></div>
-</div>
-
-<h2>5. Not Interested</h2>
-<p><strong>Log:</strong> <code>Not Interested</code></p>
-<ul>
-  <li>Set future follow-up task: +30 days</li>
-  <li>Exception: if lead says "never contact again," apply DNC status immediately</li>
-</ul>
-
-<h2>6. Bad Number</h2>
-<p><strong>Log:</strong> <code>Bad Number</code></p>
-<ul>
-  <li>Mark phone invalid in GHL</li>
-  <li>Remove from active call queue</li>
-  <li>No new call task until a corrected number exists</li>
-</ul>
-
-<h2>7. Not a Maryland Lead</h2>
-<p><strong>Log:</strong> <code>Not MD Lead</code></p>
-<ul>
-  <li>Move to disqualified / not-MD stage</li>
-  <li>Remove from active call queue</li>
-</ul>
-
-<h2>8. DNC Requested</h2>
-<p><strong>Log:</strong> <code>DNC Requested</code></p>
-<ul>
-  <li>Apply DNC status immediately — no delay</li>
-  <li>Remove from all call workflows</li>
-  <li>No future call tasks — ever</li>
-</ul>
-
-<div class="callout crimson">
-  <div class="callout-icon">⚠️</div>
-  <div class="callout-body"><strong>DNC is a legal compliance requirement.</strong> Once applied, no one on the team contacts this person again for any reason.</div>
-</div>
-
-<h2>Required Before Closing Any Task</h2>
-<ol>
-  <li><strong>Disposition selected</strong> — pick from the log options above</li>
-  <li><strong>Short call note entered</strong> — one sentence minimum: what happened</li>
-  <li><strong>Next task / date set</strong> — unless lead is booked, disqualified, or DNC</li>
-</ol>
-
-<table class="data-table">
-  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date</th></tr>
-  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td></tr>
-  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td></tr>
-  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td></tr>
-  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td></tr>
-  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td></tr>
-  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
-  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
-  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td></tr>
-  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
-  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
-</table>
-`},
-
-      { id: 'power-dialer-sop', title: 'Power Dialer SOP (GHL Manual Actions)', dept: 'Lead Management', owner: 'Ashley',
-        content: `
-<h2>Power Dialer SOP (GHL Manual Actions)</h2>
-<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Jul 2026</span><span><strong>Owner:</strong> Ashley</span></div>
-
-<div class="callout amber">
-  <div class="callout-icon">💡</div>
-  <div class="callout-body"><strong>Quick Reference:</strong> The Power Dialer does <strong>not</strong> load contacts based on the list you select. It loads contacts based on a <strong>tag</strong>. Selecting a Smart List only tells you <em>who</em> to tag — it doesn't put them in the dialer.</div>
-</div>
-
-<h2>Loading a List into the Dialer</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">Go to <strong>Contacts</strong> and pull up the Smart List (or manually select) the contacts you want to call.</div></li>
-  <li><div class="step-num">2</div><div class="step-content">Note how many contacts you selected — you'll use this to verify the load worked.</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Use the bulk <strong>Add Tag</strong> action and apply the tag <span class="ghl-field">powerdialer</span> — exact spelling, all lowercase, <strong>no space</strong>. "Power Dialer" or "power dialer" will silently fail to populate the queue.</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Go to <strong>Conversations → Manual Actions</strong>. Your contacts should now appear there.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Count looks short?</strong> Check pagination before troubleshooting — Manual Actions only shows <strong>20 contacts per page</strong>. A "missing" contact is almost always just sitting on page 2.</div></li>
-</ol>
-
-<h2>Selecting the Outbound (Calling From) Number</h2>
-<p>The number is chosen in the <strong>Dialer / softphone window</strong>, via a <strong>"Calling From" dropdown</strong> at the top — not in the Manual Actions screen itself.</p>
-<p>Whether you can see that dropdown depends on your user permissions:</p>
-<ul>
-  <li><strong>"Assigned data only"</strong> → number is locked to whatever's pre-assigned; no dropdown shown.</li>
-  <li><strong>"All records" enabled</strong> → dropdown appears; you can pick a different number.</li>
-</ul>
-
-<div class="callout crimson">
-  <div class="callout-icon">⚠️</div>
-  <div class="callout-body"><strong>You cannot switch numbers mid-session.</strong> To dial from a different number: (1) end the current dialing session, (2) change the outbound number in the Calling From dropdown, (3) start a new session.</div>
-</div>
-
-<p>To check or change a user's permission level: <strong>Settings → My Staff</strong> → select the user → confirm "All records" vs. "Assigned data only."</p>
-
-<h2>Verifying a Contact's Tag</h2>
-<p>If a specific contact isn't showing up in Manual Actions:</p>
-<ol>
-  <li>Open the contact record.</li>
-  <li>Scroll to the bottom → <strong>Audit Log</strong>.</li>
-  <li>Confirm whether / when the <span class="ghl-field">powerdialer</span> tag was actually added.</li>
-</ol>
-
-<h2>Common Issues &amp; Fixes</h2>
-<table class="data-table">
-  <tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
-  <tr><td>Selected list ≠ what shows in Manual Actions</td><td>Dialer pulls by tag, not list</td><td>Bulk-add the <span class="ghl-field">powerdialer</span> tag to the list first</td></tr>
-  <tr><td>Tag added, contact still missing</td><td>Tag has a space ("power dialer")</td><td>Re-tag using exact spelling <span class="ghl-field">powerdialer</span></td></tr>
-  <tr><td>Count looks short by 1–2</td><td>Pagination (20/page)</td><td>Check page 2 before assuming a contact is missing</td></tr>
-  <tr><td>Need to call from a different number mid-list</td><td>Not supported dynamically</td><td>End session → change Calling From number → restart</td></tr>
-</table>
-
-<div class="callout dark">
-  <div class="callout-icon">📄</div>
-  <div class="callout-body"><strong>Source:</strong> Patriot Business Systems support ticket #2026116123158, resolved Jan 2026; outbound number behavior confirmed via GHL support docs, Jul 2026.</div>
-</div>
-`},
-
-
-
-
-      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Lead Managers',
-        content: `
-<h2>Department Purpose</h2>
-<p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
-
-<div class="stat-row">
-  <div class="stat-box"><div class="num">15m</div><div class="label">Max first response time</div></div>
-  <div class="stat-box"><div class="num">3×</div><div class="label">Call attempts before drip</div></div>
-</div>
-
-<h2>Key Responsibilities</h2>
-<ul>
-  <li>Respond to all inbound leads within 15 minutes during business hours</li>
-  <li><strong>Always call back from the number the lead called in to, or reply from the number they texted to</strong> — never use a different number to respond</li>
-  <li>Qualify leads using the 4 motivation screens (MIST: Motivation, Issue, Situation, Timeline)</li>
-  <li>Book appointments directly in GHL calendar</li>
-  <li>Maintain all lead records and stage updates in GHL</li>
-  <li>Manage follow-up sequences for non-converting leads</li>
-</ul>
-
-<h2>GHL Pipeline Stages — Lead Management</h2>
-<p style="font-size:13px;color:var(--steel);margin-bottom:16px;">Lead Management owns the <strong>1) Leads Pipeline</strong>. All inbound leads enter here and are worked by the Lead Manager until they either convert to an appointment (handoff to Closer Pipeline) or are dispositioned out.</p>
-
-<table class="data-table">
-  <tr><th colspan="3" style="background:#1a1a2e;letter-spacing:.05em;">1) Leads Pipeline &nbsp;·&nbsp; Owner: Lead Managers</th></tr>
-  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
-  <tr><td><span class="ghl-field">Prospects</span></td><td>New inbound lead — initial qualification not yet done. The Lead Manager owns this lead until it moves forward.</td><td>Call within 15 min. Run MIST screening. Move to Priority Top 20% or Redzones if qualified.</td></tr>
-  <tr><td><span class="ghl-field">Redzones</span></td><td>Qualified lead with motivation but not yet top priority — needs nurturing or has a minor obstacle.</td><td>Add to follow-up sequence. Re-evaluate at 30-day check-in.</td></tr>
-  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>High-motivation seller — ready to move, strong fit. Top of the Lead Manager's daily work list.</td><td>Book appointment. Assign to closer calendar. Prepare handoff notes.</td></tr>
-  <tr><td><span class="ghl-field">Follow Up</span></td><td>Not ready now but worth keeping warm — 30/60/90-day drip territory.</td><td>Enroll in GHL drip sequence. Set a task reminder. Return to Priority if seller re-engages.</td></tr>
-  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. The Lead Manager stops all outreach immediately.</td></tr>
-  <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Property is outside Maryland or otherwise outside our buy criteria.</td><td>Tag reason and archive. Refer to a partner if applicable. Frees pipeline of unworkable leads.</td></tr>
-  <tr><td><span class="ghl-field">Out of Market</span></td><td>Lead is geographically outside our current operating area.</td><td>Tag and archive. Do not leave in active pipeline — pollutes conversion metrics.</td></tr>
-
-</table>
-
-<div class="callout amber" style="margin-top:18px;">
-  <div class="callout-icon">⚠️</div>
-  <div class="callout-body"><strong>Never leave a lead stale in Prospects.</strong> An uncalled Prospect sitting overnight is a missed opportunity. Two team members may dial simultaneously, or the lead goes cold within hours. Every lead in Prospects needs a same-day first contact attempt.</div>
-</div>
 `},
       { id: 'lm-intake-checklist', title: 'GHL Lead Intake Checklist', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
@@ -3646,6 +3373,279 @@ const SECTIONS = [
 <div class="callout green">
   <div class="callout-icon">✓</div>
   <div class="callout-body"><strong>Before you close the record:</strong> source confirmed · call summary logged as an internal comment · stage set · required fields filled · and either a Next Contact Date, a booked appointment, or a Dead tag.</div>
+</div>
+`},
+      { id: 'calling-routine', title: 'Lead Manager Daily Calling Routine', dept: 'Lead Management', owner: 'Lead Managers',
+        content: `
+<h2>Lead Manager Daily Calling Routine</h2>
+<p style="font-size:13px;color:var(--steel);">The calling mechanics for your day. The full daily routine — goals, schedule, and end-of-day cleanup — is on <a onclick="showPage('lead-mgmt','own-the-day')" style="cursor:pointer;font-weight:600;">Own the Day</a>.</p>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
+
+<div class="callout amber">
+  <div class="callout-icon">📋</div>
+  <div class="callout-body"><strong>The system builds your list. Your job is to work it top to bottom and set Next Contact Date after every single interaction before closing the record.</strong></div>
+</div>
+
+<h2>Morning Start-Up (8:00–8:15 AM)</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open GHL → Contacts → Advanced Filters → Next Contact Date &amp; Time is within the next 1 day.</strong> Filter to leads assigned to you, select all, apply the <span class="ghl-field">powerdialer</span> tag. This sends them to Conversations → Manual Actions — that is your calling list for the day.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Sort by task title A→Z.</strong> ⚠️ OVERDUE tasks appear first — work these before fresh calls.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Scan for ⚡ CALLBACK TODAY</strong> contacts — these are urgent same-day requests, work after OVERDUE.</div></li>
+</ol>
+
+<h2>Every Call — The Three-Step Close</h2>
+<p>Every single call ends with all three of these completed before you move to the next contact:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Set Last Contact Outcome</strong> from the dropdown on the contact record.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Set Next Contact Date</strong> — every lead, every time, no exceptions. The outcome router will handle the routing. But this field must be set for the next task to generate.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Leave the call summary as an internal comment</strong> on the conversation — what happened, what the seller said, and the next step. Not a note on the contact record.</div></li>
+</ol>
+
+<h2>What to Set for Next Contact Date</h2>
+<p><strong>Next Contact Date</strong> drives the manual call queue. If you also want an automated follow-up sequence (SMS Josh) to fire on a specific date, set the <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> field — it is a separate field from Next Contact Date. The table below covers both.</p>
+<table class="data-table">
+  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(manual call queue)</span></th><th>Next Follow Up Date For SMS Campaign<br><span style="font-weight:400;font-size:11px;color:var(--steel);">(fires SMS Josh automation)</span></th></tr>
+  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
+  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td><td>Leave blank — stay on manual queue</td></tr>
+  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td><td>Set to the same date if you want SMS Josh to fire alongside the manual call</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td><td>Leave blank — keep on manual queue</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td><td>Leave blank — keep on manual queue</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td><td>Set to start of the nurture window if handing off to SMS Josh</td></tr>
+  <tr><td>Seller says "check back on [date]"</td><td>Any</td><td>Leave blank or match the date</td><td><strong>Set to the date the seller gave</strong> — SMS Josh starts that day (recommended)</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td><td>Leave blank — not needed</td></tr>
+  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td><td>Leave blank</td></tr>
+  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td><td>Clear field — remove from queue</td></tr>
+</table>
+<div class="callout amber" style="margin:12px 0;">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>The two fields are independent.</strong> Next Contact Date queues the manual call for the Lead Manager; Next Follow Up Date For SMS Campaign fires the SMS Josh automation. You can use either, both, or neither depending on what you want to happen.</div>
+</div>
+
+<h2>End of Day Check</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Go to Conversations → Manual Actions.</strong> Goal is zero remaining. If contacts are still in the queue, they were not called today and will become OVERDUE tomorrow.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>If you cannot finish the list,</strong> flag to Ashley before end of day — do not let it roll silently to overdue.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Check open tasks.</strong> Every open task should have a due date. If any task is open with no date, set the date now.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Never close a contact record without setting Next Contact Date.</strong> No date = no task tomorrow = dropped lead.</div>
+</div>
+` },
+      { id: 'call-outcome-next-steps', title: 'Call Outcome Next Steps', dept: 'Lead Management', owner: 'Lead Managers',
+        content: `
+<h2>Appointment Setter — Next Step Rules</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Lead Managers</span></div>
+
+<p>After every call attempt, select a disposition, leave the call summary as an internal comment, and set the next task or contact date before closing the record. No active lead ends the day without a next contact task.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚫</div>
+  <div class="callout-body"><strong>Golden Rule: No active lead should end the day without a next contact task and date. No exceptions.</strong></div>
+</div>
+
+<h2>1. No Answer</h2>
+<p><strong>Log:</strong> <code>No Answer</code></p>
+<p><strong>Set next call task:</strong></p>
+<ul>
+  <li>Redzone: +1 day</li>
+  <li>Priority Top 20%: +2 days</li>
+  <li>Follow Up: +5 days</li>
+</ul>
+
+<h2>2. Left Voicemail</h2>
+<p><strong>Log:</strong> <code>Left Voicemail</code></p>
+<p><strong>Set next call task:</strong></p>
+<ul>
+  <li>Redzone: +1 day</li>
+  <li>Priority Top 20%: +2 days</li>
+  <li>Follow Up: +5 days</li>
+</ul>
+
+<h2>3. Connected — Not Booked</h2>
+<p><strong>Log:</strong> <code>Connected – Follow Up</code></p>
+<p><strong>Must set next task before ending the call:</strong></p>
+<ul>
+  <li>Redzone: +1 to +2 days</li>
+  <li>Priority Top 20%: +2 to +3 days</li>
+  <li>Follow Up: +7 to +14 days</li>
+</ul>
+
+<h2>4. Appointment Booked</h2>
+<p><strong>Log:</strong> <code>Connected – Appointment Set</code></p>
+<ul>
+  <li>Move lead to appointment stage</li>
+  <li>Remove from call-day queue</li>
+  <li>No further call task unless instructed by closer</li>
+</ul>
+
+<div class="callout green">
+  <div class="callout-icon">✓</div>
+  <div class="callout-body"><strong>When an appointment is booked, GHL automatically posts to #appointments in Slack. You do not need to post manually.</strong></div>
+</div>
+
+<h2>5. Not Interested</h2>
+<p><strong>Log:</strong> <code>Not Interested</code></p>
+<ul>
+  <li>Set future follow-up task: +30 days</li>
+  <li>Exception: if lead says "never contact again," apply DNC status immediately</li>
+</ul>
+
+<h2>6. Bad Number</h2>
+<p><strong>Log:</strong> <code>Bad Number</code></p>
+<ul>
+  <li>Mark phone invalid in GHL</li>
+  <li>Remove from active call queue</li>
+  <li>No new call task until a corrected number exists</li>
+</ul>
+
+<h2>7. Not a Maryland Lead</h2>
+<p><strong>Log:</strong> <code>Not MD Lead</code></p>
+<ul>
+  <li>Move to disqualified / not-MD stage</li>
+  <li>Remove from active call queue</li>
+</ul>
+
+<h2>8. DNC Requested</h2>
+<p><strong>Log:</strong> <code>DNC Requested</code></p>
+<ul>
+  <li>Apply DNC status immediately — no delay</li>
+  <li>Remove from all call workflows</li>
+  <li>No future call tasks — ever</li>
+</ul>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>DNC is a legal compliance requirement.</strong> Once applied, no one on the team contacts this person again for any reason.</div>
+</div>
+
+<h2>Required Before Closing Any Task</h2>
+<ol>
+  <li><strong>Disposition selected</strong> — pick from the log options above</li>
+  <li><strong>Call summary left as an internal comment</strong> — what happened, what they said, and the next step. Not a note on the contact record; the internal comment on the conversation</li>
+  <li><strong>Next task / date set</strong> — unless lead is booked, disqualified, or DNC</li>
+</ol>
+
+<table class="data-table">
+  <tr><th>Outcome</th><th>Stage</th><th>Next Contact Date</th></tr>
+  <tr><td>No Answer</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>No Answer</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>No Answer</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Redzone</td><td>+1 day</td></tr>
+  <tr><td>Left Voicemail</td><td>Priority Top 20%</td><td>+2 days</td></tr>
+  <tr><td>Left Voicemail</td><td>Follow Up</td><td>+5 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Redzone</td><td>+1 to +2 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Priority Top 20%</td><td>+2 to +3 days</td></tr>
+  <tr><td>Connected — Not Booked</td><td>Follow Up</td><td>+7 to +14 days</td></tr>
+  <tr><td>Appointment Booked</td><td>Any</td><td>Day before the appointment</td></tr>
+  <tr><td>Not Interested</td><td>Any</td><td>+30 days</td></tr>
+  <tr><td>Bad Number / Not MD / DNC</td><td>Any</td><td>Clear field — remove from queue</td></tr>
+</table>
+`},
+
+      { id: 'power-dialer-sop', title: 'Power Dialer SOP (GHL Manual Actions)', dept: 'Lead Management', owner: 'Ashley',
+        content: `
+<h2>Power Dialer SOP (GHL Manual Actions)</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Jul 2026</span><span><strong>Owner:</strong> Ashley</span></div>
+
+<div class="callout amber">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body"><strong>Quick Reference:</strong> The Power Dialer does <strong>not</strong> load contacts based on the list you select. It loads contacts based on a <strong>tag</strong>. Selecting a Smart List only tells you <em>who</em> to tag — it doesn't put them in the dialer.</div>
+</div>
+
+<h2>Loading a List into the Dialer</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content">Go to <strong>Contacts</strong> and pull up the Smart List (or manually select) the contacts you want to call.</div></li>
+  <li><div class="step-num">2</div><div class="step-content">Note how many contacts you selected — you'll use this to verify the load worked.</div></li>
+  <li><div class="step-num">3</div><div class="step-content">Use the bulk <strong>Add Tag</strong> action and apply the tag <span class="ghl-field">powerdialer</span> — exact spelling, all lowercase, <strong>no space</strong>. "Power Dialer" or "power dialer" will silently fail to populate the queue.</div></li>
+  <li><div class="step-num">4</div><div class="step-content">Go to <strong>Conversations → Manual Actions</strong>. Your contacts should now appear there.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Count looks short?</strong> Check pagination before troubleshooting — Manual Actions only shows <strong>20 contacts per page</strong>. A "missing" contact is almost always just sitting on page 2.</div></li>
+</ol>
+
+<h2>Selecting the Outbound (Calling From) Number</h2>
+<p>The number is chosen in the <strong>Dialer / softphone window</strong>, via a <strong>"Calling From" dropdown</strong> at the top — not in the Manual Actions screen itself.</p>
+<p>Whether you can see that dropdown depends on your user permissions:</p>
+<ul>
+  <li><strong>"Assigned data only"</strong> → number is locked to whatever's pre-assigned; no dropdown shown.</li>
+  <li><strong>"All records" enabled</strong> → dropdown appears; you can pick a different number.</li>
+</ul>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>You cannot switch numbers mid-session.</strong> To dial from a different number: (1) end the current dialing session, (2) change the outbound number in the Calling From dropdown, (3) start a new session.</div>
+</div>
+
+<p>To check or change a user's permission level: <strong>Settings → My Staff</strong> → select the user → confirm "All records" vs. "Assigned data only."</p>
+
+<h2>Verifying a Contact's Tag</h2>
+<p>If a specific contact isn't showing up in Manual Actions:</p>
+<ol>
+  <li>Open the contact record.</li>
+  <li>Scroll to the bottom → <strong>Audit Log</strong>.</li>
+  <li>Confirm whether / when the <span class="ghl-field">powerdialer</span> tag was actually added.</li>
+</ol>
+
+<h2>Common Issues &amp; Fixes</h2>
+<table class="data-table">
+  <tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
+  <tr><td>Selected list ≠ what shows in Manual Actions</td><td>Dialer pulls by tag, not list</td><td>Bulk-add the <span class="ghl-field">powerdialer</span> tag to the list first</td></tr>
+  <tr><td>Tag added, contact still missing</td><td>Tag has a space ("power dialer")</td><td>Re-tag using exact spelling <span class="ghl-field">powerdialer</span></td></tr>
+  <tr><td>Count looks short by 1–2</td><td>Pagination (20/page)</td><td>Check page 2 before assuming a contact is missing</td></tr>
+  <tr><td>Need to call from a different number mid-list</td><td>Not supported dynamically</td><td>End session → change Calling From number → restart</td></tr>
+</table>
+
+<div class="callout dark">
+  <div class="callout-icon">📄</div>
+  <div class="callout-body"><strong>Source:</strong> Patriot Business Systems support ticket #2026116123158, resolved Jan 2026; outbound number behavior confirmed via GHL support docs, Jul 2026.</div>
+</div>
+`},
+
+
+
+
+      { id: 'lm-overview', title: 'Department Overview', dept: 'Lead Management', owner: 'Lead Managers',
+        content: `
+<h2>Department Purpose</h2>
+<p>Lead Management is the top of the funnel — the team responsible for receiving, qualifying, and routing every inbound seller inquiry to the right next step. The speed and quality of lead management directly determines how many appointments Acquisitions receives each week.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="num">15m</div><div class="label">Max first response time</div></div>
+  <div class="stat-box"><div class="num">3×</div><div class="label">Call attempts before drip</div></div>
+</div>
+
+<h2>Key Responsibilities</h2>
+<ul>
+  <li>Respond to all inbound leads within 15 minutes during business hours</li>
+  <li><strong>Always call back from the number the lead called in to, or reply from the number they texted to</strong> — never use a different number to respond</li>
+  <li>Qualify leads using the 4 motivation screens (MIST: Motivation, Issue, Situation, Timeline)</li>
+  <li>Book appointments directly in GHL calendar</li>
+  <li>Maintain all lead records and stage updates in GHL</li>
+  <li>Manage follow-up sequences for non-converting leads</li>
+</ul>
+
+<h2>GHL Pipeline Stages — Lead Management</h2>
+<p style="font-size:13px;color:var(--steel);margin-bottom:16px;">Lead Management owns the <strong>1) Leads Pipeline</strong>. All inbound leads enter here and are worked by the Lead Manager until they either convert to an appointment (handoff to Closer Pipeline) or are dispositioned out.</p>
+
+<table class="data-table">
+  <tr><th colspan="3" style="background:#1a1a2e;letter-spacing:.05em;">1) Leads Pipeline &nbsp;·&nbsp; Owner: Lead Managers</th></tr>
+  <tr><th>Stage</th><th>Definition</th><th>Next Action</th></tr>
+  <tr><td><span class="ghl-field">Prospects</span></td><td>New inbound lead — initial qualification not yet done. The Lead Manager owns this lead until it moves forward.</td><td>Call within 15 min. Run MIST screening. Move to Priority Top 20% or Redzones if qualified.</td></tr>
+  <tr><td><span class="ghl-field">Redzones</span></td><td>Qualified lead with motivation but not yet top priority — needs nurturing or has a minor obstacle.</td><td>Add to follow-up sequence. Re-evaluate at 30-day check-in.</td></tr>
+  <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>High-motivation seller — ready to move, strong fit. Top of the Lead Manager's daily work list.</td><td>Book appointment. Assign to closer calendar. Prepare handoff notes.</td></tr>
+  <tr><td><span class="ghl-field">Follow Up</span></td><td>Not ready now but worth keeping warm — 30/60/90-day drip territory.</td><td>Enroll in GHL drip sequence. Set a task reminder. Return to Priority if seller re-engages.</td></tr>
+  <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span></td><td><strong>Handoff stage.</strong> Appointment is booked and confirmed. Lead Management's job is done — Closer now owns this contact.</td><td>Stage change signals Acquisitions to prepare. The Lead Manager stops all outreach immediately.</td></tr>
+  <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Property is outside Maryland or otherwise outside our buy criteria.</td><td>Tag reason and archive. Refer to a partner if applicable. Frees pipeline of unworkable leads.</td></tr>
+  <tr><td><span class="ghl-field">Out of Market</span></td><td>Lead is geographically outside our current operating area.</td><td>Tag and archive. Do not leave in active pipeline — pollutes conversion metrics.</td></tr>
+
+</table>
+
+<div class="callout amber" style="margin-top:18px;">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>Never leave a lead stale in Prospects.</strong> An uncalled Prospect sitting overnight is a missed opportunity. Two team members may dial simultaneously, or the lead goes cold within hours. Every lead in Prospects needs a same-day first contact attempt.</div>
 </div>
 `},
       { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Lead Managers',
