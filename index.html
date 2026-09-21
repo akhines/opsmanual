@@ -3470,45 +3470,6 @@ const SECTIONS = [
   <div class="callout-body"><strong>Never leave a lead stale in Prospects.</strong> An uncalled Prospect sitting overnight is a missed opportunity. Two team members may dial simultaneously, or the lead goes cold within hours. Every lead in Prospects needs a same-day first contact attempt.</div>
 </div>
 `},
-      { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Lead Managers',
-        content: `
-<div class="callout blue">
-  <div class="callout-icon">✅</div>
-  <div class="callout-body"><strong>Processing a new lead in GHL?</strong> Use the step-by-step <a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;display:inline;">GHL Lead Intake Checklist</a>.</div>
-</div>
-<h2>New Lead Response Protocol</h2>
-<div class="callout crimson">
-  <div class="callout-icon">📞</div>
-  <div class="callout-body">
-    <strong>Always call back from the number they called in to, or text back from the number they texted to.</strong> If a lead called your Google Ads number, call them back from that same number. If they texted a campaign line, reply from that line. Calling from a different number causes confusion, distrust, and missed connections. The lead does not know who you are yet — the number is their only reference point.
-  </div>
-</div>
-<div class="callout crimson">
-  <div class="callout-icon">⏱</div>
-  <div class="callout-body">
-    <strong>15-Minute Rule</strong>
-    All new leads must receive a first contact attempt within 15 minutes of coming in during business hours (9 AM – 6 PM). Studies show response within 5 minutes increases contact rate by 100×. Speed wins deals.
-  </div>
-</div>
-
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Confirm where the lead came from</strong> — Not a tag. For an inbound call, check the line they dialed; for a web lead, check the source on the lead notification. The number-to-channel lookup table is in the <a class="ic-lnk" style="color:var(--amber-dark);cursor:pointer;" onclick="showPage('lead-mgmt','lm-intake-checklist')">GHL Lead Intake Checklist</a>. Then tailor your opening to that channel (direct mail vs. Google Ad vs. referral).</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Call immediately</strong> — First call attempt. Use the opening script. If they answer, screen using MIST (Motivation, Issue, Situation, Timeline).</div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>If no answer:</strong> Send the intro text, call again in 30 minutes, call a third time 1 hour after that. Move to <span class="ghl-field">Redzones</span> or <span class="ghl-field">Follow Up</span> and add to the automated follow-up sequence.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Log every call</strong> — Date, outcome, seller's stated situation, and next scheduled action. This is required — not optional.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>If qualified:</strong> Book the appointment in GHL. Confirm the address, date/time, and send a confirmation text to the seller.</div></li>
-</ol>
-
-<h2>Booking an Appointment in GHL</h2>
-<ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content">In the contact record, click <strong>Appointments → New Appointment</strong></div></li>
-  <li><div class="step-num">2</div><div class="step-content">Select the correct calendar (In-Person or Virtual)</div></li>
-  <li><div class="step-num">3</div><div class="step-content">Set date, time, and assign to the acquisitions agent</div></li>
-  <li><div class="step-num">4</div><div class="step-content">Add appointment notes: property address, seller's stated situation, motivation level (1–10), any red flags</div></li>
-  <li><div class="step-num">5</div><div class="step-content">Move contact to <span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span> stage</div></li>
-  <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
-</ol>
-`},
       { id: 'lm-intake-checklist', title: 'GHL Lead Intake Checklist', dept: 'Lead Management', owner: 'Lead Managers',
         content: `
 <style>
@@ -3534,6 +3495,16 @@ const SECTIONS = [
 <div class="callout crimson">
   <div class="callout-icon">🚨</div>
   <div class="callout-body"><strong>No lead leaves your hands without the opportunity stage updated — and, if no appointment was set, follow-up automation turned on.</strong> The stage is what moves the lead through the pipeline; the automation is what keeps touching it while you work other leads. No appointment means enrolling them in the <a class="ic-lnk" style="color:#A52325;" onclick="showPage('lead-mgmt','fu-active-campaigns')">SMS Josh check-in automation</a> — 12 touches over 62 days. Anything else is a lead we paid for and lost.</div>
+</div>
+
+<div class="callout amber">
+  <div class="callout-icon">📞</div>
+  <div class="callout-body"><strong>Call back from the number they called in to</strong> — or text back from the line they texted. A seller who called the Google Ads line gets called back from that line. They do not know who you are yet, so the number is their only reference point; a different one reads as a stranger and gets ignored. The line-to-channel table is in Step 1.</div>
+</div>
+
+<div class="callout amber">
+  <div class="callout-icon">⏱️</div>
+  <div class="callout-body"><strong>First attempt within 15 minutes, 9 AM – 6 PM.</strong> Answering inside 5 minutes raises the contact rate roughly 100×. Speed is the whole advantage — it is the one thing in this process no competitor can copy from us.</div>
 </div>
 
 <h2>Part 1 — Every New Lead</h2>
@@ -3582,7 +3553,7 @@ const SECTIONS = [
 
   <li><label><input type="checkbox"><span class="ic-n">4</span><div>
     <div class="ic-t">Fill all 15 required fields</div>
-    <div class="ic-d">Every required field on the contact is filled before you close the record — blanks break handoffs and reporting. Field list and standards: <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-new-lead')">New Lead Process</a>.</div>
+    <div class="ic-d">Every required field on the contact is filled before you close the record — blanks break handoffs and reporting.</div>
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">5</span><div>
@@ -3616,13 +3587,13 @@ const SECTIONS = [
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">8</span><div>
-    <div class="ic-t">Leave a voicemail</div>
-    <div class="ic-d">If you didn't connect, leave the voicemail and log <strong>Left Voicemail</strong> on the call.</div>
+    <div class="ic-t">Work the no-answer sequence</div>
+    <div class="ic-d">Three attempts on day one before the automation carries it: leave the voicemail and log <strong>Left Voicemail</strong> on the call, send the intro text, then call again <strong>30 minutes later</strong> and a third time <strong>an hour after that</strong>. Each attempt gets logged.</div>
   </div></label></li>
 
   <li><label><input type="checkbox"><span class="ic-n">9</span><div>
     <div class="ic-t">Confirm the Next Contact Date</div>
-    <div class="ic-d">Re-check the date against the stage you chose in Step 5. Work your list on the <a class="ic-lnk" onclick="showPage('lead-mgmt','own-the-day')">daily schedule</a>.</div>
+    <div class="ic-d">Re-check the date against the stage you chose in Step 6. Work your list on the <a class="ic-lnk" onclick="showPage('lead-mgmt','own-the-day')">daily schedule</a>.</div>
   </div></label></li>
 </ol>
 
