@@ -2239,6 +2239,9 @@ const SECTIONS = [
   <tr><td>☐</td><td>Lead source tag applied</td></tr>
   <tr><td>☐</td><td>Property address verified in GHL</td></tr>
   <tr><td>☐</td><td>Appointment logged in GHL calendar with property address in the title</td></tr>
+  <tr><td>☐</td><td>Google Drive property folder created with the Property Info Sheet</td></tr>
+  <tr><td>☐</td><td>Drive folder link added to the appointment section in GHL</td></tr>
+  <tr><td>☐</td><td>Closer notified — warm transfer or Slack</td></tr>
 </table>
 <p><strong>Pipeline movement:</strong> Nicole moves the opportunity from <span class="ghl-field">1) Leads</span> to the assigned closer's pipeline:</p>
 <ul>
@@ -2265,6 +2268,7 @@ const SECTIONS = [
   <tr><td>☐</td><td>ARV set with comp link saved</td></tr>
   <tr><td>☐</td><td>Repair estimate completed</td></tr>
   <tr><td>☐</td><td>Property photos uploaded (minimum 15)</td></tr>
+  <tr><td>☐</td><td>Property Drive folder complete (contract, comps, photos, updated Property Info Sheet) — link in the GHL appointment section</td></tr>
   <tr><td>☐</td><td>Listing copy drafted for deal packaging</td></tr>
   <tr><td>☐</td><td><strong>Opportunity status set to Won in GHL</strong></td></tr>
 </table>
@@ -2955,7 +2959,7 @@ const SECTIONS = [
 </div>
 
 <h2>After Every Appointment — Logging Notes on the Contact Record</h2>
-<p>No matter the outcome, your <strong>first action</strong> after every appointment is to open the contact record in GHL and log detailed notes. If it is not in the contact record, it did not happen.</p>
+<p>No matter the outcome, your <strong>first action</strong> after every appointment is to open the contact record in GHL and log detailed notes. If it is not in the contact record, it did not happen. Then open the property Drive folder from the appointment section, update the Property Info Sheet, and upload your photos — if there's no folder or no link, create it and add the link to the appointment section in GHL.</p>
 <div class="callout amber">
   <div class="callout-icon">📝</div>
   <div class="callout-body">
@@ -2977,8 +2981,8 @@ const SECTIONS = [
 <p>When a seller signs, follow this exact sequence. Do not skip steps or change the order.</p>
 <ol style="padding-left:18px;font-size:13px;line-height:2.2;">
   <li><strong>Mark Won in GHL</strong> — non-negotiable for reporting. If you do not mark it Won, the deal does not show up in our numbers.</li>
-  <li><strong>Create the Google Drive Property Folder</strong> — open Google Drive, navigate to the IHT shared property folders, create a new folder named with the property address (e.g., "123 Main St, Baltimore MD 21201"). This folder is the single source of truth — TC, Dispo, and Ashley all pull from it.</li>
-  <li><strong>Upload Property Photos (minimum 15)</strong> — upload all photos to the Drive folder you just created.</li>
+  <li><strong>Open the Google Drive Property Folder</strong> — use the Drive link in the appointment section in GHL. Lead Management creates it at booking in the <strong>IHT Deals</strong> folder, named <code>[Street Address] — [Seller Last Name]</code>. If it doesn't exist, create it now. This folder is the single source of truth — TC, Dispo, and Ashley all pull from it.</li>
+  <li><strong>Upload Property Photos (minimum 15)</strong> — upload all photos to the property folder.</li>
 </ol>
 
 <div class="callout blue">
@@ -3003,7 +3007,7 @@ const SECTIONS = [
 
 <ol start="4" style="padding-left:18px;font-size:13px;line-height:2.2;">
   <li><strong>Add deal documents to the folder:</strong> fully executed A-B contract, comp link/sheet with ARV, repair estimate, property info sheet (address, beds/baths, sq ft, lot, year built, ARV, offer price, repair estimate), any seller-provided disclosures.</li>
-  <li><strong>Paste the Drive folder link into GHL</strong> — open the contact record, paste the Google Drive folder URL into the designated field. This is how TC and Dispo find everything. If the link is not there, the deal stalls.</li>
+  <li><strong>Confirm the Drive folder link is in GHL</strong> — open the contact record → Appointments; the appointment notes should read <code>Property Drive Folder: [link]</code>. Paste it there if missing. This is how TC and Dispo find everything. If the link is not there, the deal stalls.</li>
   <li><strong>Draft listing copy</strong> — brief deal description for Dispo: address, beds/baths/sq ft, ARV, repair estimate, asking price, highlights.</li>
   <li><strong>Move to TC Pipeline</strong> — move the opportunity to <span class="ghl-field">Pipeline 5: Transaction Coordination → New Deal!</span></li>
   <li><strong>Post in Slack</strong> — post in #transactions: "New deal entering TC: [Address] — A-B at $[Price] — Target close [Date]." Tag Ashley.</li>
@@ -3031,9 +3035,134 @@ const SECTIONS = [
 {
     id: 'lead-mgmt', label: 'Lead Management', color: '#2563EB',
     pages: [
+      { id: 'own-the-day', title: 'Own the Day — Daily Routine', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<h2>Own Every Call &amp; Win Every Day</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>For:</strong> every Lead Manager, every shift</span></div>
+
+<p>As a Lead Manager, you are the first point of contact anyone will have with Impact Home Team. You have the privilege of helping sellers who need it — and of setting up the whole team for success. This page is your cheat sheet. Own every call with the steps below and the goals are yours to hit.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">📞</div>
+  <div class="callout-body"><strong>The #1 rule: answer every live inbound call.</strong> A ringing phone beats everything else on this page. A seller calling us is ready to talk right now — miss it and they call the next investor on their list.</div>
+</div>
+
+<h2>Every Call Requires</h2>
+<div class="stat-row">
+  <div class="stat-box"><div class="num">😊</div><div class="label">A smile</div></div>
+  <div class="stat-box"><div class="num">12s</div><div class="label">12-second intro</div></div>
+  <div class="stat-box"><div class="num">4</div><div class="label"><a onclick="showPage('lead-mgmt','lm-appt-criteria')" style="cursor:pointer;font-weight:600;">Four Pillars</a></div></div>
+  <div class="stat-box"><div class="num">✓</div><div class="label">Full CRM update</div></div>
+</div>
+<p>Hit all four on every call and you give the seller — and the team — the best chance of a deal. "Full CRM update" means the whole <a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;">GHL Lead Intake Checklist</a> before you close the record.</p>
+
+<h2>Daily Goals</h2>
+<table class="data-table">
+  <tr><th>#</th><th>Goal</th><th>KPI to Track</th></tr>
+  <tr><td><strong>1</strong></td><td><strong>Schedule 5 appointments per day</strong></td><td>Conversations / conversion %</td></tr>
+  <tr><td><strong>2</strong></td><td><strong>Answer 95% of all priority inbound calls live</strong></td><td># connected calls ÷ # total inbound priority calls</td></tr>
+  <tr><td><strong>3</strong></td><td><strong>Call every web lead live within 1 minute</strong></td><td>% of web leads connected same day</td></tr>
+  <tr><td><strong>4</strong></td><td><strong>15 phone connections minimum per day — target 25</strong> — to your pipeline and new inbound leads. Best achieved with <strong>250 dials a day</strong>.</td><td>Daily connections</td></tr>
+</table>
+
+<h2>Appointment Targets</h2>
+<div class="stat-row">
+  <div class="stat-box"><div class="num">25</div><div class="label">Per week</div></div>
+  <div class="stat-box"><div class="num">100</div><div class="label">30 days</div></div>
+  <div class="stat-box"><div class="num">200</div><div class="label">60 days</div></div>
+  <div class="stat-box"><div class="num">300</div><div class="label">90 days</div></div>
+</div>
+
+<h2>Daily Schedule</h2>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th style="width:130px;">Time</th><th>What You Do</th></tr>
+  <tr><td><strong>8:00 AM</strong></td><td><strong>Log in and set up</strong> — open your tabs (below), check communications, work tasks, build today's call list.</td></tr>
+  <tr><td><strong>10:00 AM</strong></td><td><strong>Sales Huddle on Slack</strong> — bring your issues list from last night.</td></tr>
+  <tr><td><strong>All day</strong></td><td><strong>Answer every live inbound call. Monitor all communication.</strong> Work Redzone and Priority Top 20% first, then the call lists below. Minimum <strong>2 hours of outbound dialing</strong> per shift.</td></tr>
+  <tr><td><strong>Afternoon / lunch</strong></td><td><strong>Inbound coverage + follow-up sweep</strong> — see Afternoon Hours below.</td></tr>
+  <tr><td><strong>6:30 PM</strong></td><td><strong>End-of-day CRM cleanup</strong> — see Ending Your Day below.</td></tr>
+  <tr><td><strong>Sign-off</strong></td><td><strong>EOD report submitted.</strong> You are not done until it's in.</td></tr>
+</table>
+</div>
+
+<h2>Morning Setup — Tabs to Open</h2>
+<ul>
+  <li><strong>Slack</strong></li>
+  <li><strong>GHL Conversations</strong> — inbound calls, missed calls, SMS, and email in one inbox</li>
+  <li><strong>GHL Opportunities → 1) Leads pipeline</strong></li>
+  <li><strong>GHL Conversations → Manual Actions</strong> — today's call list (the dialer)</li>
+  <li><strong>GHL Calendar / Google Calendar</strong> — today's appointments</li>
+  <li><strong>Gmail</strong> — your @theimpacthometeam.com address</li>
+</ul>
+<p>Call notes go on the contact record in GHL as a dated note — no separate notes file. Dialer setup: <a onclick="showPage('lead-mgmt','dialer-and-calendar')" style="cursor:pointer;font-weight:600;">The Dialer &amp; The Calendar</a>.</p>
+
+<h2>Morning — Check Every Channel First</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Missed priority calls, last 7 days</strong> — every one not yet connected gets called multiple times every day. Log every attempt on the contact record.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Leads pipeline</strong> — review all leads to make sure nothing from yesterday was missed, including new leads that came in overnight.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Tasks</strong> — review your task list and respond to every outstanding item. ⚠️ OVERDUE first.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Conversations — overnight inbound</strong> — confirm no SMS or callbacks are outstanding from after your last shift. Answer seller SMS <em>regardless of who the lead manager is</em>. If an outstanding text belongs to a teammate, respond on their behalf and let them know.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Calendar</strong> — confirm every appointment on today's schedule.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Build today's call list</strong> — follow the morning start-up in <a onclick="showPage('lead-mgmt','calling-routine')" style="cursor:pointer;font-weight:600;">Nicole's Daily Calling Routine</a>.</div></li>
+</ol>
+
+<h2>Call Lists — Who Works What</h2>
+<p>Priority 1 is worked first within each person's lists.</p>
+<div style="overflow-x:auto;">
+<table class="data-table">
+  <tr><th>List</th><th>Method</th><th>Who</th><th>Priority</th><th>Frequency</th><th>When</th></tr>
+  <tr><td><span class="ghl-field">Redzone</span></td><td>Manual</td><td>LM2</td><td>1</td><td>1×</td><td>Daily — morning, before 10 AM ET</td></tr>
+  <tr><td><span class="ghl-field">Redzone</span></td><td>Manual</td><td>LM1</td><td>1</td><td>1×</td><td>Daily — afternoon</td></tr>
+  <tr><td>Next Contact Date = today</td><td>Manual</td><td>LM2</td><td>1</td><td>1×</td><td>Daily</td></tr>
+  <tr><td>Cancelled appointments</td><td>Manual</td><td>LM2</td><td>2</td><td>1×</td><td>Daily</td></tr>
+  <tr><td>Group 1 — Top 100: high/medium motivation + past due</td><td>Dialer</td><td>LM1</td><td>2</td><td>1×</td><td>Daily</td></tr>
+  <tr><td>Group 1 — Top 100: high/medium motivation + past due</td><td>Manual</td><td>VAs</td><td>1</td><td>3×</td><td>Weekly</td></tr>
+  <tr><td>Group 3B — last 365 days, not yet converted</td><td>Dialer</td><td>LM1</td><td>3</td><td>2×</td><td>Weekly</td></tr>
+  <tr><td>Inbound — last 30 days</td><td>Dialer</td><td>LM2</td><td>3</td><td>1×</td><td>Weekly</td></tr>
+  <tr><td>Premium Zips</td><td>Dialer</td><td>LM1</td><td>4</td><td>2×</td><td>Daily</td></tr>
+  <tr><td>Premium Zips</td><td>Manual</td><td>VAs</td><td>2</td><td>3×</td><td>Weekly</td></tr>
+  <tr><td>Spam</td><td>Manual</td><td>All</td><td>—</td><td>1×</td><td>Weekly</td></tr>
+</table>
+</div>
+<p style="font-size:13px;color:var(--steel);">GHL saved views for Group 1, Group 3B, Premium Zips, Inbound L30D, and Spam: <span class="fill">[VIEW NAMES / FILTERS]</span></p>
+
+<h2>Throughout the Day — Pipeline Rules</h2>
+<ul>
+  <li><strong>Prospects is a waiting room, not a home.</strong> A lead stays in Prospects only until you have a quality conversation — then it moves to the right stage.</li>
+  <li><strong>Every non-connection goes on follow-up automation.</strong> See <a onclick="showPage('lead-mgmt','fu-active-campaigns')" style="cursor:pointer;font-weight:600;">Active Campaigns</a>.</li>
+  <li><strong>Every lead has a Next Contact Date.</strong> No date = no task tomorrow = dropped lead. Dates by outcome: <a onclick="showPage('lead-mgmt','call-outcome-next-steps')" style="cursor:pointer;font-weight:600;">Call Outcome Next Steps</a>.</li>
+</ul>
+
+<h2>Afternoon Hours / Lunch Coverage / Inbound</h2>
+<ul>
+  <li>Text everyone you couldn't reach by phone</li>
+  <li>Check cancelled appointments</li>
+  <li>Work the Premium Zips list record by record</li>
+  <li>Call again every missed priority call from the last 7 days not yet connected</li>
+  <li>Text your Redzones who weren't reached by phone</li>
+</ul>
+
+<h2>Ending Your Day — 6:30 PM CRM Cleanup</h2>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Close the loop</strong> on every open request or conversation.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Score your Top 10 board</strong> — how many were scheduled today (5/10, etc.)?</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Tasks</strong> — respond to every outstanding item. Every open task has a due date.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Conversations</strong> — no SMS or callbacks left unanswered, including seller SMS on a teammate's leads (answer and let them know).</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Missed calls</strong> — review today's leads and return every missed call not yet connected.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Tier every new lead</strong> — every lead that came in today is in the right stage with a Next Contact Date.</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Appointments</strong> — confirm every appointment you booked today posted to <strong>#appointments</strong> in Slack (GHL posts automatically). If one is missing, flag Ashley — the automation broke. Each booked appointment also has its Drive folder and link (<a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;">Intake Checklist</a>, Part 3).</div></li>
+  <li><div class="step-num">8</div><div class="step-content"><strong>Clear out leads that are not true leads</strong> — not the owner, duplicate, wrong number, outside Maryland, or spam. Tag them per <a onclick="showPage('lead-mgmt','lm-dead-leads')" style="cursor:pointer;font-weight:600;">Dead Lead Management</a> — never delete.</div></li>
+  <li><div class="step-num">9</div><div class="step-content"><strong>Manual Actions at zero</strong> — anything left becomes OVERDUE tomorrow. Can't finish? Flag Ashley before you sign off.</div></li>
+  <li><div class="step-num">10</div><div class="step-content"><strong>Prep your issues list</strong> for the morning huddle.</div></li>
+  <li><div class="step-num">11</div><div class="step-content"><strong>Update your top 5 Redzones</strong> for tomorrow.</div></li>
+  <li><div class="step-num">12</div><div class="step-content"><strong>Submit your EOD report.</strong></div></li>
+</ol>
+`},
       { id: 'calling-routine', title: "Nicole's Daily Calling Routine", dept: 'Lead Management', owner: 'Nicole',
         content: `
 <h2>Nicole's Daily Calling Routine</h2>
+<p style="font-size:13px;color:var(--steel);">The calling mechanics for your day. The full daily routine — goals, schedule, and end-of-day cleanup — is on <a onclick="showPage('lead-mgmt','own-the-day')" style="cursor:pointer;font-weight:600;">Own the Day</a>.</p>
 <div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Mar 2026</span><span><strong>Owner:</strong> Nicole</span></div>
 
 <div class="callout amber">
@@ -3687,6 +3816,10 @@ const SECTIONS = [
 `},
       { id: 'lm-new-lead', title: 'New Lead Process', dept: 'Lead Management', owner: 'Nicole',
         content: `
+<div class="callout blue">
+  <div class="callout-icon">✅</div>
+  <div class="callout-body"><strong>Processing a new lead in GHL?</strong> Use the step-by-step <a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;display:inline;">GHL Lead Intake Checklist</a>.</div>
+</div>
 <h2>New Lead Response Protocol</h2>
 <div class="callout crimson">
   <div class="callout-icon">📞</div>
@@ -3719,6 +3852,151 @@ const SECTIONS = [
   <li><div class="step-num">5</div><div class="step-content">Move contact to <span class="ghl-field" style="background:#d4edda;color:#155724;">→ Closer Pipeline</span> stage</div></li>
   <li><div class="step-num">6</div><div class="step-content">Send confirmation text to seller: "Hi [Name], you're confirmed for [Day] at [Time] with [Agent Name] at [Address]. Reply STOP to cancel."</div></li>
 </ol>
+`},
+      { id: 'lm-intake-checklist', title: 'GHL Lead Intake Checklist', dept: 'Lead Management', owner: 'Nicole',
+        content: `
+<style>
+.ic-list { list-style:none; margin:12px 0 20px; padding:0; }
+.ic-list > li { border:1px solid var(--fog); border-radius:8px; margin-bottom:10px; background:#fff; }
+.ic-list > li > label { display:flex; gap:12px; align-items:flex-start; padding:12px 14px; cursor:pointer; }
+.ic-list input[type=checkbox] { width:18px; height:18px; margin-top:2px; flex-shrink:0; accent-color:#2563EB; cursor:pointer; }
+.ic-list .ic-n { font-weight:700; color:#2563EB; min-width:22px; }
+.ic-list .ic-t { font-weight:700; color:var(--ink); }
+.ic-list .ic-d { font-size:13px; color:var(--graphite); margin-top:3px; line-height:1.6; }
+.ic-list .ic-d ul { margin:6px 0 0; padding-left:18px; }
+.ic-list > li:has(input:checked) { background:#F0FDF4; border-color:#86EFAC; }
+.ic-list > li:has(input:checked) .ic-t { text-decoration:line-through; color:var(--steel); }
+.ic-branch { border-left:4px solid #2563EB; padding:4px 0 4px 14px; margin:22px 0 8px; }
+.ic-lnk { cursor:pointer; font-weight:600; }
+</style>
+
+<h2>GHL Lead Intake Checklist</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Sep 2026</span><span><strong>Owner:</strong> Nicole</span><span><strong>Run:</strong> every new lead, every time</span></div>
+
+<p>Work this list top to bottom on every new lead before you close the record. It is the short version — each step links to the full SOP if you need the detail. Boxes are for your own tracking on screen and reset when you leave the page.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">🚨</div>
+  <div class="callout-body"><strong>No lead leaves your hands without one of three outcomes:</strong> a Next Contact Date, an appointment on a closer's calendar, or a Dead tag. Anything else is a lead we paid for and lost.</div>
+</div>
+
+<h2>Part 1 — Every New Lead</h2>
+<ol class="ic-list">
+  <li><label><input type="checkbox"><span class="ic-n">1</span><div>
+    <div class="ic-t">Check the marketing campaign tag</div>
+    <div class="ic-d">Confirm the source/campaign tag is on the contact (Google Ads, direct mail, referral, etc.). If it's missing, add it before anything else — it drives reporting and cost-per-deal, and it tells you how to open the call.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">2</span><div>
+    <div class="ic-t">Set the Next Contact Date</div>
+    <div class="ic-d">Set it now, even before the first call connects. It's the field that builds tomorrow's call list — no date, no task, lead disappears. See <a class="ic-lnk" onclick="showPage('pipeline-ref','calling-system')">Lead Calling System</a> and the date rules in <a class="ic-lnk" onclick="showPage('lead-mgmt','call-outcome-next-steps')">Call Outcome Next Steps</a>.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">3</span><div>
+    <div class="ic-t">Run the 4 Pillars</div>
+    <div class="ic-d">Qualify the seller on all four pillars on the call. Questions and appointment criteria: <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-appt-criteria')">Appointment Criteria — 4 Pillars</a>.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">4</span><div>
+    <div class="ic-t">Fill all 15 required fields</div>
+    <div class="ic-d">Every required field on the contact is filled before you close the record — blanks break handoffs and reporting. Field list and standards: <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-new-lead')">New Lead Process</a>.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">5</span><div>
+    <div class="ic-t">Move the opportunity to the right stage</div>
+    <div class="ic-d">Pick the stage that matches the conversation you just had:
+      <div style="overflow-x:auto;margin-top:8px;">
+      <table class="data-table" style="margin:0;">
+        <tr><th>Stage</th><th>Use when</th><th>Next Contact Date</th></tr>
+        <tr><td><span class="ghl-field">Redzone</span></td><td>Hot — motivated, needs to talk again right away</td><td>+1 day</td></tr>
+        <tr><td><span class="ghl-field">Priority Top 20%</span></td><td>Strong motivation and fit, not booked yet</td><td>+2 days</td></tr>
+        <tr><td><span class="ghl-field">Follow Up</span></td><td>Real opportunity, not ready now</td><td>+5 days (no answer) / +7–14 days (connected)</td></tr>
+        <tr><td><span class="ghl-field">Nurture</span></td><td>Long-term — selling is months out</td><td>Per the seller's timeline (30+ days)</td></tr>
+        <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Dead</span></td><td>No deal possible — see Part 4</td><td>Clear it</td></tr>
+      </table>
+      </div>
+    </div>
+  </div></label></li>
+</ol>
+
+<p>Then take the branch that matches the outcome.</p>
+
+<div class="ic-branch"><h2 style="margin:0;">Part 2 — No Appointment Set</h2></div>
+<ol class="ic-list">
+  <li><label><input type="checkbox"><span class="ic-n">6</span><div>
+    <div class="ic-t">Turn follow-up automation ON</div>
+    <div class="ic-d">Set <span class="ghl-field">Follow Up Strategy</span> to enroll now, or <span class="ghl-field">Next Follow Up Date For SMS Campaign</span> to start on a future date. See <a class="ic-lnk" onclick="showPage('lead-mgmt','fu-active-campaigns')">Active Campaigns</a> and <a class="ic-lnk" onclick="showPage('lead-mgmt','fu-next-contact-date')">Schedule Follow Up Automation for a Specific Date</a>.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">7</span><div>
+    <div class="ic-t">Leave a voicemail</div>
+    <div class="ic-d">If you didn't connect, leave the voicemail and log <strong>Left Voicemail</strong> on the call.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">8</span><div>
+    <div class="ic-t">Confirm the Next Contact Date</div>
+    <div class="ic-d">Re-check the date against the stage you chose in Step 5. Work your list on the <a class="ic-lnk" onclick="showPage('lead-mgmt','own-the-day')">daily schedule</a>.</div>
+  </div></label></li>
+</ol>
+
+<div class="ic-branch"><h2 style="margin:0;">Part 3 — Appointment Set</h2></div>
+<ol class="ic-list">
+  <li><label><input type="checkbox"><span class="ic-n">9</span><div>
+    <div class="ic-t">Assign the closer — Joshua or Robin</div>
+    <div class="ic-d">Book on the closer's calendar per <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-appointments')">Appointment Procedures</a>. In-person → Robin or Joshua by territory; virtual → Joshua unless directed otherwise.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">10</span><div>
+    <div class="ic-t">Move the opportunity to the closer's pipeline</div>
+    <div class="ic-d">
+      <ul>
+        <li>Robin → <span class="ghl-field">Robin the Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
+        <li>Joshua → <span class="ghl-field">3) Josh The Closer</span> → <span class="ghl-field">Appointment Scheduled</span></li>
+      </ul>
+      Never leave a booked lead in the Leads pipeline. See <a class="ic-lnk" onclick="showPage('pipeline-ref','pipeline-handoffs')">Department Handoff Triggers</a>.
+    </div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">11</span><div>
+    <div class="ic-t">Warm transfer or Slack notify the closer</div>
+    <div class="ic-d">If the closer is available and the seller is on the line, warm transfer. If not, message the closer directly — Robin in <strong>#robin-appointments-discussion</strong>, Joshua by Slack DM — with the seller's name, address, and the one thing they need to know going in. The GHL auto-post to <strong>#appointments</strong> is not a notification to the closer.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">12</span><div>
+    <div class="ic-t">Create the Google Drive property folder</div>
+    <div class="ic-d">
+      <ul>
+        <li>In the <strong>IHT Deals</strong> folder, create a subfolder named <code>[Street Address] — [Seller Last Name]</code> (e.g., <code>1234 Oak St — Johnson</code>).</li>
+        <li>Add the <strong>Property Info Sheet</strong> and fill in everything you have from the call: seller name and contact, property address, beds/baths/sq ft/year built from the tax record, asking price, 4 Pillars notes, and access instructions.</li>
+        <li>Set sharing to <strong>Anyone with the link can view</strong>.</li>
+      </ul>
+      Acquisitions adds photos, comps, ARV, and the contract to this same folder after the appointment — it becomes the deal file for TC and Dispo.
+    </div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">13</span><div>
+    <div class="ic-t">Add the Drive link to the appointment in GHL</div>
+    <div class="ic-d">Open the appointment on the contact record and paste the folder link into the appointment notes, labeled <code>Property Drive Folder: [link]</code>. The closer preps from this link, and Dispo builds the listing from it later.</div>
+  </div></label></li>
+</ol>
+
+<div class="ic-branch" style="border-left-color:#dc2626;"><h2 style="margin:0;">Part 4 — Dead Lead</h2></div>
+<ol class="ic-list">
+  <li><label><input type="checkbox"><span class="ic-n">14</span><div>
+    <div class="ic-t">Apply the standardized dead reason tag</div>
+    <div class="ic-d">Use the exact <span class="ghl-field">Dead - [Reason]</span> tag from <a class="ic-lnk" onclick="showPage('lead-mgmt','lm-dead-leads')">Dead Lead Management</a>. No custom tags. Add a one-sentence note on why.</div>
+  </div></label></li>
+
+  <li><label><input type="checkbox"><span class="ic-n">15</span><div>
+    <div class="ic-t">Preserve the source tag</div>
+    <div class="ic-d">Do <strong>not</strong> remove the marketing/source tag. Dead leads still count in cost-per-lead by source. Never delete the contact.</div>
+  </div></label></li>
+</ol>
+
+<div class="callout green">
+  <div class="callout-icon">✓</div>
+  <div class="callout-body"><strong>Before you close the record:</strong> source tag on · stage set · required fields filled · and either a Next Contact Date, a booked appointment with a Drive link, or a Dead tag.</div>
+</div>
 `},
       { id: 'fu-overview', title: 'Follow-Up Campaigns Overview', group: 'followup', groupLabel: 'Follow-Up Automation', dept: 'Lead Management', owner: 'Nicole',
         content: `
@@ -4228,6 +4506,12 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
       <strong>Confirm.</strong> Once booked, GHL automatically sends the seller a confirmation text and email, and posts to <strong>#appointments</strong> in Slack. Move the lead to the closer's pipeline stage immediately.
     </div>
   </li>
+  <li>
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <strong>Create the Google Drive property folder and link it.</strong> In the <strong>IHT Deals</strong> folder, create <code>[Street Address] — [Seller Last Name]</code>, add the Property Info Sheet with everything from the call, then paste the folder link into the appointment notes in GHL as <code>Property Drive Folder: [link]</code>. Full steps: <a onclick="showPage('lead-mgmt','lm-intake-checklist')" style="cursor:pointer;font-weight:600;">GHL Lead Intake Checklist</a>, Part 3.
+    </div>
+  </li>
 </ol>
 
 <h2>Rescheduling</h2>
@@ -4393,12 +4677,13 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 
 <h2>The Acquisitions Workflow</h2>
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, review the lead notes, research the address on SDAT, check any prior contact history.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Review the appointment</strong> — Pull up GHL, open the property Drive folder from the link in the appointment section, review the Property Info Sheet and lead notes, research the address on SDAT, check any prior contact history.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Run preliminary comps</strong> — Before the appointment, know your ballpark ARV. Don't go in blind.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>Conduct the appointment</strong> — Walk the property, build rapport, screen motivation, present your offer.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>Get the contract signed</strong> — If offer is accepted, execute the purchase agreement on-site when possible.</div></li>
-  <li><div class="step-num">5</div><div class="step-content"><strong>Create the Google Drive property folder</strong> — Immediately after a signed contract (see below).</div></li>
-  <li><div class="step-num">6</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in GHL, TC can pick up the file without any additional communication required.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Update the property folder after every appointment</strong> — Signed or not. If Lead Management didn't create it at booking, create it now with the Property Info Sheet. Add your photos and walkthrough notes, and confirm the Drive link is in the appointment section in GHL (see <a onclick="showPage('acq','acq-appointment')" style="cursor:pointer;font-weight:600;">Appointment &amp; Post-Appointment Process</a>).</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>Complete the folder on a signed contract</strong> — Add the executed contract, comps, and the final Property Info Sheet within 1 hour of signing.</div></li>
+  <li><div class="step-num">7</div><div class="step-content"><strong>Hand off to TC</strong> — With the Drive link in the GHL appointment section, TC and Dispo can pick up the file without any additional communication required.</div></li>
 </ol>
 
 <h2>Your Pipelines in GHL</h2>
@@ -4422,7 +4707,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <tr><td><span class="ghl-field">Offer Made</span></td><td>Formal offer presented to seller. Awaiting response.</td></tr>
   <tr><td><span class="ghl-field">Negotiating</span></td><td>Seller engaged but countering. Active back-and-forth in progress.</td></tr>
   <tr><td><span class="ghl-field">1 YD LINE</span></td><td>Seller is very close — needs one final push or minor concession to sign.</td></tr>
-  <tr><td><span class="ghl-field">Contract Signed</span></td><td>A-B executed. Mark opportunity as <strong>Won</strong> in GHL, create Drive folder, and move to TC pipeline immediately.</td></tr>
+  <tr><td><span class="ghl-field">Contract Signed</span></td><td>A-B executed. Mark opportunity as <strong>Won</strong> in GHL, complete the property Drive folder, and move to TC pipeline immediately.</td></tr>
   <tr><td><span class="ghl-field">Follow Up</span></td><td>Seller not ready now but still a real opportunity. Scheduled follow-up in place.</td></tr>
   <tr><td><span class="ghl-field" style="background:#fee2e2;color:#991b1b;">Lost Offer</span></td><td>Seller declined or deal fell through. Log reason in notes.</td></tr>
 </table>
@@ -4435,6 +4720,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
         content: `
 <h2>Before the Appointment</h2>
 <ul>
+  <li><strong>Open the property Drive folder</strong> — the link is in the appointment section in GHL. Review the Property Info Sheet Lead Management started. No link? Flag it to Nicole and create the folder yourself (steps below) before you go.</li>
   <li>Review all GHL notes from Lead Management — know the seller's situation going in</li>
   <li>Pull the property on SDAT to confirm ownership, tax assessment, any liens of record</li>
   <li>Run ballpark comps using BrightMLS or your comp tool — know your range before you walk in</li>
@@ -4450,21 +4736,22 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <li><div class="step-num">5</div><div class="step-content"><strong>Get the signature</strong> — If they agree, execute the purchase agreement now. Do not leave "to send it later" — urgency drops dramatically off-site.</div></li>
 </ol>
 
-<h2>Post-Appointment: Signed Contract Protocol</h2>
+<h2>After Every Appointment: Property Folder + Drive Link</h2>
 <div class="callout amber">
   <div class="callout-icon">📁</div>
   <div class="callout-body">
-    <strong>Create the Google Drive Property Folder — First Thing</strong>
-    Within 1 hour of getting a signed contract, you must create the property folder in Google Drive and add the link to the GHL deal record. This is how TC and Dispo access everything they need without asking you.
+    <strong>Every appointment gets a property folder — signed or not.</strong>
+    Lead Management creates the folder with the Property Info Sheet when the appointment is booked. Within 1 hour after the appointment, open it, update it, and confirm the Drive link is in the appointment section in GHL. If no folder exists, create it now using the steps below. This is how TC and Dispo access everything they need without asking you.
   </div>
 </div>
 
 <div class="workflow-card">
-  <h4>Creating the Google Drive Property Folder</h4>
+  <h4>Property Folder — Create or Update</h4>
   <ol class="step-list" style="margin:0">
-    <li><div class="step-num">1</div><div class="step-content"><strong>Go to the IHT Deals folder in Google Drive</strong> — This is the master folder all deals live in.</div></li>
-    <li><div class="step-num">2</div><div class="step-content"><strong>Create a new subfolder</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
-    <li><div class="step-num">3</div><div class="step-content"><strong>Add these files to the folder:</strong>
+    <li><div class="step-num">1</div><div class="step-content"><strong>Open the folder from the Drive link in the GHL appointment section</strong> — or, if there isn't one, go to the <strong>IHT Deals</strong> folder in Google Drive, the master folder all deals live in.</div></li>
+    <li><div class="step-num">2</div><div class="step-content"><strong>Create the subfolder only if it doesn't exist</strong> — Name it: <code>[Street Address] — [Seller Last Name]</code><br>Example: <code>1234 Oak St — Johnson</code></div></li>
+    <li><div class="step-num">3</div><div class="step-content"><strong>Update the Property Info Sheet</strong> with what you saw at the walkthrough — condition, your ARV, repair estimate, MAO, offer presented, and seller reaction. Upload your property photos.</div></li>
+    <li><div class="step-num">4</div><div class="step-content"><strong>On a signed contract, also add:</strong>
       <ul style="margin-top:6px">
         <li>Signed Purchase Agreement (PDF)</li>
         <li>Property Info Sheet (ARV, repairs estimate, MAO, seller motivation notes)</li>
@@ -4473,9 +4760,9 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
         <li>Any seller disclosures</li>
       </ul>
     </div></li>
-    <li><div class="step-num">4</div><div class="step-content"><strong>Copy the folder link</strong> — Right-click → Get link → Set to "Anyone with the link can view"</div></li>
-    <li><div class="step-num">5</div><div class="step-content"><strong>Paste the Drive link into GHL</strong> — Open the contact/deal record → Notes or the designated custom field → Paste the Drive link. Label it clearly: "Property Drive Folder: [link]"</div></li>
-    <li><div class="step-num">6</div><div class="step-content"><strong>Move GHL stage to <span class="ghl-field">Under Contract</span></strong> — This notifies TC to begin their process.</div></li>
+    <li><div class="step-num">5</div><div class="step-content"><strong>Check the folder link</strong> — Right-click → Get link → Set to "Anyone with the link can view"</div></li>
+    <li><div class="step-num">6</div><div class="step-content"><strong>Confirm the Drive link is in the appointment section in GHL</strong> — Open the contact → Appointments → the appointment notes should read <code>Property Drive Folder: [link]</code>. If it's missing, paste it there now.</div></li>
+    <li><div class="step-num">7</div><div class="step-content"><strong>Signed contract only: move GHL stage to <span class="ghl-field">Under Contract</span></strong> — This notifies TC to begin their process.</div></li>
   </ol>
 </div>
 
@@ -4548,13 +4835,13 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   <div class="callout-icon">📁</div>
   <div class="callout-body">
     <strong>Step Zero: Pull the Google Drive Link from GHL</strong>
-    Before building any listing or making any calls, open the deal in GHL and find the Google Drive folder link in the notes/custom field. Everything you need — property info sheet, comps, photos, signed contract — is in that folder. Never start dispo without it.
+    Before building any listing or making any calls, open the contact in GHL → Appointments and copy the <code>Property Drive Folder</code> link from the appointment notes. Lead Management created the folder when the appointment was booked and Acquisitions completed it after signing. Everything you need — Property Info Sheet, comps, photos, signed contract — is in that folder. Never start dispo without it. No link, or the folder is incomplete? Send it back to the closer.
   </div>
 </div>
 
 <h2>Dispo Workflow Overview</h2>
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Pull the Drive folder from GHL</strong> — Review the property info sheet: ARV, repairs estimate, purchase price, seller motivation, condition notes.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open the Drive folder from the GHL appointment section</strong> — Review the Property Info Sheet: ARV, repairs estimate, purchase price, seller motivation, condition notes. This is the prep for the listing.</div></li>
   <li><div class="step-num">2</div><div class="step-content"><strong>Set the assignment fee target</strong> — Based on ARV, repair estimate, and market demand. Typical range: $5K–$25K depending on deal size.</div></li>
   <li><div class="step-num">3</div><div class="step-content"><strong>Build the listing</strong> — Headline with ARV and asking price. Include condition summary, repair notes, key features, and your assignment fee. See listing SOP for full template.</div></li>
   <li><div class="step-num">4</div><div class="step-content"><strong>VIP blast first</strong> — Send to your top-tier buyers before public marketing. Give them 24–48 hours of exclusivity.</div></li>
@@ -4596,7 +4883,12 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
       { id: 'dispo-listing', title: 'Building a Dispo Listing', dept: 'Dispositions', owner: 'Ashley Hines',
         content: `
 <h2>Starting From the Drive Folder</h2>
-<p>Your listing starts with the property info sheet in the Google Drive folder. Before you write a single word, you need to know:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open the contact in GHL → Appointments</strong> and click the <code>Property Drive Folder</code> link in the appointment notes.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Confirm the folder is complete</strong> — executed contract, Property Info Sheet, comps, photos (minimum 15). If anything is missing, send it back to the closer before you draft.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Prep the listing from the Property Info Sheet</strong> — every fact in the listing comes from this folder.</div></li>
+</ol>
+<p>Before you write a single word, you need to know:</p>
 <ul>
   <li>ARV (confirmed, not estimated)</li>
   <li>Your purchase price (what IHT is paying the seller)</li>
@@ -4690,7 +4982,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 <div style="overflow-x:auto;">
 <table class="data-table">
   <tr><th>#</th><th>Do this</th><th>Time</th><th>You get</th></tr>
-  <tr><td><strong>1</strong></td><td>Fill the deal outline (see Deal Outline below). Verify square footage against a second source — public record is wrong often and by hundreds of feet. It corrupts the ranking and then the listing.</td><td>45m</td><td>Deal outline</td></tr>
+  <tr><td><strong>1</strong></td><td>Open the property Drive folder from the link in the GHL appointment section, then fill the deal outline from it (see Deal Outline below). Verify square footage against a second source — public record is wrong often and by hundreds of feet. It corrupts the ranking and then the listing.</td><td>45m</td><td>Deal outline</td></tr>
   <tr><td><strong>2</strong></td><td>InvestorBase: subject as center, 24-month window. Widen the radius until you clear 100+ buyers. Record the radius. Wider = more volume, less relevance — the ranking re-sorts for it.</td><td>15m</td><td>Buyer pool</td></tr>
   <tr><td><strong>3</strong></td><td>Export to CSV. Confirm purchase addresses, dates and prices survived. Contact-only export = no ranking. Re-export if they didn't.</td><td>5m</td><td>Raw export</td></tr>
   <tr><td><strong>4</strong></td><td>Run the ranking prompt. Paste the outline in full, attach the CSV. Review the A tier before you import anything.</td><td>30m</td><td>Ranked CSV + buyer PDF</td></tr>
@@ -5295,7 +5587,7 @@ Offers are due {{deadline}}. {{my_cell}}. Thanks {{first_name}}.</div>
   <h4>1 — DRAFT THE LISTING · Nothing else starts until Joshua has the draft</h4>
   <ul>
     <li>☐ <strong>1.1</strong> Confirm contract executed, deposit receipted, title order open</li>
-    <li>☐ <strong>1.2</strong> Gather: call transcript, tax record, acquisition notes, photos, scope</li>
+    <li>☐ <strong>1.2</strong> Open the property Drive folder (link in the GHL appointment section) and gather: Property Info Sheet, call transcript, tax record, acquisition notes, photos, scope</li>
     <li>☐ <strong>1.3</strong> Verify square footage against a second source — tax record alone is not enough</li>
     <li>☐ <strong>1.4</strong> Load all sources into the off-market listing template</li>
     <li>☐ <strong>1.5</strong> Draft the initial listing</li>
