@@ -1676,10 +1676,10 @@ const SECTIONS = [
 
 <div class="callout amber">
   <div class="callout-icon">🗺️</div>
-  <div class="callout-body"><strong>10 pipelines. Each one represents a different phase of the deal lifecycle.</strong> Understanding which pipeline a lead belongs in — and when to move them — is critical to keeping deals from falling through the cracks.</div>
+  <div class="callout-body"><strong>11 pipelines. Each one represents a different phase of the deal lifecycle.</strong> Understanding which pipeline a lead belongs in — and when to move them — is critical to keeping deals from falling through the cracks.</div>
 </div>
 
-<h2>Pipeline 1: Leads — 5 Stages</h2>
+<h2>Pipeline 1: Leads — 10 Stages</h2>
 <p>Every new lead starts here. <strong>The Lead Manager owns this pipeline.</strong></p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
@@ -1690,7 +1690,13 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">Not MD Lead</span></td><td>Outside our Maryland target markets. Tagged for potential referral or removal.</td></tr>
 </table>
 
-<h2>Pipeline: Robin the Closer — 4 Stages</h2>
+<h2>Pipeline 2: Mike the Closer — 4 Stages</h2>
+<p>Mike's acquisitions pipeline. Same four-stage shape as Robin's: <span class="ghl-field">Appointment Scheduled</span> → <span class="ghl-field">Offer Made/followup</span> → <span class="ghl-field">1 YD LINE</span> → <span class="ghl-field">Lost offer</span>.</p>
+
+<h2>Pipeline 3: Josh The Closer — 10 Stages</h2>
+<p>Joshua's acquisitions pipeline. Same concept as Robin's but with more granular stages for Joshua's workflow. When the Lead Manager books for Joshua, the lead moves here.</p>
+
+<h2>Pipeline 4: Robin the Closer — 4 Stages</h2>
 <p>Robin's acquisitions pipeline. When the Lead Manager books an appointment for Robin, the lead moves HERE.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
@@ -1700,13 +1706,10 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">Lost Offer</span></td><td>Seller rejected the offer or went with another buyer. Log the specific reason in notes.</td></tr>
 </table>
 
-<h2>Pipeline 3: Josh The Closer — 8 Stages</h2>
-<p>Joshua's acquisitions pipeline. Same concept as Robin's but with more granular stages for Joshua's workflow. When the Lead Manager books for Joshua, the lead moves here.</p>
-
-<h2>Pipeline 4: Offer Followup — 4 Stages</h2>
+<h2>Pipeline 5: Offer Followup — 4 Stages</h2>
 <p>Deals where an offer has been made but no contract is signed. Used for systematic follow-up on pending offers across both closers.</p>
 
-<h2>Pipeline 5: Transaction Coordination — 15 Stages</h2>
+<h2>Pipeline 6: Transaction Coordination — 10 Stages</h2>
 <p>The TC pipeline — the largest and most critical. Deals enter here after a contract is signed. <strong>Ashley owns this pipeline.</strong></p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
@@ -1725,14 +1728,14 @@ const SECTIONS = [
   <tr><td><span class="ghl-field">Active Short Sale</span></td><td>Property is in short sale proceedings. Extended timeline, bank approval required.</td></tr>
 </table>
 
-<h2>Pipelines 6–10</h2>
+<h2>Pipelines 7–11</h2>
 <table class="data-table">
   <tr><th>Pipeline</th><th>Purpose</th><th>Stages</th></tr>
-  <tr><td><strong>6: Dispo - Buyer Marketing</strong></td><td>Buyer-side pipeline tracking investor interest and buyer activity on active deals.</td><td>11</td></tr>
-  <tr><td><strong>7: Deals</strong></td><td>High-level deal tracking for closed/settled deals and their financial outcomes.</td><td>4</td></tr>
-  <tr><td><strong>8: Wholesalers</strong></td><td>Tracking deals sourced from other wholesalers where we act as the buyer.</td><td>4</td></tr>
-  <tr><td><strong>9: Dead/No Opportunity</strong></td><td>Categorized dead leads, separated by reason for reporting and potential recycling.</td><td>6</td></tr>
-  <tr><td><strong>10: Objection Proof</strong></td><td>Training pipeline for objection handling practice and role-play tracking.</td><td>5</td></tr>
+  <tr><td><strong>7: Dispo: Buyer Marketing</strong></td><td>Buyer-side pipeline. Every investor in the database lives here, tiered by relationship — plus a stage per actively marketed property.</td><td>21</td></tr>
+  <tr><td><strong>8: Closed Deals</strong></td><td>Closed and canceled contracts.</td><td>2</td></tr>
+  <tr><td><strong>9: Wholesalers</strong></td><td>Tracking deals sourced from other wholesalers where we act as the buyer.</td><td>4</td></tr>
+  <tr><td><strong>10: Dead/No Opportunity</strong></td><td>Categorized dead leads, separated by reason for reporting and potential recycling.</td><td>6</td></tr>
+  <tr><td><strong>11: Prospecting</strong></td><td>Outbound prospecting and cold-calling follow-up.</td><td>6</td></tr>
 </table>
 
 <h2>Critical Rule: Pipeline Movement on Appointment Booking</h2>
@@ -3108,7 +3111,7 @@ const SECTIONS = [
   <li><strong>Add deal documents to the folder:</strong> fully executed A-B contract, comp link/sheet with ARV, repair estimate, property info sheet (address, beds/baths, sq ft, lot, year built, ARV, offer price, repair estimate), any seller-provided disclosures.</li>
   <li><strong>Confirm the Drive folder link is in GHL</strong> — open the contact record → Appointments; the appointment notes should read <code>Property Drive Folder: [link]</code>. Paste it there if missing. This is how TC and Dispo find everything. If the link is not there, the deal stalls.</li>
   <li><strong>Draft listing copy</strong> — brief deal description for Dispo: address, beds/baths/sq ft, ARV, repair estimate, asking price, highlights.</li>
-  <li><strong>Move to TC Pipeline</strong> — move the opportunity to <span class="ghl-field">Pipeline 5: Transaction Coordination → New Deal!</span></li>
+  <li><strong>Move to TC Pipeline</strong> — move the opportunity to <span class="ghl-field">Pipeline 6: Transaction Coordination → New Deal!</span></li>
   <li><strong>Post in Slack</strong> — post in #transactions: "New deal entering TC: [Address] — A-B at $[Price] — Target close [Date]." Tag Ashley.</li>
 </ol>
 <div class="callout red">
@@ -4598,7 +4601,7 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
 </ol>
 
 <h2>Your Pipeline in GHL</h2>
-<h3>Pipeline 6: Dispo — Buyer Marketing — 11 Stages</h3>
+<h3>Pipeline 7: Dispo: Buyer Marketing — 21 Stages</h3>
 <p>This pipeline tracks your buyers, not the properties. Every investor in your database lives here, tiered by relationship and transaction history.</p>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
@@ -6162,7 +6165,7 @@ published, say so — don't invent changes to look useful.</div>
 </ul>
 
 <h2>Your Pipeline in GHL</h2>
-<h3>Pipeline 5: Transaction Coordination — 15 Stages</h3>
+<h3>Pipeline 6: Transaction Coordination — 10 Stages</h3>
 <table class="data-table">
   <tr><th>Stage</th><th>Definition</th></tr>
   <tr><td><span class="ghl-field" style="background:#d4edda;color:#155724;">New Deal!</span></td><td>A-B contract just signed. Send to title within 24 hours. Call seller to introduce yourself.</td></tr>
