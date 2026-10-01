@@ -2853,6 +2853,44 @@ const SECTIONS = [
   </tr>
 </table>
 
+<h2>Saved Views — Build These Two</h2>
+<p>The filters above are temporary. Apply one, leave the page, and it is gone — so you end up re-applying the same filter every time you log in. A <strong>saved view</strong> pins that filter permanently to your inbox list, so the exact set of conversations you need is one click away.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">👁️</div>
+  <div class="callout-body"><strong>Every lead manager builds the same two views.</strong> They take about a minute each and you will use them every day for the rest of the time you are in this seat. Build them once, on your first day.</div>
+</div>
+
+<h3>View 1 — Last Message Inbound</h3>
+<p>This is the one that matters most. It shows every conversation where <strong>the last message came from the lead, not from you</strong> — someone texted in and nobody has answered yet.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚡</div>
+  <div class="callout-body"><strong>If this list is not empty, a seller is sitting there waiting on a reply.</strong> Work it to zero before you do anything else. This view is the single fastest way to spot a lead going cold.</div>
+</div>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open Conversations</strong> and switch the inbox selector from <span class="ghl-field">All</span> to <span class="ghl-field">My Inbox</span>.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Click <span class="ghl-field">Filter</span>.</strong></div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Set <span class="ghl-field">Last Message Direction</span> to <span class="ghl-field">Inbound</span>.</strong> That is the whole filter — nothing else needs to be set.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Click <span class="ghl-field">Create your view</span></strong> and name it <strong>Last Message Inbound</strong>.</div></li>
+</ol>
+
+<h3>View 2 — Assigned to You</h3>
+<p>Your own book of business: every conversation where you are the assigned user. This is where you live day to day.</p>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open Conversations</strong> and switch the inbox selector to <span class="ghl-field">My Inbox</span>.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Click <span class="ghl-field">Filter</span>.</strong></div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Set <span class="ghl-field">Assigned To</span> to your own name.</strong> Nicole builds hers as <em>Assigned to Nicole</em>, Mike builds his as <em>Assigned to Mike</em>, and so on — the view is yours, so it points at you.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Click <span class="ghl-field">Create your view</span></strong> and name it <strong>Assigned to Me</strong>.</div></li>
+</ol>
+
+<div class="callout blue">
+  <div class="callout-icon">🔁</div>
+  <div class="callout-body"><strong>Once both views exist, your morning order is: Last Message Inbound first, then Assigned to Me.</strong> Clear everyone who is waiting on a reply before you start working your own follow-up list. Someone who already reached out beats someone who has not.</div>
+</div>
+
 <h2>Starring Conversations</h2>
 <p>Star any conversation you need to come back to. This is your personal watchlist inside GHL. Use it for:</p>
 <ul>
@@ -6747,9 +6785,14 @@ function buildSearchIndex() {
   return SEARCH_INDEX;
 }
 
-function srScore(e, tokens) {
+function srScore(e, tokens, phrase) {
   let score = 0;
   const title = e.title.toLowerCase();
+  // an exact phrase match beats the same words scattered across a page
+  if (phrase && phrase.indexOf(' ') > 0) {
+    if (title.indexOf(phrase) >= 0) score += 400;
+    else if (e.low.indexOf(phrase) >= 0) score += 220;
+  }
   for (let i = 0; i < tokens.length; i++) {
     const tok = tokens[i];
     if (e.hay.indexOf(tok) < 0) return -1;          // every word must appear
@@ -6804,7 +6847,7 @@ function handleSearch(val) {
 
   const tokens = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
   searchResults = buildSearchIndex()
-    .map(function(e) { return { e: e, score: srScore(e, tokens) }; })
+    .map(function(e) { return { e: e, score: srScore(e, tokens, searchQuery.toLowerCase()) }; })
     .filter(function(r) { return r.score >= 0; })
     .sort(function(a, b) { return b.score - a.score || a.e.title.localeCompare(b.e.title); });
   searchCursor = -1;
