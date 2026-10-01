@@ -4626,6 +4626,154 @@ Reply to this email or text me at {{user.phone}} whenever you're ready.
   </div>
 </div>
 `},
+      { id: 'dispo-buyer-access', title: 'How Buyers Get Access to Deals', dept: 'Dispositions', owner: 'Ashley Hines',
+        content: `
+<h2>How Buyers Get Access to Deals</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Oct 2026</span><span><strong>Owner:</strong> Ashley Hines</span><span><strong>Site:</strong> impacthousedeals.com</span></div>
+
+<p>Everything a cash buyer can see on <strong>impacthousedeals.com</strong> is controlled by two things: whether they have <strong>registered</strong>, and how the deal's <strong>Status</strong> and <strong>Visibility</strong> are set in Sanity. This page is the whole picture — read it before you touch a listing or work a buyer lead.</p>
+
+<div class="callout amber">
+  <div class="callout-icon">🔓</div>
+  <div class="callout-body"><strong>The gate is a lead-capture barrier, not security.</strong> It exists to trade deal details for a name, email and phone. It is not account login — there is no password, and anyone who is handed the right link gets in. Treat deal URLs accordingly.</div>
+</div>
+
+<h2>1. Where New Buyers Come In</h2>
+<p>The same registration form is embedded in several places. Every one of them creates the same kind of lead.</p>
+
+<table class="data-table">
+  <tr><th>Entry point</th><th>What it is</th></tr>
+  <tr><td><span class="ghl-field">/join</span></td><td>The main "join the buyers list" page. Primary destination for ads and outreach.</td></tr>
+  <tr><td><strong>Any gated deal page</strong></td><td>The form appears inline on the deal itself once the buyer tries to see details. Highest-intent signup — they already want a specific property.</td></tr>
+  <tr><td><span class="ghl-field">/deals</span></td><td>The deals list is gated too; the form appears there.</td></tr>
+  <tr><td><span class="ghl-field">/cash-buyers-list-maryland</span></td><td>SEO landing page targeting buyers searching for a Maryland cash-buyer list.</td></tr>
+  <tr><td><span class="ghl-field">/contact</span></td><td>General contact page.</td></tr>
+  <tr><td><strong>Guides and campaign landing pages</strong></td><td>Form embedded on guide articles and any custom LP.</td></tr>
+  <tr><td><strong>Offer submission</strong></td><td>Submitting an offer on a deal also registers them.</td></tr>
+</table>
+
+<div class="callout crimson">
+  <div class="callout-icon">⛔</div>
+  <div class="callout-body"><strong>Owner financing is a separate audience — do not mix it in.</strong> <span class="ghl-field">/owner-financing</span> leads are retail home buyers, not investors. They use their own gate, their own tag, and are NOT on the investor list or in the investor email audience. A property offered both ways is two separate records. Never cross them over.</div>
+</div>
+
+<h3>What the form captures</h3>
+<p>First name, last name, email, phone, buyer type, buy box (counties) and exit strategies. That is it — there is no proof of funds at signup.</p>
+
+<h2>2. What a Buyer Sees Before and After Registering</h2>
+
+<table class="compare-table">
+  <tr><th>Not registered (teaser)</th><th>Registered</th></tr>
+  <tr>
+    <td>Deal title<br>Hero photo, <strong>blurred</strong><br>A photo count ("18 photos — register to view")<br>A list of what is behind the gate</td>
+    <td>Asking price, ARV, and discount to ARV<br>Every photo, unblurred<br><strong>Full street address</strong><br>Repair estimate, rehab scope, repair level<br>The offer form</td>
+  </tr>
+</table>
+
+<p>So an unregistered visitor can never see the address, the price, or the numbers. That is the whole point of the gate.</p>
+
+<h2>3. What Happens the Moment They Register</h2>
+<p>One form submission fans out to four places at once:</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>A cookie is set in their browser</strong> — good for one year, across both www and non-www. This is what unlocks gated deals for them from then on.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>GHL</strong> — they land in <span class="ghl-field">7) Dispo: Buyer Marketing</span> → <span class="ghl-field">Prospective Buyers</span>.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Mailchimp</strong> — added to the <strong>Discount Property Deals</strong> audience, fully tagged.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Google Sheet backup</strong> — every field, every time. This is your safety net when something upstream fails.</div></li>
+</ol>
+
+<h2>4. Deal Access — Status and Visibility</h2>
+<p>Two separate settings in Sanity control who can reach a listing. <strong>Both have to be right or the deal is invisible.</strong></p>
+
+<h3>Status — is the deal reachable at all?</h3>
+<p>Only <span class="ghl-field">Available</span> deals are live on the site. <strong>Coming Soon, Under Contract and Sold all return a 404</strong> — they do not show anywhere, to anyone. Nothing but active available deals is on the site.</p>
+
+<h3>Visibility — who gets to see the details?</h3>
+<table class="data-table">
+  <tr><th>Visibility</th><th>On the /deals list?</th><th>By direct link?</th><th>Gate</th><th>Use it for</th></tr>
+  <tr><td><strong>Public</strong></td><td>Yes</td><td>Yes</td><td><strong>None</strong> — wide open</td><td>Paid ads and social, where you want zero friction</td></tr>
+  <tr><td><strong>Gated</strong> <em>(default)</em></td><td>Yes</td><td>Yes</td><td>Registration required</td><td>Normal deals. This is the one you want almost every time.</td></tr>
+  <tr><td><strong>VIP Only</strong></td><td><strong>No</strong></td><td>Yes</td><td>Registration required</td><td>The exclusivity window — the deal is live but only people you send the link to can find it</td></tr>
+  <tr><td><strong>Hidden</strong></td><td>No</td><td><strong>404</strong></td><td>Unreachable</td><td>Parking a listing you are not ready to show</td></tr>
+</table>
+
+<div class="callout blue">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body"><strong>VIP Only is how the 24–48 hour exclusivity window actually works.</strong> The deal is published and fully functional, it just does not appear in the public list. You send it to your VIPs directly. When the window closes, flip it to Gated and it joins the public list.</div>
+</div>
+
+<h2>5. One-Click Unlock Links (/u)</h2>
+<p>Asking a buyer who is already on your list to re-register is friction that kills response. The <span class="ghl-field">/u/</span> links skip it.</p>
+
+<table class="data-table">
+  <tr><th>Link</th><th>What it does</th></tr>
+  <tr><td><span class="ghl-field">/u/property-slug</span></td><td>Unlocks the buyer and drops them straight onto that deal page, already registered.</td></tr>
+  <tr><td><span class="ghl-field">/u/</span></td><td>Same unlock, but lands them on the full deals list. Use in a blast about the whole catalog.</td></tr>
+  <tr><td><span class="ghl-field">/u/property-slug?c=campaign-name</span></td><td>Same as above and tags the visit with a campaign name so you can see which blast drove it.</td></tr>
+</table>
+
+<p>These are what belong in your Mailchimp and SMS blasts. Not the raw <span class="ghl-field">/deals/</span> URL — that makes an existing buyer hit the gate again.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body"><strong>A /u link has no key. Anyone holding it is in.</strong> Forwarded, screenshotted, posted in a Facebook group — it still works, and it unlocks that buyer for the whole site, not just that one deal. Send them to your list. Do not post them publicly. <strong>If a deal must not leak, the control is Visibility, not the link</strong> — set it to VIP Only or Hidden.</div>
+</div>
+
+<h2>6. VIP Upgrade</h2>
+<p>Registering makes someone a buyer. It does not make them a VIP. VIP is applied for and <strong>approved by a human</strong>.</p>
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>The buyer uploads Proof of Funds and a Photo ID.</strong> Both are required — the request will not submit without them.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>They are tagged</strong> <span class="ghl-field">vip-pending</span> <strong>in GHL</strong>, with the documents attached to a note on their contact.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>A Slack notification fires.</strong> This is the only buyer event that alerts anyone — see the SOP below.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Someone reviews the POF and ID</strong>, then moves the contact to the <span class="ghl-field">VIP</span> stage in <span class="ghl-field">7) Dispo: Buyer Marketing</span>. Until that happens they are still just a registered buyer.</div></li>
+</ol>
+
+<h2>7. How a Deal Gets Published</h2>
+<p>Listings are never written from scratch and nothing publishes itself. <strong>A human always starts it and a human always finishes it.</strong></p>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Trigger the prep.</strong> Two ways, both manual: add the <span class="ghl-field">preplisting</span> tag to the deal's GHL contact, or click <strong>Prep Listing</strong> in Sanity Studio under the GHL contact URL field. There is no cron — nothing scans the pipeline looking for deals.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Prep runs (about 1–3 minutes).</strong> It pulls the deal data from GHL, pulls comps, and pulls photos from the deal's Google Drive folder (capped at 30).</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>A draft appears</strong> in Studio under <strong>🆕 Just Prepped</strong>, named after the address. It is a draft — it is not on the site yet.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Review and scrub the copy.</strong> Read every line before publishing. See the rule below.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Set Status and Visibility</strong> per the table above, then <strong>publish</strong>. Status must be <span class="ghl-field">Available</span> or the page 404s.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🔒</div>
+  <div class="callout-body"><strong>Never put the seller's situation on the buyer site.</strong> No probate, no pre-foreclosure, no inherited, no divorce, no "motivated seller," no financial hardship, no vacancy story. The copy generator is built to avoid it, but <strong>you are the last check</strong> — read the draft and scrub anything that slipped through. Buyers who know a seller is desperate negotiate harder, and sellers never agreed to have their circumstances published.</div>
+</div>
+
+<p>Deal pages are also kept out of search on purpose: they are set to no-index and excluded from the sitemap, because listings are short-lived.</p>
+
+<h2>8. Processing a New Buyer Lead — Dispo Agent SOP</h2>
+
+<div class="callout amber">
+  <div class="callout-icon">🔔</div>
+  <div class="callout-body"><strong>Nothing pings you when a buyer registers.</strong> Slack only fires for VIP applications. New signups and submitted offers arrive silently — so you have to go look. <strong>Check once in the morning and once in the afternoon.</strong></div>
+</div>
+
+<ol class="step-list">
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open</strong> <span class="ghl-field">7) Dispo: Buyer Marketing</span> → <span class="ghl-field">Prospective Buyers</span>. Anything sitting there is unprocessed.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Check for a duplicate first.</strong> Search the name, email and phone before you do anything else. Buyers re-register constantly — once per deal in some cases. Merge into the existing contact rather than building a second one.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Apply the tags by hand.</strong> This is the step people miss — see the warning below.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Put their buy box in the contact notes</strong> — counties and exit strategies — so you can filter by it when a deal comes in.</div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Move them to the right stage.</strong> A fresh signup with no proof of funds is <span class="ghl-field">General</span>. <span class="ghl-field">Priority</span> and <span class="ghl-field">VIP</span> are earned — see Buyer Management for what each tier means.</div></li>
+  <li><div class="step-num">6</div><div class="step-content"><strong>No proof of funds, no accepted offer.</strong> POF must be on file and dated within 60 days before you take an offer seriously from them.</div></li>
+</ol>
+
+<div class="callout crimson">
+  <div class="callout-icon">🏷️</div>
+  <div class="callout-body">
+    <strong>Known gap — buyer tags do not reach GHL. You must add them manually.</strong>
+    The website sends the full tag set, but GHL drops tags that arrive on an inbound webhook. The result: <strong>Mailchimp has the buyer tagged correctly and GHL does not.</strong> A new buyer shows up in GHL with nothing but automatic "created-week" tags.
+    <ul style="margin:8px 0 0;padding-left:18px;">
+      <li>Tags to add: <span class="ghl-field">cash-buyer</span>, <span class="ghl-field">impacthousedeals.com</span>, their buyer type, an <span class="ghl-field">exit-</span> tag per exit strategy, and an <span class="ghl-field">area-</span> tag per county.</li>
+      <li>Read the real values off the <strong>Google Sheet backup row</strong> or the <strong>Mailchimp contact</strong> — both have them.</li>
+      <li>Skip this and the buyer is invisible to every GHL segment you build. They will never get a targeted blast.</li>
+    </ul>
+  </div>
+</div>
+` },
       { id: 'dispo-listing', title: 'Building a Dispo Listing', dept: 'Dispositions', owner: 'Ashley Hines',
         content: `
 <h2>Starting From the Drive Folder</h2>
