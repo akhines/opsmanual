@@ -2861,6 +2861,16 @@ const SECTIONS = [
   <div class="callout-body"><strong>Every lead manager builds the same two views.</strong> They take about a minute each and you will use them every day for the rest of the time you are in this seat. Build them once, on your first day.</div>
 </div>
 
+<h3>First: Expand the Inbox Panel</h3>
+<p>By default the inbox panel is collapsed down to a narrow strip of icons, and <strong>the Views section is hidden</strong> — which is why most people never find it. Click the <strong>arrow</strong> on the left edge of the conversation list to expand the panel.</p>
+<p>Expanded, you get the full navigation: <span class="ghl-field">My inbox</span> (All / Assigned to me / Followed by me), <span class="ghl-field">Team inbox</span>, <span class="ghl-field">Internal chat</span>, and at the bottom the <strong>Views</strong> section with <span class="ghl-field">+ Create view</span>. That same arrow collapses it again.</p>
+<p><img src="/conv-view-4-inbox-panel.png" alt="The expanded GHL inbox panel showing My inbox, Team inbox, Internal chat and the Views section with Create view" style="width:100%;max-width:260px;height:auto;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" /></p>
+
+<div class="callout blue">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body">If you leave the panel collapsed, you can still <strong>hover the person icon</strong> in the icon strip to get a quick <span class="ghl-field">All</span> / <span class="ghl-field">Assigned to me</span> / <span class="ghl-field">Followed by me</span> flyout — but you cannot reach Views that way. Expand the panel to build or edit a view.</div>
+</div>
+
 <h3>View 1 — Last Message Inbound</h3>
 <p>This is the one that matters most. It shows every conversation where <strong>the last message came from the lead, not from you</strong> — someone texted in and nobody has answered yet.</p>
 
@@ -2870,21 +2880,28 @@ const SECTIONS = [
 </div>
 
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Open Conversations</strong> and switch the inbox selector from <span class="ghl-field">All</span> to <span class="ghl-field">My Inbox</span>.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Click <span class="ghl-field">Filter</span>.</strong></div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Set <span class="ghl-field">Last Message Direction</span> to <span class="ghl-field">Inbound</span>.</strong> That is the whole filter — nothing else needs to be set.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Click <span class="ghl-field">Create your view</span></strong> and name it <strong>Last Message Inbound</strong>.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Open Conversations</strong> and switch from <span class="ghl-field">All</span> to <span class="ghl-field">My inbox</span>.
+    <div style="margin-top:8px;"><img src="/conv-view-1-my-inbox.png" alt="The My inbox selector in GHL Conversations" style="width:100%;max-width:340px;height:auto;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" /></div></div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Click <span class="ghl-field">+ Create view</span></strong> under Views in the expanded panel.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Name the view</strong> in the field at the top of the panel — call it <strong>Last Message Inbound</strong>.</div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Set the condition to <span class="ghl-field">Last Message Direction</span> → <span class="ghl-field">Is</span> → <span class="ghl-field">Inbound</span>.</strong> That is the whole filter — nothing else needs to be set.
+    <div style="margin-top:8px;"><img src="/conv-view-2-filter-inbound.png" alt="Filter set to Last Message Direction Is Inbound" style="width:100%;max-width:340px;height:auto;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" /></div></div></li>
+  <li><div class="step-num">5</div><div class="step-content"><strong>Click <span class="ghl-field">Create view</span>.</strong> It now lives under Views permanently.</div></li>
 </ol>
 
 <h3>View 2 — Assigned to You</h3>
 <p>Your own book of business: every conversation where you are the assigned user. This is where you live day to day.</p>
 
 <ol class="step-list">
-  <li><div class="step-num">1</div><div class="step-content"><strong>Open Conversations</strong> and switch the inbox selector to <span class="ghl-field">My Inbox</span>.</div></li>
-  <li><div class="step-num">2</div><div class="step-content"><strong>Click <span class="ghl-field">Filter</span>.</strong></div></li>
-  <li><div class="step-num">3</div><div class="step-content"><strong>Set <span class="ghl-field">Assigned To</span> to your own name.</strong> Nicole builds hers as <em>Assigned to Nicole</em>, Mike builds his as <em>Assigned to Mike</em>, and so on — the view is yours, so it points at you.</div></li>
-  <li><div class="step-num">4</div><div class="step-content"><strong>Click <span class="ghl-field">Create your view</span></strong> and name it <strong>Assigned to Me</strong>.</div></li>
+  <li><div class="step-num">1</div><div class="step-content"><strong>Click <span class="ghl-field">+ Create view</span></strong> again.</div></li>
+  <li><div class="step-num">2</div><div class="step-content"><strong>Name it</strong> — <strong>Assigned to Me</strong>.</div></li>
+  <li><div class="step-num">3</div><div class="step-content"><strong>Set the condition to <span class="ghl-field">Assigned</span> → <span class="ghl-field">To</span> → your own name.</strong> The view belongs to you, so it points at you — Nicole picks Nicole, Mike picks Mike.
+    <div style="margin-top:8px;"><img src="/conv-view-5-create-view.png" alt="Create View panel with the condition Assigned To set to a team member" style="width:100%;max-width:340px;height:auto;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" /></div></div></li>
+  <li><div class="step-num">4</div><div class="step-content"><strong>Click <span class="ghl-field">Create view</span>.</strong></div></li>
 </ol>
+
+<p>You can also reach the same list without saving a view — hover the person icon and pick <span class="ghl-field">Assigned to me</span>:</p>
+<p><img src="/conv-view-3-assigned-to-me.png" alt="Hovering the My inbox icon shows All, Assigned to me and Followed by me" style="width:100%;max-width:300px;height:auto;border:1px solid #E5E7EB;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06);" /></p>
 
 <div class="callout blue">
   <div class="callout-icon">🔁</div>
