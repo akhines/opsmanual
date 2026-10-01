@@ -241,7 +241,7 @@ body {
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; margin-top: 1px;
 }
-.step-content { flex: 1; }
+.step-content { flex: 1; min-width: 0; }
 .step-content strong { display: block; margin-bottom: 2px; }
 
 /* ── TABLES ── */
@@ -636,7 +636,10 @@ body {
   .content-wrap { padding: 24px 18px 60px; }
 
   /* Roomier tap targets in the drawer */
-  .sidebar-page { padding: 11px 18px 11px 32px; font-size: 14px; }
+  .sidebar-page { padding: 12px 18px 12px 32px; font-size: 14px; min-height: 44px; display: flex; align-items: center; }
+  .sidebar-section-header { min-height: 44px; }
+  .topbar-kbd { display: none; }
+  .sr-item { padding: 13px 18px; }
   .sidebar-section-header { padding: 0 18px 8px; }
 }
 
@@ -655,7 +658,7 @@ body {
   .tq-grid { grid-template-columns: 1fr; }
 
   /* Let wide tables scroll instead of overflowing the page */
-  .data-table, .compare-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+  /* tables are wrapped in .table-scroll by enhanceTables() — they wrap text and scroll only when genuinely wide */
 
   .codeblock { font-size: 11.5px; padding: 14px; }
 
@@ -667,6 +670,49 @@ body {
   .qz-nav { flex-wrap: wrap; gap: 10px; }
   .qz-btn { flex: 1; min-width: 120px; text-align: center; }
 }
+
+/* ══════════════════════════════════════
+   TABLE SCROLLER + SEARCH
+══════════════════════════════════════ */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; position: relative; }
+.table-scroll > table { margin: 0; }
+.table-scroll.is-scrollable { box-shadow: inset -14px 0 12px -12px rgba(0,0,0,0.22); }
+.table-hint {
+  display: none; font-size: 11px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--steel); margin: 0 0 4px;
+}
+.table-scroll.is-scrollable + .table-hint, .table-hint.show { display: block; }
+
+/* ── Search results in the sidebar ── */
+.sr-head {
+  padding: 12px 18px 8px; font-size: 11px; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase; color: var(--steel);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  border-bottom: 1px solid var(--fog);
+}
+.sr-clear { cursor: pointer; color: #2563EB; text-transform: none; letter-spacing: 0; font-size: 12px; }
+.sr-clear:hover { text-decoration: underline; }
+.sr-empty { padding: 16px 18px; font-size: 13px; color: var(--graphite); line-height: 1.6; }
+.sr-item {
+  display: block; padding: 11px 18px; cursor: pointer;
+  border-bottom: 1px solid var(--fog); border-left: 3px solid transparent;
+  text-decoration: none; transition: background .12s;
+}
+.sr-item:hover, .sr-item.sel { background: var(--cloud); border-left-color: var(--amber); }
+.sr-sec { display: flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase; color: var(--steel); margin-bottom: 3px; }
+.sr-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.sr-title { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.sr-snip { font-size: 12px; color: var(--graphite); line-height: 1.5; margin-top: 4px; overflow-wrap: anywhere; }
+mark.sr-hit { background: #FDE68A; color: var(--ink); padding: 0 1px; border-radius: 2px; }
+mark.pg-hit { background: #FDE68A; color: var(--ink); padding: 0 2px; border-radius: 3px;
+  box-shadow: 0 0 0 1px #F6C944; scroll-margin-top: 90px; }
+.topbar-kbd {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  font-size: 11px; color: rgba(255,255,255,0.45); pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 4px; padding: 1px 5px;
+}
+.topbar-right { position: relative; }
 
 /* ══════════════════════════════════════
    ADMIN PANEL STYLES
@@ -1013,7 +1059,8 @@ body {
   <div class="topbar-name">Impact Home Team</div>
   <div class="topbar-tag">Operations Manual</div>
   <div class="topbar-right">
-    <input class="topbar-search" type="text" placeholder="Search manual..." id="search-input" oninput="handleSearch(this.value)">
+    <input class="topbar-search" type="search" placeholder="Search the manual…" id="search-input" aria-label="Search the operations manual" autocomplete="off" oninput="handleSearch(this.value)">
+    <span class="topbar-kbd" id="search-kbd">/</span>
   </div>
 </div>
 
@@ -1582,7 +1629,6 @@ const SECTIONS = [
 <div class="page-meta" style="margin-bottom:16px;">
   <span><strong>Source:</strong> <a href="https://docs.google.com/spreadsheets/d/1MLyGptEARWfZ26gzhEXU-sj-8iRxlkGe2LIIoi_icgk/edit" target="_blank" style="color:#0EA5E9;">2026 Payroll Dates sheet</a></span>
   <span><strong>Frequency:</strong> Biweekly</span>
-  <span><strong>Team tracked:</strong> Robin, Ted, Nicole, Emma</span>
 </div>
 
 <h3>2026 Schedule</h3>
@@ -3206,6 +3252,8 @@ const SECTIONS = [
 .ic-list input[type=checkbox] { width:18px; height:18px; margin-top:2px; flex-shrink:0; accent-color:#2563EB; cursor:pointer; }
 .ic-list .ic-n { font-weight:700; color:#2563EB; min-width:22px; }
 .ic-list .ic-t { font-weight:700; color:var(--ink); }
+.ic-list > li > label > div { min-width:0; }
+.ic-list .ic-t, .ic-list .ic-d { overflow-wrap:anywhere; }
 .ic-list .ic-d { font-size:13px; color:var(--graphite); margin-top:3px; line-height:1.6; }
 .ic-list .ic-d ul { margin:6px 0 0; padding-left:18px; }
 .ic-list > li:has(input:checked) { background:#F0FDF4; border-color:#86EFAC; }
@@ -6335,6 +6383,7 @@ function showPage(secId, pageId) {
   // Training home
   if (pageId === 'training-home') {
     area.innerHTML = renderTrainingHome();
+    enhanceTables();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
@@ -6343,6 +6392,7 @@ function showPage(secId, pageId) {
   if (page.content && page.content.startsWith('__QUIZ__')) {
     const quizKey = page.content.replace('__QUIZ__', '');
     area.innerHTML = renderQuizPage(quizKey, page.title, sec.color);
+    enhanceTables();
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
@@ -6363,6 +6413,9 @@ function showPage(secId, pageId) {
       </div>
     </div>
     <div class="prose">${page.content}</div>`;
+
+  enhanceTables();
+  applySearchHighlight();
 
   // Update URL hash for deep-linking
   try { history.replaceState(null, '', '#' + secId + '/' + pageId); } catch(e) {}
@@ -6651,27 +6704,278 @@ function quizRetake(key) {
   if (page) showPage('training', page.id);
 }
 
-function handleSearch(val) {
-  if (!val.trim()) { renderSidebar(); if (window.innerWidth <= 900) closeMobileMenu(); return; }
-  // On mobile, reveal the drawer so search results are visible
-  if (window.innerWidth <= 900) openMobileMenu();
-  const q = val.toLowerCase();
-  const sb = document.getElementById('sidebar');
-  let html = '';
-  let found = 0;
-  SECTIONS.forEach(sec => {
-    sec.pages.forEach(p => {
-      const text = (p.title + p.content).toLowerCase();
-      if (text.includes(q)) {
-        if (found === 0) html += `<div class="sidebar-label" style="margin-top:12px">Search Results</div>`;
-        html += `<a class="sidebar-page" onclick="showPage('${sec.id}','${p.id}')">${p.title}</a>`;
-        found++;
-      }
+// ══════════════════════════════════════════════════════════
+// SEARCH — full-text over page copy (markup stripped), ranked,
+// with snippets, in-page highlighting and keyboard control.
+// ══════════════════════════════════════════════════════════
+let SEARCH_INDEX = null;
+let searchQuery = '';
+let searchResults = [];
+let searchCursor = -1;
+
+function srEscapeHtml(s) {
+  return String(s).replace(/[&<>"]/g, function(c) {
+    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c];
+  });
+}
+function srEscapeRe(s) { return String(s).replace(/[.*+?^|(){}\[\]\\$]/g, '\\$&'); }
+
+// Strip HTML so a search for "div" or "callout" can never match markup.
+function srPlainText(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  tmp.querySelectorAll('script,style').forEach(function(e) { e.remove(); });
+  return (tmp.textContent || '').replace(/\s+/g, ' ').trim();
+}
+
+function buildSearchIndex() {
+  if (SEARCH_INDEX) return SEARCH_INDEX;
+  SEARCH_INDEX = [];
+  SECTIONS.forEach(function(sec) {
+    sec.pages.filter(function(p) { return !p.hidden; }).forEach(function(p) {
+      const raw = p.content || '';
+      const text = raw.indexOf('__QUIZ__') === 0 ? '' : srPlainText(raw);
+      SEARCH_INDEX.push({
+        secId: sec.id, secLabel: sec.label, secColor: sec.color,
+        pageId: p.id, title: p.title, dept: p.dept || '', owner: p.owner || '',
+        text: text,
+        low: text.toLowerCase(),
+        hay: (p.title + ' ' + (p.dept || '') + ' ' + (p.owner || '') + ' ' + text).toLowerCase()
+      });
     });
   });
-  if (!found) html = `<div class="sidebar-label" style="margin-top:12px">No results found</div>`;
+  return SEARCH_INDEX;
+}
+
+function srScore(e, tokens) {
+  let score = 0;
+  const title = e.title.toLowerCase();
+  for (let i = 0; i < tokens.length; i++) {
+    const tok = tokens[i];
+    if (e.hay.indexOf(tok) < 0) return -1;          // every word must appear
+    if (title.indexOf(tok) >= 0) score += 120;
+    if (title.indexOf(tok) === 0) score += 60;
+    if (e.dept.toLowerCase().indexOf(tok) >= 0) score += 25;
+    const at = e.low.indexOf(tok);
+    if (at >= 0) score += Math.max(2, 40 - Math.floor(at / 400));
+    // a whole-word hit beats an accidental substring ("fee" inside "feels")
+    const wordRe = new RegExp('\\b' + srEscapeRe(tok), 'i');
+    if (wordRe.test(title)) score += 80;
+    else if (wordRe.test(e.low)) score += 35;
+  }
+  return score;
+}
+
+function srHighlight(escapedText, tokens) {
+  let out = escapedText;
+  tokens.forEach(function(t) {
+    out = out.replace(new RegExp('(' + srEscapeRe(srEscapeHtml(t)) + ')', 'ig'), '<mark class="sr-hit">$1</mark>');
+  });
+  return out;
+}
+
+function srSnippet(e, tokens) {
+  if (!e.text) return '';
+  let at = -1;
+  tokens.forEach(function(t) {
+    const i = e.low.indexOf(t);
+    if (i >= 0 && (at < 0 || i < at)) at = i;
+  });
+  if (at < 0) return '';
+  const start = Math.max(0, at - 55);
+  let s = e.text.substr(start, 190);
+  if (start > 0) s = '…' + s;
+  if (start + 190 < e.text.length) s = s + '…';
+  return srHighlight(srEscapeHtml(s), tokens);
+}
+
+function handleSearch(val) {
+  searchQuery = (val || '').trim();
+  const sb = document.getElementById('sidebar');
+  if (!sb) return;
+
+  if (searchQuery.length < 2) {
+    searchResults = []; searchCursor = -1;
+    renderSidebar();
+    if (!searchQuery && window.innerWidth <= 900) closeMobileMenu();
+    return;
+  }
+  if (window.innerWidth <= 900) openMobileMenu();
+
+  const tokens = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+  searchResults = buildSearchIndex()
+    .map(function(e) { return { e: e, score: srScore(e, tokens) }; })
+    .filter(function(r) { return r.score >= 0; })
+    .sort(function(a, b) { return b.score - a.score || a.e.title.localeCompare(b.e.title); });
+  searchCursor = -1;
+
+  const n = searchResults.length;
+  let html = '<div class="sr-head"><span>' + n + ' result' + (n === 1 ? '' : 's') +
+             '</span><span class="sr-clear" onclick="clearSearch()">Clear</span></div>';
+
+  if (!n) {
+    html += '<div class="sr-empty">No page contains ' +
+            (tokens.length > 1 ? 'all of those words' : 'that word') +
+            '.<br><br>Try one word instead of several, or search a GHL stage name, a form name, or a person.</div>';
+  } else {
+    searchResults.forEach(function(r, i) {
+      const e = r.e;
+      const snip = srSnippet(e, tokens);
+      html += '<a class="sr-item" data-i="' + i + '" onclick="openResult(' + i + ')">' +
+                '<div class="sr-sec"><span class="sr-dot" style="background:' + e.secColor + '"></span>' +
+                  srEscapeHtml(e.secLabel) + '</div>' +
+                '<div class="sr-title">' + srHighlight(srEscapeHtml(e.title), tokens) + '</div>' +
+                (snip ? '<div class="sr-snip">' + snip + '</div>' : '') +
+              '</a>';
+    });
+  }
   sb.innerHTML = html;
 }
+
+function openResult(i) {
+  const r = searchResults[i];
+  if (!r) return;
+  searchCursor = i;
+  showPage(r.e.secId, r.e.pageId);
+}
+
+function clearSearch() {
+  const inp = document.getElementById('search-input');
+  if (inp) inp.value = '';
+  searchQuery = ''; searchResults = []; searchCursor = -1;
+  renderSidebar();
+  if (window.innerWidth <= 900) closeMobileMenu();
+}
+
+// Highlight the live query inside the page you just opened.
+function applySearchHighlight() {
+  if (!searchQuery || searchQuery.length < 2) return;
+  const root = document.querySelector('#content-area .prose');
+  if (!root) return;
+  const tokens = searchQuery.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!tokens.length) return;
+  const pattern = tokens.map(srEscapeRe).join('|');
+  const test = new RegExp(pattern, 'i');
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(node) {
+      if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (/^(SCRIPT|STYLE|MARK|TEXTAREA|INPUT|SELECT|OPTION)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
+      return test.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  let n;
+  while ((n = walker.nextNode())) nodes.push(n);
+
+  nodes.forEach(function(node) {
+    const s = node.nodeValue;
+    const re = new RegExp(pattern, 'ig');
+    const frag = document.createDocumentFragment();
+    let last = 0, m;
+    while ((m = re.exec(s))) {
+      if (m[0].length === 0) { re.lastIndex++; continue; }
+      if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+      const mk = document.createElement('mark');
+      mk.className = 'pg-hit';
+      mk.textContent = m[0];
+      frag.appendChild(mk);
+      last = m.index + m[0].length;
+    }
+    if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+    if (last > 0) node.parentNode.replaceChild(frag, node);
+  });
+
+  const first = root.querySelector('mark.pg-hit');
+  if (first) setTimeout(function() { first.scrollIntoView({ block: 'center', behavior: 'smooth' }); }, 150);
+}
+
+// ══════════════════════════════════════════════════════════
+// TABLES — wrap in a scroller so wide tables scroll on a phone
+// instead of blowing out the page, and narrow ones just wrap.
+// ══════════════════════════════════════════════════════════
+function enhanceTables() {
+  const scope = document.getElementById('content-area');
+  if (!scope) return;
+  scope.querySelectorAll('table.data-table, table.compare-table').forEach(function(t) {
+    const parent = t.parentElement;
+    if (parent && parent.classList.contains('table-scroll')) return;
+    if (parent && parent.tagName === 'DIV' && /auto|scroll/.test(parent.style.overflowX || '')) return;
+
+    let cols = 0;
+    for (let i = 0; i < t.rows.length; i++) cols = Math.max(cols, t.rows[i].cells.length);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+
+    // 3+ columns need breathing room; let them scroll rather than crush the text.
+    if (cols >= 3) t.style.minWidth = Math.min(cols * 145, 780) + 'px';
+
+    if (wrap.scrollWidth > wrap.clientWidth + 2) {
+      wrap.classList.add('is-scrollable');
+      const hint = document.createElement('div');
+      hint.className = 'table-hint show';
+      hint.textContent = 'Swipe the table sideways to see every column →';
+      wrap.parentNode.insertBefore(hint, wrap);
+    }
+  });
+}
+
+// Re-check scrollability on rotate/resize so the swipe hint never lies.
+let tblResizeTimer = null;
+window.addEventListener('resize', function() {
+  clearTimeout(tblResizeTimer);
+  tblResizeTimer = setTimeout(function() {
+    document.querySelectorAll('#content-area .table-scroll').forEach(function(wrap) {
+      const scrollable = wrap.scrollWidth > wrap.clientWidth + 2;
+      wrap.classList.toggle('is-scrollable', scrollable);
+      const hint = wrap.previousElementSibling;
+      if (hint && hint.classList.contains('table-hint')) hint.classList.toggle('show', scrollable);
+    });
+  }, 150);
+});
+
+// ══════════════════════════════════════════════════════════
+// KEYBOARD — "/" or Cmd-K focuses search, Esc clears, arrows pick
+// ══════════════════════════════════════════════════════════
+document.addEventListener('keydown', function(ev) {
+  const inp = document.getElementById('search-input');
+  const el = ev.target;
+  const tag = (el && el.tagName ? el.tagName : '').toUpperCase();
+  const typing = tag === 'INPUT' || tag === 'TEXTAREA' || (el && el.isContentEditable);
+
+  if ((ev.metaKey || ev.ctrlKey) && String(ev.key).toLowerCase() === 'k') {
+    ev.preventDefault();
+    if (inp) { inp.focus(); inp.select(); }
+    return;
+  }
+  if (!typing && ev.key === '/') {
+    ev.preventDefault();
+    if (inp) { inp.focus(); inp.select(); }
+    return;
+  }
+  if (ev.key === 'Escape') {
+    if (searchQuery) { clearSearch(); if (inp) inp.blur(); }
+    return;
+  }
+  if (!searchResults.length || document.activeElement !== inp) return;
+
+  if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+    ev.preventDefault();
+    searchCursor += (ev.key === 'ArrowDown' ? 1 : -1);
+    if (searchCursor < 0) searchCursor = searchResults.length - 1;
+    if (searchCursor >= searchResults.length) searchCursor = 0;
+    document.querySelectorAll('.sr-item').forEach(function(x) { x.classList.remove('sel'); });
+    const sel = document.querySelector('.sr-item[data-i="' + searchCursor + '"]');
+    if (sel) { sel.classList.add('sel'); sel.scrollIntoView({ block: 'nearest' }); }
+  } else if (ev.key === 'Enter') {
+    ev.preventDefault();
+    openResult(searchCursor >= 0 ? searchCursor : 0);
+  }
+});
 
 // ══════════════════════════════════════════════════════════
 // PIPELINE REFERENCE DATA
