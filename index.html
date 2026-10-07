@@ -3053,6 +3053,68 @@ const SECTIONS = [
   <div class="callout-body"><strong>Once it is signed, the clock starts.</strong> Within one hour, create the property folder in Google Drive, drop the executed agreement in it, and paste the Drive link into the appointment section in GHL. TC and Dispo cannot start without it.</div>
 </div>
 ` },
+      { id: 'ghl-tracking-numbers', title: 'Tracking Phone Numbers', dept: 'All Departments', owner: 'Ashley Hines',
+        content: `
+<h2>Tracking Phone Numbers</h2>
+<div class="page-meta" style="margin-bottom:20px;"><span><strong>Last updated:</strong> Oct 2026</span><span><strong>Owner:</strong> Ashley Hines</span><span><strong>Lines:</strong> 16</span></div>
+
+<p>Every marketing channel has its own inbound number. <strong>The line a caller dialed is what identifies the channel</strong> — not a tag, not what they say on the phone. Look the number up here before you dial back, then record the channel on the contact in the <span class="ghl-field">Marketing Campaign</span> field.</p>
+
+<div class="callout crimson">
+  <div class="callout-icon">📵</div>
+  <div class="callout-body"><strong>A line that rings and is not on this list means a channel we are not attributing.</strong> Log the number on the contact and flag it to Ashley. Do not guess the channel.</div>
+</div>
+
+<h2>Google Ads</h2>
+<div style="overflow-x:auto">
+<table class="data-table">
+  <tr><th>They dialed</th><th>GHL number label</th></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-264-1642</td><td>Google Ads</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-498-5990</td><td>Google Ads 2</td></tr>
+</table>
+</div>
+
+<h2>Web / SEO</h2>
+<div style="overflow-x:auto">
+<table class="data-table">
+  <tr><th>They dialed</th><th>GHL number label</th></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-824-1687</td><td>Web Leads (SEO)</td></tr>
+</table>
+</div>
+
+<h2>TV</h2>
+<div style="overflow-x:auto">
+<table class="data-table">
+  <tr><th>They dialed</th><th>GHL number label</th></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-4286</td><td>TV Website Leads</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-438-8938</td><td>TV AD (Forwarded from TVMasters)</td></tr>
+</table>
+</div>
+
+<h2>Direct Mail</h2>
+<p>Eleven lines, one per drop. The label tells you which mailer they are holding.</p>
+<div style="overflow-x:auto">
+<table class="data-table">
+  <tr><th>They dialed</th><th>GHL number label</th></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-3985</td><td>Direct Mail - Zone C</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-0886</td><td>Direct Mail - RS Drop 2 March</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-2165</td><td>Direct Mail - YL April</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-505-7004</td><td>Inherited mail</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-541-4700</td><td>Direct Mail - RS April Drop 1</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-604-8939</td><td>Direct Mail - YL Feb 2025</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-670-7934</td><td>Direct Mail - RS April Drop 2</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-680-3879</td><td>DM YL March 2025</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-801-9829</td><td>Lead Nurture mail — also the return-address phone printed on YLHQ mailers</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-941-3480</td><td>Direct Mail 1: Zone A (Prev mix motivations)</td></tr>
+  <tr><td style="font-family:var(--font-mono);white-space:nowrap;">443-222-1781</td><td>2026 Direct Mail</td></tr>
+</table>
+</div>
+
+<div class="callout blue">
+  <div class="callout-icon">🏷️</div>
+  <div class="callout-body">Labels are written <strong>exactly as they appear in GHL</strong> so you can match them on sight. <strong>RS</strong> and <strong>YL</strong> in a label are the mailhouse the drop went through, not the zone.</div>
+</div>
+` },
       { id: 'fu-lead-scoring', title: 'Lead Scoring Values', dept: 'Go High Level Overview', owner: 'Lead Managers',
         content: `
 <div class="callout amber" style="margin:0 0 20px 0;"><div class="callout-icon">⚡</div><div class="callout-body"><strong>Purpose:</strong> Each key adds a point value to the contact's lead score when the matching GHL event fires (appt stage change, email open, call outcome, DNC, etc.).<br><br><strong>Trigger — NEEDS workflow export:</strong> The exact GHL enrollment trigger, tags, and filters for this sequence are <strong>not yet documented</strong>. To complete this page, provide a screenshot of the workflow's Trigger tab in GHL (Automation &rarr; Workflows &rarr; [workflow name] &rarr; Settings &rarr; Workflow Triggers).</div></div>
@@ -3421,25 +3483,7 @@ const SECTIONS = [
       </ul>
       Establish it before you dial. It tells you how to open the call, and it is what drives reporting and cost-per-deal. Record it on the contact in the <span class="ghl-field">Marketing Campaign</span> field — that field is the source of truth, and it is a field, not a tag.
       <div style="overflow-x:auto;margin-top:10px;">
-      <table class="data-table" style="margin:0;">
-        <tr><th>They dialed</th><th>Channel</th><th>GHL number label</th></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-264-1642</td><td><strong style="color:#2563EB;">Google Ads</strong></td><td style="font-size:13px;color:var(--graphite);">Google Ads</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-3985</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - Zone C</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-267-4286</td><td><strong style="color:#7C3AED;">TV</strong></td><td style="font-size:13px;color:var(--graphite);">TV Website Leads</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-0886</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS Drop 2 March</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-431-2165</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - YL April</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-438-8938</td><td><strong style="color:#7C3AED;">TV</strong></td><td style="font-size:13px;color:var(--graphite);">TV AD (Forwarded from TVMasters)</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-498-5990</td><td><strong style="color:#2563EB;">Google Ads</strong></td><td style="font-size:13px;color:var(--graphite);">Google Ads 2</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-505-7004</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Inherited mail</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-541-4700</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS April Drop 1</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-604-8939</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - YL Feb 2025</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-670-7934</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail - RS April Drop 2</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-680-3879</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">DM YL March 2025</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-801-9829</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Lead Nurture mail — also the return-address phone printed on YLHQ mailers</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-824-1687</td><td><strong style="color:#16A34A;">Web / SEO</strong></td><td style="font-size:13px;color:var(--graphite);">Web Leads (SEO)</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">410-941-3480</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">Direct Mail 1: Zone A (Prev mix motivations)</td></tr>
-        <tr><td style="font-family:var(--font-mono);white-space:nowrap;">443-222-1781</td><td><strong style="color:#C48E1F;">Direct Mail</strong></td><td style="font-size:13px;color:var(--graphite);">2026 Direct Mail</td></tr>
-      </table>
+      <p style="margin:10px 0;"><strong>All 16 tracking numbers, grouped by channel:</strong> <a href="#pipeline-ref/ghl-tracking-numbers" style="color:#0EA5E9;font-weight:600;">Tracking Phone Numbers</a> — kept in one place so it only has to be updated once.</p>
       </div>
       <div style="font-size:12px;color:var(--steel);margin-top:6px;">Labels are written exactly as they appear in GHL so you can match them on sight. If a line rings that is not on this list, log the number on the contact and flag it to Ashley — an unlisted line means a channel we are not attributing.</div></div>
   </div></label></li>
